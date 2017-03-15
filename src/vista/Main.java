@@ -815,17 +815,17 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAccesoRapidoVerProductosActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        String path = "C:\\Users\\zawex\\Documents\\5 cuatri\\Proyecto Agrarian\\AgrarianJ\\src\\reports\\reportProductosPorAlmacen.jasper";
+        String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\reportProductosPorAlmacen.jasper";
         JasperReport jr = null;
         try {
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/agrarian", "root", "");
+            Connection conexion = DriverManager.getConnection("jdbc:sqlserver://localhost\\MSSQLSERVER1;databaseName=agrarian","sa","12345678");
             jr = (JasperReport) JRLoader.loadObject(path);
             JasperPrint jp = JasperFillManager.fillReport(jr, null, conexion);
             JasperViewer jv = new JasperViewer(jp,false); 
-            jv.setVisible(true);
             jv.setTitle(path);
+            jv.setVisible(true);
             conexion.close();
-        }catch (Exception e) {}
+        }catch (Exception e) {System.out.println(e.getMessage());}
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -872,8 +872,6 @@ public class Main extends javax.swing.JFrame {
                 System.out.println(id);
                 permiso.setIdEmp(id);
                 permiso.verificarPermisos();
-                System.out.println("provveddor: "+permiso.getProveedor());
-                
                 lblUsuarioActivo.setText(textoUsuario.getText()+" ("+id+")");
                 textoUsuario.setText(null);
                 textoPassword.setText(null);

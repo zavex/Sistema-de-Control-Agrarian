@@ -45,7 +45,7 @@ public class Conexion {
         return conexion;*/
     }
         
-     public void conexionSQL (String url, String usuario, String clave) {
+     /*public void conexionSQL (String url, String usuario, String clave) {
         try {
         Class.forName("com.mysql.jdbc.Driver");
         conexion=DriverManager.getConnection(url,usuario,clave);
@@ -54,7 +54,7 @@ public class Conexion {
         }catch(SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error al conectar la base de datos");
         }   
-    }
+    }*/
     public void desconectarSQL () {
         try {
             conexion.close();

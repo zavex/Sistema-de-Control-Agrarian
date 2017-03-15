@@ -3,9 +3,9 @@
 	<property name="ireport.zoom" value="0.9313819845887326"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
-		<![CDATA[select p.idProducto as "IdProducto", p.nombre as "Producto", p.descripcion as "Descripcion", p.medida as "Medida", p.presentacion as "Presentacion", p.precioSugerido as "Precio", al.nombreA as "Almacen", ap.cantidad as "Cantidad" from productos p
-    join almacen_productos ap 
+	<queryString>
+		<![CDATA[select p.idProducto as "IdProducto", p.nombre as "Producto", p.descripcion as "Descripcion", p.medida as "Medida", p.presentacion as "Presentacion", p.precioSugerido as "Precio", al.nombreA as "Almacen", ap.cantidad as "Cantidad" from producto p
+    join almacen_producto ap 
     on p.idProducto=ap.idProducto
     join almacen al 
     on ap.idAlmacen=al.idAlmacen;]]>
