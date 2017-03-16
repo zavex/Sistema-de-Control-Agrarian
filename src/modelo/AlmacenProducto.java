@@ -53,7 +53,7 @@ public class AlmacenProducto {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-        comando = conexion.getConexion().prepareStatement("call altaProdAlmacen (?,?,?)");
+        comando = conexion.getConexion().prepareStatement("exec altaProdAlmacen ?,?,? ");
         comando.setInt(1, this.idAlmacen);
         comando.setInt(2, this.idProducto);
         comando.setDouble(3, this.cantidad);
@@ -68,7 +68,7 @@ public class AlmacenProducto {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-        comando = conexion.getConexion().prepareStatement("call bajaProdAlmacen (?,?,?)");
+        comando = conexion.getConexion().prepareStatement(" exec bajaProdAlmacen ?,?,?");
         comando.setInt(1, this.idAlmacen);
         comando.setInt(2, this.idProducto);
         comando.setDouble(3, this.cantidad);

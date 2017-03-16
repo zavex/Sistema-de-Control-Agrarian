@@ -119,19 +119,17 @@ public class Almacen {
     
     }
 
-    public void registrarAlmacen() {
-        
+    public void registrarAlmacen() {    
         conexion.conexionSQL();
-        
         PreparedStatement comand = null;
-        
         try {
-            comand = conexion.getConexion().prepareStatement("call insertAlmacen(?,?,?,?,?)");
-            comand.setString(1, this.nombreA);
-            comand.setString(2, this.direccion);
-            comand.setString(3, this.telefono);
-            comand.setString(4, this.capacidad);
-            comand.setInt(5, this.idEmpleado);
+            comand = conexion.getConexion().prepareStatement("exec ingresa_almacen ?,?,?,?,?,?");
+            comand.setInt(1, this.idAlmacen);
+            comand.setString(2, this.nombreA);
+            comand.setString(3, this.direccion);
+            comand.setString(4, this.telefono);
+            comand.setString(5, this.capacidad);
+            comand.setInt(6, this.idEmpleado);
             comand.executeUpdate();
             conexion.desconectarSQL();
             } catch (SQLException ex) {
@@ -398,14 +396,13 @@ public class Almacen {
         conexion.conexionSQL();
         PreparedStatement ps = null;
         try {
-            ps = conexion.getConexion().prepareStatement("update almacen set nombreA=?, "
-                    + "direccion=?, telefono=?, capacidad=?, idEmpleado=? where idAlmacen=?");
-            ps.setString(1, this.nombreA);
-            ps.setString(2, this.direccion);
-            ps.setString(3, this.telefono);
-            ps.setString(4, this.capacidad);
-            ps.setDouble(5, this.idEmpleado);
-            ps.setInt(6, this.idAlmacen);
+            ps = conexion.getConexion().prepareStatement("exec ingresa_almacen ?,?,?,?,?,?");
+            ps.setInt(1, this.idAlmacen);
+            ps.setString(2, this.nombreA);
+            ps.setString(3, this.direccion);
+            ps.setString(4, this.telefono);
+            ps.setString(5, this.capacidad);
+            ps.setInt(6, this.idEmpleado);
             ps.executeUpdate();
            
             conexion.desconectarSQL();

@@ -565,7 +565,7 @@ public class Empleado extends Validacion {
         return empTable;
     }
     
-    public boolean buscarEmpleado(int buscar) {
+    /*public boolean buscarEmpleado(int buscar) {
         
         boolean completado = false;
         conexion.conexionSQL();
@@ -619,7 +619,7 @@ public class Empleado extends Validacion {
         conexion.desconectarSQL();
         return completado;
 
-    }
+    }*/
     
     public boolean buscarEmpleadoN(String buscar) {
         boolean completado = false;
@@ -670,4 +670,23 @@ public class Empleado extends Validacion {
         return completado;
     }
     
+    public boolean buscarEmpleado(int buscar) {        
+        boolean completado = false;
+        conexion.conexionSQL();
+        String query = "select nombre from empleado where idEmpleado = " + buscar;
+        try {
+            PreparedStatement consulta = conexion.getConexion().prepareStatement(query);
+            ResultSet rs = consulta.executeQuery();
+            if (rs.next()) {
+                nombre = rs.getString(1);
+                completado = true;
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontraron registros con esos datos", "Error de busqueda", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage(), "Error de busqueda", JOptionPane.ERROR_MESSAGE);
+        }
+        conexion.desconectarSQL();
+        return completado;
+    }
 }   
