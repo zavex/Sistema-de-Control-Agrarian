@@ -115,12 +115,14 @@ public class Producto {
         conexion.conexionSQL();
         PreparedStatement comand = null;
         try {
-            comand = conexion.getConexion().prepareStatement("call insertProducto(?,?,?,?,?)");
-            comand.setString(1, this.nombre);
-            comand.setString(2, this.descripcion);
-            comand.setString(3, this.medida);
-            comand.setString(4, this.presentacion);
-            comand.setDouble(5, this.precioSugerido);
+
+            comand = conexion.getConexion().prepareStatement("exec ingresa_producto ?,?,?,?,?,?");
+            comand.setInt(1, this.idProducto);
+            comand.setString(2, this.nombre);
+            comand.setString(3, this.descripcion);
+            comand.setString(4, this.medida);
+            comand.setString(5, this.presentacion);
+            comand.setDouble(6, this.precioSugerido);
             comand.executeUpdate();
             conexion.desconectarSQL();
         } catch (SQLException ex) {
@@ -134,7 +136,7 @@ public class Producto {
         PreparedStatement comando = null;
         try {
             String query = ("idProducto as \"ID PRODUCTO\", fechaReg as \"FECHA REG\", nombre as \"NOMBRE\", descripcion as \"DESCRIPCIÓN\", medida as \"MEDIDA\", presentacion as PRESENTACIÓN, precioSugerido as \"PRECIO SUGERIDO\"");
-            comando = conexion.getConexion().prepareStatement("select "+query+" from productos");
+            comando = conexion.getConexion().prepareStatement("select "+query+" from producto");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
             ProvTable.addColumn(rsm.getColumnLabel(1));
@@ -386,13 +388,13 @@ public class Producto {
         conexion.conexionSQL();
         PreparedStatement ps = null;
         try {
-            ps = conexion.getConexion().prepareStatement("update productos set nombre=?, descripcion=?, medida=?, presentacion=?, precioSugerido=? where idProducto=?");
-            ps.setString(1, this.nombre);
-            ps.setString(2, this.descripcion);
-            ps.setString(3, this.medida);
-            ps.setString(4, this.presentacion);
-            ps.setDouble(5, this.precioSugerido);
-            ps.setInt(6, this.idProducto);
+            ps = conexion.getConexion().prepareStatement("exec ingresa_producto ?,?,?,?,?,?");
+            ps.setInt(1, this.idProducto);
+            ps.setString(2, this.nombre);
+            ps.setString(3, this.descripcion);
+            ps.setString(4, this.medida);
+            ps.setString(5, this.presentacion);
+            ps.setDouble(6, this.precioSugerido);
             System.out.println(this.idProducto);
             ps.executeUpdate();
             conexion.desconectarSQL();
