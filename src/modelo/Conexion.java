@@ -13,8 +13,8 @@ public class Conexion {
     
     public Conexion(){
 
-    //url = "jdbc:sqlserver://localhost; databaseName=agrarian; integratedSecurity=true;";  
-    this.url = "jdbc:sqlserver://localhost\\MSSQLSERVER1;databaseName=agrarian;integratedSecurity=true";
+    this.url = "jdbc:sqlserver://localhost; databaseName=agrarian; integratedSecurity=true;";  
+    //this.url = "jdbc:sqlserver://localhost\\MSSQLSERVER;databaseName=agrarian;integratedSecurity=true";
     this.usuario = "root";
     this.clave = "";
     }
