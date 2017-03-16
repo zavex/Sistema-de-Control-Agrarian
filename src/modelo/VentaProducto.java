@@ -71,7 +71,7 @@ public class VentaProducto {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-        comando = conexion.getConexion().prepareStatement(" exec ventaProd ?,?,?,?");
+        comando = conexion.getConexion().prepareStatement("call ventaProd (?,?,?,?)");
         comando.setInt(1, this.folioVenta);
         comando.setInt(2, this.idProducto);
         comando.setDouble(3, this.precio);
