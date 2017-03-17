@@ -372,6 +372,7 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
     private void btnRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClienteActionPerformed
             if (camposCompletos()) {
                 try {
+                    cliente.setIdCliente(Integer.parseInt(txtIdCliente.getText()));
                     cliente.setContrasena(txtPasswordCliente.getText());
                     cliente.setNombre(txtNombreCliente.getText());
                     cliente.setRfc(txtRfcCliente.getText());

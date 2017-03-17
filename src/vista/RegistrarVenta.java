@@ -23,6 +23,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
     Empleado empleado;
     VentaProducto ventaProd;
     AlmacenProducto almacenProd;
+    Cliente cliente;
     //Conexion conexion;
     JDesktopPane escritorio;
     Factura factura;
@@ -61,7 +62,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         fechaa = new com.toedter.calendar.JDateChooser();
         lblFechaRegistro = new javax.swing.JLabel();
         lblEstatusVenta = new javax.swing.JLabel();
-        cbxEstatusVenta = new javax.swing.JComboBox<>();
+        cbxEstatusVenta = new javax.swing.JComboBox<String>();
         PanelDetallesMovimiento = new javax.swing.JPanel();
         txtIdEmpleado = new javax.swing.JTextField();
         txtIdCliente = new javax.swing.JTextField();
@@ -69,9 +70,9 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         lblCliente = new javax.swing.JLabel();
         lblAlmacen = new javax.swing.JLabel();
         txtIdAlmacen = new javax.swing.JTextField();
-        comboAlmacenes = new javax.swing.JComboBox<>();
-        comboEmpleado = new javax.swing.JComboBox<>();
-        comboCliente = new javax.swing.JComboBox<>();
+        comboAlmacenes = new javax.swing.JComboBox<String>();
+        comboEmpleado = new javax.swing.JComboBox<String>();
+        comboCliente = new javax.swing.JComboBox<String>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -96,7 +97,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         txtCantidadProducto = new javax.swing.JTextField();
         lblUnidadMedida = new javax.swing.JLabel();
         txtPrecioProducto = new javax.swing.JTextField();
-        comboProducto = new javax.swing.JComboBox<>();
+        comboProducto = new javax.swing.JComboBox<String>();
         jLabel4 = new javax.swing.JLabel();
         txtMedidaProducto = new javax.swing.JTextField();
         lblCantidadActual = new javax.swing.JLabel();
@@ -165,7 +166,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         lblEstatusVenta.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lblEstatusVenta.setText("Estatus");
 
-        cbxEstatusVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVA", "CANCELADA" }));
+        cbxEstatusVenta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ACTIVA", "CANCELADA" }));
         cbxEstatusVenta.setEnabled(false);
 
         PanelDetallesMovimiento.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de Movimiento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
@@ -477,9 +478,9 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelDetallesVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnCancelarVenta)
-                    .addComponent(btnRegistrarVenta))
+                    .addComponent(btnRegistrarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -525,7 +526,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         try
         {
-        comando = conexion.getConexion().prepareStatement("select nombre from productos");
+        comando = conexion.getConexion().prepareStatement("select nombre from producto");
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
              comboProducto.addItem(rs.getString(1));         
@@ -537,21 +538,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         
     }
         
-    public void cargarComboClientes() {
-        conexion.conexionSQL();
-        PreparedStatement comando = null;
-        try
-        {
-        comando = conexion.getConexion().prepareStatement("select nombre from clientes");
-        ResultSet rs = comando.executeQuery();
-        while(rs.next()){
-             comboCliente.addItem(rs.getString(1));           
-        }
-        conexion.desconectarSQL();
-        }catch (SQLException ex) {
-        JOptionPane.showMessageDialog(null,"Error");
-        }
-    }
+    
         
     public boolean fieldsVentaOk () {
         String idEmpOk = txtIdEmpleado.getText();
@@ -636,6 +623,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
     }*/
     
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+       
        fechaa.setDate(new Date());    //al iniciar setear la fecha actual
        txtFolioVenta.setText(String.valueOf(venta.obtenerFolio())); 
        cargarComboClientes();
@@ -643,7 +631,23 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
        cargarComboEmpleados();
        cargarComboAlmacenes();
     }//GEN-LAST:event_formInternalFrameOpened
-
+    
+    public void cargarComboClientes() {
+        conexion.conexionSQL();
+        PreparedStatement comando = null;
+        try
+        {
+        comando = conexion.getConexion().prepareStatement("select nombre from cliente");
+        ResultSet rs = comando.executeQuery();
+        while(rs.next()){
+            comboCliente.addItem(rs.getString(1));           
+        }        
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Error");
+        }finally {
+            conexion.desconectarSQL();
+        }
+    }
     
     private void txtFolioVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFolioVentaActionPerformed
         // TODO add your handling code here:
@@ -774,7 +778,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String empleadoo = comboProducto.getSelectedItem().toString();
         try{
-        comando = conexion.getConexion().prepareStatement("select ap.idAlmacen from almacen_productos ap join productos p on ap.idProducto = p.idProducto where p.nombre = ?");
+        comando = conexion.getConexion().prepareStatement("select ap.idAlmacen from almacen_producto ap join producto p on ap.idProducto = p.idProducto where p.nombre = ?");
         comando.setString(1, empleadoo);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -793,7 +797,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String idProducto = comboProducto.getSelectedItem().toString();
         try{
-        comando = conexion.getConexion().prepareStatement(" select ap.cantidad from almacen_productos ap join productos p on ap.idProducto = p.idProducto where p.nombre = ?");
+        comando = conexion.getConexion().prepareStatement(" select ap.cantidad from almacen_producto ap join producto p on ap.idProducto = p.idProducto where p.nombre = ?");
         comando.setString(1, idProducto);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){      
@@ -812,7 +816,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String idProducto = comboProducto.getSelectedItem().toString();
         try{
-        comando = conexion.getConexion().prepareStatement(" select precioSugerido from productos where nombre = ?");
+        comando = conexion.getConexion().prepareStatement(" select precioSugerido from producto where nombre = ?");
         comando.setString(1, idProducto);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){      
@@ -832,7 +836,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String idProducto = comboProducto.getSelectedItem().toString();
         try{
-        comando = conexion.getConexion().prepareStatement(" select medida from productos where nombre = ?");
+        comando = conexion.getConexion().prepareStatement(" select medida from producto where nombre = ?");
         comando.setString(1, idProducto);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){      
@@ -871,7 +875,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String productoo = comboProducto.getSelectedItem().toString();
         try{
-        comando = conexion.getConexion().prepareStatement("select idProducto from productos where nombre=?");
+        comando = conexion.getConexion().prepareStatement("select idProducto from producto where nombre=?");
         comando.setString(1, productoo);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -891,7 +895,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String clientee = comboCliente.getSelectedItem().toString();
         try{
-        comando = conexion.getConexion().prepareStatement("select idCliente from clientes where nombre=?");
+        comando = conexion.getConexion().prepareStatement("select idCliente from cliente where nombre=?");
         comando.setString(1, clientee);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            

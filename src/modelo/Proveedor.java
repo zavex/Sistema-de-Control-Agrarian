@@ -163,17 +163,17 @@ public class Proveedor extends Validacion {
         conexion.conexionSQL();
         PreparedStatement comand = null;
         try {
-            comand = conexion.getConexion().prepareStatement("INSERT into proveedor (nombre, rfc, direccion, telefono, "
-                    + "cp, municipio, estado, correo, contacto) values (?,?,?,?,?,?,?,?,?)");
-            comand.setString(1, this.nombre);
-            comand.setString(2, this.rfc);
-            comand.setString(3, this.direccion);
-            comand.setString(4, this.telefono);
-            comand.setString(5, this.cp);
-            comand.setString(6, this.municipio);
-            comand.setString(7, this.estado);
-            comand.setString(8, this.correo);
-            comand.setString(9, this.contacto);
+            comand = conexion.getConexion().prepareStatement(" exec ingresa_proveedor ?,?,?,?,?,?,?,?,?,?");
+            comand.setInt(1, this.idProveedor);
+            comand.setString(2, this.nombre);
+            comand.setString(3, this.rfc);
+            comand.setString(4, this.direccion);
+            comand.setString(5, this.telefono);
+            comand.setString(6, this.cp);
+            comand.setString(7, this.municipio);
+            comand.setString(8, this.estado);
+            comand.setString(9, this.correo);
+            comand.setString(10, this.contacto);
             comand.executeUpdate();
             conexion.desconectarSQL();
         } catch (SQLException ex) {
@@ -668,26 +668,21 @@ public class Proveedor extends Validacion {
         conexion.conexionSQL();
         PreparedStatement ps = null;
         try {
-            ps = conexion.getConexion().prepareStatement("update proveedor set nombre=?, "
-                    + "rfc=?, direccion=?, telefono=?, cp=?, municipio=?, estado=?, correo=?, contacto=? where idProveedor=?");
-            ps.setString(1, this.nombre);
-            ps.setString(2, this.rfc);
-            ps.setString(3, this.direccion);
-            ps.setString(4, this.telefono);
-            ps.setString(5, this.cp);
-            ps.setString(6, this.municipio);
-            ps.setString(7, this.estado);
-            ps.setString(8, this.correo);
-            ps.setString(9, this.contacto);
-            ps.setInt(10, this.idProveedor);
+            ps = conexion.getConexion().prepareStatement(" exec ingresa_proveedor ?,?,?,?,?,?,?,?,?,?");
+            ps.setInt(1, this.idProveedor);
+            ps.setString(2, this.nombre);
+            ps.setString(3, this.rfc);
+            ps.setString(4, this.direccion);
+            ps.setString(5, this.telefono);
+            ps.setString(6, this.cp);
+            ps.setString(7, this.municipio);
+            ps.setString(8, this.estado);
+            ps.setString(9, this.correo);
+            ps.setString(10, this.contacto);
             ps.executeUpdate();
-           
             conexion.desconectarSQL();
-        
         }catch (Exception e) {
-        
             System.out.println("error en conexion");
-        
         }
     }
     

@@ -139,17 +139,17 @@ public class Empleado extends Validacion {
     public void registrarEmpleado () {
         PreparedStatement comand = null;
         try {
-            comand = conexion.conexionSQL().prepareStatement("INSERT INTO EMPLEADO (nombre,rfc,curp,nss,"
-                    + "departamento,estatus, telefono, direccion, correo) VALUES (?,?,?,?,?,?,?,?,?)");
-            comand.setString(1,this.nombre);
-            comand.setString(2,this.rfc);
-            comand.setString(3,this.curp);
-            comand.setString(4,this.nss);
-            comand.setString(5,this.departamento);
-            comand.setString(6,this.status);
-            comand.setString(7,this.telefono);
-            comand.setString(8,this.direccion);
-            comand.setString(9,this.correo);
+            comand = conexion.conexionSQL().prepareStatement(" exec ingresa_empleado ?,?,?,?,?,?,?,?,?,?");
+            comand.setInt(1, this.idEmpleado);
+            comand.setString(2,this.nombre);
+            comand.setString(3,this.rfc);
+            comand.setString(4,this.curp);
+            comand.setString(5,this.nss);
+            comand.setString(6,this.departamento);
+            comand.setString(7,this.status);
+            comand.setString(8,this.telefono);
+            comand.setString(9,this.direccion);
+            comand.setString(10,this.correo);
             comand.executeUpdate();
             conexion.desconectarSQL();
         }catch (SQLException ex) {
@@ -179,18 +179,17 @@ public class Empleado extends Validacion {
         conexion.conexionSQL();
         PreparedStatement ps = null;
         try {
-            ps = conexion.getConexion().prepareStatement("update empleado set nombre=?, "
-                    + "rfc=?, curp=?, nss=?, direccion=?, correo=?, telefono=?, departamento=?, estatus=? where idEmpleado=?");
-            ps.setString(1, this.nombre);
-            ps.setString(2, this.rfc);
-            ps.setString(3, this.curp);
-            ps.setString(4, this.nss);
-            ps.setString(5, this.direccion);
-            ps.setString(6, this.correo);
-            ps.setString(7, this.telefono);
-            ps.setString(8, this.departamento);
-            ps.setString(9, this.status);
-            ps.setInt(10, this.idEmpleado);
+            ps = conexion.conexionSQL().prepareStatement(" exec ingresa_empleado ?,?,?,?,?,?,?,?,?,?");
+            ps.setInt(1, this.idEmpleado);
+            ps.setString(2,this.nombre);
+            ps.setString(3,this.rfc);
+            ps.setString(4,this.curp);
+            ps.setString(5,this.nss);
+            ps.setString(6,this.departamento);
+            ps.setString(7,this.status);
+            ps.setString(8,this.telefono);
+            ps.setString(9,this.direccion);
+            ps.setString(10,this.correo);
             ps.executeUpdate();
             conexion.desconectarSQL();
         }catch (Exception e) {

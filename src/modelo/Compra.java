@@ -136,8 +136,7 @@ public class Compra {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-        comando = conexion.getConexion().prepareStatement("insert into compra (subtotal, iva, total, idAlmacen, idProveedor, "
-                + "idEmpleado,estatus) values (?,?,?,?,?,?,?)");
+        comando = conexion.getConexion().prepareStatement("exec insertCompra ?,?,?,?,?,?,?");
         comando.setDouble(1, this.subtotal);
         comando.setDouble(2, this.iva);
         comando.setDouble(3, this.total);        

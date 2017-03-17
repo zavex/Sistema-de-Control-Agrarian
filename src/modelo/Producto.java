@@ -100,7 +100,7 @@ public class Producto {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            comando = conexion.getConexion().prepareStatement("SELECT idProducto FROM productos");
+            comando = conexion.getConexion().prepareStatement("SELECT idProducto FROM producto");
             comando.executeQuery();
             ResultSet rs = comando.executeQuery();
             while(rs.next()){
@@ -172,7 +172,7 @@ public class Producto {
         PreparedStatement comando = null;
        try {
             String query = ("idProducto as \"ID PRODUCTO\", fechaReg as \"FECHA REG\", nombre as \"NOMBRE\", descripcion as \"DESCRIPCIÓN\", medida as \"MEDIDA\", presentacion as PRESENTACIÓN, precioSugerido as \"PRECIO SUGERIDO\"");
-            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM productos WHERE idProducto LIKE ? ESCAPE '!'");
+            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM producto WHERE idProducto LIKE ? ESCAPE '!'");
             comando.setString(1,id + "%");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
@@ -211,7 +211,7 @@ public class Producto {
         PreparedStatement comando = null;
         try {
             String query = ("idProducto as \"ID PRODUCTO\", fechaReg as \"FECHA REG\", nombre as \"NOMBRE\", descripcion as \"DESCRIPCIÓN\", medida as \"MEDIDA\", presentacion as PRESENTACIÓN, precioSugerido as \"PRECIO SUGERIDO\"");
-            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM productos WHERE nombre LIKE ? ESCAPE '!'");
+            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM producto WHERE nombre LIKE ? ESCAPE '!'");
             comando.setString(1,nombree + "%");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
@@ -247,7 +247,7 @@ public class Producto {
         PreparedStatement comando = null;
         try {
             String query = ("idProducto as \"ID PRODUCTO\", fechaReg as \"FECHA REG\", nombre as \"NOMBRE\", descripcion as \"DESCRIPCIÓN\", medida as \"MEDIDA\", presentacion as PRESENTACIÓN, precioSugerido as \"PRECIO SUGERIDO\"");
-            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM productos WHERE descripcion LIKE ? ESCAPE '!'");            
+            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM producto WHERE descripcion LIKE ? ESCAPE '!'");            
             comando.setString(1,descripcionn + "%");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
@@ -283,7 +283,7 @@ public class Producto {
         PreparedStatement comando = null;
         try {
             String query = ("idProducto as \"ID PRODUCTO\", fechaReg as \"FECHA REG\", nombre as \"NOMBRE\", descripcion as \"DESCRIPCIÓN\", medida as \"MEDIDA\", presentacion as PRESENTACIÓN, precioSugerido as \"PRECIO SUGERIDO\"");
-            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM productos WHERE medida LIKE ? ESCAPE '!'");
+            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM producto WHERE medida LIKE ? ESCAPE '!'");
             comando.setString(1, medidaa + "%");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
@@ -319,7 +319,7 @@ public class Producto {
         PreparedStatement comando = null;
         try {
             String query = ("idProducto as \"ID PRODUCTO\", fechaReg as \"FECHA REG\", nombre as \"NOMBRE\", descripcion as \"DESCRIPCIÓN\", medida as \"MEDIDA\", presentacion as PRESENTACIÓN, precioSugerido as \"PRECIO SUGERIDO\"");
-            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM productos WHERE presentacion LIKE ? ESCAPE '!'");
+            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM producto WHERE presentacion LIKE ? ESCAPE '!'");
             comando.setString(1, presentacionn + "%");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
@@ -355,7 +355,7 @@ public class Producto {
         PreparedStatement comando = null;
         try {
             String query = ("idProducto as \"ID PRODUCTO\", fechaReg as \"FECHA REG\", nombre as \"NOMBRE\", descripcion as \"DESCRIPCIÓN\", medida as \"MEDIDA\", presentacion as PRESENTACIÓN, precioSugerido as \"PRECIO SUGERIDO\"");
-            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM productos WHERE precioSugerido LIKE ? ESCAPE '!'");
+            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM producto WHERE precioSugerido LIKE ? ESCAPE '!'");
             comando.setString(1, precioo + "%");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();

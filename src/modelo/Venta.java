@@ -144,8 +144,7 @@ public class Venta {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-        comando = conexion.getConexion().prepareStatement("insert into venta (subtotal, iva, total, idAlmacen, idCliente, "
-                + "idEmpleado,estatus) values (?,?,?,?,?,?,?)");
+        comando = conexion.getConexion().prepareStatement("exec insertVenta ?,?,?,?,?,?,?");
         comando.setDouble(1, this.subtotal);
         comando.setDouble(2, this.iva);
         comando.setDouble(3, this.total);        
@@ -206,7 +205,7 @@ public class Venta {
         PreparedStatement comando = null;
         try {
             String query = ("folioVenta as \"FOLIO VENTA\", fechaReg as \"FECHA REG\", subTotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", idAlmacen as \"ID ALMACEN\", idCliente as \"ID CLIENTE\", idEmpleado as \"ID EMPLEADO\", estatus as \"ESTATUS\"");
-            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM venta where folioVenta=?");
+            comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM venta where folioVenta LIKE ? ESCAPE '!'");
             comando.setString(1, folioo + "%");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
@@ -234,6 +233,7 @@ public class Venta {
             }
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"Error");
+            System.out.println(ex.getMessage());
         }
         conexion.desconectarSQL();        
         return table;
@@ -413,7 +413,7 @@ public class Venta {
             String query = ("v.folioVenta as \"F VENTA\", v.estatus as \"ESTATUS V\", f.folioFactura as \"F FACTURA\", f.estatus as \"ESTATUS F\", v.fechaReg as \"FECHA REG\", v.subTotal as \"SUBTOTAL\", v.iva as \"IVA\", v.total as \"TOTAL\", v.idAlmacen as \"ID ALMACEN\", v.idCliente as \"ID CLIENTE\", v.idEmpleado as \"ID EMPLEADO\"");
             //comando = conexion.getConexion().prepareStatement("SELECT "+query+" from venta v join factura f on v.folioVenta = f.folioVenta");
             //comando = conexion.getConexion().prepareStatement("SELECT "+query+" from venta v join factura f on v.folioVenta = f.folioVenta where f.folioFactura like = ? escape '!'");
-            comando = conexion.getConexion().prepareStatement("SELECT "+query+" from venta v join factura f on v.folioVenta = f.folioVenta where f.folioFactura = ? ");
+            comando = conexion.getConexion().prepareStatement("SELECT "+query+" from venta v join factura f on v.folioVenta = f.folioVenta where f.folioFactura LIKE ? ESCAPE '!'");
             comando.setString(1, facturaa + "%");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();

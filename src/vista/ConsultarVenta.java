@@ -32,14 +32,14 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txtDatosBusqueda = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        comboFiltro = new javax.swing.JComboBox<>();
+        comboFiltro = new javax.swing.JComboBox<String>();
         btnSalir1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnGuardarEstatusVenta = new javax.swing.JButton();
-        comboEstatusVenta = new javax.swing.JComboBox<>();
+        comboEstatusVenta = new javax.swing.JComboBox<String>();
         jPanel3 = new javax.swing.JPanel();
         btnGuardarCambiosFactura = new javax.swing.JButton();
-        comboEstatusFactura = new javax.swing.JComboBox<>();
+        comboEstatusFactura = new javax.swing.JComboBox<String>();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
@@ -79,9 +79,14 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
 
         jLabel1.setText("BUSCAR POR");
 
-        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GENERAL", "NÚMERO DE FOLIO", "ESTATUS", "ALMACÉN", "CLIENTE", "EMPLEADO", "POR FOLIO FACTURA" }));
+        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "GENERAL", "NÚMERO DE FOLIO", "ESTATUS", "ALMACÉN", "CLIENTE", "EMPLEADO", "POR FOLIO FACTURA" }));
         comboFiltro.setSelectedIndex(-1);
         comboFiltro.setToolTipText("");
+        comboFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboFiltroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,7 +132,7 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
             }
         });
 
-        comboEstatusVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVA", "CANCELADA" }));
+        comboEstatusVenta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ACTIVA", "CANCELADA" }));
         comboEstatusVenta.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -161,7 +166,7 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
             }
         });
 
-        comboEstatusFactura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVA", "CANCELADA" }));
+        comboEstatusFactura.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ACTIVA", "CANCELADA" }));
         comboEstatusFactura.setEnabled(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -322,6 +327,10 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Estatus Factura Actualizado");
         }catch (Exception e) {}
     }//GEN-LAST:event_btnGuardarCambiosFacturaActionPerformed
+
+    private void comboFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFiltroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboFiltroActionPerformed
     
     public void cargarPermisoVenta () {
         if (permiso.getVenta()==2) {

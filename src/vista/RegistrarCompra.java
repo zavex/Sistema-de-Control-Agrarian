@@ -539,7 +539,7 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         try
         {
-        comando = conexion.getConexion().prepareStatement("select nombre from productos");
+        comando = conexion.getConexion().prepareStatement("select nombre from producto");
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
              comboProducto.addItem(rs.getString(1));         
@@ -775,7 +775,7 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String productoo = comboProducto.getSelectedItem().toString();
         try{
-        comando = conexion.getConexion().prepareStatement("select idProducto from productos where nombre=?");
+        comando = conexion.getConexion().prepareStatement("select idProducto from producto where nombre=?");
         comando.setString(1, productoo);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            

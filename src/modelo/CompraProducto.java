@@ -68,6 +68,10 @@ public class CompraProducto {
         PreparedStatement comando = null;
         try {
         comando = conexion.getConexion().prepareStatement(" exec compraProd ?,?,?,?");
+        comando.setInt(1, this.folioCompra);
+        comando.setInt(2, this.idProducto);
+        comando.setDouble(3, precio);
+        comando.setDouble(4, cantidad);
         int nfila = comando.executeUpdate();
         conexion.desconectarSQL();
         }catch (SQLException ex) {
