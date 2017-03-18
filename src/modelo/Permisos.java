@@ -234,7 +234,7 @@ public class Permisos {
     
     public int AccederSistema(String user, String pass) throws SQLException{
         String consulta = "exec verificar '"+user+"',"+pass;
-        System.out.println("\nuser: " + user + "\npass" +pass);
+        System.out.println("\nuser: " + user + "\npass: " +pass);
         PreparedStatement ps = conexion.conexionSQL().prepareStatement(consulta);
         ResultSet rs = ps.executeQuery();
         if(rs.next() && rs.getString(1).equalsIgnoreCase(user)){

@@ -1,5 +1,8 @@
 package vista;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import modelo.Log;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,6 +12,9 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletOutputStream;
+import javax.swing.JInternalFrame;
+import javax.swing.JTextField;
+import javax.swing.Timer;
 import modelo.*;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -41,6 +47,35 @@ public class Main extends javax.swing.JFrame {
     Date date = new Date ();
     String usuarioActual;
     
+    int seg = 0;
+    
+    Timer tempo = new Timer(500, new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            seg++;
+            if(seg==6){
+                tempo.stop();
+                lblStatus.setForeground(Color.black);
+                seg=0;
+            }
+            if(seg==1){
+               lblStatus.setForeground(Color.red);
+               
+            }
+            if(seg==2){
+               lblStatus.setForeground(Color.black);
+            }
+            if(seg==3){
+                lblStatus.setForeground(Color.red);
+            }
+            if(seg==4){
+                lblStatus.setForeground(Color.black);
+            }
+            if(seg==5){
+                lblStatus.setForeground(Color.red);
+                lblStatus.setText("");
+            }
+        }
+    });
     
     public Main() {
         initComponents();
@@ -52,15 +87,17 @@ public class Main extends javax.swing.JFrame {
 
         VentanaLogin = new javax.swing.JDialog();
         PanelLogo = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         PanelAcceso = new javax.swing.JPanel();
         lblUsuario = new javax.swing.JLabel();
         textoUsuario = new javax.swing.JTextField();
         lblUsuario1 = new javax.swing.JLabel();
         textoPassword = new javax.swing.JPasswordField();
+        panelBotones = new javax.swing.JPanel();
+        btnNull1 = new javax.swing.JButton();
         buttonSalir = new javax.swing.JButton();
         ButtonEntrar = new javax.swing.JButton();
         lblStatus = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         Escritorio = new javax.swing.JDesktopPane();
         clockDigital1 = new org.edisoncor.gui.varios.ClockDigital();
         jLabel2 = new javax.swing.JLabel();
@@ -122,19 +159,23 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout PanelLogoLayout = new javax.swing.GroupLayout(PanelLogo);
-        PanelLogo.setLayout(PanelLogoLayout);
-        PanelLogoLayout.setHorizontalGroup(
-            PanelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 3, Short.MAX_VALUE)
-        );
-        PanelLogoLayout.setVerticalGroup(
-            PanelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 124, Short.MAX_VALUE)
-        );
+        PanelLogo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PanelLogo.setLayout(new java.awt.GridLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/Agrarian - copia.jpg"))); // NOI18N
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        PanelLogo.add(jLabel1);
+
+        PanelAcceso.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lblUsuario.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         lblUsuario.setText("Usuario");
+
+        textoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoUsuarioActionPerformed(evt);
+            }
+        });
 
         lblUsuario1.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         lblUsuario1.setText("Contraseña");
@@ -145,6 +186,50 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout PanelAccesoLayout = new javax.swing.GroupLayout(PanelAcceso);
+        PanelAcceso.setLayout(PanelAccesoLayout);
+        PanelAccesoLayout.setHorizontalGroup(
+            PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelAccesoLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelAccesoLayout.createSequentialGroup()
+                        .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67))
+                    .addGroup(PanelAccesoLayout.createSequentialGroup()
+                        .addComponent(lblUsuario1)
+                        .addGap(55, 55, 55)
+                        .addComponent(textoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        PanelAccesoLayout.setVerticalGroup(
+            PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelAccesoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelBotones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        panelBotones.setLayout(new java.awt.GridLayout());
+
+        btnNull1.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        btnNull1.setBorderPainted(false);
+        btnNull1.setContentAreaFilled(false);
+        btnNull1.setEnabled(false);
+        btnNull1.setFocusable(false);
+        btnNull1.setRequestFocusEnabled(false);
+        btnNull1.setRolloverEnabled(false);
+        panelBotones.add(btnNull1);
+
         buttonSalir.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         buttonSalir.setText("SALIR");
         buttonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +237,7 @@ public class Main extends javax.swing.JFrame {
                 buttonSalirActionPerformed(evt);
             }
         });
+        panelBotones.add(buttonSalir);
 
         ButtonEntrar.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         ButtonEntrar.setText("ENTRAR");
@@ -160,85 +246,37 @@ public class Main extends javax.swing.JFrame {
                 ButtonEntrarActionPerformed(evt);
             }
         });
+        panelBotones.add(ButtonEntrar);
 
         lblStatus.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         lblStatus.setForeground(new java.awt.Color(255, 0, 0));
         lblStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-        javax.swing.GroupLayout PanelAccesoLayout = new javax.swing.GroupLayout(PanelAcceso);
-        PanelAcceso.setLayout(PanelAccesoLayout);
-        PanelAccesoLayout.setHorizontalGroup(
-            PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAccesoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelAccesoLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PanelAccesoLayout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addComponent(buttonSalir)
-                                .addGap(49, 49, 49)
-                                .addComponent(ButtonEntrar))
-                            .addGroup(PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelAccesoLayout.createSequentialGroup()
-                                    .addComponent(lblUsuario1)
-                                    .addGap(8, 8, 8)
-                                    .addComponent(textoPassword))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelAccesoLayout.createSequentialGroup()
-                                    .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(textoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45))
-        );
-        PanelAccesoLayout.setVerticalGroup(
-            PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelAccesoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PanelAccesoLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(textoUsuario)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonSalir)
-                    .addComponent(ButtonEntrar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/Agrarian - copia.jpg"))); // NOI18N
 
         javax.swing.GroupLayout VentanaLoginLayout = new javax.swing.GroupLayout(VentanaLogin.getContentPane());
         VentanaLogin.getContentPane().setLayout(VentanaLoginLayout);
         VentanaLoginLayout.setHorizontalGroup(
             VentanaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VentanaLoginLayout.createSequentialGroup()
-                .addComponent(PanelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addContainerGap()
+                .addGroup(VentanaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelBotones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelAcceso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addComponent(PanelAcceso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         VentanaLoginLayout.setVerticalGroup(
             VentanaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VentanaLoginLayout.createSequentialGroup()
-                .addGroup(VentanaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(VentanaLoginLayout.createSequentialGroup()
-                        .addComponent(PanelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 12, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaLoginLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)))
+                .addContainerGap()
+                .addComponent(PanelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PanelAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panelBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -658,36 +696,73 @@ public class Main extends javax.swing.JFrame {
     private void ItemConsultarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarVentaActionPerformed
         ConsultarVenta consVenta = new ConsultarVenta (venta,Escritorio,factura,permiso);
         Escritorio.add(consVenta);
+        centrarVentana(consVenta);
         consVenta.setVisible(true);
     }//GEN-LAST:event_ItemConsultarVentaActionPerformed
 
     private void ItemConsultarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarDevolucionActionPerformed
         ConsultarDevolucion consDev = new ConsultarDevolucion (devolucion,Escritorio,permiso);
         Escritorio.add(consDev);
+        centrarVentana(consDev);
         consDev.setVisible(true);
     }//GEN-LAST:event_ItemConsultarDevolucionActionPerformed
 
     private void ItemConsultarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarProductoActionPerformed
         ConsultarProducto consProd = new ConsultarProducto (producto,Escritorio,permiso);
         Escritorio.add(consProd);
+        centrarVentana(consProd);
         consProd.setVisible(true);
     }//GEN-LAST:event_ItemConsultarProductoActionPerformed
-
+    
+    public void cajitaFeliz(JTextField caja1, JTextField caja2){
+        if(!caja1.getText().isEmpty() && !caja2.getText().isEmpty()){
+            iniciarSesion();
+        } else if (!caja1.getText().isEmpty() && caja2.getText().isEmpty()){
+            caja2.requestFocus();
+        }
+        
+    }
+        
     private void textoPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoPasswordActionPerformed
-        // TODO add your handling code here:
+        cajitaFeliz(textoPassword, textoUsuario);
     }//GEN-LAST:event_textoPasswordActionPerformed
 
+    public boolean validarLlenado(){
+        boolean user = false,  pass = false;
+        if(!textoUsuario.getText().isEmpty()){
+            user = true;
+        } else {
+            user = false;
+            textoUsuario.requestFocus();
+        }
+        if(!textoPassword.getText().isEmpty()){
+            pass = true;
+        } else { 
+            pass = false;
+            textoPassword.requestFocus();
+        }
+        
+        if(user && pass){ 
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     private void buttonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_buttonSalirActionPerformed
 
     private void ButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarActionPerformed
-        iniciarSesion();
+        if(validarLlenado()){
+            iniciarSesion();
+        }
     }//GEN-LAST:event_ButtonEntrarActionPerformed
 
     private void ItemConsultarNotaCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarNotaCreditoActionPerformed
         ConsultarNotaCredito consNotaCred = new ConsultarNotaCredito (notaCredito,Escritorio,permiso);
         Escritorio.add(consNotaCred);
+        centrarVentana(consNotaCred);
         consNotaCred.setVisible(true);
     }//GEN-LAST:event_ItemConsultarNotaCreditoActionPerformed
 
@@ -699,12 +774,14 @@ public class Main extends javax.swing.JFrame {
     private void ItemCapturarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCapturarEmpleadoActionPerformed
         RegistrarEmpleado regEmp = new RegistrarEmpleado (permiso,empleado);
         Escritorio.add(regEmp);
+        centrarVentana(regEmp);
         regEmp.setVisible(true);
     }//GEN-LAST:event_ItemCapturarEmpleadoActionPerformed
 
     private void ItemConsultarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarEmpleadoActionPerformed
         ConsultarEmpleado conEmp = new ConsultarEmpleado (empleado,Escritorio,permiso);
         Escritorio.add(conEmp);
+        centrarVentana(conEmp);
         conEmp.setVisible(true);
 
     }//GEN-LAST:event_ItemConsultarEmpleadoActionPerformed
@@ -712,12 +789,14 @@ public class Main extends javax.swing.JFrame {
     private void ItemCapturarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCapturarClienteActionPerformed
         RegistrarCliente regCli = new RegistrarCliente (permiso,cliente);
         Escritorio.add(regCli);
+        centrarVentana(regCli);
         regCli.setVisible(true);
     }//GEN-LAST:event_ItemCapturarClienteActionPerformed
 
     private void ItemConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarClienteActionPerformed
         ConsultarCliente conCli = new ConsultarCliente (cliente,Escritorio,permiso);
         Escritorio.add(conCli);
+        centrarVentana(conCli);
         conCli.setVisible(true);
         
     }//GEN-LAST:event_ItemConsultarClienteActionPerformed
@@ -725,66 +804,77 @@ public class Main extends javax.swing.JFrame {
     private void ItemCapturarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCapturarProveedorActionPerformed
         RegistrarProveedor regProv = new RegistrarProveedor (permiso,proveedor);
         Escritorio.add(regProv);
+        centrarVentana(regProv);
         regProv.setVisible(true);
     }//GEN-LAST:event_ItemCapturarProveedorActionPerformed
 
     private void ItemCapturarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCapturarProductoActionPerformed
         RegistrarProducto capProd = new RegistrarProducto (permiso,producto);
         Escritorio.add(capProd);
+        centrarVentana(capProd);
         capProd.setVisible(true);
     }//GEN-LAST:event_ItemCapturarProductoActionPerformed
 
     private void ItemConsultarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarProveedorActionPerformed
         ConsultarProveedor consProv = new ConsultarProveedor (proveedor,Escritorio,permiso);
         Escritorio.add(consProv);
+        centrarVentana(consProv);
         consProv.setVisible(true);
     }//GEN-LAST:event_ItemConsultarProveedorActionPerformed
 
     private void ItemGenerarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemGenerarVentaActionPerformed
         RegistrarVenta regVenta = new RegistrarVenta (permiso,venta,producto, ventaProducto, almacenProducto, factura);
         Escritorio.add(regVenta);
+        centrarVentana(regVenta);
         regVenta.setVisible(true);
     }//GEN-LAST:event_ItemGenerarVentaActionPerformed
  
     private void ItemGenerarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemGenerarCompraActionPerformed
         RegistrarCompra regCompra = new RegistrarCompra (permiso,compra,producto,compraProducto,almacenProducto);
         Escritorio.add(regCompra);
+        centrarVentana(regCompra);
         regCompra.setVisible(true);
     }//GEN-LAST:event_ItemGenerarCompraActionPerformed
 
     private void ItemConsultarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarCompraActionPerformed
         ConsultarCompra consCompra = new ConsultarCompra (compra,Escritorio,permiso);
         Escritorio.add(consCompra);
+        centrarVentana(consCompra);
         consCompra.setVisible(true);
     }//GEN-LAST:event_ItemConsultarCompraActionPerformed
 
     private void ItemGenerarNotaCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemGenerarNotaCreditoActionPerformed
         RegistrarNotaCredito regNotaCredito = new RegistrarNotaCredito (permiso,notaCredito);
         Escritorio.add(regNotaCredito);
+        centrarVentana(regNotaCredito);
         regNotaCredito.setVisible(true);
     }//GEN-LAST:event_ItemGenerarNotaCreditoActionPerformed
 
     private void ItemGenerarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemGenerarDevolucionActionPerformed
         RegistrarDevolucion regDevol = new RegistrarDevolucion (permiso,devolucion,almacenProducto,devolucionProducto);
         Escritorio.add(regDevol);
+        centrarVentana(regDevol);
         regDevol.setVisible(true);
     }//GEN-LAST:event_ItemGenerarDevolucionActionPerformed
 
     private void ItemAgregarAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemAgregarAlmacenActionPerformed
         RegistrarAlmacen regAlma = new RegistrarAlmacen (permiso,almacen,empleado);
         Escritorio.add(regAlma);
+        centrarVentana(regAlma);
         regAlma.setVisible(true);
     }//GEN-LAST:event_ItemAgregarAlmacenActionPerformed
 
     private void ItemConsultarAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarAlmacenActionPerformed
         ConsultarAlmacen consAlma = new ConsultarAlmacen (almacen,Escritorio,permiso,empleado);
         Escritorio.add(consAlma);
+        centrarVentana(consAlma);
         consAlma.setVisible(true);
     }//GEN-LAST:event_ItemConsultarAlmacenActionPerformed
 
     private void ItemRealizarMezclasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemRealizarMezclasActionPerformed
         RealizarMezcla realMez = new RealizarMezcla (permiso,formula,producto,almacenProducto);
         Escritorio.add(realMez);
+        centrarVentana(realMez);
         realMez.setVisible(true);
     }//GEN-LAST:event_ItemRealizarMezclasActionPerformed
 
@@ -799,18 +889,21 @@ public class Main extends javax.swing.JFrame {
     private void btnAccesoRapidoRealizarMezclaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccesoRapidoRealizarMezclaActionPerformed
         RealizarMezcla realMez = new RealizarMezcla (permiso,formula,producto,almacenProducto);
         Escritorio.add(realMez);
+        centrarVentana(realMez);
         realMez.setVisible(true);
     }//GEN-LAST:event_btnAccesoRapidoRealizarMezclaActionPerformed
 
     private void btnAccesoRapidoVerClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccesoRapidoVerClientesActionPerformed
         ConsultarCliente conCli = new ConsultarCliente (cliente,Escritorio,permiso);
         Escritorio.add(conCli);
+        centrarVentana(conCli);
         conCli.setVisible(true);
     }//GEN-LAST:event_btnAccesoRapidoVerClientesActionPerformed
 
     private void btnAccesoRapidoVerProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccesoRapidoVerProductosActionPerformed
         ConsultarProducto consProd = new ConsultarProducto (producto,Escritorio,permiso);
         Escritorio.add(consProd);
+        centrarVentana(consProd);
         consProd.setVisible(true);
     }//GEN-LAST:event_btnAccesoRapidoVerProductosActionPerformed
 
@@ -860,11 +953,16 @@ public class Main extends javax.swing.JFrame {
         //dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void textoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoUsuarioActionPerformed
+        cajitaFeliz(textoUsuario, textoPassword);
+    }//GEN-LAST:event_textoUsuarioActionPerformed
+
     public void iniciarSesion() {
         usuarioActual = textoUsuario.getText();
         try {
             if(permiso.AccederSistema(textoUsuario.getText(), String.valueOf(textoPassword.getPassword())) == 0){
                 lblStatus.setText("Usuario o contraseña incorrecta");
+                tempo.start();
             } else {
                 int id = permiso.AccederSistema(textoUsuario.getText(), String.valueOf(textoPassword.getPassword()));
                 Log ll = new Log(textoUsuario.getText());
@@ -1091,6 +1189,11 @@ public class Main extends javax.swing.JFrame {
         VentanaLogin.setVisible(true);
     }
     
+    public void centrarVentana(JInternalFrame ventana){
+        int tamaño = (Escritorio.getWidth() - ventana.getWidth()) / 2;
+        ventana.setLocation(tamaño,0);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1165,6 +1268,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnAccesoRapidoRealizarMezcla;
     private javax.swing.JButton btnAccesoRapidoVerClientes;
     private javax.swing.JButton btnAccesoRapidoVerProductos;
+    private javax.swing.JButton btnNull1;
     private javax.swing.JButton buttonSalir;
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
     private javax.swing.JButton jButton1;
@@ -1183,6 +1287,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblUsuario1;
     private javax.swing.JLabel lblUsuarioActivo;
+    private javax.swing.JPanel panelBotones;
     private javax.swing.JPasswordField textoPassword;
     private javax.swing.JTextField textoUsuario;
     // End of variables declaration//GEN-END:variables
