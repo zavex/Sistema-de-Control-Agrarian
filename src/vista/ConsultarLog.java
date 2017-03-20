@@ -1,26 +1,24 @@
 package vista;
 
+import java.io.FileNotFoundException;
 import java.util.Date;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import modelo.*;
 
-public class ConsultarAlmacen extends javax.swing.JInternalFrame {
+public class ConsultarLog extends javax.swing.JInternalFrame {
 
-    Permisos permiso;
-    Almacen almacen;
     JDesktopPane escritorio;
-    Empleado empleado;
     Log ll = new Log();
     Date date = new Date ();
+    ListaDoble ld = new ListaDoble ();
     
-    public ConsultarAlmacen(Almacen almacen, JDesktopPane escritorioo, Permisos permisoo, Empleado empleadoo) {
-        this.permiso = permisoo;
-        this.almacen = almacen;
+    public ConsultarLog(JDesktopPane escritorioo) {
         this.escritorio =  escritorioo;
-        this.empleado = empleadoo;
         initComponents();
-        ll.agregarAccion(date.toString(),"Consulta de Almacenes");
+        ll.agregarAccion(date.toString(),"Consulta de Log");
     }
 
     @SuppressWarnings("unchecked")
@@ -28,12 +26,9 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        txtDatosBusqueda = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         comboFiltro = new javax.swing.JComboBox<String>();
         btnSalir1 = new javax.swing.JButton();
-        btnActualizarAlmacen = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
@@ -42,7 +37,7 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("CONSULTAR ALMACENES");
+        setTitle("CONSULTAR LOG'S");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -63,17 +58,9 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Búsqueda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
 
-        jLabel2.setText("PALABRAS CLAVES");
+        jLabel1.setText("ORDENAR POR");
 
-        txtDatosBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtDatosBusquedaKeyReleased(evt);
-            }
-        });
-
-        jLabel1.setText("BUSCAR POR");
-
-        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "GENERAL", "ID DE ALMACÉN", "NOMBRE", "DIRECCIÓN", "TELÉFONO", "CAPACIDAD", "ID EMPLEADO" }));
+        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "FECHA", "USUARIO", "ACCION" }));
         comboFiltro.setSelectedIndex(-1);
         comboFiltro.setToolTipText("");
         comboFiltro.addActionListener(new java.awt.event.ActionListener() {
@@ -88,24 +75,18 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDatosBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 37, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDatosBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -113,13 +94,6 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
         btnSalir1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalir1ActionPerformed(evt);
-            }
-        });
-
-        btnActualizarAlmacen.setText("ACTUALIZAR REGISTRO");
-        btnActualizarAlmacen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarAlmacenActionPerformed(evt);
             }
         });
 
@@ -139,7 +113,7 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 943, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,17 +124,14 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSalir1)
-                .addGap(28, 28, 28)
-                .addComponent(btnActualizarAlmacen)
-                .addGap(15, 15, 15))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSalir1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -170,64 +141,13 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalir1)
-                    .addComponent(btnActualizarAlmacen))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSalir1)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtDatosBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatosBusquedaKeyReleased
-        switch(comboFiltro.getSelectedIndex()){
-            case 0:
-            try {
-                table.setModel(almacen.consultarAlmacenTotales());
-            }catch (Exception e) {}
-            break;
-            case 1:
-            try {
-                almacen.setIdAlmacen(Integer.parseInt(txtDatosBusqueda.getText()));
-                table.setModel(almacen.consultarAlmacenId());
-            }catch (Exception e) {}
-            break;
-            case 2:
-            try {
-                almacen.setNombreA(txtDatosBusqueda.getText());
-                table.setModel(almacen.consultarAlmacenNombre());
-            }catch (Exception e) {}
-            break;
-            case 3:
-            try {
-                almacen.setDireccion(txtDatosBusqueda.getText());
-                table.setModel(almacen.consultarAlmacenDireccion());
-            }catch (Exception e){}
-            break;
-            case 4:
-            try {
-                almacen.setTelefono(txtDatosBusqueda.getText());
-                table.setModel(almacen.consultarAlmacenTelefono());
-            }catch (Exception e){}
-            break;
-            case 5:
-            try {
-                almacen.setCapacidad(txtDatosBusqueda.getText());
-                table.setModel(almacen.consultarAlmacenCapacidad());
-            }catch(Exception e) {}
-            break;
-            case 6:
-            try {
-                almacen.setIdEmpleado(Integer.parseInt(txtDatosBusqueda.getText()));
-                table.setModel(almacen.consultarIdEmpleado());
-            }catch (Exception e) {}
-            break;
-            
-            default:
-            break;
-        }
-    }//GEN-LAST:event_txtDatosBusquedaKeyReleased
 
     private void btnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir1ActionPerformed
         
@@ -235,49 +155,55 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
-    private void btnActualizarAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarAlmacenActionPerformed
-        try {
-            Vector fila = new Vector();
-            for(int i=0;i<7;i++){
-                fila.add(table.getValueAt(table.getSelectedRow(), i));
-            }
-            ModificarAlmacen ma = new ModificarAlmacen (permiso,almacen,fila,empleado);
-            escritorio.add(ma);
-            ma.setVisible(true);
-        } catch (Exception e) {
-        }
-    }//GEN-LAST:event_btnActualizarAlmacenActionPerformed
-
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        
-        table.setModel(almacen.consultarAlmacenTotales());
-        cargarPermiso();
+
+        try {
+            
+            table.setModel(ll.obtenerCantidadMovimientos());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ConsultarLog.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_formInternalFrameOpened
 
     private void comboFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFiltroActionPerformed
-        // TODO add your handling code here:
+        switch(comboFiltro.getSelectedIndex()){
+            case 0:
+                try {
+                    ll.log.clear();
+                    table.removeAll();
+                    table.setModel(ll.obtenerCantidadMovimientos());
+                }catch (Exception e) {}
+            break;
+            case 1:
+                try {
+                    ll.log.clear();
+                    table.removeAll();
+                    //Iterativo Burbuja Mejorada
+                    table.setModel(ll.obtenerCantidadMovimientosPorUsuario());
+                }catch (Exception e) {}
+            break;
+            case 2:
+                try {
+                    ll.log.clear();
+                    table.removeAll();
+                    // Recursivo QuickSort
+                    table.setModel(ll.obtenerCantidadMovimientosPorAccion());
+                }catch (Exception e) {}
+         }         
+        
+                
     }//GEN-LAST:event_comboFiltroActionPerformed
     
-    public void cargarPermiso () {
-        if (permiso.getAlmacen()==2) {
-            btnActualizarAlmacen.setEnabled(true);
-        }else {
-            btnActualizarAlmacen.setEnabled(false);
-        }
-    }
-    
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizarAlmacen;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JComboBox<String> comboFiltro;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable table;
-    private javax.swing.JTextField txtDatosBusqueda;
     // End of variables declaration//GEN-END:variables
 }

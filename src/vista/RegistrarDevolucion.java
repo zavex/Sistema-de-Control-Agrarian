@@ -464,7 +464,7 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         int folioVenta = Integer.parseInt(comboFolioVenta.getSelectedItem().toString());
         int IdProducto = Integer.parseInt(comboProductos.getSelectedItem().toString());
         try{
-        comando = conexion.getConexion().prepareStatement(" select ap.idAlmacen from venta v join venta_producto vp on v.folioVenta = vp.folioVenta join almacen_productos ap on vp.idProducto = ap.idProducto where v.folioVenta = ? and vp.idProducto = ? ");
+        comando = conexion.getConexion().prepareStatement(" select ap.idAlmacen from venta v join venta_producto vp on v.folioVenta = vp.folioVenta join almacen_producto ap on vp.idProducto = ap.idProducto where v.folioVenta = ? and vp.idProducto = ? ");
         comando.setInt(1, folioVenta);
         comando.setInt(2, IdProducto);
         ResultSet rs = comando.executeQuery();
@@ -524,7 +524,7 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         int folioVenta = Integer.parseInt(comboFolioVenta.getSelectedItem().toString());
         int idProducto = Integer.parseInt(comboProductos.getSelectedItem().toString());
         try{
-        comando = conexion.getConexion().prepareStatement("call regresarPrecioUnidad (?,?)");
+        comando = conexion.getConexion().prepareStatement("exec regresarPrecioUnidad ?,? ");
         comando.setInt(1, folioVenta);
         comando.setInt(2, idProducto);
         ResultSet rs = comando.executeQuery();
@@ -566,7 +566,7 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String idProducto = comboProductos.getSelectedItem().toString();
         try{
-        comando = conexion.getConexion().prepareStatement(" select medida from productos where idProducto = ?");
+        comando = conexion.getConexion().prepareStatement(" select medida from producto where idProducto = ?");
         comando.setString(1, idProducto);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){      
@@ -586,7 +586,7 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         //String folioVenta = comboFolioVenta.getSelectedItem().toString();
         String idC = txtIdCliente.getText();
         try{
-        comando = conexion.getConexion().prepareStatement("select nombre from clientes where idCliente = ?");
+        comando = conexion.getConexion().prepareStatement("select nombre from cliente where idCliente = ?");
         comando.setString(1, idC);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){      
@@ -626,7 +626,7 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         //String folioVenta = comboFolioVenta.getSelectedItem().toString();
         String idProd = comboProductos.getSelectedItem().toString();
         try{
-        comando = conexion.getConexion().prepareStatement("select nombre from productos where idProducto = ?");
+        comando = conexion.getConexion().prepareStatement("select nombre from producto where idProducto = ?");
         comando.setString(1, idProd);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){      
@@ -649,8 +649,6 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         try {
             txtIdCliente.setText(String.valueOf(regresarIdCli()));
             txtNombreCliente.setText(String.valueOf(regresarNombreCli()));
-            
-            
             comboProductos.removeAllItems();
             cargarComboProductos();
         }catch (Exception e) {}

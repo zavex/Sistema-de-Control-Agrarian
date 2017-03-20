@@ -329,9 +329,9 @@ public class RegistrarNotaCredito extends javax.swing.JInternalFrame {
                     notaCredito.setSubtotal(Double.parseDouble(txtMontoAcreditar.getText()));
                     notaCredito.setIva(Double.parseDouble(txtIva.getText()));
                     notaCredito.setTotal(Double.parseDouble(txtTotal.getText()));
-                    notaCredito.setEstatus("Activa");
+                    notaCredito.setEstatus("ACTIVA");
                     notaCredito.generarNotaCredito();
-                    JOptionPane.showMessageDialog(null,"Nota de Credito Generada");
+                    JOptionPane.showMessageDialog(null,"NOTA DE CREDITO GENERADA");
                     ll.agregarAccion(date.toString(),"Registro Nota de Credito");
                     this.dispose();
                 }catch (Exception e) {
@@ -351,7 +351,7 @@ public class RegistrarNotaCredito extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         try
         {
-        comando = conexion.getConexion().prepareStatement("select idCliente from clientes");
+        comando = conexion.getConexion().prepareStatement("select idCliente from cliente");
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
              comboIdClientes.addItem(String.valueOf(rs.getInt(1)));           

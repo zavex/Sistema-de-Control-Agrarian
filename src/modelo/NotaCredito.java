@@ -125,7 +125,7 @@ public class NotaCredito {
         conexion.conexionSQL();
         PreparedStatement comand = null;
         try {
-            comand = conexion.getConexion().prepareStatement("insert into notacredito (idCliente, concepto, subtotal, "
+            comand = conexion.getConexion().prepareStatement("insert into notacredito (idCliente, concepto, importe, "
                     + "iva, total, estatus) VALUES (?,?,?,?,?,?)");
             comand.setInt(1,this.idCliente);
             comand.setString(2,this.concepto);
@@ -146,8 +146,8 @@ public class NotaCredito {
         PreparedStatement comando = null;
         try {
             String query = ("folioNC as \"FOLIO NOTA C\", IdCliente as \"ID CLIENTE\", fechaReg as \"FECHA REGISTRO\", concepto as "
-                 + "\"CONCEPTO\", subTotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", estatus as \"ESTATUS\"");
-            comando = conexion.getConexion().prepareStatement("select "+query+" from notaCredito");
+                 + "\"CONCEPTO\", importe as \"IMPORTE\", iva as \"IVA\", total as \"TOTAL\", estatus as \"ESTATUS\"");
+            comando = conexion.getConexion().prepareStatement("select "+query+" from notaCredito WHERE importe != 0");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
             table.addColumn(rsm.getColumnLabel(1));
@@ -185,8 +185,8 @@ public class NotaCredito {
         PreparedStatement comando = null;
         try {
             String query = ("folioNC as \"FOLIO NOTA C\", IdCliente as \"ID CLIENTE\", fechaReg as \"FECHA REGISTRO\", concepto as "
-                 + "\"CONCEPTO\", subTotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", estatus as \"ESTATUS\"");
-            comando = conexion.getConexion().prepareStatement("SELECT "+query+" from notaCredito where folioNC LIKE ? ESCAPE '!'");
+                 + "\"CONCEPTO\", importe as \"IMPORTE\", iva as \"IVA\", total as \"TOTAL\", estatus as \"ESTATUS\"");
+            comando = conexion.getConexion().prepareStatement("SELECT "+query+" from notaCredito where importe != 0 and folioNC LIKE ? ESCAPE '!'");
             comando.setString(1,folioo + "%");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
@@ -225,8 +225,8 @@ public class NotaCredito {
         PreparedStatement comando = null;
         try {
             String query = ("folioNC as \"FOLIO NOTA C\", IdCliente as \"ID CLIENTE\", fechaReg as \"FECHA REGISTRO\", concepto as "
-                 + "\"CONCEPTO\", subTotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", estatus as \"ESTATUS\"");
-            comando = conexion.getConexion().prepareStatement("SELECT "+query+" from notaCredito where idCliente LIKE ? ESCAPE '!'");
+                 + "\"CONCEPTO\", importe as \"IMPORTE\", iva as \"IVA\", total as \"TOTAL\", estatus as \"ESTATUS\"");
+            comando = conexion.getConexion().prepareStatement("SELECT "+query+" from notaCredito where importe != 0 and idCliente LIKE ? ESCAPE '!'");
             comando.setString(1,idClientee + "%");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
@@ -264,8 +264,8 @@ public class NotaCredito {
         PreparedStatement comando = null;
         try {
             String query = ("folioNC as \"FOLIO NOTA C\", IdCliente as \"ID CLIENTE\", fechaReg as \"FECHA REGISTRO\", concepto as "
-                 + "\"CONCEPTO\", subTotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", estatus as \"ESTATUS\"");
-            comando = conexion.getConexion().prepareStatement("SELECT "+query+" from notaCredito WHERE estatus LIKE ? ESCAPE '!'");
+                 + "\"CONCEPTO\", importe as \"IMPORTE\", iva as \"IVA\", total as \"TOTAL\", estatus as \"ESTATUS\"");
+            comando = conexion.getConexion().prepareStatement("SELECT "+query+" from notaCredito WHERE importe != 0 and estatus LIKE ? ESCAPE '!'");
             comando.setString(1, estatuss + "%");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();

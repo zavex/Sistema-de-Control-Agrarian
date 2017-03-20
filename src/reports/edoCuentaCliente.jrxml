@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2d2d497a-d68f-4786-9387-dabeb6be9d25">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="196"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="idClient" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select c.nombre,c.rfc, c.telefono, c.direccion, c.municipio, c.cp, c.estado, notaC.montoNotaCredito, devC.montoDevolucion, pagoC.montoPago, venC.montoVenta, 
+		(venC.montoVenta-(notaC.montoNotaCredito + devC.montoDevolucion + pagoC.montoPago)) as 'TOTAL' from
+		cliente c join notaC on c.idCliente = notaC.idCliente
+		 join devC on c.idCliente = devC.idCliente
+		 join venC on c.idCliente = venC.idCliente
+		 join pagoC on c.idCliente = pagoC.idCliente where c.idCliente = $P{idClient}]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rfc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="municipio" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="montoNotaCredito" class="java.lang.Double"/>
+	<field name="montoDevolucion" class="java.lang.Double"/>
+	<field name="montoPago" class="java.lang.Double"/>
+	<field name="montoVenta" class="java.lang.Double"/>
+	<field name="TOTAL" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="172" y="0" width="412" height="62" uuid="c0e51bc8-8736-4208-876c-76e214699658"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[AGRARIAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="62" width="412" height="42" uuid="6c41612f-68b3-4796-a20d-50dd330525a4"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Comercializadora Agrarian S.A de C.V Ave Siempreviva 456, Col. Centro, Guadalajara, Jal. RFC AGRA900918]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="594" y="0" width="208" height="22" uuid="cf559639-960e-457d-8f28-9ca1c461fcb8"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[ESTADO DE CUENTA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="140" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="bb7de1ba-bb42-4982-83e1-dc77a6a37948"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="SubTitle" x="19" y="26" width="88" height="22" uuid="bc7419a6-d82f-48d0-a7b0-380c94869238"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[CLIENTE]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="142" y="25" width="620" height="22" uuid="c68f4130-7e8a-4ffc-aaa3-c6a793f78cc2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="SubTitle" x="19" y="68" width="88" height="22" uuid="316c5041-c994-416e-b2b4-efc2c6a702f0"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[R.F.C.]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="142" y="67" width="206" height="22" uuid="d9c7fa94-9ea1-4d51-9072-7a4ee15457de"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rfc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="SubTitle" x="19" y="90" width="123" height="22" uuid="67d5fe4f-98cc-4309-9152-79c3f4daea55"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[TELEFONO]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="142" y="89" width="206" height="23" uuid="df23ddd2-a68d-447f-b7ed-1ae36c74c0c0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="SubTitle" x="19" y="112" width="123" height="22" uuid="0d92502e-cc93-4cdb-b3d0-27a083f3be18"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[DIRECCION]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="142" y="111" width="206" height="23" uuid="0495bc14-7b7a-4424-bd51-54daa4fb2106"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="SubTitle" x="368" y="68" width="123" height="22" uuid="fd9b0cf8-1b08-4c39-9cb7-83cf7e7ab2b7"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[MUNICIPIO]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="491" y="66" width="206" height="23" uuid="4a6ae0a2-46d4-41f7-a9ca-513a4e1a82ad"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{municipio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="SubTitle" x="368" y="90" width="123" height="22" uuid="052693ab-04be-4315-9ead-9818188bb644"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[C.P.]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="491" y="88" width="206" height="23" uuid="b296e8a1-2147-426a-8f8f-40918c39d43a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="SubTitle" x="368" y="111" width="123" height="22" uuid="991a011a-067a-44e7-a075-e1ebb745d39f"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[ESTADO]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="491" y="111" width="206" height="23" uuid="e2d2c1c2-16e0-427f-b95c-9250dcb2b8fd"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="15" width="801" height="1" uuid="beb01439-504f-40bb-92cd-244cc30311b4"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="234" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="5bac4f4f-3ce2-4fae-8ce1-072d68079a6a"/>
+			</frame>
+			<staticText>
+				<reportElement style="SubTitle" x="19" y="91" width="259" height="22" uuid="5d0676de-a96b-4737-86d1-1abe74ba249c"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[TOTAL NOTAS DE CREDITO]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="299" y="91" width="206" height="23" uuid="f5ba7b7c-94e7-4c2f-949c-2e80025d2672"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoNotaCredito}+ '0']]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="SubTitle" x="19" y="113" width="259" height="22" uuid="37a67057-33a3-4ab8-a545-b11dc2c215a6"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[TOTAL DEVOLUCIONES]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="299" y="114" width="206" height="23" uuid="60d191bc-b3a6-4bc2-a302-0f0dd25e6cf0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoDevolucion}+ '0']]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="SubTitle" x="19" y="136" width="259" height="22" uuid="1e9e9771-a0a1-4ec2-b0b3-4a1d56c4a542"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[TOTAL PAGOS]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="299" y="135" width="206" height="23" uuid="07fce4e5-050c-4df4-aa10-0fabd9dc83b8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoPago}+ '0']]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="SubTitle" x="19" y="34" width="259" height="22" uuid="84c184c8-1cdc-436d-b4d9-d35f7bcef352"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[TOTAL VENTAS]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement style="Detail" x="278" y="33" width="206" height="23" uuid="149002fe-c279-41e3-b1b9-d17e95c9f06c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{montoVenta} + '0']]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="278" y="187" width="206" height="23" uuid="07f3fc56-d8e2-4850-8411-a63a674a819f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOTAL}+ '0']]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="SubTitle" x="19" y="188" width="259" height="22" uuid="68921ed4-6cba-444c-ad30-945a42815d9d"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[SALDO ACTUAL]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="16" width="801" height="1" uuid="2f5e1bc0-50b7-4068-9ccf-8459d4b497e7"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="12" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="f9fbab1c-e1b4-4b98-baec-b16326a4ec42"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="1" y="3" width="801" height="1" uuid="ab9ba8a6-8871-4c94-bfc1-0c4fd5a5b41d"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="c44908fe-561c-48e6-aaf2-09df51e7578d"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="280c1d6b-5111-442e-b050-20252d8ce4bc"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="7ad881cc-4a0e-4811-a95e-0202bfabeff9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="bf1181f4-f824-44d2-b5f8-05c0fc88cab8"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
