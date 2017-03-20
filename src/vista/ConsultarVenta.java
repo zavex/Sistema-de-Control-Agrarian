@@ -15,6 +15,8 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    frmRegistrarPago pagoVenta;
+    
     public ConsultarVenta(Venta venta, JDesktopPane escritorioo,Factura factura, Permisos permisoo) {
         this.permiso = permisoo;
         this.venta = venta;
@@ -33,6 +35,7 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
         txtDatosBusqueda = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         comboFiltro = new javax.swing.JComboBox<>();
+        btnRegistrarPago = new javax.swing.JButton();
         btnSalir1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnGuardarEstatusVenta = new javax.swing.JButton();
@@ -43,7 +46,6 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -115,6 +117,13 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
                     .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        btnRegistrarPago.setText("Realizar pago");
+        btnRegistrarPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarPagoActionPerformed(evt);
+            }
+        });
 
         btnSalir1.setText("Regresar");
         btnSalir1.addActionListener(new java.awt.event.ActionListener() {
@@ -214,13 +223,6 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
-        jButton1.setText("Realizar pago");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -241,11 +243,11 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
+                            .addComponent(btnRegistrarPago))
                         .addGap(61, 61, 61))))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnSalir1, jButton1});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnRegistrarPago, btnSalir1});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,14 +261,14 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btnRegistrarPago)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSalir1))
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(21, 21, 21))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnSalir1, jButton1});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnRegistrarPago, btnSalir1});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -349,16 +351,22 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboFiltroActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnRegistrarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPagoActionPerformed
         try {
-            int folioV = (int) table.getValueAt(table.getSelectedRow(), 0);
-            System.out.println(folioV);
-            int idCli = (int) table.getValueAt(table.getSelectedRow(), 6);
-            System.out.println(idCli);
+            if(table.getValueAt(table.getSelectedRow(),8).equals("ACTIVA")){
+                int[] datos = new int[2];
+                datos[0] = (int) table.getValueAt(table.getSelectedRow(), 0); //Folio
+                datos[1] = (int) table.getValueAt(table.getSelectedRow(), 6); //ID
+            
+                pagoVenta = new frmRegistrarPago(this, 1, datos);
+                pagoVenta.setSize(428, 540);
+                pagoVenta.setLocationRelativeTo(this);
+                pagoVenta.setVisible(true);
+            }
         } catch (Exception e) {
-            System.out.println("null");
+            System.out.println(e);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnRegistrarPagoActionPerformed
     
     public void cargarPermisoVenta () {
         if (permiso.getVenta()==2) {
@@ -385,11 +393,11 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarCambiosFactura;
     private javax.swing.JButton btnGuardarEstatusVenta;
+    private javax.swing.JButton btnRegistrarPago;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JComboBox<String> comboEstatusFactura;
     private javax.swing.JComboBox<String> comboEstatusVenta;
     private javax.swing.JComboBox<String> comboFiltro;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

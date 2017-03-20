@@ -86,6 +86,7 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         VentanaLogin = new javax.swing.JDialog();
+        panBG = new javax.swing.JPanel();
         PanelLogo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         PanelAcceso = new javax.swing.JPanel();
@@ -93,11 +94,11 @@ public class Main extends javax.swing.JFrame {
         textoUsuario = new javax.swing.JTextField();
         lblUsuario1 = new javax.swing.JLabel();
         textoPassword = new javax.swing.JPasswordField();
+        lblStatus = new javax.swing.JLabel();
         panelBotones = new javax.swing.JPanel();
         btnNull1 = new javax.swing.JButton();
         buttonSalir = new javax.swing.JButton();
         ButtonEntrar = new javax.swing.JButton();
-        lblStatus = new javax.swing.JLabel();
         Escritorio = new javax.swing.JDesktopPane();
         clockDigital1 = new org.edisoncor.gui.varios.ClockDigital();
         jLabel2 = new javax.swing.JLabel();
@@ -159,9 +160,12 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        PanelLogo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        PanelLogo.setLayout(new java.awt.GridLayout());
+        panBG.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        PanelLogo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PanelLogo.setLayout(new java.awt.GridLayout(1, 0));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/Agrarian - copia.jpg"))); // NOI18N
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         PanelLogo.add(jLabel1);
@@ -186,24 +190,32 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        lblStatus.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        lblStatus.setForeground(new java.awt.Color(255, 0, 0));
+        lblStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout PanelAccesoLayout = new javax.swing.GroupLayout(PanelAcceso);
         PanelAcceso.setLayout(PanelAccesoLayout);
         PanelAccesoLayout.setHorizontalGroup(
             PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAccesoLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
+                .addGroup(PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblUsuario1, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                    .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAccesoLayout.createSequentialGroup()
-                        .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67))
-                    .addGroup(PanelAccesoLayout.createSequentialGroup()
-                        .addComponent(lblUsuario1)
-                        .addGap(55, 55, 55)
-                        .addComponent(textoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(textoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAccesoLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(textoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        PanelAccesoLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {textoPassword, textoUsuario});
+
         PanelAccesoLayout.setVerticalGroup(
             PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAccesoLayout.createSequentialGroup()
@@ -211,12 +223,16 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(textoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        PanelAccesoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblUsuario, lblUsuario1, textoPassword, textoUsuario});
 
         panelBotones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelBotones.setLayout(new java.awt.GridLayout());
@@ -248,34 +264,44 @@ public class Main extends javax.swing.JFrame {
         });
         panelBotones.add(ButtonEntrar);
 
-        lblStatus.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        lblStatus.setForeground(new java.awt.Color(255, 0, 0));
-        lblStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        javax.swing.GroupLayout panBGLayout = new javax.swing.GroupLayout(panBG);
+        panBG.setLayout(panBGLayout);
+        panBGLayout.setHorizontalGroup(
+            panBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panBGLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelAcceso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        panBGLayout.setVerticalGroup(
+            panBGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panBGLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PanelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelBotones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout VentanaLoginLayout = new javax.swing.GroupLayout(VentanaLogin.getContentPane());
         VentanaLogin.getContentPane().setLayout(VentanaLoginLayout);
         VentanaLoginLayout.setHorizontalGroup(
             VentanaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(VentanaLoginLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaLoginLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(VentanaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelBotones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelAcceso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panBG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         VentanaLoginLayout.setVerticalGroup(
             VentanaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VentanaLoginLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(PanelAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(panBG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1184,7 +1210,7 @@ public class Main extends javax.swing.JFrame {
         this.setVisible(false);
         VentanaLogin.setModal(true);
         VentanaLogin.setUndecorated(true);
-        VentanaLogin.setSize(460, 320);
+        VentanaLogin.setSize(482, 324);
         VentanaLogin.setLocationRelativeTo(null);
         VentanaLogin.setVisible(true);
     }
@@ -1287,6 +1313,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblUsuario1;
     private javax.swing.JLabel lblUsuarioActivo;
+    private javax.swing.JPanel panBG;
     private javax.swing.JPanel panelBotones;
     private javax.swing.JPasswordField textoPassword;
     private javax.swing.JTextField textoUsuario;

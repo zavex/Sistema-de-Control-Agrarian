@@ -14,6 +14,8 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    frmRegistrarPago pagoCompra;
+    
     public ConsultarCompra(Compra compra, JDesktopPane escritorioo, Permisos permisoo) {
         this.permiso = permisoo;
         this.compra = compra;
@@ -38,6 +40,7 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -105,7 +108,7 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnSalir1.setText("REGRESAR");
+        btnSalir1.setText("Regresa");
         btnSalir1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalir1ActionPerformed(evt);
@@ -169,6 +172,13 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
         );
 
+        jButton1.setText("Registrar Pago");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,9 +196,14 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSalir1)
                 .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnSalir1, jButton1});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -199,9 +214,13 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSalir1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalir1)
+                    .addComponent(jButton1))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnSalir1, jButton1});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -265,6 +284,23 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
         }catch (Exception e) {}
         
     }//GEN-LAST:event_btnActualizarEstatusActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            if(table.getValueAt(table.getSelectedRow(),8).equals("ACTIVA")){
+                int[] datos = new int[2];
+                datos[0] = (int) table.getValueAt(table.getSelectedRow(), 0); //Folio
+                datos[1] = (int) table.getValueAt(table.getSelectedRow(), 6); //ID
+            
+                pagoCompra = new frmRegistrarPago(this, 2, datos);
+                pagoCompra.setSize(450, 540);
+                pagoCompra.setLocationRelativeTo(this);
+                pagoCompra.setVisible(true);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     public void cargarPermiso () {
         if (permiso.getCompra()==2) {
@@ -282,6 +318,7 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnSalir1;
     private javax.swing.JComboBox<String> comboEstatus;
     private javax.swing.JComboBox<String> comboFiltro;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
