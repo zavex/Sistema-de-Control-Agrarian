@@ -4,6 +4,8 @@ package vista;
 import com.toedter.calendar.JCalendar;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Date;
@@ -40,9 +42,8 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         creaComboBanco();
         this.pagoRegistrado = false;
         
-        p = new Pago(datos, opcion);
-        p.llenarFormulario(txtFolio, txtFechaV, txtNombreC, txtMonto, txtIVA, txtTotal, txtEstatus,txtSaldo);
-        
+        this.p = new Pago(datos, opcion);
+        this.p.llenarFormulario(txtFolio, txtFechaV, txtNombreC, txtMonto, txtIVA, txtTotal, txtEstatus,txtSaldo);
     }
     
     public frmRegistrarPago(ConsultarCompra cC, int opcion, int[] datos){
@@ -53,8 +54,8 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         creaComboBanco();
         
         this.pagoRegistrado = false;
-        p = new Pago(datos, opcion);
-        p.llenarFormulario(txtFolio, txtFechaV, txtNombreC, txtMonto, txtIVA, txtTotal, txtEstatus,txtSaldo);
+        this.p = new Pago(datos, opcion);
+        this.p.llenarFormulario(txtFolio, txtFechaV, txtNombreC, txtMonto, txtIVA, txtTotal, txtEstatus,txtSaldo);
     }
     
     public void creaComboBanco(){
@@ -88,6 +89,7 @@ public class frmRegistrarPago extends javax.swing.JFrame {
                 lbNombreC.setText("Nombre del empleado");
                 break;
         }
+        
     }
             
     
@@ -116,9 +118,9 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         lbFechaActual = new javax.swing.JLabel();
         Pago = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnSalir = new javax.swing.JButton();
         btnNulo = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lbfechaV = new javax.swing.JLabel();
@@ -137,12 +139,12 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         txtEstatus = new javax.swing.JTextField();
         lbSaldo = new javax.swing.JLabel();
         txtSaldo = new javax.swing.JTextField();
+        btnEliminarPago = new javax.swing.JButton();
         btnRegistrarPago = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPagos = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaHistorial = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
 
         capturaPago.setTitle("Captura de pago");
         capturaPago.setAlwaysOnTop(true);
@@ -352,14 +354,6 @@ public class frmRegistrarPago extends javax.swing.JFrame {
 
         jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
-        btnSalir.setText("Salir");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnSalir);
-
         btnNulo.setBorderPainted(false);
         btnNulo.setContentAreaFilled(false);
         btnNulo.setEnabled(false);
@@ -368,8 +362,20 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         btnNulo.setRolloverEnabled(false);
         jPanel2.add(btnNulo);
 
-        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setBorderPainted(false);
+        btnLimpiar.setContentAreaFilled(false);
+        btnLimpiar.setEnabled(false);
+        btnLimpiar.setRequestFocusEnabled(false);
+        btnLimpiar.setRolloverEnabled(false);
         jPanel2.add(btnLimpiar);
+
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnSalir);
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -511,6 +517,13 @@ public class frmRegistrarPago extends javax.swing.JFrame {
 
         jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lbIVA, lblMonto, lblTotal, txtIVA, txtMonto, txtTotal});
 
+        btnEliminarPago.setText("Eliminar pago");
+        btnEliminarPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarPagoActionPerformed(evt);
+            }
+        });
+
         btnRegistrarPago.setText("Registrar pago");
         btnRegistrarPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -540,8 +553,6 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tablaHistorial);
 
-        jButton1.setText("Eliminar pago");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -553,17 +564,17 @@ public class frmRegistrarPago extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
                     .addComponent(jScrollPane2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btnEliminarPago)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRegistrarPago)))
                 .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnRegistrarPago, jButton1});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnEliminarPago, btnRegistrarPago});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -578,7 +589,7 @@ public class frmRegistrarPago extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRegistrarPago)
-                    .addComponent(jButton1))
+                    .addComponent(btnEliminarPago))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -598,11 +609,54 @@ public class frmRegistrarPago extends javax.swing.JFrame {
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        generarFecha();
-       
+       tablaHistorico();
+       if(tablaHistorial.getRowCount()>0){
+           double totalFactura = Double.valueOf(txtTotal.getText().substring(2));
+           double saldo = 0;
+           for(int i=0;i<tablaHistorial.getRowCount();i++){
+               saldo = saldo+Double.valueOf(tablaHistorial.getValueAt(i,2).toString().substring(2));
+           }
+           saldo = totalFactura - saldo;
+           txtSaldo.setText("$ "+saldo);
+       }
     }//GEN-LAST:event_formWindowOpened
 
+    public void tablaHistorico(){
+       tablaHistorial.setModel(p.cargarHistorial(op));
+       tablaHistorial.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
+       tablaHistorial.getColumnModel().getColumn(0).setMaxWidth(60);
+       tablaHistorial.getColumnModel().getColumn(1).setMinWidth(160);
+       tablaHistorial.setAutoCreateRowSorter(true);
+    }
+    
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        
+        if(pagoRegistrado){
+            if(tfFechaActual.getDate()!=null){
+                System.out.println(tfFechaActual.getDate());
+                BigDecimal montoAbontado = new BigDecimal(tablaPagos.getValueAt(0, 0).toString().substring(2)).setScale(2, RoundingMode.HALF_UP);
+                String bancoDest = null;
+                String bancoOrigen = null;
+                switch(op){
+                    case 1:
+                        bancoDest = tablaPagos.getValueAt(0, 1).toString();
+                        if(p.grabarPago(tfFechaActual.getDate(), montoAbontado, bancoDest)){
+                            JOptionPane.showMessageDialog(this, "Registro de pago exitoso","Mensaje",JOptionPane.INFORMATION_MESSAGE);
+                            this.dispose();
+                        }
+                        break;
+                    case 2:
+                        bancoOrigen = tablaPagos.getValueAt(0, 1).toString();
+                        bancoDest = tablaPagos.getValueAt(0, 2).toString();
+                        if(p.grabarPago(tfFechaActual.getDate(), montoAbontado,bancoOrigen, bancoDest)){
+                            JOptionPane.showMessageDialog(this, "Registro de pago exitoso","Mensaje",JOptionPane.INFORMATION_MESSAGE);
+                            this.dispose();
+                        }
+                        break;
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay un pago registrado","Mensaje",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -610,14 +664,20 @@ public class frmRegistrarPago extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnRegistrarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPagoActionPerformed
-        if(!pagoRegistrado){
+        double saldo = Double.valueOf(txtSaldo.getText().substring(2));
+        if(saldo != 0){
+            if(!pagoRegistrado){
             capturaPago.setSize(250, 223);
             capturaPago.setLocationRelativeTo(this);
             capturaPago.setVisible(true);
             
+            } else {
+                JOptionPane.showMessageDialog(this, "Ya hay un pago registrado","Mensaje",JOptionPane.ERROR_MESSAGE);
+            }
         } else {
-            JOptionPane.showMessageDialog(this, "Ya hay un pago registrado","Error",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "El monto de esta factura ya fue cubierto","Mensaje",JOptionPane.INFORMATION_MESSAGE);
         }
+        
     }//GEN-LAST:event_btnRegistrarPagoActionPerformed
 
     private void btnSalirDialogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirDialogActionPerformed
@@ -633,7 +693,14 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         switch(op){
             case 1:
                 if(txtCantidadAbonada.getText().length()>0){
-                    columna.addElement("$ "+(txtCantidadAbonada.getText()));
+                    double saldo = Double.parseDouble(txtSaldo.getText().substring(2));
+                    double abono = Double.parseDouble(txtCantidadAbonada.getText());
+                    if(abono > saldo){
+                        txtCantidadAbonada.setText(String.valueOf(saldo));
+                        columna.addElement("$ "+(txtCantidadAbonada.getText()));
+                    } else {
+                        columna.addElement("$ "+(txtCantidadAbonada.getText()));
+                    }
                     
                     if(menuBDestino.getSelectedIndex()!=-1){
                         columna.addElement(menuBDestino.getSelectedItem());
@@ -649,7 +716,14 @@ public class frmRegistrarPago extends javax.swing.JFrame {
                 break;
             case 2:
                 if(txtCantidadAbonada.getText().length()>0){
-                    columna.addElement("$ "+txtCantidadAbonada.getText());
+                    double saldo = Double.parseDouble(txtSaldo.getText().substring(2));
+                    double abono = Double.parseDouble(txtCantidadAbonada.getText());
+                    if(abono > saldo){
+                        txtCantidadAbonada.setText(String.valueOf(saldo));
+                        columna.addElement("$ "+(txtCantidadAbonada.getText()));
+                    } else {
+                        columna.addElement("$ "+(txtCantidadAbonada.getText()));
+                    }
                     
                     if(menuBOrigen.getSelectedIndex()!=-1){
                         columna.addElement(menuBOrigen.getSelectedItem());
@@ -683,6 +757,14 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtCantidadAbonadaKeyTyped
 
+    private void btnEliminarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPagoActionPerformed
+        if(pagoRegistrado){
+            pagos.removeRow(0);
+            tablaPagos.setModel(pagos);
+            this.pagoRegistrado = false;
+        }
+    }//GEN-LAST:event_btnEliminarPagoActionPerformed
+
     public void limpiar(){
         creaComboBanco();
         txtCantidadAbonada.setText("");
@@ -711,7 +793,7 @@ public class frmRegistrarPago extends javax.swing.JFrame {
                 tablaPagos.getColumnModel().getColumn(0).setMaxWidth(80);
                 tablaPagos.getColumnModel().getColumn(1).setMinWidth(120);
                 tablaPagos.setAutoCreateRowSorter(true);
-                pagoRegistrado = true;
+                this.pagoRegistrado = true;
                 break;
             case 2:
                 pagos = new DefaultTableModel(){
@@ -736,7 +818,7 @@ public class frmRegistrarPago extends javax.swing.JFrame {
                 tablaPagos.getColumnModel().getColumn(1).setMinWidth(100);
                 tablaPagos.getColumnModel().getColumn(2).setMinWidth(100);
                 tablaPagos.setAutoCreateRowSorter(true);
-                pagoRegistrado = true;
+                this.pagoRegistrado = true;
         }
         
     }
@@ -775,6 +857,7 @@ public class frmRegistrarPago extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Pago;
+    private javax.swing.JButton btnEliminarPago;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnGuardarDialog;
     private javax.swing.JButton btnLimpiar;
@@ -784,7 +867,6 @@ public class frmRegistrarPago extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSalirDialog;
     private javax.swing.JDialog capturaPago;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

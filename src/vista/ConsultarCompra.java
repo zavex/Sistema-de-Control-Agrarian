@@ -293,7 +293,7 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
                 datos[1] = (int) table.getValueAt(table.getSelectedRow(), 6); //ID
             
                 pagoCompra = new frmRegistrarPago(this, 2, datos);
-                pagoCompra.setSize(450, 540);
+                pagoCompra.setSize(644, 540);
                 pagoCompra.setLocationRelativeTo(this);
                 pagoCompra.setVisible(true);
             }

@@ -1,14 +1,18 @@
 
 package modelo;
 
+import com.toedter.calendar.JDateChooser;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -38,15 +42,15 @@ public class Pago {
         PreparedStatement ps = null;
         switch(opcion){
             case 1: //Venta
-                query = "exec consultaVenta "+datos[0]+","+datos[1]+"";
+                query = "exec consultaVenta "+datos[0]+","+datos[1]+""; //Folio, idCliente
                 try {
                     ps = conexion.conexionSQL().prepareStatement(query);
                     ResultSet rs = ps.executeQuery();
                     rs.next();
 
-                    this.setFolio(rs.getInt(1));
+                    this.setId(rs.getInt(1));
                     this.setNombre(rs.getString(2));
-                    this.setId(rs.getInt(3));
+                    this.setFolio(rs.getInt(3));
                     this.setFechaV(rs.getDate(4));
                     this.setMonto(rs.getDouble(5));
                     this.setEstatus(rs.getString(6));
@@ -66,9 +70,9 @@ public class Pago {
                     ResultSet rs = ps.executeQuery();
                     rs.next();
 
-                    this.setFolio(rs.getInt(1));
+                   this.setId(rs.getInt(1));
                     this.setNombre(rs.getString(2));
-                    this.setId(rs.getInt(3));
+                    this.setFolio(rs.getInt(3));
                     this.setFechaV(rs.getDate(4));
                     this.setMonto(rs.getDouble(5));
                     this.setEstatus(rs.getString(6));
@@ -152,5 +156,138 @@ public class Pago {
         }
     }
     
+    public boolean grabarPago(java.util.Date fP,BigDecimal pago,String bancoDestino){
+        Date fechaP = Fecha_Java_A_SQL(fP);
+        
+        try {
+            System.out.println(this.getId());
+            System.out.println(this.getFolio());
+            System.out.println(fechaP);
+            System.out.println(pago);
+            System.out.println(bancoDestino);
+            
+            String query = "exec registrarPagoVenta "+this.getId()+","+this.getFolio()+",'"+fechaP+"',"+pago+",'"+bancoDestino+"'";
+            PreparedStatement ps = conexion.conexionSQL().prepareStatement(query);
+            ps.executeUpdate();
+            conexion.desconectarSQL();
+            return true;
+        } catch (Exception ex) {
+            Logger.getLogger(Pago.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    public boolean grabarPago(java.util.Date fP,BigDecimal pago,String bancoOrigen,String bancoDestino){
+        Date fechaP = Fecha_Java_A_SQL(fP);
+        
+        try {
+            System.out.println(this.getId());
+            System.out.println(this.getFolio());
+            System.out.println(fechaP);
+            System.out.println(pago);
+            System.out.println(bancoDestino);
+            
+            String query = "exec registrarPagoCompra "+this.getId()+","+this.getFolio()+",'"+fechaP+"',"+pago+",'"+bancoOrigen+"','"+bancoDestino+"'";
+            PreparedStatement ps = conexion.conexionSQL().prepareStatement(query);
+            ps.executeUpdate();
+            conexion.desconectarSQL();
+            return true;
+        } catch (Exception ex) {
+            Logger.getLogger(Pago.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+    
+    public DefaultTableModel cargarHistorial(int opcion){
+        DefaultTableModel tabla;
+        String query= null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ResultSetMetaData rms = null;
+        System.out.println(this.getFolio());
+        try {
+            switch(opcion){
+                case 1:
+                    tabla = new DefaultTableModel(){
+                        Class[] tipoColumn = {Integer.class,String.class,String.class,Date.class,String.class};
+                        boolean[] editColumn = {false,false,false,false,false};
+                        @Override
+                        public Class getColumnClass(int indColumn){
+                            return tipoColumn[indColumn];
+                        }
+                        @Override
+                        public boolean isCellEditable(int indFila, int indColum){
+                            return editColumn[indColum];
+                        }
+                    };
+                
+                    query = "exec mostrarAbonosCliente "+this.getFolio()+"";
+                    ps = conexion.conexionSQL().prepareStatement(query);
+                    rs = ps.executeQuery();
+                    rms = rs.getMetaData();
+                    tabla.addColumn(rms.getColumnName(1));
+                    tabla.addColumn(rms.getColumnName(2));
+                    tabla.addColumn(rms.getColumnName(3));
+                    tabla.addColumn(rms.getColumnName(4));
+                    tabla.addColumn(rms.getColumnName(5));
+                    while(rs.next()){
+                        //pp.idPagoP, e.nombre, pp.monto, pp.fecha, pp.bancoDest
+                        Vector filas = new Vector();
+                        filas.addElement(rs.getInt(1));
+                        filas.addElement(rs.getString(2));
+                        filas.addElement("$ "+rs.getDouble(3));
+                        filas.addElement(rs.getDate(4));
+                        filas.addElement(rs.getString(5));
+                        tabla.addRow(filas);
+                    }
+                return tabla;
+                case 2:
+                    tabla = new DefaultTableModel(){
+                        Class[] tipoColumn = {Integer.class,String.class,String.class,Date.class,String.class,String.class};
+                        boolean[] editColumn = {false,false,false,false,false,false};
+                        @Override
+                        public Class getColumnClass(int indColumn){
+                            return tipoColumn[indColumn];
+                        }
+                        @Override
+                        public boolean isCellEditable(int indFila, int indColum){
+                            return editColumn[indColum];
+                        }
+                    };
+                    query = "exec mostrarAbonoProveedor "+this.getFolio()+"";
+                    ps = conexion.conexionSQL().prepareStatement(query);
+                    rs = ps.executeQuery();
+                    rms = rs.getMetaData();
+                    tabla.addColumn(rms.getColumnName(1));
+                    tabla.addColumn(rms.getColumnName(2));
+                    tabla.addColumn(rms.getColumnName(3));
+                    tabla.addColumn(rms.getColumnName(4));
+                    tabla.addColumn(rms.getColumnName(5));
+                    tabla.addColumn(rms.getColumnName(6));
+                    while(rs.next()){
+                        //pp.idPagoP, e.nombre, pp.monto, pp.fecha, pp.bancoOrigen,pp.bancoDest
+                        Vector filas = new Vector();
+                        filas.addElement(rs.getInt(1));
+                        filas.addElement(rs.getString(2));
+                        filas.addElement("$ "+rs.getDouble(3));
+                        filas.addElement(rs.getDate(4));
+                        filas.addElement(rs.getString(5));
+                        filas.addElement(rs.getString(6));
+                        tabla.addRow(filas);
+                    }
+                return tabla;
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Pago.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public java.sql.Date Fecha_Java_A_SQL(java.util.Date date) {
+            return new java.sql.Date(date.getTime());
+    }
+
     
 }
