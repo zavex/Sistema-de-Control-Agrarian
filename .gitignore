@@ -47,3 +47,6 @@ Temporary Items
 .apdisk
 /nbproject/private/
 /build/
+*.class
+build/classes/vista/Main$31.class
+*.class

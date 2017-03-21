@@ -62,7 +62,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         fechaa = new com.toedter.calendar.JDateChooser();
         lblFechaRegistro = new javax.swing.JLabel();
         lblEstatusVenta = new javax.swing.JLabel();
-        cbxEstatusVenta = new javax.swing.JComboBox<String>();
+        cbxEstatusVenta = new javax.swing.JComboBox<>();
         PanelDetallesMovimiento = new javax.swing.JPanel();
         txtIdEmpleado = new javax.swing.JTextField();
         txtIdCliente = new javax.swing.JTextField();
@@ -70,9 +70,9 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         lblCliente = new javax.swing.JLabel();
         lblAlmacen = new javax.swing.JLabel();
         txtIdAlmacen = new javax.swing.JTextField();
-        comboAlmacenes = new javax.swing.JComboBox<String>();
-        comboEmpleado = new javax.swing.JComboBox<String>();
-        comboCliente = new javax.swing.JComboBox<String>();
+        comboAlmacenes = new javax.swing.JComboBox<>();
+        comboEmpleado = new javax.swing.JComboBox<>();
+        comboCliente = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -97,7 +97,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         txtCantidadProducto = new javax.swing.JTextField();
         lblUnidadMedida = new javax.swing.JLabel();
         txtPrecioProducto = new javax.swing.JTextField();
-        comboProducto = new javax.swing.JComboBox<String>();
+        comboProducto = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         txtMedidaProducto = new javax.swing.JTextField();
         lblCantidadActual = new javax.swing.JLabel();
@@ -166,7 +166,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
         lblEstatusVenta.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lblEstatusVenta.setText("Estatus");
 
-        cbxEstatusVenta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ACTIVA", "CANCELADA" }));
+        cbxEstatusVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVA", "CANCELADA" }));
         cbxEstatusVenta.setEnabled(false);
 
         PanelDetallesMovimiento.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de Movimiento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
@@ -448,13 +448,16 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 438, Short.MAX_VALUE)
+                                .addGap(0, 427, Short.MAX_VALUE)
                                 .addComponent(btnCancelarVenta)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnRegistrarVenta))
                             .addComponent(PanelDetallesVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCancelarVenta, btnRegistrarVenta});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -483,6 +486,8 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
                     .addComponent(btnRegistrarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCancelarVenta, btnRegistrarVenta});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -583,7 +588,7 @@ public class RegistrarVenta extends javax.swing.JInternalFrame {
                 }catch (Exception e) {}
             }
         else {
-                JOptionPane.showMessageDialog(null,"LLene todos los datos");
+                JOptionPane.showMessageDialog(null,"Llene todos los datos");
         }
         
         if (rbGenerarFactura.isSelected()) {

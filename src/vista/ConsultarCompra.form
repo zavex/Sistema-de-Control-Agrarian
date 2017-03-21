@@ -46,7 +46,9 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="btnSalir1" min="-2" max="-2" attributes="0"/>
+              <Component id="jButton1" linkSize="1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnSalir1" linkSize="1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -62,7 +64,10 @@
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnSalir1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnSalir1" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -150,7 +155,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnSalir1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="REGRESAR"/>
+        <Property name="text" type="java.lang.String" value="Regresa"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalir1ActionPerformed"/>
@@ -260,5 +265,13 @@
         </Container>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Registrar Pago"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

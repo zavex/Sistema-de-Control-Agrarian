@@ -15,6 +15,8 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    frmRegistrarPago pagoVenta;
+    
     public ConsultarVenta(Venta venta, JDesktopPane escritorioo,Factura factura, Permisos permisoo) {
         this.permiso = permisoo;
         this.venta = venta;
@@ -32,14 +34,15 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txtDatosBusqueda = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        comboFiltro = new javax.swing.JComboBox<String>();
+        comboFiltro = new javax.swing.JComboBox<>();
+        btnRegistrarPago = new javax.swing.JButton();
         btnSalir1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnGuardarEstatusVenta = new javax.swing.JButton();
-        comboEstatusVenta = new javax.swing.JComboBox<String>();
+        comboEstatusVenta = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         btnGuardarCambiosFactura = new javax.swing.JButton();
-        comboEstatusFactura = new javax.swing.JComboBox<String>();
+        comboEstatusFactura = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
@@ -79,7 +82,7 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
 
         jLabel1.setText("BUSCAR POR");
 
-        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "GENERAL", "NÚMERO DE FOLIO", "ESTATUS", "ALMACÉN", "CLIENTE", "EMPLEADO", "POR FOLIO FACTURA" }));
+        comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GENERAL", "NÚMERO DE FOLIO", "ESTATUS", "ALMACÉN", "CLIENTE", "EMPLEADO", "POR FOLIO FACTURA" }));
         comboFiltro.setSelectedIndex(-1);
         comboFiltro.setToolTipText("");
         comboFiltro.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +104,7 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 73, Short.MAX_VALUE))
+                .addGap(0, 77, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,7 +118,14 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnSalir1.setText("REGRESAR");
+        btnRegistrarPago.setText("Realizar pago");
+        btnRegistrarPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarPagoActionPerformed(evt);
+            }
+        });
+
+        btnSalir1.setText("Regresar");
         btnSalir1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalir1ActionPerformed(evt);
@@ -132,7 +142,7 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
             }
         });
 
-        comboEstatusVenta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ACTIVA", "CANCELADA" }));
+        comboEstatusVenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVA", "CANCELADA" }));
         comboEstatusVenta.setEnabled(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -166,7 +176,7 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
             }
         });
 
-        comboEstatusFactura.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ACTIVA", "CANCELADA" }));
+        comboEstatusFactura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVA", "CANCELADA" }));
         comboEstatusFactura.setEnabled(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -223,17 +233,22 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSalir1)
-                        .addGap(61, 61, 61))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegistrarPago))
+                        .addGap(61, 61, 61))))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnRegistrarPago, btnSalir1});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -245,11 +260,15 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                        .addComponent(btnRegistrarPago)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSalir1))
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(21, 21, 21))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnRegistrarPago, btnSalir1});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -331,6 +350,23 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
     private void comboFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFiltroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboFiltroActionPerformed
+
+    private void btnRegistrarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPagoActionPerformed
+        try {
+            if(table.getValueAt(table.getSelectedRow(),8).equals("ACTIVA")){
+                int[] datos = new int[2];
+                datos[0] = (int) table.getValueAt(table.getSelectedRow(), 0); //Folio
+                datos[1] = (int) table.getValueAt(table.getSelectedRow(), 6); //ID
+            
+                pagoVenta = new frmRegistrarPago(this, 1, datos);
+                pagoVenta.setSize(428, 540);
+                pagoVenta.setLocationRelativeTo(this);
+                pagoVenta.setVisible(true);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_btnRegistrarPagoActionPerformed
     
     public void cargarPermisoVenta () {
         if (permiso.getVenta()==2) {
@@ -357,6 +393,7 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardarCambiosFactura;
     private javax.swing.JButton btnGuardarEstatusVenta;
+    private javax.swing.JButton btnRegistrarPago;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JComboBox<String> comboEstatusFactura;
     private javax.swing.JComboBox<String> comboEstatusVenta;

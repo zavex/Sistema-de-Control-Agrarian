@@ -64,10 +64,10 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="438" max="32767" attributes="0"/>
-                              <Component id="btnCancelarVenta" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="427" max="32767" attributes="0"/>
+                              <Component id="btnCancelarVenta" linkSize="2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnRegistrarVenta" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnRegistrarVenta" linkSize="2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="PanelDetallesVenta" max="32767" attributes="0"/>
                       </Group>
@@ -106,8 +106,8 @@
               <Component id="PanelDetallesVenta" min="-2" pref="355" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="btnCancelarVenta" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnRegistrarVenta" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="btnCancelarVenta" linkSize="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRegistrarVenta" linkSize="1" min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
