@@ -1,6 +1,6 @@
-/*
+    /*
     *
-    *						================= Procedimientos almacenados ==================
+    * ================= Procedimientos almacenados ==================
 	*
 	*/
 
@@ -18,8 +18,9 @@
             SELECT 'No encontradó'
     END
     GO
-    exec verificar 'user','pass'
-    go
+    
+    /*exec verificar 'user','pass'
+    go*/
 
 
     CREATE PROCEDURE ingresa_empleado 
@@ -341,10 +342,6 @@ CREATE PROCEDURE ingresa_almacen
         
     END
     GO
-
-    exec consultaVenta 2, 1
-    GO
-
 
     CREATE PROCEDURE consultaCompra(  --Recibe Folio de compra y id del proveedor en ese orden
         @folioC int,
