@@ -43,7 +43,7 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         this.pagoRegistrado = false;
         
         this.p = new Pago(datos, opcion);
-        this.p.llenarFormulario(txtFolio, txtFechaV, txtNombreC, txtMonto, txtIVA, txtTotal, txtEstatus,txtSaldo);
+        this.p.llenarFormulario(txtFolio, tfFechaVenta, txtNombreC, txtMonto, txtIVA, txtTotal, txtEstatus,txtSaldo);
     }
     
     public frmRegistrarPago(ConsultarCompra cC, int opcion, int[] datos){
@@ -55,7 +55,7 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         
         this.pagoRegistrado = false;
         this.p = new Pago(datos, opcion);
-        this.p.llenarFormulario(txtFolio, txtFechaV, txtNombreC, txtMonto, txtIVA, txtTotal, txtEstatus,txtSaldo);
+        this.p.llenarFormulario(txtFolio, tfFechaVenta, txtNombreC, txtMonto, txtIVA, txtTotal, txtEstatus,txtSaldo);
     }
     
     public void creaComboBanco(){
@@ -124,9 +124,8 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lbfechaV = new javax.swing.JLabel();
-        txtFechaV = new javax.swing.JTextField();
+        tfFechaVenta = new com.toedter.calendar.JDateChooser();
         lbNombreC = new javax.swing.JLabel();
-        txtNombreC = new javax.swing.JTextField();
         lblFolio = new javax.swing.JLabel();
         txtFolio = new javax.swing.JTextField();
         lblMonto = new javax.swing.JLabel();
@@ -139,6 +138,7 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         txtEstatus = new javax.swing.JTextField();
         lbSaldo = new javax.swing.JLabel();
         txtSaldo = new javax.swing.JTextField();
+        txtNombreC = new javax.swing.JTextField();
         btnEliminarPago = new javax.swing.JButton();
         btnRegistrarPago = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -150,7 +150,6 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         capturaPago.setAlwaysOnTop(true);
         capturaPago.setModal(true);
         capturaPago.setUndecorated(true);
-        capturaPago.setPreferredSize(new java.awt.Dimension(248, 221));
         capturaPago.setResizable(false);
         capturaPago.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
@@ -389,13 +388,7 @@ public class frmRegistrarPago extends javax.swing.JFrame {
 
         lbfechaV.setText("Fecha de venta");
 
-        txtFechaV.setEditable(false);
-        txtFechaV.setFocusable(false);
-
         lbNombreC.setText("Razón social del proveedor");
-
-        txtNombreC.setEditable(false);
-        txtNombreC.setFocusable(false);
 
         lblFolio.setText("Folio Venta");
 
@@ -431,6 +424,9 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         txtSaldo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtSaldo.setFocusable(false);
 
+        txtNombreC.setEditable(false);
+        txtNombreC.setFocusable(false);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -438,18 +434,6 @@ public class frmRegistrarPago extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(lbNombreC)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNombreC))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblFolio)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbfechaV)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtFechaV, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTotal)
@@ -467,24 +451,45 @@ public class frmRegistrarPago extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(lblEstatus)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtEstatus))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lblEstatus)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtEstatus))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lbSaldo)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(6, 6, 6))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(lbSaldo)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtSaldo)))))
+                                .addComponent(txtSaldo)
+                                .addContainerGap())))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(lbNombreC)
+                                .addGap(34, 34, 34)
+                                .addComponent(txtNombreC))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblFolio)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbfechaV)
+                                .addGap(18, 18, 18)
+                                .addComponent(tfFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbfechaV)
-                    .addComponent(txtFechaV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFolio)
-                    .addComponent(txtFolio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbfechaV)
+                        .addComponent(lblFolio)
+                        .addComponent(txtFolio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNombreC)
                     .addComponent(txtNombreC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -509,13 +514,11 @@ public class frmRegistrarPago extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lbfechaV, txtFechaV});
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lbfechaV, lblFolio, tfFechaVenta, txtFolio});
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblFolio, txtFolio});
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lbNombreC, txtEstatus, txtNombreC, txtSaldo});
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lbNombreC, txtNombreC});
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lbIVA, lblMonto, lblTotal, txtIVA, txtMonto, txtTotal});
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lbIVA, lbSaldo, lblEstatus, lblMonto, lblTotal, txtIVA, txtMonto, txtTotal});
 
         btnEliminarPago.setText("Eliminar pago");
         btnEliminarPago.addActionListener(new java.awt.event.ActionListener() {
@@ -895,9 +898,9 @@ public class frmRegistrarPago extends javax.swing.JFrame {
     private javax.swing.JTable tablaHistorial;
     private javax.swing.JTable tablaPagos;
     private com.toedter.calendar.JDateChooser tfFechaActual;
+    private com.toedter.calendar.JDateChooser tfFechaVenta;
     private javax.swing.JTextField txtCantidadAbonada;
     private javax.swing.JTextField txtEstatus;
-    private javax.swing.JTextField txtFechaV;
     private javax.swing.JTextField txtFolio;
     private javax.swing.JTextField txtIVA;
     private javax.swing.JTextField txtMonto;

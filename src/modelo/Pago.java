@@ -137,14 +137,14 @@ public class Pago {
         this.id = id;
     }
     
-    public void llenarFormulario(JTextField txtFolio,JTextField txtFechaV,JTextField txtNombreC,JTextField txtMonto,JTextField txtIVA,JTextField txtTotal,JTextField txtEstatus,JTextField txtSaldo){
+    public void llenarFormulario(JTextField txtFolio,JDateChooser txtFechaV,JTextField txtNombreC,JTextField txtMonto,JTextField txtIVA,JTextField txtTotal,JTextField txtEstatus,JTextField txtSaldo){
         BigDecimal subtotal, iva, total;
         subtotal = new BigDecimal(this.getMonto()).setScale(2);
         iva = new BigDecimal(this.getMonto()).multiply(BigDecimal.valueOf(0.16)).setScale(2);
         total = subtotal.add(iva);
        
         txtFolio.setText(String.valueOf(this.getFolio()));
-        txtFechaV.setText(String.valueOf(this.getFechaV()));
+        txtFechaV.setDate(this.getFechaV());
         txtNombreC.setText(String.valueOf(this.getNombre()));
         txtMonto.setText("$ "+subtotal);
         txtIVA.setText("$ "+iva);
