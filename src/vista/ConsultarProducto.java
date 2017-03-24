@@ -3,10 +3,10 @@ package vista;
 import java.util.Date;
 import java.util.Vector;
 import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 import modelo.*;
 
 public class ConsultarProducto extends javax.swing.JInternalFrame {
-
     Permisos permiso;
     Producto producto;
     JDesktopPane escritorio;
@@ -19,8 +19,9 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
         this.escritorio =  escritorioo;
         initComponents();
         ll.agregarAccion(date.toString(),"Consulta de Productos");
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -74,6 +75,11 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
         comboFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GENERAL", "ID DE PRODUCTO", "NOMBRE", "MEDIDA", "PRESENTACIÓN", "PRECIO", "DESCRIPCIÓN" }));
         comboFiltro.setSelectedIndex(-1);
         comboFiltro.setToolTipText("");
+        comboFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboFiltroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -109,7 +115,7 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
             }
         });
 
-        btnActualizarCliente.setText("ACTUALIZAR REGISTRO");
+        btnActualizarCliente.setText("ACTUALIZAR");
         btnActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarClienteActionPerformed(evt);
@@ -155,6 +161,9 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(39, 39, 39))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnActualizarCliente, btnSalir1});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -168,6 +177,8 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
                     .addComponent(btnActualizarCliente))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnActualizarCliente, btnSalir1});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -240,7 +251,12 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         table.setModel(producto.consultarProductoTotales());
         cargarPermiso();
+       
     }//GEN-LAST:event_formInternalFrameOpened
+
+    private void comboFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFiltroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboFiltroActionPerformed
     
     public void cargarPermiso () {
         if (permiso.getProducto()==2) {
@@ -249,6 +265,7 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
             btnActualizarCliente.setEnabled(false);
         }
     }
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

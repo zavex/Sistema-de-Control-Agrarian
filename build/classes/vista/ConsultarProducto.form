@@ -34,9 +34,9 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="btnSalir1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSalir1" linkSize="2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="btnActualizarCliente" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnActualizarCliente" linkSize="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jPanel2" max="32767" attributes="0"/>
                   <Component id="jPanel1" max="32767" attributes="0"/>
@@ -54,8 +54,8 @@
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnSalir1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnActualizarCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSalir1" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnActualizarCliente" linkSize="1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="19" max="32767" attributes="0"/>
           </Group>
@@ -137,6 +137,9 @@
             <Property name="selectedIndex" type="int" value="-1"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboFiltroActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -153,7 +156,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnActualizarCliente">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ACTUALIZAR REGISTRO"/>
+        <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarClienteActionPerformed"/>

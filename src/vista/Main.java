@@ -48,6 +48,7 @@ public class Main extends javax.swing.JFrame {
     Log ll = new Log();
     Date date = new Date ();
     String usuarioActual;
+    boolean ventTraspasoAb = false;
     
     int seg = 0;
     
@@ -143,6 +144,8 @@ public class Main extends javax.swing.JFrame {
         MenuAlmacenes = new javax.swing.JMenu();
         ItemAgregarAlmacen = new javax.swing.JMenuItem();
         ItemConsultarAlmacen = new javax.swing.JMenuItem();
+        itemAgregarMovimiento = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         MenuMezclas = new javax.swing.JMenu();
         ItemRealizarMezclas = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
@@ -238,7 +241,7 @@ public class Main extends javax.swing.JFrame {
         PanelAccesoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblUsuario, lblUsuario1, textoPassword, textoUsuario});
 
         panelBotones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panelBotones.setLayout(new java.awt.GridLayout());
+        panelBotones.setLayout(new java.awt.GridLayout(1, 0));
 
         btnNull1.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         btnNull1.setBorderPainted(false);
@@ -246,7 +249,6 @@ public class Main extends javax.swing.JFrame {
         btnNull1.setEnabled(false);
         btnNull1.setFocusable(false);
         btnNull1.setRequestFocusEnabled(false);
-        btnNull1.setRolloverEnabled(false);
         panelBotones.add(btnNull1);
 
         buttonSalir.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
@@ -366,6 +368,16 @@ public class Main extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("VER PRODUCTOS");
 
+        Escritorio.setLayer(clockDigital1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(btnAccesoRapidoRealizarMezcla, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(btnAccesoRapidoVerClientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(btnAccesoRapidoVerProductos, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Escritorio.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
@@ -406,15 +418,6 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(btnAccesoRapidoRealizarMezcla, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)))
                 .addGap(0, 0, 0))
         );
-        Escritorio.setLayer(clockDigital1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(btnAccesoRapidoRealizarMezcla, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(btnAccesoRapidoVerClientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(btnAccesoRapidoVerProductos, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         lblBienvenido.setText("Bienvenido");
 
@@ -621,6 +624,18 @@ public class Main extends javax.swing.JFrame {
             }
         });
         MenuAlmacenes.add(ItemConsultarAlmacen);
+
+        itemAgregarMovimiento.setText("Registrar traspaso");
+        itemAgregarMovimiento.setContentAreaFilled(false);
+        itemAgregarMovimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemAgregarMovimientoActionPerformed(evt);
+            }
+        });
+        MenuAlmacenes.add(itemAgregarMovimiento);
+
+        jMenuItem4.setText("Consulta traspasos");
+        MenuAlmacenes.add(jMenuItem4);
 
         jMenuBar1.add(MenuAlmacenes);
 
@@ -991,6 +1006,17 @@ public class Main extends javax.swing.JFrame {
         cajitaFeliz(textoUsuario, textoPassword);
     }//GEN-LAST:event_textoUsuarioActionPerformed
 
+    private void itemAgregarMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAgregarMovimientoActionPerformed
+        if(ventTraspasoAb == false){
+            ifrmTraspaso ifrt = new ifrmTraspaso(this,Escritorio,permiso,producto);
+            Escritorio.add(ifrt);
+            centrarVentana(ifrt);
+            ifrt.setVisible(true);
+            ventTraspasoAb = true;
+        }
+        
+    }//GEN-LAST:event_itemAgregarMovimientoActionPerformed
+
     public void iniciarSesion() {
         usuarioActual = textoUsuario.getText();
         try {
@@ -1305,6 +1331,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnNull1;
     private javax.swing.JButton buttonSalir;
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
+    private javax.swing.JMenuItem itemAgregarMovimiento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -1317,6 +1344,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JLabel lblBienvenido;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblUsuario;

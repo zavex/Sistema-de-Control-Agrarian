@@ -50,3 +50,4 @@ Temporary Items
 *.class
 build/classes/vista/Main$31.class
 *.class
+/dist/
