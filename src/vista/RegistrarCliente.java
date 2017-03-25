@@ -22,23 +22,12 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtIdCliente = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        image = new javax.swing.JLabel();
         lblIdCliente = new javax.swing.JLabel();
+        txtIdCliente = new javax.swing.JTextField();
         lblFechaReg = new javax.swing.JLabel();
         DateChooserFechaRegCliente = new com.toedter.calendar.JDateChooser();
-        PanelDatosDemograficos = new javax.swing.JPanel();
-        lblCpCliente = new javax.swing.JLabel();
-        lblMunicipioCliente = new javax.swing.JLabel();
-        txtCpCliente = new javax.swing.JTextField();
-        txtMunicipioCliente = new javax.swing.JTextField();
-        lblDireccionCliente = new javax.swing.JLabel();
-        txtDireccionCliente = new javax.swing.JTextField();
-        lblEstadoCliente = new javax.swing.JLabel();
-        txtEstadoCliente = new javax.swing.JTextField();
-        btnLimpiarCliente = new javax.swing.JButton();
-        btnCancelarCliente = new javax.swing.JButton();
-        btnRegistrarCliente = new javax.swing.JButton();
-        image = new javax.swing.JLabel();
         PanelDatosContacto = new javax.swing.JPanel();
         lblNombreCliente = new javax.swing.JLabel();
         lblRfcCliente = new javax.swing.JLabel();
@@ -50,10 +39,22 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
         txtCorreoCliente = new javax.swing.JTextField();
         lblContactoCliente = new javax.swing.JLabel();
         txtContactoCliente = new javax.swing.JTextField();
+        PanelDatosDemograficos = new javax.swing.JPanel();
+        lblCpCliente = new javax.swing.JLabel();
+        lblMunicipioCliente = new javax.swing.JLabel();
+        txtCpCliente = new javax.swing.JTextField();
+        txtMunicipioCliente = new javax.swing.JTextField();
+        lblDireccionCliente = new javax.swing.JLabel();
+        txtDireccionCliente = new javax.swing.JTextField();
+        lblEstadoCliente = new javax.swing.JLabel();
+        txtEstadoCliente = new javax.swing.JTextField();
         PanelDatosAcceso = new javax.swing.JPanel();
         lblPasswordCliente = new javax.swing.JLabel();
         txtPasswordCliente = new javax.swing.JTextField();
         btnGenerarPassword = new javax.swing.JButton();
+        btnRegistrarCliente = new javax.swing.JButton();
+        btnCancelarCliente = new javax.swing.JButton();
+        btnLimpiarCliente = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -61,7 +62,7 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("REGISTRAR CLIENTE");
+        setTitle("Registar Cliente");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -80,19 +81,101 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/clients.png"))); // NOI18N
+
+        lblIdCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblIdCliente.setForeground(new java.awt.Color(0, 0, 102));
+        lblIdCliente.setText("Id Cliente");
+
         txtIdCliente.setEditable(false);
 
-        lblIdCliente.setText("ID CLIENTE");
-
-        lblFechaReg.setText("FECHA REGISTRO");
+        lblFechaReg.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblFechaReg.setForeground(new java.awt.Color(0, 0, 102));
+        lblFechaReg.setText("Fecha de Registro");
 
         DateChooserFechaRegCliente.setEnabled(false);
 
-        PanelDatosDemograficos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Demográficos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        PanelDatosContacto.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDatosContacto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Contacto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
+        PanelDatosContacto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblNombreCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblNombreCliente.setForeground(new java.awt.Color(0, 0, 102));
+        lblNombreCliente.setText("Nombre");
+        PanelDatosContacto.add(lblNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 52, -1));
+
+        lblRfcCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblRfcCliente.setForeground(new java.awt.Color(0, 0, 102));
+        lblRfcCliente.setText("RFC");
+        PanelDatosContacto.add(lblRfcCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 52, -1));
+
+        txtNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreClienteKeyTyped(evt);
+            }
+        });
+        PanelDatosContacto.add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 30, 210, -1));
+
+        txtRfcCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRfcClienteActionPerformed(evt);
+            }
+        });
+        txtRfcCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRfcClienteKeyTyped(evt);
+            }
+        });
+        PanelDatosContacto.add(txtRfcCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 70, 210, -1));
+
+        txtTelefonoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoClienteKeyTyped(evt);
+            }
+        });
+        PanelDatosContacto.add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 230, -1));
+
+        lblTelefonoCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblTelefonoCliente.setForeground(new java.awt.Color(0, 0, 102));
+        lblTelefonoCliente.setText("Teléfono");
+        PanelDatosContacto.add(lblTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
+
+        lblCorreoCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblCorreoCliente.setForeground(new java.awt.Color(0, 0, 102));
+        lblCorreoCliente.setText("Correo");
+        PanelDatosContacto.add(lblCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 62, -1));
+
+        txtCorreoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCorreoClienteKeyTyped(evt);
+            }
+        });
+        PanelDatosContacto.add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 230, -1));
+
+        lblContactoCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblContactoCliente.setForeground(new java.awt.Color(0, 0, 102));
+        lblContactoCliente.setText("Contacto");
+        PanelDatosContacto.add(lblContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
+        txtContactoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContactoClienteKeyTyped(evt);
+            }
+        });
+        PanelDatosContacto.add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 520, -1));
+
+        PanelDatosDemograficos.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDatosDemograficos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Demográficos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
+
+        lblCpCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblCpCliente.setForeground(new java.awt.Color(0, 0, 102));
         lblCpCliente.setText("CP");
 
-        lblMunicipioCliente.setText("MUNICIPIO");
+        lblMunicipioCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblMunicipioCliente.setForeground(new java.awt.Color(0, 0, 102));
+        lblMunicipioCliente.setText("Municipio");
 
         txtCpCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +194,9 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        lblDireccionCliente.setText("DIRECCIÓN");
+        lblDireccionCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblDireccionCliente.setForeground(new java.awt.Color(0, 0, 102));
+        lblDireccionCliente.setText("Dirección");
 
         txtDireccionCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -119,7 +204,9 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        lblEstadoCliente.setText("ESTADO");
+        lblEstadoCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblEstadoCliente.setForeground(new java.awt.Color(0, 0, 102));
+        lblEstadoCliente.setText("Estado");
 
         txtEstadoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -170,94 +257,19 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnLimpiarCliente.setText("LIMPIAR");
-        btnLimpiarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarClienteActionPerformed(evt);
-            }
-        });
+        PanelDatosAcceso.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDatosAcceso.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Claves de Acceso", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
 
-        btnCancelarCliente.setText("CANCELAR");
-        btnCancelarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarClienteActionPerformed(evt);
-            }
-        });
-
-        btnRegistrarCliente.setText("REGISTRAR");
-        btnRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarClienteActionPerformed(evt);
-            }
-        });
-
-        image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/clients.png"))); // NOI18N
-
-        PanelDatosContacto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Contacto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
-        PanelDatosContacto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblNombreCliente.setText("NOMBRE");
-        PanelDatosContacto.add(lblNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 52, -1));
-
-        lblRfcCliente.setText("RFC");
-        PanelDatosContacto.add(lblRfcCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 52, -1));
-
-        txtNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNombreClienteKeyTyped(evt);
-            }
-        });
-        PanelDatosContacto.add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 30, 210, -1));
-
-        txtRfcCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRfcClienteActionPerformed(evt);
-            }
-        });
-        txtRfcCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtRfcClienteKeyTyped(evt);
-            }
-        });
-        PanelDatosContacto.add(txtRfcCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 70, 210, -1));
-
-        txtTelefonoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtTelefonoClienteKeyTyped(evt);
-            }
-        });
-        PanelDatosContacto.add(txtTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 230, -1));
-
-        lblTelefonoCliente.setText("TELÉFONO");
-        PanelDatosContacto.add(lblTelefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
-
-        lblCorreoCliente.setText("CORREO");
-        PanelDatosContacto.add(lblCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 62, -1));
-
-        txtCorreoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCorreoClienteKeyTyped(evt);
-            }
-        });
-        PanelDatosContacto.add(txtCorreoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 230, -1));
-
-        lblContactoCliente.setText("CONTACTO");
-        PanelDatosContacto.add(lblContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
-
-        txtContactoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtContactoClienteKeyTyped(evt);
-            }
-        });
-        PanelDatosContacto.add(txtContactoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 520, -1));
-
-        PanelDatosAcceso.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Claves de Acceso", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
-
-        lblPasswordCliente.setText("CONTRASEÑA");
+        lblPasswordCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblPasswordCliente.setForeground(new java.awt.Color(0, 0, 102));
+        lblPasswordCliente.setText("Contraseña");
 
         txtPasswordCliente.setEditable(false);
 
-        btnGenerarPassword.setText("GENERAR CONTRASEÑA");
+        btnGenerarPassword.setBackground(new java.awt.Color(102, 102, 255));
+        btnGenerarPassword.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnGenerarPassword.setForeground(new java.awt.Color(255, 255, 255));
+        btnGenerarPassword.setText("Generar Contraseña");
         btnGenerarPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerarPasswordActionPerformed(evt);
@@ -270,84 +282,132 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
             PanelDatosAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelDatosAccesoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblPasswordCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtPasswordCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(btnGenerarPassword)
+                .addGroup(PanelDatosAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelDatosAccesoLayout.createSequentialGroup()
+                        .addComponent(lblPasswordCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(104, 104, 104)
+                        .addComponent(btnGenerarPassword))
+                    .addComponent(txtPasswordCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelDatosAccesoLayout.setVerticalGroup(
             PanelDatosAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelDatosAccesoLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(PanelDatosAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addContainerGap()
+                .addGroup(PanelDatosAccesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPasswordCliente)
-                    .addComponent(txtPasswordCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGenerarPassword))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPasswordCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        btnRegistrarCliente.setBackground(new java.awt.Color(102, 102, 255));
+        btnRegistrarCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnRegistrarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarCliente.setText("Registrar");
+        btnRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarClienteActionPerformed(evt);
+            }
+        });
+
+        btnCancelarCliente.setBackground(new java.awt.Color(102, 102, 255));
+        btnCancelarCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCancelarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarCliente.setText("Cancelar");
+        btnCancelarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarClienteActionPerformed(evt);
+            }
+        });
+
+        btnLimpiarCliente.setBackground(new java.awt.Color(102, 102, 255));
+        btnLimpiarCliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnLimpiarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarCliente.setText("Limpiar");
+        btnLimpiarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarClienteActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(lblIdCliente)
+                .addGap(15, 15, 15)
+                .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(152, 152, 152)
+                .addComponent(lblFechaReg)
+                .addGap(20, 20, 20)
+                .addComponent(DateChooserFechaRegCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(image)
+                .addGap(53, 53, 53))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PanelDatosContacto, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PanelDatosDemograficos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PanelDatosAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLimpiarCliente)
+                .addGap(7, 7, 7)
+                .addComponent(btnCancelarCliente)
+                .addGap(5, 5, 5)
+                .addComponent(btnRegistrarCliente)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(image))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblIdCliente)
+                            .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFechaReg)
+                            .addComponent(DateChooserFechaRegCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, 0)
+                .addComponent(PanelDatosContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(PanelDatosDemograficos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(PanelDatosAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCancelarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRegistrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLimpiarCliente))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(lblIdCliente)
-                        .addGap(15, 15, 15)
-                        .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(152, 152, 152)
-                        .addComponent(lblFechaReg)
-                        .addGap(20, 20, 20)
-                        .addComponent(DateChooserFechaRegCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(image))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnLimpiarCliente)
-                                .addGap(7, 7, 7)
-                                .addComponent(btnCancelarCliente)
-                                .addGap(5, 5, 5)
-                                .addComponent(btnRegistrarCliente))
-                            .addComponent(PanelDatosContacto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
-                            .addComponent(PanelDatosDemograficos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PanelDatosAcceso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(21, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(lblIdCliente))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(lblFechaReg))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(DateChooserFechaRegCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(image))
-                .addGap(2, 2, 2)
-                .addComponent(PanelDatosContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(PanelDatosDemograficos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(PanelDatosAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCancelarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRegistrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLimpiarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -562,6 +622,7 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnRegistrarCliente;
     private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblContactoCliente;
     private javax.swing.JLabel lblCorreoCliente;
     private javax.swing.JLabel lblCpCliente;

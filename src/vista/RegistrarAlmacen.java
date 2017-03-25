@@ -24,14 +24,12 @@ public class RegistrarAlmacen extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtIdAlmacen = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        image = new javax.swing.JLabel();
         lblIdAlmacen = new javax.swing.JLabel();
+        txtIdAlmacen = new javax.swing.JTextField();
         lblFechaReg = new javax.swing.JLabel();
         DateChooserFechaRegAlmacen = new com.toedter.calendar.JDateChooser();
-        btnLimpiarAlmacen = new javax.swing.JButton();
-        btnCancelarAlmacen = new javax.swing.JButton();
-        btnRegistrarAlmacen = new javax.swing.JButton();
-        image = new javax.swing.JLabel();
         PanelDetallesAlmacen = new javax.swing.JPanel();
         lblNombreAlmacen = new javax.swing.JLabel();
         lblDireccionAlmacen = new javax.swing.JLabel();
@@ -46,7 +44,9 @@ public class RegistrarAlmacen extends javax.swing.JInternalFrame {
         lblCapacidadAlmacen = new javax.swing.JLabel();
         spnToneladas = new javax.swing.JSpinner();
         jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        btnLimpiarAlmacen = new javax.swing.JButton();
+        btnCancelarAlmacen = new javax.swing.JButton();
+        btnRegistrarAlmacen = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -54,7 +54,7 @@ public class RegistrarAlmacen extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("REGISTRAR ALMACÉN");
+        setTitle("Registrar Almacén");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -72,62 +72,43 @@ public class RegistrarAlmacen extends javax.swing.JInternalFrame {
                 formInternalFrameOpened(evt);
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtIdAlmacen.setEditable(false);
-        getContentPane().add(txtIdAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 41, -1));
-
-        lblIdAlmacen.setText("ID ALMACÉN");
-        getContentPane().add(lblIdAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 32, 70, -1));
-
-        lblFechaReg.setText("FECHA REGISTRO");
-        getContentPane().add(lblFechaReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, -1));
-
-        DateChooserFechaRegAlmacen.setEnabled(false);
-        getContentPane().add(DateChooserFechaRegAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 29, 136, -1));
-
-        btnLimpiarAlmacen.setText("LIMPIAR");
-        btnLimpiarAlmacen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarAlmacenActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnLimpiarAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, -1, -1));
-
-        btnCancelarAlmacen.setText("CANCELAR");
-        btnCancelarAlmacen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarAlmacenActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCancelarAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
-
-        btnRegistrarAlmacen.setText("REGISTRAR");
-        btnRegistrarAlmacen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarAlmacenActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnRegistrarAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, -1, -1));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/clients.png"))); // NOI18N
-        getContentPane().add(image, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 11, -1, -1));
 
-        PanelDetallesAlmacen.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de Almacén", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        lblIdAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblIdAlmacen.setForeground(new java.awt.Color(0, 0, 102));
+        lblIdAlmacen.setText("Id Almacén");
+
+        txtIdAlmacen.setEditable(false);
+
+        lblFechaReg.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblFechaReg.setForeground(new java.awt.Color(0, 0, 102));
+        lblFechaReg.setText("Fecha de Registro");
+
+        DateChooserFechaRegAlmacen.setEnabled(false);
+
+        PanelDetallesAlmacen.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDetallesAlmacen.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de Almacén", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
         PanelDetallesAlmacen.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNombreAlmacen.setText("NOMBRE");
-        PanelDetallesAlmacen.add(lblNombreAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 63, 52, -1));
+        lblNombreAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblNombreAlmacen.setForeground(new java.awt.Color(0, 0, 102));
+        lblNombreAlmacen.setText("Nombre");
+        PanelDetallesAlmacen.add(lblNombreAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 52, -1));
 
-        lblDireccionAlmacen.setText("DIRECCIÓN");
-        PanelDetallesAlmacen.add(lblDireccionAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 115, -1, -1));
+        lblDireccionAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblDireccionAlmacen.setForeground(new java.awt.Color(0, 0, 102));
+        lblDireccionAlmacen.setText("Dirección");
+        PanelDetallesAlmacen.add(lblDireccionAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         txtNombreAlmacen.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreAlmacenKeyTyped(evt);
             }
         });
-        PanelDetallesAlmacen.add(txtNombreAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 84, 253, -1));
+        PanelDetallesAlmacen.add(txtNombreAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 253, -1));
 
         txtDireccionAlmacen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,21 +120,25 @@ public class RegistrarAlmacen extends javax.swing.JInternalFrame {
                 txtDireccionAlmacenKeyTyped(evt);
             }
         });
-        PanelDetallesAlmacen.add(txtDireccionAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 136, 253, -1));
+        PanelDetallesAlmacen.add(txtDireccionAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 253, -1));
 
-        lblTelefonoAlmacen.setText("TELÉFONO");
-        PanelDetallesAlmacen.add(lblTelefonoAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 63, -1, -1));
+        lblTelefonoAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblTelefonoAlmacen.setForeground(new java.awt.Color(0, 0, 102));
+        lblTelefonoAlmacen.setText("Teléfono");
+        PanelDetallesAlmacen.add(lblTelefonoAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
 
         txtTelefonoAlmacen.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTelefonoAlmacenKeyTyped(evt);
             }
         });
-        PanelDetallesAlmacen.add(txtTelefonoAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 84, 215, -1));
+        PanelDetallesAlmacen.add(txtTelefonoAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 215, -1));
 
+        lblIdEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblIdEmpleado.setForeground(new java.awt.Color(0, 0, 102));
         lblIdEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblIdEmpleado.setText("EMPLEADO");
-        PanelDetallesAlmacen.add(lblIdEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 173, -1, -1));
+        lblIdEmpleado.setText("Empleado");
+        PanelDetallesAlmacen.add(lblIdEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         txtIdEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,7 +150,7 @@ public class RegistrarAlmacen extends javax.swing.JInternalFrame {
                 txtIdEmpleadoKeyTyped(evt);
             }
         });
-        PanelDetallesAlmacen.add(txtIdEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 194, 55, -1));
+        PanelDetallesAlmacen.add(txtIdEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 55, -1));
         PanelDetallesAlmacen.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 173, -1, -1));
 
         txtNombreEmpleado.setEditable(false);
@@ -179,19 +164,118 @@ public class RegistrarAlmacen extends javax.swing.JInternalFrame {
                 txtNombreEmpleadoKeyTyped(evt);
             }
         });
-        PanelDetallesAlmacen.add(txtNombreEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 194, 413, -1));
+        PanelDetallesAlmacen.add(txtNombreEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 413, -1));
 
-        lblCapacidadAlmacen.setText("CAPACIDAD");
-        PanelDetallesAlmacen.add(lblCapacidadAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
+        lblCapacidadAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblCapacidadAlmacen.setForeground(new java.awt.Color(0, 0, 102));
+        lblCapacidadAlmacen.setText("Capacidad");
+        PanelDetallesAlmacen.add(lblCapacidadAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
 
         spnToneladas.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
-        PanelDetallesAlmacen.add(spnToneladas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 70, -1));
+        PanelDetallesAlmacen.add(spnToneladas, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 70, -1));
 
-        jLabel2.setText("TONELADAS");
-        PanelDetallesAlmacen.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel2.setText("Toneladas");
+        PanelDetallesAlmacen.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, -1, -1));
 
-        getContentPane().add(PanelDetallesAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 69, 540, 240));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 560, -1));
+        btnLimpiarAlmacen.setBackground(new java.awt.Color(102, 102, 255));
+        btnLimpiarAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnLimpiarAlmacen.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarAlmacen.setText("Limpiar");
+        btnLimpiarAlmacen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarAlmacenActionPerformed(evt);
+            }
+        });
+
+        btnCancelarAlmacen.setBackground(new java.awt.Color(102, 102, 255));
+        btnCancelarAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCancelarAlmacen.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarAlmacen.setText("Cancelar");
+        btnCancelarAlmacen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarAlmacenActionPerformed(evt);
+            }
+        });
+
+        btnRegistrarAlmacen.setBackground(new java.awt.Color(102, 102, 255));
+        btnRegistrarAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnRegistrarAlmacen.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarAlmacen.setText("Registrar");
+        btnRegistrarAlmacen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarAlmacenActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblIdAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtIdAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122)
+                .addComponent(lblFechaReg)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(DateChooserFechaRegAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(image)
+                .addGap(22, 22, 22))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnLimpiarAlmacen)
+                        .addGap(7, 7, 7)
+                        .addComponent(btnCancelarAlmacen)
+                        .addGap(10, 10, 10)
+                        .addComponent(btnRegistrarAlmacen))
+                    .addComponent(PanelDetallesAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DateChooserFechaRegAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblIdAlmacen)
+                                    .addComponent(txtIdAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblFechaReg)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(image)))
+                .addGap(12, 12, 12)
+                .addComponent(PanelDetallesAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLimpiarAlmacen)
+                    .addComponent(btnCancelarAlmacen)
+                    .addComponent(btnRegistrarAlmacen))
+                .addGap(20, 20, 20))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -372,7 +456,7 @@ public class RegistrarAlmacen extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCapacidadAlmacen;
     private javax.swing.JLabel lblDireccionAlmacen;
     private javax.swing.JLabel lblFechaReg;

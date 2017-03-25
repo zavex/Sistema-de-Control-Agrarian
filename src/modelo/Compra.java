@@ -156,7 +156,7 @@ public class Compra {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("folioCompra as \"FOLIO COMPRA\", fechaReg as \"FECHA REG\", subTotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", idAlmacen as \"ID ALMACÉN\", idProveedor as \"ID PROVEEDOR\", idEmpleado as \"ID EMPLEADO\", estatus as \"Estatus\"");
+            String query = ("folioCompra as \"Folio Compra\", fechaReg as \"Fecha Reg\", subTotal as \"Subtotal\", iva as \"IVA\", total as \"Total\", idAlmacen as \"Id Almacén\", idProveedor as \"Id Proveedor\", idEmpleado as \"Id Empleado\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM compra");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
@@ -197,7 +197,7 @@ public class Compra {
         PreparedStatement comando = null;
         try {
             
-            String query = ("folioCompra as \"FOLIO COMPRA\", fechaReg as \"FECHA REG\", subTotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", idAlmacen as \"ID ALMACÉN\", idProveedor as \"ID PROVEEDOR\", idEmpleado as \"ID EMPLEADO\", estatus as \"Estatus\"");
+            String query = ("folioCompra as \"Folio Compra\", fechaReg as \"Fecha Reg\", subTotal as \"Subtotal\", iva as \"IVA\", total as \"Total\", idAlmacen as \"Id Almacén\", idProveedor as \"Id Proveedor\", idEmpleado as \"Id Empleado\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM compra where folioCompra=?");
             comando.setString(1, folioo + "%");
             ResultSet rs = comando.executeQuery();
@@ -238,7 +238,7 @@ public class Compra {
         PreparedStatement comando = null;
         try {
             
-            String query = ("folioCompra as \"FOLIO COMPRA\", fechaReg as \"FECHA REG\", subTotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", idAlmacen as \"ID ALMACÉN\", idProveedor as \"ID PROVEEDOR\", idEmpleado as \"ID EMPLEADO\", estatus as \"Estatus\"");
+            String query = ("folioCompra as \"Folio Compra\", fechaReg as \"Fecha Reg\", subTotal as \"Subtotal\", iva as \"IVA\", total as \"Total\", idAlmacen as \"Id Almacén\", idProveedor as \"Id Proveedor\", idEmpleado as \"Id Empleado\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM compra where estatus LIKE ? ESCAPE '!'");
             comando.setString(1, estatuss + "%");
             ResultSet rs = comando.executeQuery();
@@ -280,7 +280,7 @@ public class Compra {
         PreparedStatement comando = null;
         try {
             
-            String query = ("folioCompra as \"FOLIO COMPRA\", fechaReg as \"FECHA REG\", subTotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", idAlmacen as \"ID ALMACÉN\", idProveedor as \"ID PROVEEDOR\", idEmpleado as \"ID EMPLEADO\", estatus as \"Estatus\"");
+            String query = ("folioCompra as \"Folio Compra\", fechaReg as \"Fecha Reg\", subTotal as \"Subtotal\", iva as \"IVA\", total as \"Total\", idAlmacen as \"Id Almacén\", idProveedor as \"Id Proveedor\", idEmpleado as \"Id Empleado\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM compra where idAlmacen LIKE ? ESCAPE '!'");
             comando.setString(1, idAlmacenn + "%");
             ResultSet rs = comando.executeQuery();
@@ -322,7 +322,7 @@ public class Compra {
         PreparedStatement comando = null;
         try {
             
-            String query = ("folioCompra as \"FOLIO COMPRA\", fechaReg as \"FECHA REG\", subTotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", idAlmacen as \"ID ALMACÉN\", idProveedor as \"ID PROVEEDOR\", idEmpleado as \"ID EMPLEADO\", estatus as \"Estatus\"");
+            String query = ("folioCompra as \"Folio Compra\", fechaReg as \"Fecha Reg\", subTotal as \"Subtotal\", iva as \"IVA\", total as \"Total\", idAlmacen as \"Id Almacén\", idProveedor as \"Id Proveedor\", idEmpleado as \"Id Empleado\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM compra where idProveedor LIKE ? ESCAPE '!'");            
             comando.setString(1, idProveedorr + "%");
             ResultSet rs = comando.executeQuery();
@@ -364,7 +364,7 @@ public class Compra {
         PreparedStatement comando = null;
         try {
             
-            String query = ("folioCompra as \"FOLIO COMPRA\", fechaReg as \"FECHA REG\", subTotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", idAlmacen as \"ID ALMACÉN\", idProveedor as \"ID PROVEEDOR\", idEmpleado as \"ID EMPLEADO\", estatus as \"Estatus\"");
+            String query = ("folioCompra as \"Folio Compra\", fechaReg as \"Fecha Reg\", subTotal as \"Subtotal\", iva as \"IVA\", total as \"Total\", idAlmacen as \"Id Almacén\", idProveedor as \"Id Proveedor\", idEmpleado as \"Id Empleado\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM compra where idEmpleado LIKE ? ESCAPE '!'");            
             comando.setString(1, idEmpleadoo + "%");
             ResultSet rs = comando.executeQuery();

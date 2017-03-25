@@ -30,13 +30,11 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtIdProducto = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         lblIdProducto = new javax.swing.JLabel();
+        txtIdProducto = new javax.swing.JTextField();
         lblFechaReg = new javax.swing.JLabel();
         DateChooserFechaRegProducto = new com.toedter.calendar.JDateChooser();
-        btnLimpiarProducto = new javax.swing.JButton();
-        btnCancelarProducto = new javax.swing.JButton();
-        btnGuardarCambiosProducto = new javax.swing.JButton();
         image = new javax.swing.JLabel();
         PanelDetallesProducto = new javax.swing.JPanel();
         lblNombreProducto = new javax.swing.JLabel();
@@ -44,18 +42,21 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
         txtNombreProducto = new javax.swing.JTextField();
         txtPrecioSugeridoProducto = new javax.swing.JTextField();
         lblDescripcionProducto = new javax.swing.JLabel();
-        cbxMedidaProducto = new javax.swing.JComboBox<>();
-        cbxPresentacionProducto = new javax.swing.JComboBox<>();
+        cbxMedidaProducto = new javax.swing.JComboBox<String>();
+        cbxPresentacionProducto = new javax.swing.JComboBox<String>();
         lblMedidaProducto = new javax.swing.JLabel();
         lblPresentacionProducto = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaDescripcionProducto = new javax.swing.JTextArea();
+        btnCancelarProducto = new javax.swing.JButton();
+        btnLimpiarProducto = new javax.swing.JButton();
+        btnGuardarCambiosProducto = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("MODIFICAR PRODUCTO");
+        setTitle("Modificar Producto");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -74,42 +75,32 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblIdProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblIdProducto.setForeground(new java.awt.Color(0, 0, 102));
+        lblIdProducto.setText("Id Producto");
+
         txtIdProducto.setEditable(false);
 
-        lblIdProducto.setText("ID PRODUCTO");
-
-        lblFechaReg.setText("FECHA REGISTRO");
+        lblFechaReg.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblFechaReg.setForeground(new java.awt.Color(0, 0, 102));
+        lblFechaReg.setText("Fecha de Registro");
 
         DateChooserFechaRegProducto.setEnabled(false);
 
-        btnLimpiarProducto.setText("LIMPIAR");
-        btnLimpiarProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarProductoActionPerformed(evt);
-            }
-        });
-
-        btnCancelarProducto.setText("CANCELAR");
-        btnCancelarProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarProductoActionPerformed(evt);
-            }
-        });
-
-        btnGuardarCambiosProducto.setText("GUARDAR CAMBIOS");
-        btnGuardarCambiosProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarCambiosProductoActionPerformed(evt);
-            }
-        });
-
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/clients.png"))); // NOI18N
 
-        PanelDetallesProducto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de Producto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        PanelDetallesProducto.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDetallesProducto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de Producto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
 
-        lblNombreProducto.setText("NOMBRE");
+        lblNombreProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblNombreProducto.setForeground(new java.awt.Color(0, 0, 102));
+        lblNombreProducto.setText("Nombre");
 
-        lblPrecioSugeridoProducto.setText("PRECIO SUGERIDO");
+        lblPrecioSugeridoProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblPrecioSugeridoProducto.setForeground(new java.awt.Color(0, 0, 102));
+        lblPrecioSugeridoProducto.setText("Precio Sugerido");
 
         txtNombreProducto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -128,17 +119,23 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
             }
         });
 
-        lblDescripcionProducto.setText("DESCRIPCION");
+        lblDescripcionProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblDescripcionProducto.setForeground(new java.awt.Color(0, 0, 102));
+        lblDescripcionProducto.setText("Descripcion");
 
-        cbxMedidaProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TM", "KG", "S" }));
+        cbxMedidaProducto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TM", "KG", "S" }));
         cbxMedidaProducto.setSelectedIndex(-1);
 
-        cbxPresentacionProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "GRANEL", "ENVASADO" }));
+        cbxPresentacionProducto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "GRANEL", "ENVASADO" }));
         cbxPresentacionProducto.setSelectedIndex(-1);
 
-        lblMedidaProducto.setText("MEDIDA");
+        lblMedidaProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblMedidaProducto.setForeground(new java.awt.Color(0, 0, 102));
+        lblMedidaProducto.setText("Medida");
 
-        lblPresentacionProducto.setText("PRESENTACION");
+        lblPresentacionProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblPresentacionProducto.setForeground(new java.awt.Color(0, 0, 102));
+        lblPresentacionProducto.setText("Presentacion");
 
         txtAreaDescripcionProducto.setColumns(20);
         txtAreaDescripcionProducto.setRows(5);
@@ -204,60 +201,100 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnCancelarProducto.setBackground(new java.awt.Color(102, 102, 255));
+        btnCancelarProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCancelarProducto.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarProducto.setText("Cancelar");
+        btnCancelarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarProductoActionPerformed(evt);
+            }
+        });
+
+        btnLimpiarProducto.setBackground(new java.awt.Color(102, 102, 255));
+        btnLimpiarProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnLimpiarProducto.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarProducto.setText("Limpiar");
+        btnLimpiarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarProductoActionPerformed(evt);
+            }
+        });
+
+        btnGuardarCambiosProducto.setBackground(new java.awt.Color(102, 102, 255));
+        btnGuardarCambiosProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnGuardarCambiosProducto.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarCambiosProducto.setText("Guardar Cambios");
+        btnGuardarCambiosProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarCambiosProductoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(lblIdProducto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addComponent(lblFechaReg)
+                .addGap(6, 6, 6)
+                .addComponent(DateChooserFechaRegProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(image)
+                .addGap(42, 42, 42))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelDetallesProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnLimpiarProducto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCancelarProducto)
+                        .addGap(6, 6, 6)
+                        .addComponent(btnGuardarCambiosProducto)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(DateChooserFechaRegProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblIdProducto)
+                                .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblFechaReg)))
+                        .addGap(17, 17, 17))
+                    .addComponent(image))
+                .addGap(18, 18, 18)
+                .addComponent(PanelDetallesProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimpiarProducto)
+                    .addComponent(btnCancelarProducto)
+                    .addComponent(btnGuardarCambiosProducto))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(23, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblIdProducto)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(71, 71, 71)
-                                .addComponent(lblFechaReg)
-                                .addGap(6, 6, 6)
-                                .addComponent(DateChooserFechaRegProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(73, 73, 73)
-                                .addComponent(image)
-                                .addGap(28, 28, 28))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnLimpiarProducto)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCancelarProducto)
-                                .addGap(6, 6, 6)
-                                .addComponent(btnGuardarCambiosProducto))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(PanelDetallesProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(DateChooserFechaRegProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblIdProducto)
-                                .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblFechaReg))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(image)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(PanelDetallesProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLimpiarProducto)
-                    .addComponent(btnCancelarProducto)
-                    .addComponent(btnGuardarCambiosProducto))
-                .addGap(14, 14, 14))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -393,6 +430,7 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cbxMedidaProducto;
     private javax.swing.JComboBox<String> cbxPresentacionProducto;
     private javax.swing.JLabel image;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDescripcionProducto;
     private javax.swing.JLabel lblFechaReg;

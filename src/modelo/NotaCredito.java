@@ -145,8 +145,8 @@ public class NotaCredito {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("folioNC as \"FOLIO NOTA C\", IdCliente as \"ID CLIENTE\", fechaReg as \"FECHA REGISTRO\", concepto as "
-                 + "\"CONCEPTO\", importe as \"IMPORTE\", iva as \"IVA\", total as \"TOTAL\", estatus as \"ESTATUS\"");
+            String query = ("folioNC as \"Folio Nota C\", IdCliente as \"Id Cliente\", fechaReg as \"Fecha Registro\", concepto as "
+                 + "\"Concepto\", importe as \"Importe\", iva as \"IVA\", total as \"Total\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("select "+query+" from notaCredito WHERE importe != 0");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
@@ -184,8 +184,8 @@ public class NotaCredito {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("folioNC as \"FOLIO NOTA C\", IdCliente as \"ID CLIENTE\", fechaReg as \"FECHA REGISTRO\", concepto as "
-                 + "\"CONCEPTO\", importe as \"IMPORTE\", iva as \"IVA\", total as \"TOTAL\", estatus as \"ESTATUS\"");
+            String query = ("folioNC as \"Folio Nota C\", IdCliente as \"Id Cliente\", fechaReg as \"Fecha Registro\", concepto as "
+                 + "\"Concepto\", importe as \"Importe\", iva as \"IVA\", total as \"Total\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" from notaCredito where importe != 0 and folioNC LIKE ? ESCAPE '!'");
             comando.setString(1,folioo + "%");
             ResultSet rs = comando.executeQuery();
@@ -224,8 +224,8 @@ public class NotaCredito {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("folioNC as \"FOLIO NOTA C\", IdCliente as \"ID CLIENTE\", fechaReg as \"FECHA REGISTRO\", concepto as "
-                 + "\"CONCEPTO\", importe as \"IMPORTE\", iva as \"IVA\", total as \"TOTAL\", estatus as \"ESTATUS\"");
+            String query = ("folioNC as \"Folio Nota C\", IdCliente as \"Id Cliente\", fechaReg as \"Fecha Registro\", concepto as "
+                 + "\"Concepto\", importe as \"Importe\", iva as \"IVA\", total as \"Total\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" from notaCredito where importe != 0 and idCliente LIKE ? ESCAPE '!'");
             comando.setString(1,idClientee + "%");
             ResultSet rs = comando.executeQuery();
@@ -263,8 +263,8 @@ public class NotaCredito {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("folioNC as \"FOLIO NOTA C\", IdCliente as \"ID CLIENTE\", fechaReg as \"FECHA REGISTRO\", concepto as "
-                 + "\"CONCEPTO\", importe as \"IMPORTE\", iva as \"IVA\", total as \"TOTAL\", estatus as \"ESTATUS\"");
+            String query = ("folioNC as \"Folio Nota C\", IdCliente as \"Id Cliente\", fechaReg as \"Fecha Registro\", concepto as "
+                 + "\"Concepto\", importe as \"Importe\", iva as \"IVA\", total as \"Total\", estatus as \"Estatus\"");            
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" from notaCredito WHERE importe != 0 and estatus LIKE ? ESCAPE '!'");
             comando.setString(1, estatuss + "%");
             ResultSet rs = comando.executeQuery();

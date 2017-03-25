@@ -160,8 +160,8 @@ public class Devolucion {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("folioDev as \"FOLIO DEVOLUCIÓN\", fechaReg as \"FECHA REGISTRO\", subtotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", idAlmacen as \"ID ALMACÉN\", idCliente as "
-                 + "\"ID CLIENTE\", estatus as \"ESTATUS\"");
+            String query = ("folioDev as \"Folio Devolución\", fechaReg as \"Fecha Registro\", subtotal as \"Subtotal\", iva as \"IVA\", total as \"Total\", idAlmacen as \"Id Almacén\", idCliente as "
+                 + "\"Id Cliente\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("select "+query+" from devolucion WHERE subtotal != 0");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
@@ -199,8 +199,8 @@ public class Devolucion {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("folioDev as \"FOLIO DEVOLUCIÓN\", fechaReg as \"FECHA REGISTRO\", subtotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", idAlmacen as \"ID ALMACÉN\", idCliente as "
-                 + "\"ID CLIENTE\", estatus as \"ESTATUS\"");
+            String query = ("folioDev as \"Folio Devolución\", fechaReg as \"Fecha Registro\", subtotal as \"Subtotal\", iva as \"IVA\", total as \"Total\", idAlmacen as \"Id Almacén\", idCliente as "
+                 + "\"Id Cliente\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" from devolucion WHERE subtotal != 0 and folioDev LIKE ? ESCAPE '!'");
             comando.setString(1,folioo + "%");
             ResultSet rs = comando.executeQuery();
@@ -238,8 +238,8 @@ public class Devolucion {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("folioDev as \"FOLIO DEVOLUCIÓN\", fechaReg as \"FECHA REGISTRO\", subtotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", idAlmacen as \"ID ALMACÉN\", idCliente as "
-                 + "\"ID CLIENTE\", estatus as \"ESTATUS\"");
+        String query = ("folioDev as \"Folio Devolución\", fechaReg as \"Fecha Registro\", subtotal as \"Subtotal\", iva as \"IVA\", total as \"Total\", idAlmacen as \"Id Almacén\", idCliente as "
+                 + "\"Id Cliente\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" from devolucion WHERE subtotal != 0 and estatus LIKE ? ESCAPE '!'");
             comando.setString(1, estatuss + "%");
             ResultSet rs = comando.executeQuery();
@@ -278,8 +278,8 @@ public class Devolucion {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("folioDev as \"FOLIO DEVOLUCIÓN\", fechaReg as \"FECHA REGISTRO\", subtotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", idAlmacen as \"ID ALMACÉN\", idCliente as "
-                 + "\"ID CLIENTE\", estatus as \"ESTATUS\"");
+        String query = ("folioDev as \"Folio Devolución\", fechaReg as \"Fecha Registro\", subtotal as \"Subtotal\", iva as \"IVA\", total as \"Total\", idAlmacen as \"Id Almacén\", idCliente as "
+                 + "\"Id Cliente\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" from devolucion WHERE subtotal != 0 and idAlmacen LIKE ? ESCAPE '!'");
             comando.setString(1,idAlmacenn + "%");
             ResultSet rs = comando.executeQuery();
@@ -318,8 +318,8 @@ public class Devolucion {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("folioDev as \"FOLIO DEVOLUCIÓN\", fechaReg as \"FECHA REGISTRO\", subtotal as \"SUBTOTAL\", iva as \"IVA\", total as \"TOTAL\", idAlmacen as \"ID ALMACÉN\", idCliente as "
-                 + "\"ID CLIENTE\", estatus as \"ESTATUS\"");
+        String query = ("folioDev as \"Folio Devolución\", fechaReg as \"Fecha Registro\", subtotal as \"Subtotal\", iva as \"IVA\", total as \"Total\", idAlmacen as \"Id Almacén\", idCliente as "
+                 + "\"Id Cliente\", estatus as \"Estatus\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" from devolucion WHERE subtotal != 0 and idCliente LIKE ? ESCAPE '!'");
             comando.setString(1,idClientee + "%");
             ResultSet rs = comando.executeQuery();

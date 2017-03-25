@@ -218,7 +218,7 @@ public class Empleado extends Validacion {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("idEmpleado as \"ID EMP\", fechaReg as \"FECHA REG\", nombre as NOMBRE, rfc as RFC, curp as CURP, nss as NSS, direccion as DIRECCIÓN, correo as CORREO, telefono as TELÉFONO, departamento as DEPTO, estatus as ESTATUS");
+            String query = ("idEmpleado as \"Id Emp\", fechaReg as \"Fecha Reg\", nombre as Nombre, rfc as RFC, curp as CURP, nss as NSS, direccion as Dirección, correo as Correo, telefono as Teléfono, departamento as Depto, estatus as Estatus");
             comando = conexion.getConexion().prepareStatement("select "+query+" from empleado");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
@@ -262,7 +262,7 @@ public class Empleado extends Validacion {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("idEmpleado as \"ID EMP\", fechaReg as \"FECHA REG\", nombre as NOMBRE, rfc as RFC, curp as CURP, nss as NSS, direccion as DIRECCIÓN, correo as CORREO, telefono as TELÉFONO, departamento as DEPTO, estatus as ESTATUS");      
+            String query = ("idEmpleado as \"Id Emp\", fechaReg as \"Fecha Reg\", nombre as Nombre, rfc as RFC, curp as CURP, nss as NSS, direccion as Dirección, correo as Correo, telefono as Teléfono, departamento as Depto, estatus as Estatus");      
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM EMPLEADO WHERE IDEMPLEADO LIKE ? ESCAPE '!'");
             comando.setString(1,id + "%");
             ResultSet rs = comando.executeQuery();
@@ -306,7 +306,7 @@ public class Empleado extends Validacion {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("idEmpleado as \"ID EMP\", fechaReg as \"FECHA REG\", nombre as NOMBRE, rfc as RFC, curp as CURP, nss as NSS, direccion as DIRECCIÓN, correo as CORREO, telefono as TELÉFONO, departamento as DEPTO, estatus as ESTATUS");            
+            String query = ("idEmpleado as \"Id Emp\", fechaReg as \"Fecha Reg\", nombre as Nombre, rfc as RFC, curp as CURP, nss as NSS, direccion as Dirección, correo as Correo, telefono as Teléfono, departamento as Depto, estatus as Estatus");            
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM EMPLEADO WHERE NOMBRE LIKE ? ESCAPE '!'");
             comando.setString(1,nombree + "%");
             ResultSet rs = comando.executeQuery();
@@ -350,7 +350,7 @@ public class Empleado extends Validacion {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("idEmpleado as \"ID EMP\", fechaReg as \"FECHA REG\", nombre as NOMBRE, rfc as RFC, curp as CURP, nss as NSS, direccion as DIRECCIÓN, correo as CORREO, telefono as TELÉFONO, departamento as DEPTO, estatus as ESTATUS");
+            String query = ("idEmpleado as \"Id Emp\", fechaReg as \"Fecha Reg\", nombre as Nombre, rfc as RFC, curp as CURP, nss as NSS, direccion as Dirección, correo as Correo, telefono as Teléfono, departamento as Depto, estatus as Estatus");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM EMPLEADO WHERE RFC LIKE ? ESCAPE '!'");
             comando.setString(1,rfcc + "%");
             ResultSet rs = comando.executeQuery();
@@ -394,7 +394,7 @@ public class Empleado extends Validacion {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("idEmpleado as \"ID EMP\", fechaReg as \"FECHA REG\", nombre as NOMBRE, rfc as RFC, curp as CURP, nss as NSS, direccion as DIRECCIÓN, correo as CORREO, telefono as TELÉFONO, departamento as DEPTO, estatus as ESTATUS");
+            String query = ("idEmpleado as \"Id Emp\", fechaReg as \"Fecha Reg\", nombre as Nombre, rfc as RFC, curp as CURP, nss as NSS, direccion as Dirección, correo as Correo, telefono as Teléfono, departamento as Depto, estatus as Estatus");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM EMPLEADO WHERE CURP LIKE ? ESCAPE '!'");
             comando.setString(1,curpp + "%");
             ResultSet rs = comando.executeQuery();
@@ -438,7 +438,7 @@ public class Empleado extends Validacion {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("idEmpleado as \"ID EMP\", fechaReg as \"FECHA REG\", nombre as NOMBRE, rfc as RFC, curp as CURP, nss as NSS, direccion as DIRECCIÓN, correo as CORREO, telefono as TELÉFONO, departamento as DEPTO, estatus as ESTATUS");            
+            String query = ("idEmpleado as \"Id Emp\", fechaReg as \"Fecha Reg\", nombre as Nombre, rfc as RFC, curp as CURP, nss as NSS, direccion as Dirección, correo as Correo, telefono as Teléfono, departamento as Depto, estatus as Estatus");            
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM EMPLEADO WHERE NSS LIKE ? ESCAPE '!'");
             comando.setString(1,nsss + "%");
             ResultSet rs = comando.executeQuery();
@@ -482,7 +482,7 @@ public class Empleado extends Validacion {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("idEmpleado as \"ID EMP\", fechaReg as \"FECHA REG\", nombre as NOMBRE, rfc as RFC, curp as CURP, nss as NSS, direccion as DIRECCIÓN, correo as CORREO, telefono as TELÉFONO, departamento as DEPTO, estatus as ESTATUS");
+            String query = ("idEmpleado as \"Id Emp\", fechaReg as \"Fecha Reg\", nombre as Nombre, rfc as RFC, curp as CURP, nss as NSS, direccion as Dirección, correo as Correo, telefono as Teléfono, departamento as Depto, estatus as Estatus");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM EMPLEADO WHERE DEPARTAMENTO LIKE ? ESCAPE '!'");
             comando.setString(1,deptoo + "%");
             ResultSet rs = comando.executeQuery();
@@ -526,7 +526,7 @@ public class Empleado extends Validacion {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("idEmpleado as \"ID EMP\", fechaReg as \"FECHA REG\", nombre as NOMBRE, rfc as RFC, curp as CURP, nss as NSS, direccion as DIRECCIÓN, correo as CORREO, telefono as TELÉFONO, departamento as DEPTO, estatus as ESTATUS");
+            String query = ("idEmpleado as \"Id Emp\", fechaReg as \"Fecha Reg\", nombre as Nombre, rfc as RFC, curp as CURP, nss as NSS, direccion as Dirección, correo as Correo, telefono as Teléfono, departamento as Depto, estatus as Estatus");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM EMPLEADO WHERE ESTATUS LIKE ? ESCAPE '!'");
             comando.setString(1,statuss + "%");
             ResultSet rs = comando.executeQuery();

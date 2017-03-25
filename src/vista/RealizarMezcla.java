@@ -136,7 +136,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         txtRealizarM = new javax.swing.JButton();
         lblToneladas1 = new javax.swing.JLabel();
         txtIdProducto = new javax.swing.JTextField();
-        comboAlmacenes = new javax.swing.JComboBox<>();
+        comboAlmacenes = new javax.swing.JComboBox<String>();
         txtIdAlmacen = new javax.swing.JTextField();
         lblAlmacen = new javax.swing.JLabel();
 
@@ -2599,7 +2599,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try{
-        comando = conexion.getConexion().prepareStatement(" select ap.cantidad from almacen_productos ap join productos p on ap.idProducto = p.idProducto where ap.idProducto = ? and ap.idAlmacen = ? ");
+        comando = conexion.getConexion().prepareStatement("select ap.cantidad from almacen_producto ap join producto p on ap.idProducto = p.idProducto where ap.idProducto = ? and ap.idAlmacen = ?");
         comando.setString(1, idProducto);
         comando.setString(2, txtIdAlmacen.getText());
         ResultSet rs = comando.executeQuery();

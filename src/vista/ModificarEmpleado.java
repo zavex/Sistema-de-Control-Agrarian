@@ -37,6 +37,12 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         btnGroupFacturaPermiso = new javax.swing.ButtonGroup();
         btnGroupAdminPermiso = new javax.swing.ButtonGroup();
         btnGroupMezclaPermiso = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
+        PanelFecha = new javax.swing.JPanel();
+        lblIdEmpleado = new javax.swing.JLabel();
+        lblFechaReg = new javax.swing.JLabel();
+        txtIdEmpleado = new javax.swing.JTextField();
+        DateChooserFechaRegEmpleado = new com.toedter.calendar.JDateChooser();
         PanelDatosContacto = new javax.swing.JPanel();
         lblNombreEmpleado = new javax.swing.JLabel();
         lblRfcEmpleado = new javax.swing.JLabel();
@@ -52,26 +58,11 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         txtDireccionEmpleado = new javax.swing.JTextField();
         lblCorreoEmpleado = new javax.swing.JLabel();
         txtCorreoEmpleado = new javax.swing.JTextField();
-        PanelFecha = new javax.swing.JPanel();
-        lblIdEmpleado = new javax.swing.JLabel();
-        lblFechaReg = new javax.swing.JLabel();
-        txtIdEmpleado = new javax.swing.JTextField();
-        DateChooserFechaRegEmpleado = new com.toedter.calendar.JDateChooser();
-        PanelDatosUsuario = new javax.swing.JPanel();
-        lblNombreUsuario = new javax.swing.JLabel();
-        lblPassword = new javax.swing.JLabel();
-        lblConfirmarPassword = new javax.swing.JLabel();
-        txtNombreUsuario = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JPasswordField();
-        txtConfirmarPassword = new javax.swing.JPasswordField();
         PanelLaboral = new javax.swing.JPanel();
         lblStatusEmpleado = new javax.swing.JLabel();
         lblDepartamentoEmpleado = new javax.swing.JLabel();
-        comboStatusEmpleado = new javax.swing.JComboBox<>();
-        comboDeptoEmpleado = new javax.swing.JComboBox<>();
-        btnCancelarEmpleado = new javax.swing.JButton();
-        rbModificarPermisos = new javax.swing.JRadioButton();
-        btnGuardarCambiosEmpleado = new javax.swing.JButton();
+        comboStatusEmpleado = new javax.swing.JComboBox<String>();
+        comboDeptoEmpleado = new javax.swing.JComboBox<String>();
         PanelPermisos2 = new javax.swing.JPanel();
         lblClientePermiso2 = new javax.swing.JLabel();
         lblEmpleadoPermiso2 = new javax.swing.JLabel();
@@ -126,12 +117,22 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         radioFacturaLectura = new javax.swing.JRadioButton();
         radioFacturaEscritura = new javax.swing.JRadioButton();
         radioFacturaNoAcceso = new javax.swing.JRadioButton();
+        rbModificarPermisos = new javax.swing.JRadioButton();
+        PanelDatosUsuario = new javax.swing.JPanel();
+        lblNombreUsuario = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JLabel();
+        lblConfirmarPassword = new javax.swing.JLabel();
+        txtNombreUsuario = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
+        txtConfirmarPassword = new javax.swing.JPasswordField();
+        btnCancelarEmpleado = new javax.swing.JButton();
+        btnGuardarCambiosEmpleado = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("MODIFICAR EMPLEADO");
+        setTitle("Modificar Empleado");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -150,18 +151,71 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
-        PanelDatosContacto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Contacto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        PanelFecha.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblIdEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblIdEmpleado.setForeground(new java.awt.Color(0, 0, 102));
+        lblIdEmpleado.setText("Id Empleado");
+
+        lblFechaReg.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblFechaReg.setForeground(new java.awt.Color(0, 0, 102));
+        lblFechaReg.setText("Fecha de Registro");
+
+        txtIdEmpleado.setEditable(false);
+
+        DateChooserFechaRegEmpleado.setEnabled(false);
+
+        javax.swing.GroupLayout PanelFechaLayout = new javax.swing.GroupLayout(PanelFecha);
+        PanelFecha.setLayout(PanelFechaLayout);
+        PanelFechaLayout.setHorizontalGroup(
+            PanelFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelFechaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblFechaReg, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DateChooserFechaRegEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+        );
+        PanelFechaLayout.setVerticalGroup(
+            PanelFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFechaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PanelFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DateChooserFechaRegEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanelFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblIdEmpleado)
+                        .addComponent(lblFechaReg)
+                        .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        PanelDatosContacto.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDatosContacto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Contacto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
         PanelDatosContacto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNombreEmpleado.setText("NOMBRE");
+        lblNombreEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblNombreEmpleado.setForeground(new java.awt.Color(0, 0, 102));
+        lblNombreEmpleado.setText("Nombre");
         PanelDatosContacto.add(lblNombreEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 33, 52, -1));
 
+        lblRfcEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblRfcEmpleado.setForeground(new java.awt.Color(0, 0, 102));
         lblRfcEmpleado.setText("RFC");
         PanelDatosContacto.add(lblRfcEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 58, 52, -1));
 
+        lblCurpEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblCurpEmpleado.setForeground(new java.awt.Color(0, 0, 102));
         lblCurpEmpleado.setText("CURP");
         PanelDatosContacto.add(lblCurpEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 33, 63, -1));
 
+        lblNssEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblNssEmpleado.setForeground(new java.awt.Color(0, 0, 102));
         lblNssEmpleado.setText("NSS");
         PanelDatosContacto.add(lblNssEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 83, 36, -1));
 
@@ -203,7 +257,9 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         });
         PanelDatosContacto.add(txtNssEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 81, 200, -1));
 
-        lblTelefonoEmpleado.setText("TELEFONO");
+        lblTelefonoEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblTelefonoEmpleado.setForeground(new java.awt.Color(0, 0, 102));
+        lblTelefonoEmpleado.setText("Teléfono");
         PanelDatosContacto.add(lblTelefonoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 58, -1, -1));
 
         txtTelefonoEmpleado.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +274,9 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         });
         PanelDatosContacto.add(txtTelefonoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 56, 210, -1));
 
-        lblDireccionEmpleado.setText("DIRECCION");
+        lblDireccionEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblDireccionEmpleado.setForeground(new java.awt.Color(0, 0, 102));
+        lblDireccionEmpleado.setText("Direccion");
         PanelDatosContacto.add(lblDireccionEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 83, -1, -1));
 
         txtDireccionEmpleado.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -228,7 +286,9 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         });
         PanelDatosContacto.add(txtDireccionEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 81, 210, -1));
 
-        lblCorreoEmpleado.setText("CORREO");
+        lblCorreoEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblCorreoEmpleado.setForeground(new java.awt.Color(0, 0, 102));
+        lblCorreoEmpleado.setText("Correo");
         PanelDatosContacto.add(lblCorreoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 108, 63, -1));
 
         txtCorreoEmpleado.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -238,83 +298,21 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         });
         PanelDatosContacto.add(txtCorreoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 106, 200, -1));
 
-        lblIdEmpleado.setText("ID EMPLEADO");
+        PanelLaboral.setBackground(new java.awt.Color(255, 255, 255));
+        PanelLaboral.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Laborales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
 
-        lblFechaReg.setText("FECHA REGISTRO");
+        lblStatusEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblStatusEmpleado.setForeground(new java.awt.Color(0, 0, 102));
+        lblStatusEmpleado.setText("Status");
 
-        txtIdEmpleado.setEditable(false);
+        lblDepartamentoEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblDepartamentoEmpleado.setForeground(new java.awt.Color(0, 0, 102));
+        lblDepartamentoEmpleado.setText("Departamento");
 
-        DateChooserFechaRegEmpleado.setEnabled(false);
-
-        javax.swing.GroupLayout PanelFechaLayout = new javax.swing.GroupLayout(PanelFecha);
-        PanelFecha.setLayout(PanelFechaLayout);
-        PanelFechaLayout.setHorizontalGroup(
-            PanelFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelFechaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblIdEmpleado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblFechaReg)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DateChooserFechaRegEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
-        );
-        PanelFechaLayout.setVerticalGroup(
-            PanelFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFechaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PanelFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DateChooserFechaRegEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PanelFechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblIdEmpleado)
-                        .addComponent(lblFechaReg)
-                        .addComponent(txtIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-
-        PanelDatosUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Crear Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
-        PanelDatosUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblNombreUsuario.setText("NOMBRE USUARIO");
-        PanelDatosUsuario.add(lblNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        lblPassword.setText("PASSWORD");
-        PanelDatosUsuario.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
-
-        lblConfirmarPassword.setText("CONFIRMAR PASS");
-        PanelDatosUsuario.add(lblConfirmarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
-
-        txtNombreUsuario.setEnabled(false);
-        txtNombreUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNombreUsuarioKeyTyped(evt);
-            }
-        });
-        PanelDatosUsuario.add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 31, 151, -1));
-
-        txtPassword.setEnabled(false);
-        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtPasswordKeyTyped(evt);
-            }
-        });
-        PanelDatosUsuario.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 56, 151, -1));
-
-        txtConfirmarPassword.setEnabled(false);
-        PanelDatosUsuario.add(txtConfirmarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 81, 151, -1));
-
-        PanelLaboral.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Laborales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
-
-        lblStatusEmpleado.setText("STATUS");
-
-        lblDepartamentoEmpleado.setText("DEPARTAMENTO");
-
-        comboStatusEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        comboStatusEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo" }));
         comboStatusEmpleado.setSelectedIndex(-1);
 
-        comboDeptoEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gerencia", "Contabilidad", "Recursos Humanos", "Administracion", "Compras", "Sistemas", "Mercadotecnia", "Finanzas", "Produccion", "Ventas" }));
+        comboDeptoEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Gerencia", "Contabilidad", "Recursos Humanos", "Administracion", "Compras", "Sistemas", "Mercadotecnia", "Finanzas", "Produccion", "Ventas" }));
         comboDeptoEmpleado.setSelectedIndex(-1);
 
         javax.swing.GroupLayout PanelLaboralLayout = new javax.swing.GroupLayout(PanelLaboral);
@@ -348,28 +346,9 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnCancelarEmpleado.setText("REGRESAR");
-        btnCancelarEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarEmpleadoActionPerformed(evt);
-            }
-        });
-
-        rbModificarPermisos.setText("EDITAR PERMISOS");
-        rbModificarPermisos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbModificarPermisosActionPerformed(evt);
-            }
-        });
-
-        btnGuardarCambiosEmpleado.setText("GUARDAR CAMBIOS");
-        btnGuardarCambiosEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarCambiosEmpleadoActionPerformed(evt);
-            }
-        });
-
-        PanelPermisos2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Permisos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        PanelPermisos2.setBackground(new java.awt.Color(255, 255, 255));
+        PanelPermisos2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Permisos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
+        PanelPermisos2.setForeground(new java.awt.Color(255, 255, 255));
 
         lblClientePermiso2.setText("CLIENTE");
 
@@ -388,6 +367,8 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         lblDevolucionPermiso2.setText("DEVOLUCION");
 
         lblAlmacenPermiso2.setText("ALMACEN");
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         lblNoAccesso2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/noAccess.png"))); // NOI18N
 
@@ -423,12 +404,15 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
 
         lblFacturaPermiso.setText("FACTURA");
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         btnGroupClientePermisos.add(radioClienteNoAcceso);
         radioClienteNoAcceso.setEnabled(false);
 
         btnGroupClientePermisos.add(radioClienteLectura);
         radioClienteLectura.setEnabled(false);
 
+        radioClienteEscritura.setBackground(new java.awt.Color(255, 255, 255));
         btnGroupClientePermisos.add(radioClienteEscritura);
         radioClienteEscritura.setEnabled(false);
 
@@ -729,59 +713,141 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
                 .addComponent(lblFacturaPermiso)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPermisos2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6))
         );
 
+        rbModificarPermisos.setBackground(new java.awt.Color(255, 255, 255));
+        rbModificarPermisos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        rbModificarPermisos.setForeground(new java.awt.Color(0, 0, 102));
+        rbModificarPermisos.setText("EDITAR PERMISOS");
+        rbModificarPermisos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbModificarPermisosActionPerformed(evt);
+            }
+        });
+
+        PanelDatosUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDatosUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Crear Usuario", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
+        PanelDatosUsuario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblNombreUsuario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblNombreUsuario.setForeground(new java.awt.Color(0, 0, 102));
+        lblNombreUsuario.setText("Nombre Usuario");
+        PanelDatosUsuario.add(lblNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        lblPassword.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(0, 0, 102));
+        lblPassword.setText("Password");
+        PanelDatosUsuario.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        lblConfirmarPassword.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblConfirmarPassword.setForeground(new java.awt.Color(0, 0, 102));
+        lblConfirmarPassword.setText("Confirmar pass");
+        PanelDatosUsuario.add(lblConfirmarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+
+        txtNombreUsuario.setEnabled(false);
+        txtNombreUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreUsuarioKeyTyped(evt);
+            }
+        });
+        PanelDatosUsuario.add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 31, 151, -1));
+
+        txtPassword.setEnabled(false);
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyTyped(evt);
+            }
+        });
+        PanelDatosUsuario.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 56, 151, -1));
+
+        txtConfirmarPassword.setEnabled(false);
+        PanelDatosUsuario.add(txtConfirmarPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 81, 151, -1));
+
+        btnCancelarEmpleado.setBackground(new java.awt.Color(102, 102, 255));
+        btnCancelarEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCancelarEmpleado.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarEmpleado.setText("Regresar");
+        btnCancelarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarEmpleadoActionPerformed(evt);
+            }
+        });
+
+        btnGuardarCambiosEmpleado.setBackground(new java.awt.Color(102, 102, 255));
+        btnGuardarCambiosEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnGuardarCambiosEmpleado.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarCambiosEmpleado.setText("Guardar Cambios");
+        btnGuardarCambiosEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarCambiosEmpleadoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelFecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanelDatosContacto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(PanelLaboral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(rbModificarPermisos, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(PanelDatosUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnCancelarEmpleado)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnGuardarCambiosEmpleado)
+                                .addGap(22, 22, 22)))
+                        .addComponent(PanelPermisos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 6, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PanelFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelDatosContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelPermisos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(PanelLaboral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rbModificarPermisos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(PanelDatosUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCancelarEmpleado)
+                            .addComponent(btnGuardarCambiosEmpleado))))
+                .addGap(5, 5, 5))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(PanelFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCancelarEmpleado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnGuardarCambiosEmpleado)
-                        .addGap(27, 27, 27))
-                    .addComponent(PanelDatosContacto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(rbModificarPermisos)
-                                    .addComponent(PanelDatosUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18))
-                            .addComponent(PanelLaboral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(PanelPermisos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PanelFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PanelDatosContacto, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(PanelLaboral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(rbModificarPermisos)
-                        .addGap(30, 30, 30)
-                        .addComponent(PanelDatosUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(PanelPermisos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelarEmpleado)
-                    .addComponent(btnGuardarCambiosEmpleado))
-                .addGap(22, 22, 22))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -1397,7 +1463,6 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JPanel PanelDatosUsuario;
     private javax.swing.JPanel PanelFecha;
     private javax.swing.JPanel PanelLaboral;
-    private javax.swing.JPanel PanelPermisos;
     private javax.swing.JPanel PanelPermisos2;
     private javax.swing.JButton btnCancelarEmpleado;
     private javax.swing.ButtonGroup btnGroupAdminPermiso;
@@ -1415,49 +1480,37 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardarCambiosEmpleado;
     private javax.swing.JComboBox<String> comboDeptoEmpleado;
     private javax.swing.JComboBox<String> comboStatusEmpleado;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblAdminPermisos1;
-    private javax.swing.JLabel lblAlmacenPermiso;
     private javax.swing.JLabel lblAlmacenPermiso2;
-    private javax.swing.JLabel lblClientePermiso;
     private javax.swing.JLabel lblClientePermiso2;
-    private javax.swing.JLabel lblCompraPermiso;
     private javax.swing.JLabel lblCompraPermiso2;
     private javax.swing.JLabel lblConfirmarPassword;
     private javax.swing.JLabel lblCorreoEmpleado;
     private javax.swing.JLabel lblCurpEmpleado;
     private javax.swing.JLabel lblDepartamentoEmpleado;
-    private javax.swing.JLabel lblDevolucionPermiso;
     private javax.swing.JLabel lblDevolucionPermiso2;
     private javax.swing.JLabel lblDireccionEmpleado;
-    private javax.swing.JLabel lblEmpleadoPermiso;
     private javax.swing.JLabel lblEmpleadoPermiso2;
-    private javax.swing.JLabel lblEscritura;
     private javax.swing.JLabel lblEscritura2;
     private javax.swing.JLabel lblFacturaPermiso;
     private javax.swing.JLabel lblFechaReg;
     private javax.swing.JLabel lblIdEmpleado;
-    private javax.swing.JLabel lblLectura;
     private javax.swing.JLabel lblLectura2;
     private javax.swing.JLabel lblMezclas1;
-    private javax.swing.JLabel lblNoAccesso;
     private javax.swing.JLabel lblNoAccesso2;
     private javax.swing.JLabel lblNombreEmpleado;
     private javax.swing.JLabel lblNombreUsuario;
-    private javax.swing.JLabel lblNotaCreditoPermiso;
     private javax.swing.JLabel lblNotaCreditoPermiso2;
     private javax.swing.JLabel lblNssEmpleado;
     private javax.swing.JLabel lblPassword;
-    private javax.swing.JLabel lblProductoPermiso;
     private javax.swing.JLabel lblProductoPermiso2;
-    private javax.swing.JLabel lblProveedorPermiso;
     private javax.swing.JLabel lblProveedorPermiso2;
     private javax.swing.JLabel lblRfcEmpleado;
     private javax.swing.JLabel lblStatusEmpleado;
     private javax.swing.JLabel lblTelefonoEmpleado;
-    private javax.swing.JLabel lblVentaPermiso;
     private javax.swing.JLabel lblVentaPermiso2;
     private javax.swing.JRadioButton radioAdminEscritura;
     private javax.swing.JRadioButton radioAdminLectura;

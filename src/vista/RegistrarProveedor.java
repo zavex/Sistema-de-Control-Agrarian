@@ -22,22 +22,11 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtIdProveedor = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         lblIdProveedor = new javax.swing.JLabel();
+        txtIdProveedor = new javax.swing.JTextField();
         lblFechaReg = new javax.swing.JLabel();
         DateChooserFechaRegProveedor = new com.toedter.calendar.JDateChooser();
-        PanelDatosDemograficos = new javax.swing.JPanel();
-        lblCpProveedor = new javax.swing.JLabel();
-        lblMunicipioProveedor = new javax.swing.JLabel();
-        txtCpProveedor = new javax.swing.JTextField();
-        txtMunicipioProveedor = new javax.swing.JTextField();
-        lblDireccionProveedor = new javax.swing.JLabel();
-        txtDireccionProveedor = new javax.swing.JTextField();
-        lblEstadoProveedor = new javax.swing.JLabel();
-        txtEstadoProveedor = new javax.swing.JTextField();
-        btnLimpiarProveedor = new javax.swing.JButton();
-        btnCancelarProveedor = new javax.swing.JButton();
-        btnRegistrarProveedor = new javax.swing.JButton();
         image = new javax.swing.JLabel();
         PanelDatosContacto = new javax.swing.JPanel();
         lblNombreProveedor = new javax.swing.JLabel();
@@ -50,6 +39,18 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         txtCorreoProveedor = new javax.swing.JTextField();
         lblContactoProveedor = new javax.swing.JLabel();
         txtContactoProveedor = new javax.swing.JTextField();
+        PanelDatosDemograficos = new javax.swing.JPanel();
+        lblCpProveedor = new javax.swing.JLabel();
+        lblMunicipioProveedor = new javax.swing.JLabel();
+        txtCpProveedor = new javax.swing.JTextField();
+        txtMunicipioProveedor = new javax.swing.JTextField();
+        lblDireccionProveedor = new javax.swing.JLabel();
+        txtDireccionProveedor = new javax.swing.JTextField();
+        lblEstadoProveedor = new javax.swing.JLabel();
+        txtEstadoProveedor = new javax.swing.JTextField();
+        btnLimpiarProveedor = new javax.swing.JButton();
+        btnCancelarProveedor = new javax.swing.JButton();
+        btnRegistrarProveedor = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -57,7 +58,7 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("REGISTRAR PROVEEDOR");
+        setTitle("Registrar Proveedor");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -76,91 +77,33 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblIdProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblIdProveedor.setForeground(new java.awt.Color(0, 0, 102));
+        lblIdProveedor.setText("Id Proveedor");
+
         txtIdProveedor.setEditable(false);
 
-        lblIdProveedor.setText("ID PROVEEDOR");
-
-        lblFechaReg.setText("FECHA REGISTRO");
+        lblFechaReg.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblFechaReg.setForeground(new java.awt.Color(0, 0, 102));
+        lblFechaReg.setText("Fecha de Registro");
 
         DateChooserFechaRegProveedor.setEnabled(false);
 
-        PanelDatosDemograficos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Demográficos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
-        PanelDatosDemograficos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblCpProveedor.setText("CP");
-        PanelDatosDemograficos.add(lblCpProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 25, -1));
-
-        lblMunicipioProveedor.setText("MUNICIPIO");
-        PanelDatosDemograficos.add(lblMunicipioProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 71, 63, -1));
-
-        txtCpProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCpProveedorActionPerformed(evt);
-            }
-        });
-        txtCpProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCpProveedorKeyTyped(evt);
-            }
-        });
-        PanelDatosDemograficos.add(txtCpProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 62, -1));
-
-        txtMunicipioProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtMunicipioProveedorKeyTyped(evt);
-            }
-        });
-        PanelDatosDemograficos.add(txtMunicipioProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 71, 200, -1));
-
-        lblDireccionProveedor.setText("DIRECCIÓN");
-        PanelDatosDemograficos.add(lblDireccionProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 44, -1, -1));
-
-        txtDireccionProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtDireccionProveedorKeyTyped(evt);
-            }
-        });
-        PanelDatosDemograficos.add(txtDireccionProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 42, 470, -1));
-
-        lblEstadoProveedor.setText("ESTADO");
-        PanelDatosDemograficos.add(lblEstadoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 52, -1));
-
-        txtEstadoProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtEstadoProveedorKeyTyped(evt);
-            }
-        });
-        PanelDatosDemograficos.add(txtEstadoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 100, -1));
-
-        btnLimpiarProveedor.setText("LIMPIAR");
-        btnLimpiarProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarProveedorActionPerformed(evt);
-            }
-        });
-
-        btnCancelarProveedor.setText("CANCELAR");
-        btnCancelarProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarProveedorActionPerformed(evt);
-            }
-        });
-
-        btnRegistrarProveedor.setText("REGISTRAR");
-        btnRegistrarProveedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarProveedorActionPerformed(evt);
-            }
-        });
-
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/clients.png"))); // NOI18N
 
-        PanelDatosContacto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Contacto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        PanelDatosContacto.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDatosContacto.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Contacto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
         PanelDatosContacto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNombreProveedor.setText("NOMBRE");
+        lblNombreProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblNombreProveedor.setForeground(new java.awt.Color(0, 0, 102));
+        lblNombreProveedor.setText("Nombre");
         PanelDatosContacto.add(lblNombreProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 33, 52, -1));
 
+        lblRfcProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblRfcProveedor.setForeground(new java.awt.Color(0, 0, 102));
         lblRfcProveedor.setText("RFC");
         PanelDatosContacto.add(lblRfcProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 71, 52, -1));
 
@@ -190,10 +133,14 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         });
         PanelDatosContacto.add(txtTelefonoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 30, 200, -1));
 
-        lblTelefonoProveedor.setText("TELÉFONO");
+        lblTelefonoProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblTelefonoProveedor.setForeground(new java.awt.Color(0, 0, 102));
+        lblTelefonoProveedor.setText("Teléfono");
         PanelDatosContacto.add(lblTelefonoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 33, -1, -1));
 
-        lblCorreoProveedor.setText("CORREO");
+        lblCorreoProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblCorreoProveedor.setForeground(new java.awt.Color(0, 0, 102));
+        lblCorreoProveedor.setText("Correo");
         PanelDatosContacto.add(lblCorreoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 71, 62, -1));
 
         txtCorreoProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -203,7 +150,9 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         });
         PanelDatosContacto.add(txtCorreoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 68, 200, -1));
 
-        lblContactoProveedor.setText("CONTACTO");
+        lblContactoProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblContactoProveedor.setForeground(new java.awt.Color(0, 0, 102));
+        lblContactoProveedor.setText("Contacto");
         PanelDatosContacto.add(lblContactoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         txtContactoProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -213,60 +162,161 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         });
         PanelDatosContacto.add(txtContactoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 490, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(lblIdProveedor)
-                        .addGap(4, 4, 4)
-                        .addComponent(txtIdProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(179, 179, 179)
-                        .addComponent(lblFechaReg)
-                        .addGap(4, 4, 4)
-                        .addComponent(DateChooserFechaRegProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addComponent(image))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
+        PanelDatosDemograficos.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDatosDemograficos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Demográficos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
+        PanelDatosDemograficos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblCpProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblCpProveedor.setForeground(new java.awt.Color(0, 0, 102));
+        lblCpProveedor.setText("CP");
+        PanelDatosDemograficos.add(lblCpProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 25, -1));
+
+        lblMunicipioProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblMunicipioProveedor.setForeground(new java.awt.Color(0, 0, 102));
+        lblMunicipioProveedor.setText("Municipio");
+        PanelDatosDemograficos.add(lblMunicipioProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 71, 63, -1));
+
+        txtCpProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCpProveedorActionPerformed(evt);
+            }
+        });
+        txtCpProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCpProveedorKeyTyped(evt);
+            }
+        });
+        PanelDatosDemograficos.add(txtCpProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 62, -1));
+
+        txtMunicipioProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMunicipioProveedorKeyTyped(evt);
+            }
+        });
+        PanelDatosDemograficos.add(txtMunicipioProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 71, 200, -1));
+
+        lblDireccionProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblDireccionProveedor.setForeground(new java.awt.Color(0, 0, 102));
+        lblDireccionProveedor.setText("Dirección");
+        PanelDatosDemograficos.add(lblDireccionProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 44, -1, -1));
+
+        txtDireccionProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDireccionProveedorKeyTyped(evt);
+            }
+        });
+        PanelDatosDemograficos.add(txtDireccionProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 42, 470, -1));
+
+        lblEstadoProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblEstadoProveedor.setForeground(new java.awt.Color(0, 0, 102));
+        lblEstadoProveedor.setText("Estado");
+        PanelDatosDemograficos.add(lblEstadoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, 52, -1));
+
+        txtEstadoProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEstadoProveedorKeyTyped(evt);
+            }
+        });
+        PanelDatosDemograficos.add(txtEstadoProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 100, -1));
+
+        btnLimpiarProveedor.setBackground(new java.awt.Color(102, 102, 255));
+        btnLimpiarProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnLimpiarProveedor.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarProveedor.setText("Limpiar");
+        btnLimpiarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarProveedorActionPerformed(evt);
+            }
+        });
+
+        btnCancelarProveedor.setBackground(new java.awt.Color(102, 102, 255));
+        btnCancelarProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCancelarProveedor.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarProveedor.setText("Cancelar");
+        btnCancelarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarProveedorActionPerformed(evt);
+            }
+        });
+
+        btnRegistrarProveedor.setBackground(new java.awt.Color(102, 102, 255));
+        btnRegistrarProveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnRegistrarProveedor.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarProveedor.setText("Registrar");
+        btnRegistrarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarProveedorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PanelDatosContacto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(314, 314, 314)
                                 .addComponent(btnLimpiarProveedor)
                                 .addGap(10, 10, 10)
                                 .addComponent(btnCancelarProveedor)
                                 .addGap(6, 6, 6)
-                                .addComponent(btnRegistrarProveedor))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(PanelDatosContacto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(PanelDatosDemograficos, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnRegistrarProveedor)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(PanelDatosDemograficos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblIdProveedor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtIdProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(157, 157, 157)
+                        .addComponent(lblFechaReg)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(DateChooserFechaRegProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(image)
+                        .addGap(21, 21, 21))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIdProveedor)
+                            .addComponent(txtIdProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFechaReg)))
+                    .addComponent(DateChooserFechaRegProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(image))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelDatosContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelDatosDemograficos, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLimpiarProveedor)
+                    .addComponent(btnCancelarProveedor)
+                    .addComponent(btnRegistrarProveedor))
+                .addGap(15, 15, 15))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(lblIdProveedor))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtIdProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblFechaReg))
-                    .addComponent(DateChooserFechaRegProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(image))
-                .addGap(6, 6, 6)
-                .addComponent(PanelDatosContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(PanelDatosDemograficos, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLimpiarProveedor)
-                    .addComponent(btnCancelarProveedor)
-                    .addComponent(btnRegistrarProveedor))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -474,6 +524,7 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnRegistrarProveedor;
     private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblContactoProveedor;
     private javax.swing.JLabel lblCorreoProveedor;
     private javax.swing.JLabel lblCpProveedor;

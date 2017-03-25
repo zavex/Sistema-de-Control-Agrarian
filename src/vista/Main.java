@@ -103,17 +103,13 @@ public class Main extends javax.swing.JFrame {
         buttonSalir = new javax.swing.JButton();
         ButtonEntrar = new javax.swing.JButton();
         Escritorio = new javax.swing.JDesktopPane();
-        clockDigital1 = new org.edisoncor.gui.varios.ClockDigital();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        btnAccesoRapidoRealizarMezcla = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        btnAccesoRapidoVerClientes = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        btnAccesoRapidoVerProductos = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
         lblBienvenido = new javax.swing.JLabel();
         lblUsuarioActivo = new javax.swing.JLabel();
+        clockDigital1 = new org.edisoncor.gui.varios.ClockDigital();
+        jToolBar2 = new javax.swing.JToolBar();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuRegistro = new javax.swing.JMenu();
         SubmenuCliente = new javax.swing.JMenu();
@@ -324,105 +320,48 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        clockDigital1.setBackground(new java.awt.Color(0, 102, 102));
-        clockDigital1.setForeground(new java.awt.Color(255, 255, 255));
-        clockDigital1.setAlignmentY(0.7F);
-        clockDigital1.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/campo.jpg"))); // NOI18N
-
-        jLabel4.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("LINKS DE RÁPIDO ACCESO");
-
-        btnAccesoRapidoRealizarMezcla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/mix.png"))); // NOI18N
-        btnAccesoRapidoRealizarMezcla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAccesoRapidoRealizarMezclaActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("REALIZAR MEZCLAS");
-
-        btnAccesoRapidoVerClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/clients.png"))); // NOI18N
-        btnAccesoRapidoVerClientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAccesoRapidoVerClientesActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("CONSULTAR CLIENTES");
-
-        btnAccesoRapidoVerProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/productos.png"))); // NOI18N
-        btnAccesoRapidoVerProductos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAccesoRapidoVerProductosActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("VER PRODUCTOS");
-
-        Escritorio.setLayer(clockDigital1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(btnAccesoRapidoRealizarMezcla, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(btnAccesoRapidoVerClientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(btnAccesoRapidoVerProductos, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Escritorio.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EscritorioLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAccesoRapidoRealizarMezcla, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(btnAccesoRapidoVerClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addComponent(btnAccesoRapidoVerProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                .addGap(28, 28, 28)
-                .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAccesoRapidoVerProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnAccesoRapidoVerClientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(btnAccesoRapidoRealizarMezcla, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)))
-                .addGap(0, 0, 0))
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+        Escritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        lblBienvenido.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblBienvenido.setForeground(new java.awt.Color(0, 0, 102));
         lblBienvenido.setText("Bienvenido");
 
+        lblUsuarioActivo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblUsuarioActivo.setForeground(new java.awt.Color(0, 0, 102));
+
+        clockDigital1.setBackground(new java.awt.Color(0, 102, 102));
+        clockDigital1.setForeground(new java.awt.Color(0, 0, 102));
+        clockDigital1.setAlignmentY(0.7F);
+        clockDigital1.setFont(new java.awt.Font("Microsoft Sans Serif", 1, 18)); // NOI18N
+
+        jToolBar2.setRollover(true);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/mix24x24.png"))); // NOI18N
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(jButton1);
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/utilidades24x24.png"))); // NOI18N
+        jButton2.setFocusable(false);
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(jButton2);
+
         MenuRegistro.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        MenuRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/productos24x24.png"))); // NOI18N
+        MenuRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/registro2.0.png"))); // NOI18N
         MenuRegistro.setText("Registros");
         MenuRegistro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
@@ -513,6 +452,7 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(MenuRegistro);
 
         MenuMovimiento.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        MenuMovimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/movimientos2.0.png"))); // NOI18N
         MenuMovimiento.setText("Movimientos");
         MenuMovimiento.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
@@ -603,7 +543,7 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(MenuMovimiento);
 
         MenuAlmacenes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        MenuAlmacenes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/almacen.png"))); // NOI18N
+        MenuAlmacenes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/almacen2.0.png"))); // NOI18N
         MenuAlmacenes.setText("Almacenes");
         MenuAlmacenes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
@@ -640,7 +580,7 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(MenuAlmacenes);
 
         MenuMezclas.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        MenuMezclas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/mix24x24.png"))); // NOI18N
+        MenuMezclas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/mezla2.0.png"))); // NOI18N
         MenuMezclas.setText("Mezclas");
         MenuMezclas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
@@ -655,7 +595,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar1.add(MenuMezclas);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/graph-5.png"))); // NOI18N
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/report2.0.png"))); // NOI18N
         jMenu1.setText("Reportes");
         jMenu1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
@@ -679,6 +619,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/utilidades2.0.png"))); // NOI18N
         jMenu2.setText("Utilerias");
         jMenu2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
@@ -688,7 +629,7 @@ public class Main extends javax.swing.JFrame {
         });
 
         jMenuItem3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jMenuItem3.setText("VER LOG");
+        jMenuItem3.setText("Ver Log");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -699,7 +640,7 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         MenuAyuda.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        MenuAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/ayuda.png"))); // NOI18N
+        MenuAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/ayuda2.0.png"))); // NOI18N
         MenuAyuda.setText("Ayuda");
         MenuAyuda.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
@@ -715,23 +656,30 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(1190, Short.MAX_VALUE)
-                .addComponent(lblBienvenido)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblUsuarioActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblBienvenido)
+                    .addComponent(lblUsuarioActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(80, 80, 80)
+                .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(Escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Escritorio)
-                .addGap(0, 0, 0)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblBienvenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblUsuarioActivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(4, 4, 4))
+                .addComponent(Escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblBienvenido)
+                        .addGap(0, 0, 0)
+                        .addComponent(lblUsuarioActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         pack();
@@ -931,27 +879,6 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_VentanaLoginWindowIconified
 
-    private void btnAccesoRapidoRealizarMezclaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccesoRapidoRealizarMezclaActionPerformed
-        RealizarMezcla realMez = new RealizarMezcla (permiso,formula,producto,almacenProducto);
-        Escritorio.add(realMez);
-        centrarVentana(realMez);
-        realMez.setVisible(true);
-    }//GEN-LAST:event_btnAccesoRapidoRealizarMezclaActionPerformed
-
-    private void btnAccesoRapidoVerClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccesoRapidoVerClientesActionPerformed
-        ConsultarCliente conCli = new ConsultarCliente (cliente,Escritorio,permiso);
-        Escritorio.add(conCli);
-        centrarVentana(conCli);
-        conCli.setVisible(true);
-    }//GEN-LAST:event_btnAccesoRapidoVerClientesActionPerformed
-
-    private void btnAccesoRapidoVerProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccesoRapidoVerProductosActionPerformed
-        ConsultarProducto consProd = new ConsultarProducto (producto,Escritorio,permiso);
-        Escritorio.add(consProd);
-        centrarVentana(consProd);
-        consProd.setVisible(true);
-    }//GEN-LAST:event_btnAccesoRapidoVerProductosActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\reportProductosPorAlmacen.jasper";
         JasperReport jr = null;
@@ -998,6 +925,7 @@ public class Main extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         ConsultarLog cl = new ConsultarLog (Escritorio);
         Escritorio.add(cl);
+        centrarVentana(cl);
         cl.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -1074,19 +1002,19 @@ public class Main extends javax.swing.JFrame {
         switch (permiso.getProducto()) {
             case 0:
                 SubmenuProductos.setVisible(false);
-                btnAccesoRapidoVerProductos.setVisible(false);
+//                btnAccesoRapidoVerProductos.setVisible(false);
                 break;
             case 1:
                 SubmenuProductos.setVisible(true);
                 ItemCapturarProducto.setVisible(false);
                 ItemConsultarProducto.setVisible(true);
-                btnAccesoRapidoVerProductos.setVisible(true);
+                //btnAccesoRapidoVerProductos.setVisible(true);
                 break;
             case 2:
                 SubmenuProductos.setVisible(true);
                 ItemCapturarProducto.setVisible(true);
                 ItemConsultarProducto.setVisible(true);    
-                btnAccesoRapidoVerProductos.setVisible(true);
+                //btnAccesoRapidoVerProductos.setVisible(true);
                 break;
         }
     }
@@ -1149,19 +1077,19 @@ public class Main extends javax.swing.JFrame {
         switch (permiso.getCliente()) {
             case 0:
                 SubmenuCliente.setVisible(false);
-                btnAccesoRapidoVerClientes.setVisible(false);
+                //btnAccesoRapidoVerClientes.setVisible(false);
                 break;
             case 1:
                 SubmenuCliente.setVisible(true);
                 ItemCapturarCliente.setVisible(false);
                 ItemConsultarCliente.setVisible(true);
-                btnAccesoRapidoVerClientes.setVisible(true);
+                //btnAccesoRapidoVerClientes.setVisible(true);
                 break;
             case 2:
                 SubmenuCliente.setVisible(true);
                 ItemCapturarCliente.setVisible(true);
                 ItemConsultarCliente.setVisible(true);    
-                btnAccesoRapidoVerClientes.setVisible(true);
+                //btnAccesoRapidoVerClientes.setVisible(true);
                 break;
         }    
     }
@@ -1224,17 +1152,17 @@ public class Main extends javax.swing.JFrame {
         switch (permiso.getMezcla()) {
             case 0:
                 MenuMezclas.setVisible(false);
-                btnAccesoRapidoRealizarMezcla.setVisible(false);
+//                btnAccesoRapidoRealizarMezcla.setVisible(false);
                 break;
             case 1:
                 MenuMezclas.setVisible(true);
                 ItemRealizarMezclas.setVisible(true);                
-                btnAccesoRapidoRealizarMezcla.setVisible(true);
+//                btnAccesoRapidoRealizarMezcla.setVisible(true);
                 break;
             case 2:
                 MenuMezclas.setVisible(true);
                 ItemRealizarMezclas.setVisible(true);
-                btnAccesoRapidoRealizarMezcla.setVisible(true);
+//                btnAccesoRapidoRealizarMezcla.setVisible(true);
                 break;
 
         }
@@ -1325,19 +1253,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu SubmenuProveedor;
     private javax.swing.JMenu SubmenuVenta;
     private javax.swing.JDialog VentanaLogin;
-    private javax.swing.JButton btnAccesoRapidoRealizarMezcla;
-    private javax.swing.JButton btnAccesoRapidoVerClientes;
-    private javax.swing.JButton btnAccesoRapidoVerProductos;
     private javax.swing.JButton btnNull1;
     private javax.swing.JButton buttonSalir;
     private org.edisoncor.gui.varios.ClockDigital clockDigital1;
     private javax.swing.JMenuItem itemAgregarMovimiento;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -1345,6 +1268,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JToolBar jToolBar2;
     private javax.swing.JLabel lblBienvenido;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblUsuario;

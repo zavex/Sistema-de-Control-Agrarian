@@ -36,14 +36,12 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtIdAlmacen = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        image = new javax.swing.JLabel();
         lblIdAlmacen = new javax.swing.JLabel();
+        txtIdAlmacen = new javax.swing.JTextField();
         lblFechaReg = new javax.swing.JLabel();
         DateChooserFechaRegAlmacen = new com.toedter.calendar.JDateChooser();
-        btnLimpiarAlmacen = new javax.swing.JButton();
-        btnCancelarCambiosAlmacen = new javax.swing.JButton();
-        btnGuardarCambiosAlmacen = new javax.swing.JButton();
-        image = new javax.swing.JLabel();
         PanelDetallesAlmacen = new javax.swing.JPanel();
         lblNombreAlmacen = new javax.swing.JLabel();
         lblDireccionAlmacen = new javax.swing.JLabel();
@@ -57,6 +55,9 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
         txtIdEmpleado = new javax.swing.JTextField();
         txtNombreEmpleado = new javax.swing.JTextField();
         spnToneladas = new javax.swing.JSpinner();
+        btnGuardarCambiosAlmacen = new javax.swing.JButton();
+        btnCancelarCambiosAlmacen = new javax.swing.JButton();
+        btnLimpiarAlmacen = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -64,7 +65,7 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("MODIFICAR ALMACEN");
+        setTitle("Modificar Almacen");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -83,44 +84,34 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
             }
         });
 
-        txtIdAlmacen.setEditable(false);
-
-        lblIdAlmacen.setText("ID ALMACEN");
-
-        lblFechaReg.setText("FECHA DE REGISTRO");
-
-        DateChooserFechaRegAlmacen.setEnabled(false);
-
-        btnLimpiarAlmacen.setText("LIMPIAR");
-        btnLimpiarAlmacen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarAlmacenActionPerformed(evt);
-            }
-        });
-
-        btnCancelarCambiosAlmacen.setText("CANCELAR");
-        btnCancelarCambiosAlmacen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarCambiosAlmacenActionPerformed(evt);
-            }
-        });
-
-        btnGuardarCambiosAlmacen.setText("GUARDAR CAMBIOS");
-        btnGuardarCambiosAlmacen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarCambiosAlmacenActionPerformed(evt);
-            }
-        });
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/clients.png"))); // NOI18N
 
-        PanelDetallesAlmacen.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de Almacen", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        lblIdAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblIdAlmacen.setForeground(new java.awt.Color(0, 0, 102));
+        lblIdAlmacen.setText("Id Almacen");
+
+        txtIdAlmacen.setEditable(false);
+
+        lblFechaReg.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblFechaReg.setForeground(new java.awt.Color(0, 0, 102));
+        lblFechaReg.setText("Fecha de Registro");
+
+        DateChooserFechaRegAlmacen.setEnabled(false);
+
+        PanelDetallesAlmacen.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDetallesAlmacen.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de Almacen", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
         PanelDetallesAlmacen.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNombreAlmacen.setText("NOMBRE");
+        lblNombreAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblNombreAlmacen.setForeground(new java.awt.Color(0, 0, 102));
+        lblNombreAlmacen.setText("Nombre");
         PanelDetallesAlmacen.add(lblNombreAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 52, -1));
 
-        lblDireccionAlmacen.setText("DIRECCION");
+        lblDireccionAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblDireccionAlmacen.setForeground(new java.awt.Color(0, 0, 102));
+        lblDireccionAlmacen.setText("Direccion");
         PanelDetallesAlmacen.add(lblDireccionAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         txtNombreAlmacen.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +138,9 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
         });
         PanelDetallesAlmacen.add(txtDireccionAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 253, -1));
 
-        lblTelefonoAlmacen.setText("TELEFONO");
+        lblTelefonoAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblTelefonoAlmacen.setForeground(new java.awt.Color(0, 0, 102));
+        lblTelefonoAlmacen.setText("Teléfono");
         PanelDetallesAlmacen.add(lblTelefonoAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
 
         txtTelefonoAlmacen.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -157,14 +150,20 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
         });
         PanelDetallesAlmacen.add(txtTelefonoAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 215, -1));
 
+        lblIdEmpleado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblIdEmpleado.setForeground(new java.awt.Color(0, 0, 102));
         lblIdEmpleado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblIdEmpleado.setText("EMPLEADO");
+        lblIdEmpleado.setText("Empleado");
         PanelDetallesAlmacen.add(lblIdEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
-        lblCapacidadAlmacen.setText("CAPACIDAD");
+        lblCapacidadAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblCapacidadAlmacen.setForeground(new java.awt.Color(0, 0, 102));
+        lblCapacidadAlmacen.setText("Capacidad");
         PanelDetallesAlmacen.add(lblCapacidadAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
 
-        jLabel2.setText("TONELADAS");
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel2.setText("Toneladas");
         PanelDetallesAlmacen.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, -1, -1));
 
         txtIdEmpleado.addActionListener(new java.awt.event.ActionListener() {
@@ -195,58 +194,96 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
         spnToneladas.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
         PanelDetallesAlmacen.add(spnToneladas, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 110, 70, -1));
 
+        btnGuardarCambiosAlmacen.setBackground(new java.awt.Color(102, 102, 255));
+        btnGuardarCambiosAlmacen.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarCambiosAlmacen.setText("Guardar Cambios");
+        btnGuardarCambiosAlmacen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarCambiosAlmacenActionPerformed(evt);
+            }
+        });
+
+        btnCancelarCambiosAlmacen.setBackground(new java.awt.Color(102, 102, 255));
+        btnCancelarCambiosAlmacen.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarCambiosAlmacen.setText("Cancelar");
+        btnCancelarCambiosAlmacen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarCambiosAlmacenActionPerformed(evt);
+            }
+        });
+
+        btnLimpiarAlmacen.setBackground(new java.awt.Color(102, 102, 255));
+        btnLimpiarAlmacen.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarAlmacen.setText("Limpiar");
+        btnLimpiarAlmacen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarAlmacenActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblIdAlmacen)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtIdAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                        .addComponent(lblFechaReg)
+                        .addGap(6, 6, 6)
+                        .addComponent(DateChooserFechaRegAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(image)
+                        .addGap(27, 27, 27))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(PanelDetallesAlmacen, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLimpiarAlmacen)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCancelarCambiosAlmacen)
+                .addGap(6, 6, 6)
+                .addComponent(btnGuardarCambiosAlmacen)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(DateChooserFechaRegAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblIdAlmacen)
+                            .addComponent(txtIdAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFechaReg)))
+                    .addComponent(image))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelDetallesAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimpiarAlmacen)
+                    .addComponent(btnCancelarCambiosAlmacen)
+                    .addComponent(btnGuardarCambiosAlmacen))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(PanelDetallesAlmacen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnLimpiarAlmacen)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCancelarCambiosAlmacen)
-                        .addGap(6, 6, 6)
-                        .addComponent(btnGuardarCambiosAlmacen))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(lblIdAlmacen)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIdAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                        .addComponent(lblFechaReg)
-                        .addGap(6, 6, 6)
-                        .addComponent(DateChooserFechaRegAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(image)))
-                .addGap(31, 31, 31))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(DateChooserFechaRegAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblIdAlmacen)
-                                .addComponent(txtIdAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblFechaReg))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(image)))
-                .addGap(18, 18, 18)
-                .addComponent(PanelDetallesAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLimpiarAlmacen)
-                    .addComponent(btnCancelarCambiosAlmacen)
-                    .addComponent(btnGuardarCambiosAlmacen))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -460,6 +497,7 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
     private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCapacidadAlmacen;
     private javax.swing.JLabel lblDireccionAlmacen;
     private javax.swing.JLabel lblFechaReg;

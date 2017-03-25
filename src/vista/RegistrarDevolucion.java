@@ -31,18 +31,18 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtFolioDevolucion = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         lblFolioDevolucion = new javax.swing.JLabel();
+        txtFolioDevolucion = new javax.swing.JTextField();
         lblFechaReg = new javax.swing.JLabel();
         DateChooserFechaRegCliente = new com.toedter.calendar.JDateChooser();
-        btnLimpiarDevolucion = new javax.swing.JButton();
-        btnCancelarDevolucion = new javax.swing.JButton();
-        btnGenerarDevolucion = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        comboStatus = new javax.swing.JComboBox<String>();
         PanelDetallesDevolucion = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        comboProductos = new javax.swing.JComboBox<>();
+        comboProductos = new javax.swing.JComboBox<String>();
         spnCantidadDevolver = new javax.swing.JSpinner();
         jLabel7 = new javax.swing.JLabel();
         txtNombreAlmacen = new javax.swing.JTextField();
@@ -50,7 +50,7 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         txtNombreProducto = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        comboFolioVenta = new javax.swing.JComboBox<>();
+        comboFolioVenta = new javax.swing.JComboBox<String>();
         txtIdAlmacen = new javax.swing.JTextField();
         txtIdCliente = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -59,8 +59,6 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         txtCantidadVendida = new javax.swing.JTextField();
         txtMedidaProducto = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        comboStatus = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
         PanelDetalleSaldo = new javax.swing.JPanel();
         lblIvaVenta = new javax.swing.JLabel();
         lblTotalVenta = new javax.swing.JLabel();
@@ -71,6 +69,9 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         lblSignoDinero1 = new javax.swing.JLabel();
         txtTotalDevolucion = new javax.swing.JLabel();
         lblSignoDinero2 = new javax.swing.JLabel();
+        btnCancelarDevolucion = new javax.swing.JButton();
+        btnLimpiarDevolucion = new javax.swing.JButton();
+        btnGenerarDevolucion = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -78,7 +79,7 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("REGISTRAR DEVOLUCIÓN");
+        setTitle("Registrar Devolución");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -97,56 +98,55 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblFolioDevolucion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblFolioDevolucion.setForeground(new java.awt.Color(0, 0, 102));
+        lblFolioDevolucion.setText("Folio Devolución");
+
         txtFolioDevolucion.setEditable(false);
 
-        lblFolioDevolucion.setText("FOLIO DEVOLUCIÓN");
-
-        lblFechaReg.setText("FECHA REGISTRO");
+        lblFechaReg.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblFechaReg.setForeground(new java.awt.Color(0, 0, 102));
+        lblFechaReg.setText("Fecha de Registro");
 
         DateChooserFechaRegCliente.setEnabled(false);
 
-        btnLimpiarDevolucion.setText("LIMPIAR");
-        btnLimpiarDevolucion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarDevolucionActionPerformed(evt);
-            }
-        });
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel5.setText("Estatus");
 
-        btnCancelarDevolucion.setText("CANCELAR");
-        btnCancelarDevolucion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarDevolucionActionPerformed(evt);
-            }
-        });
+        comboStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ACTIVA", "CANCELADA" }));
+        comboStatus.setEnabled(false);
 
-        btnGenerarDevolucion.setText("GENERAR");
-        btnGenerarDevolucion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGenerarDevolucionActionPerformed(evt);
-            }
-        });
-
-        PanelDetallesDevolucion.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de Devolución", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        PanelDetallesDevolucion.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDetallesDevolucion.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles de Devolución", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
         PanelDetallesDevolucion.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("ID ALMACÉN ORIGEN");
-        PanelDetallesDevolucion.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 110, -1));
+        jLabel2.setText("Id Almacén Origen");
+        PanelDetallesDevolucion.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 110, -1));
 
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 102));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel3.setText("ID DE CLIENTE");
-        PanelDetallesDevolucion.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 99, -1));
+        jLabel3.setText("Id de Cliente");
+        PanelDetallesDevolucion.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 99, -1));
 
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 102));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel4.setText("ID DE PRODUCTO");
-        PanelDetallesDevolucion.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 109, -1));
+        jLabel4.setText("Id de Producto");
+        PanelDetallesDevolucion.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 109, -1));
 
         comboProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboProductosActionPerformed(evt);
             }
         });
-        PanelDetallesDevolucion.add(comboProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 84, -1));
+        PanelDetallesDevolucion.add(comboProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 84, -1));
 
         spnCantidadDevolver.setModel(new javax.swing.SpinnerNumberModel(0, 0, 99, 1));
         spnCantidadDevolver.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -157,10 +157,12 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
                 spnCantidadDevolverMousePressed(evt);
             }
         });
-        PanelDetallesDevolucion.add(spnCantidadDevolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 216, 58, -1));
+        PanelDetallesDevolucion.add(spnCantidadDevolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 58, -1));
 
-        jLabel7.setText("CANTIDAD");
-        PanelDetallesDevolucion.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 180, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel7.setText("Cantidad");
+        PanelDetallesDevolucion.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
 
         txtNombreAlmacen.setEditable(false);
         txtNombreAlmacen.addActionListener(new java.awt.event.ActionListener() {
@@ -168,20 +170,24 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
                 txtNombreAlmacenActionPerformed(evt);
             }
         });
-        PanelDetallesDevolucion.add(txtNombreAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 192, -1));
+        PanelDetallesDevolucion.add(txtNombreAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 192, -1));
 
         txtNombreCliente.setEditable(false);
-        PanelDetallesDevolucion.add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 192, -1));
+        PanelDetallesDevolucion.add(txtNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 192, -1));
 
         txtNombreProducto.setEditable(false);
-        PanelDetallesDevolucion.add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 192, -1));
+        PanelDetallesDevolucion.add(txtNombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 192, -1));
 
-        jLabel6.setText("PRECIO DE VENTA");
-        PanelDetallesDevolucion.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 184, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel6.setText("Precio de Venta");
+        PanelDetallesDevolucion.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 102));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel8.setText("FOLIO DE VENTA NUM");
-        PanelDetallesDevolucion.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        jLabel8.setText("Num Folio Venta");
+        PanelDetallesDevolucion.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         comboFolioVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -193,7 +199,7 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
                 comboFolioVentaActionPerformed(evt);
             }
         });
-        PanelDetallesDevolucion.add(comboFolioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 100, -1));
+        PanelDetallesDevolucion.add(comboFolioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 100, -1));
 
         txtIdAlmacen.setEditable(false);
         txtIdAlmacen.addActionListener(new java.awt.event.ActionListener() {
@@ -201,7 +207,7 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
                 txtIdAlmacenActionPerformed(evt);
             }
         });
-        PanelDetallesDevolucion.add(txtIdAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 84, -1));
+        PanelDetallesDevolucion.add(txtIdAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 84, -1));
 
         txtIdCliente.setEditable(false);
         txtIdCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -209,10 +215,12 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
                 txtIdClienteActionPerformed(evt);
             }
         });
-        PanelDetallesDevolucion.add(txtIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 84, -1));
+        PanelDetallesDevolucion.add(txtIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 84, -1));
 
-        jLabel9.setText("A DEVOLVER");
-        PanelDetallesDevolucion.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 195, -1, -1));
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel9.setText("a Devolver");
+        PanelDetallesDevolucion.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
 
         txtPrecioUnitario.setEditable(false);
         txtPrecioUnitario.addActionListener(new java.awt.event.ActionListener() {
@@ -220,10 +228,12 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
                 txtPrecioUnitarioActionPerformed(evt);
             }
         });
-        PanelDetallesDevolucion.add(txtPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 182, 84, -1));
+        PanelDetallesDevolucion.add(txtPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 84, -1));
 
-        jLabel10.setText("CANTIDAD VENDIDA");
-        PanelDetallesDevolucion.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 218, -1, -1));
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel10.setText("Cantidad Vendida");
+        PanelDetallesDevolucion.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         txtCantidadVendida.setEditable(false);
         txtCantidadVendida.addActionListener(new java.awt.event.ActionListener() {
@@ -231,33 +241,37 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
                 txtCantidadVendidaActionPerformed(evt);
             }
         });
-        PanelDetallesDevolucion.add(txtCantidadVendida, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 216, 84, -1));
-        PanelDetallesDevolucion.add(txtMedidaProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 216, 38, 20));
+        PanelDetallesDevolucion.add(txtCantidadVendida, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 84, -1));
 
+        txtMedidaProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtMedidaProducto.setForeground(new java.awt.Color(0, 0, 102));
+        PanelDetallesDevolucion.add(txtMedidaProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 38, 20));
+
+        jButton1.setBackground(new java.awt.Color(102, 102, 255));
+        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("$");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        PanelDetallesDevolucion.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, 26));
+        PanelDetallesDevolucion.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, -1, 26));
 
-        comboStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVA", "CANCELADA" }));
-        comboStatus.setEnabled(false);
-
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel5.setText("Estatus");
-
-        PanelDetalleSaldo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalle de Saldo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        PanelDetalleSaldo.setBackground(new java.awt.Color(255, 255, 255));
+        PanelDetalleSaldo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalle de Saldo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
 
         lblIvaVenta.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblIvaVenta.setForeground(new java.awt.Color(0, 0, 102));
         lblIvaVenta.setText("IVA");
 
         lblTotalVenta.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lblTotalVenta.setText("TOTAL");
+        lblTotalVenta.setForeground(new java.awt.Color(0, 0, 102));
+        lblTotalVenta.setText("Total");
 
         lblSubtotalVenta.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lblSubtotalVenta.setText("SUBTOTAL");
+        lblSubtotalVenta.setForeground(new java.awt.Color(0, 0, 102));
+        lblSubtotalVenta.setText("Subtotal");
 
         lblSignoDinero.setText("$");
 
@@ -319,74 +333,108 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(461, 461, 461)
-                .addComponent(PanelDetalleSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        btnCancelarDevolucion.setBackground(new java.awt.Color(102, 102, 255));
+        btnCancelarDevolucion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnCancelarDevolucion.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarDevolucion.setText("Cancelar");
+        btnCancelarDevolucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarDevolucionActionPerformed(evt);
+            }
+        });
+
+        btnLimpiarDevolucion.setBackground(new java.awt.Color(102, 102, 255));
+        btnLimpiarDevolucion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnLimpiarDevolucion.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarDevolucion.setText("Limpiar");
+        btnLimpiarDevolucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarDevolucionActionPerformed(evt);
+            }
+        });
+
+        btnGenerarDevolucion.setBackground(new java.awt.Color(102, 102, 255));
+        btnGenerarDevolucion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnGenerarDevolucion.setForeground(new java.awt.Color(255, 255, 255));
+        btnGenerarDevolucion.setText("Generar");
+        btnGenerarDevolucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarDevolucionActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblFolioDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(txtFolioDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(lblFechaReg)
+                .addGap(6, 6, 6)
+                .addComponent(DateChooserFechaRegCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(4, 4, 4)
+                .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PanelDetallesDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(PanelDetalleSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCancelarDevolucion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLimpiarDevolucion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGenerarDevolucion))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(4, 4, 4))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(PanelDetallesDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(22, 22, 22)
-                                        .addComponent(lblFolioDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(1, 1, 1)
-                                        .addComponent(txtFolioDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(31, 31, 31)
-                                        .addComponent(lblFechaReg)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(DateChooserFechaRegCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(btnGenerarDevolucion)
+                        .addContainerGap())))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(DateChooserFechaRegCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblFolioDevolucion)
+                        .addComponent(txtFolioDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblFechaReg))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PanelDetallesDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(PanelDetalleSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnLimpiarDevolucion)
+                            .addComponent(btnCancelarDevolucion)
+                            .addComponent(btnGenerarDevolucion))))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(comboStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(DateChooserFechaRegCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblFolioDevolucion)
-                                .addComponent(txtFolioDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblFechaReg)))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(PanelDetalleSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(81, 81, 81)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnLimpiarDevolucion)
-                            .addComponent(btnCancelarDevolucion)
-                            .addComponent(btnGenerarDevolucion)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(PanelDetallesDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -755,6 +803,7 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFechaReg;
     private javax.swing.JLabel lblFolioDevolucion;
     private javax.swing.JLabel lblIvaVenta;

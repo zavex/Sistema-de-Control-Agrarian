@@ -146,7 +146,7 @@ public class Almacen {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("idAlmacen as \"ID ALMACÉN\", fechaReg as \"FECHA REGISTRO\", nombreA as ALMACÉN, direccion as DIRECCIÓN, telefono as TELÉFONO, capacidad as CAPACIDAD, idEmpleado as \"ID EMPLEADO\"");
+            String query = ("idAlmacen as \"Id Almacén\", fechaReg as \"Fecha Registro\", nombreA as Almacén, direccion as Dirección, telefono as Teléfono, capacidad as Capacidad, idEmpleado as \"Id Empleado\"");
             comando = conexion.getConexion().prepareStatement("select "+query+" from almacen");
             ResultSet rs = comando.executeQuery();
             ResultSetMetaData rsm = rs.getMetaData();
@@ -182,7 +182,7 @@ public class Almacen {
         conexion.conexionSQL();
         PreparedStatement comando = null;
        try {
-            String query = ("idAlmacen as \"ID ALMACÉN\", fechaReg as \"FECHA REGISTRO\", nombreA as ALMACÉN, direccion as DIRECCIÓN, telefono as TELÉFONO, capacidad as CAPACIDAD, idEmpleado as \"ID EMPLEADO\"");
+            String query = ("idAlmacen as \"Id Almacén\", fechaReg as \"Fecha Registro\", nombreA as Almacén, direccion as Dirección, telefono as Teléfono, capacidad as Capacidad, idEmpleado as \"Id Empleado\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM almacen WHERE idAlmacen LIKE ? ESCAPE '!'");
             comando.setString(1,id + "%");
             ResultSet rs = comando.executeQuery();
@@ -218,7 +218,7 @@ public class Almacen {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("idAlmacen as \"ID ALMACÉN\", fechaReg as \"FECHA REGISTRO\", nombreA as ALMACÉN, direccion as DIRECCIÓN, telefono as TELÉFONO, capacidad as CAPACIDAD, idEmpleado as \"ID EMPLEADO\"");
+            String query = ("idAlmacen as \"Id Almacén\", fechaReg as \"Fecha Registro\", nombreA as Almacén, direccion as Dirección, telefono as Teléfono, capacidad as Capacidad, idEmpleado as \"Id Empleado\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM almacen WHERE nombreA LIKE ? ESCAPE "
                     + "'!'");
             comando.setString(1,nombree + "%");
@@ -256,7 +256,7 @@ public class Almacen {
         conexion.conexionSQL();
         PreparedStatement comando = null;
          try {
-            String query = ("idAlmacen as \"ID ALMACÉN\", fechaReg as \"FECHA REGISTRO\", nombreA as ALMACÉN, direccion as DIRECCIÓN, telefono as TELÉFONO, capacidad as CAPACIDAD, idEmpleado as \"ID EMPLEADO\"");
+            String query = ("idAlmacen as \"Id Almacén\", fechaReg as \"Fecha Registro\", nombreA as Almacén, direccion as Dirección, telefono as Teléfono, capacidad as Capacidad, idEmpleado as \"Id Empleado\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM almacen WHERE direccion LIKE ? ESCAPE '!'");
             comando.setString(1,direccionn + "%");
             ResultSet rs = comando.executeQuery();
@@ -295,7 +295,7 @@ public class Almacen {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("idAlmacen as \"ID ALMACÉN\", fechaReg as \"FECHA REGISTRO\", nombreA as ALMACÉN, direccion as DIRECCIÓN, telefono as TELÉFONO, capacidad as CAPACIDAD, idEmpleado as \"ID EMPLEADO\"");
+            String query = ("idAlmacen as \"Id Almacén\", fechaReg as \"Fecha Registro\", nombreA as Almacén, direccion as Dirección, telefono as Teléfono, capacidad as Capacidad, idEmpleado as \"Id Empleado\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM almacen WHERE telefono LIKE ? ESCAPE '!'");
             comando.setString(1,telefonoo + "%");
             ResultSet rs = comando.executeQuery();
@@ -331,7 +331,7 @@ public class Almacen {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("idAlmacen as \"ID ALMACÉN\", fechaReg as \"FECHA REGISTRO\", nombreA as ALMACÉN, direccion as DIRECCIÓN, telefono as TELÉFONO, capacidad as CAPACIDAD, idEmpleado as \"ID EMPLEADO\"");        
+            String query = ("idAlmacen as \"Id Almacén\", fechaReg as \"Fecha Registro\", nombreA as Almacén, direccion as Dirección, telefono as Teléfono, capacidad as Capacidad, idEmpleado as \"Id Empleado\"");        
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM almacen WHERE capacidad LIKE ? ESCAPE '!'");
             comando.setString(1, capacidadd + "%");
             ResultSet rs = comando.executeQuery();
@@ -366,7 +366,7 @@ public class Almacen {
         conexion.conexionSQL();
         PreparedStatement comando = null;
         try {
-            String query = ("idAlmacen as \"ID ALMACÉN\", fechaReg as \"FECHA REGISTRO\", nombreA as ALMACÉN, direccion as DIRECCIÓN, telefono as TELÉFONO, capacidad as CAPACIDAD, idEmpleado as \"ID EMPLEADO\"");
+            String query = ("idAlmacen as \"Id Almacén\", fechaReg as \"Fecha Registro\", nombreA as Almacén, direccion as Dirección, telefono as Teléfono, capacidad as Capacidad, idEmpleado as \"Id Empleado\"");
             comando = conexion.getConexion().prepareStatement("SELECT "+query+" FROM almacen WHERE idEmpleado LIKE ? ESCAPE '!'");
             comando.setString(1, this.idEmpleado + "%");
             ResultSet rs = comando.executeQuery();
