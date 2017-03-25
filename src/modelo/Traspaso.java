@@ -83,7 +83,7 @@ public class Traspaso {
 
         DefaultTableModel tabla = new DefaultTableModel(){
             Class[] tipoColumn = {Integer.class,String.class,String.class,String.class,Double.class,Date.class};
-            boolean[] editColumn = {false,false,false,false,false};
+            boolean[] editColumn = {false,false,false,false,false,false};
             @Override
             public Class getColumnClass(int indColumn){
                 return tipoColumn[indColumn];
