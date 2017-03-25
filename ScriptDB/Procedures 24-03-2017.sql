@@ -513,3 +513,40 @@ create trigger Venta_ivaTotal
                 WHERE a.nombreA = @nomA
             end
     END
+
+    /*
+    REGISTRA TRASPASO Y AFECTA INVENTARIOS
+    */
+    CREATE PROCEDURE generarTraspaso(
+    --NombreAlmOrigen,idProd,fechaReg,cantidad,NombreAlmDestino
+    @almOrigen varchar(20),
+    @idPro int,
+    @fecha date,
+    @cant decimal(10,2),
+    @almDestino varchar(20)
+)
+AS
+BEGIN
+    DECLARE @idAlmOr int, @idAlmDest int, @folioT int
+    SET @idAlmOr = (SELECT idAlmacen FROM almacen WHERE nombreA = @almOrigen)
+    SET @idAlmDest = (SELECT idAlmacen FROM almacen WHERE nombreA = @almDestino)
+    IF EXISTS(SELECT * FROM traspaso)
+        begin
+            SET @folioT = (SELECT max(folio)+1 FROM traspaso)
+        end
+    else
+        SET @folioT = (1)
+    
+    --Ingresa el movimiento a la tabla traspaso
+    INSERT INTO traspaso (idAlmacen,idProducto,folio,fechaReg,cantidad,destino)
+    VALUES (@idAlmOr,@idPro,@folioT,@fecha,@cant,@almDestino)
+
+    --Actualiza las existencias en los almacenes correspondientes
+    UPDATE almacen_producto SET cantidad=cantidad-@cant
+    WHERE idAlmacen = @idAlmOr and idProducto = @idPro
+    select * from almacen_producto
+    
+    exec altaProdAlmacen @idAlmDest, @idPro, @cant
+            
+END
+GO

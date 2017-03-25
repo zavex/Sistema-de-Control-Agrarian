@@ -1,14 +1,11 @@
 
 package vista;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import com.lowagie.text.pdf.parser.Matrix;
 import java.util.Date;
 import java.util.Vector;
 import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -16,6 +13,7 @@ import modelo.Almacen;
 import modelo.Conexion;
 import modelo.Permisos;
 import modelo.Producto;
+import org.jfree.util.ObjectList;
 
 
 public class ifrmTraspaso extends javax.swing.JInternalFrame {
@@ -36,7 +34,18 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         this.alm = new Almacen(con);
         this.desk = desk;
         
-        modeloTabla = new DefaultTableModel();
+        modeloTabla = new DefaultTableModel(){
+            Class[] tipoColumn = {Integer.class,String.class,Double.class};
+            boolean[] editColumn = {false,false,false};
+            @Override
+            public Class getColumnClass(int indColumn){
+                return tipoColumn[indColumn];
+            }
+            @Override
+            public boolean isCellEditable(int indFila, int indColum){
+                return editColumn[indColum];
+            }
+        };
         modeloTabla.addColumn("ID");
         modeloTabla.addColumn("Nombre Producto");
         modeloTabla.addColumn("Cantidad");
@@ -366,6 +375,11 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
 
         btnSalir.setBackground(new java.awt.Color(204, 204, 204));
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
         panFunciones.add(btnSalir);
 
         dummy1.setBorderPainted(false);
@@ -384,6 +398,11 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
 
         btnGuardar.setBackground(new java.awt.Color(204, 255, 204));
         btnGuardar.setText("Guardar y Salir");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
         panFunciones.add(btnGuardar);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Detalle del embarque"));
@@ -542,6 +561,9 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
                         if(tablaResumen.getValueAt(i, 0).equals(id)){
                             disponible = disponible - Double.parseDouble(tablaResumen.getValueAt(i, 2).toString());
                             txtDisponible.setText(String.valueOf(disponible));
+                            break;
+                        } else {
+                            txtDisponible.setText(tablaProductos.getValueAt(tablaProductos.getSelectedRow(), 3).toString());
                         }
                     }
                 } else {
@@ -596,13 +618,58 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
       
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        //NombreAlmOrigen,idProd,fechaReg,cantidad,NombreAlmDestino
+        Vector partida;
+        ObjectList Datos = new ObjectList();
+        if(modeloTabla.getRowCount()>0){
+            for(int i=0;i<modeloTabla.getRowCount();i++){
+                partida = new Vector();
+                partida.addElement(comboOrigen.getSelectedItem().toString());   //Origen
+                partida.addElement(modeloTabla.getValueAt(i, 0));   //idProducto
+                partida.addElement(fechaTraslado.getDate());    //fecha
+                partida.addElement(modeloTabla.getValueAt(i, 2));  //Cantidad
+                partida.addElement(comboDestino.getSelectedItem().toString());   //Destino
+                
+                alm.aplicarTraspaso(partida);
+            }
+            JOptionPane.showMessageDialog(null, "Registro de traspaso exitoso", "Información", JOptionPane.INFORMATION_MESSAGE);
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     public void agregarArticulo(){
         Vector fila = new Vector();
-        fila.addElement(Integer.parseInt(lblID.getText()));
-        fila.addElement(txtDescripcion.getText().toString());
-        fila.addElement(Double.parseDouble(txtCantidad.getText()));
-        modeloTabla.addRow(fila);
+        boolean duplicado = false;
+        if(modeloTabla.getRowCount()>0){
+            int d2 = Integer.parseInt(lblID.getText());
+            for(int i=0; i < modeloTabla.getRowCount();i++){
+                int d1 = (int) modeloTabla.getValueAt(i, 0);
+                if(d1 == d2){
+                    double cantidad = (double) modeloTabla.getValueAt(i,2);
+                    cantidad = cantidad + Double.parseDouble(txtCantidad.getText());
+                    modeloTabla.setValueAt(cantidad, i, 2);
+                    duplicado = true;
+                    break;
+                }
+            }
+        }
+        if(!duplicado){
+            fila.addElement(Integer.parseInt(lblID.getText()));
+            fila.addElement(txtDescripcion.getText().toString());
+            fila.addElement(Double.parseDouble(txtCantidad.getText()));
+            modeloTabla.addRow(fila);
+        }
         tablaResumen.setModel(modeloTabla);
+        
+        tablaResumen.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        tablaResumen.getColumnModel().getColumn(0).setMaxWidth(60);
+        tablaResumen.getColumnModel().getColumn(2).setMaxWidth(80);
+        tablaResumen.setAutoCreateRowSorter(true);
         limpiarArticulo();
     }
     
