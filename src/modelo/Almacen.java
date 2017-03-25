@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -507,5 +510,39 @@ public class Almacen {
         return completado;
     }
     
+    public void cargarComboAlmacenes(JComboBox combo) {
+        conexion.conexionSQL();
+        PreparedStatement comando = null;
+        try
+        {
+        comando = conexion.getConexion().prepareStatement("select nombreA from almacen");
+        ResultSet rs = comando.executeQuery();
+        while(rs.next()){                            
+             combo.addItem(rs.getString(1));          
+        }
+        conexion.desconectarSQL();
+        }catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null,"Error");
+        } 
+        combo.setSelectedIndex(-1);
+    }
     
+    public void aplicarTraspaso(Vector informacion){
+        try {
+            //exec generarTraspaso 'NombreAlmOrigen',idProd,fechaReg,cantidad,'NombreAlmDestino'
+            PreparedStatement ps = conexion.conexionSQL().prepareStatement("exec generarTraspaso ?,?,?,?,?");
+            ps.setString(1,informacion.get(0).toString());
+            ps.setInt(2,(int) informacion.get(1));
+            ps.setDate(3, Fecha_Java_A_SQL((java.util.Date) informacion.get(2)));
+            ps.setDouble(4, (double)informacion.get(3));
+            ps.setString(5,informacion.get(4).toString());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public java.sql.Date Fecha_Java_A_SQL(java.util.Date date) {
+            return new java.sql.Date(date.getTime());
+    }
 }

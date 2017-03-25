@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Vector;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -790,5 +791,7 @@ public class Proveedor extends Validacion {
         conexion.desconectarSQL();
         return completado;
     }
+    
+    
     
 }
