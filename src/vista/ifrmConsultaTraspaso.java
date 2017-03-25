@@ -89,6 +89,12 @@ public class ifrmConsultaTraspaso extends javax.swing.JInternalFrame {
             }
         });
 
+        txtBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBusquedaKeyReleased(evt);
+            }
+        });
+
         jLabel1.setText("Mostrar");
 
         javax.swing.GroupLayout panHerramientasLayout = new javax.swing.GroupLayout(panHerramientas);
@@ -199,6 +205,10 @@ public class ifrmConsultaTraspaso extends javax.swing.JInternalFrame {
         crearTabla(comboTipo.getSelectedIndex());
     }//GEN-LAST:event_comboTipoActionPerformed
 
+    private void txtBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyReleased
+        crearTabla(comboTipo.getSelectedIndex());
+    }//GEN-LAST:event_txtBusquedaKeyReleased
+
     public void crearTabla(int tipo){
         
         switch(tipo){
@@ -207,8 +217,10 @@ public class ifrmConsultaTraspaso extends javax.swing.JInternalFrame {
             break;
             case 1:
                 try {
+                    
                     if(!txtBusqueda.getText().isEmpty()){
-                        String texto = "where t.folio = "+txtBusqueda.getText();
+                        int id = Integer.parseInt(txtBusqueda.getText());
+                        String texto = "where t.folio = "+id;
                         tablaTraspaso.setModel(tra.tabla(texto, true));
                     }
                 } catch (Exception e) {
@@ -217,7 +229,7 @@ public class ifrmConsultaTraspaso extends javax.swing.JInternalFrame {
             case 2:
                 try{
                     if(!txtBusqueda.getText().isEmpty()){
-                        String texto = "where a.nombreA = '"+txtBusqueda.getText()+"'";
+                        String texto = "where a.nombreA like '"+txtBusqueda.getText()+"%'";
                         tablaTraspaso.setModel(tra.tabla(texto, true));
                     }
                 } catch (Exception e) {
@@ -226,7 +238,7 @@ public class ifrmConsultaTraspaso extends javax.swing.JInternalFrame {
             case 3:
                 try {
                     if(!txtBusqueda.getText().isEmpty()){
-                        String texto = "where t.destino = '"+txtBusqueda.getText()+"'";
+                        String texto = "where t.destino like '"+txtBusqueda.getText()+"%'";
                         tablaTraspaso.setModel(tra.tabla(texto, true));
                     }
                 } catch (Exception e) {
