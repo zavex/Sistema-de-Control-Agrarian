@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Vector;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -507,5 +508,20 @@ public class Almacen {
         return completado;
     }
     
-    
+    public void cargarComboAlmacenes(JComboBox combo) {
+        conexion.conexionSQL();
+        PreparedStatement comando = null;
+        try
+        {
+        comando = conexion.getConexion().prepareStatement("select nombreA from almacen");
+        ResultSet rs = comando.executeQuery();
+        while(rs.next()){                            
+             combo.addItem(rs.getString(1));          
+        }
+        conexion.desconectarSQL();
+        }catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null,"Error");
+        } 
+        combo.setSelectedIndex(-1);
+    }
 }

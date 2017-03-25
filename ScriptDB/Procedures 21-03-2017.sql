@@ -495,3 +495,21 @@ create trigger Venta_ivaTotal
         update venta set iva = subTotal*.16, total = subTotal*1.16 where folioVenta = @folio_venta
     END
     GO
+
+    /*
+    PROCEDURE PARA CONSULTAR EXISTENCIAS DE ALMACEN SELECCIONADO
+    Recibe el id del almacen y retorna los productos y existencias
+    */
+    Create procedure consultaInvAlmacen(@nomA varchar(30))
+    AS
+    BEGIN
+        IF EXISTS(select * from almacen where nombreA = @nomA)
+            begin
+                select p.idProducto as 'ID',p.nombre as 'Nombre',p.descripcion as 'Descripción',ap.cantidad 'Disponible' from producto p
+                JOIN almacen_producto ap
+                ON p.idProducto = ap.idProducto
+                JOIN almacen a
+                ON ap.idAlmacen = a.idAlmacen
+                WHERE a.nombreA = @nomA
+            end
+    END

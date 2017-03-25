@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -494,4 +496,50 @@ public class Producto {
         return completado;
     }
     
+    public DefaultTableModel buscarProdXAlmacen(String nombre){
+        DefaultTableModel tabla = new DefaultTableModel(){
+            Class[] tipoColumn = {Integer.class,String.class,String.class,Double.class};
+            boolean[] editColumn = {false,false,false,false};
+            @Override
+            public Class getColumnClass(int indColumn){
+                return tipoColumn[indColumn];
+            }
+            @Override
+            public boolean isCellEditable(int indFila, int indColum){
+                return editColumn[indColum];
+            }
+        };
+        /**
+             * consultaInvAlmacen idalm
+             * p.idProducto as 'ID',p.nombre as 'Nombre',p.descripcion as 'Descripción',ap.cantidad 'Disponible'
+             **/
+            
+            System.out.println(nombre);
+        try {
+            PreparedStatement ps = conexion.conexionSQL().prepareStatement("exec consultaInvAlmacen '"+nombre+"'");
+            ResultSet rs = ps.executeQuery();
+            tabla.addColumn("ID");
+            tabla.addColumn("Nombre");
+            tabla.addColumn("Descripción");
+            tabla.addColumn("Disponible");
+                
+                while(rs.next()){
+                    Vector fila = new Vector();
+                    fila.addElement(rs.getInt(1));
+                    fila.addElement(rs.getString(2));
+                    fila.addElement(rs.getString(3));
+                    fila.addElement(rs.getDouble(4));
+                    tabla.addRow(fila);
+                }
+            
+            
+            //JOptionPane.showMessageDialog(null, "El almacén selecionado no cuenta con registro de productos","Sin inventario",JOptionPane.WARNING_MESSAGE);
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Producto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return tabla;
+    }
 }
