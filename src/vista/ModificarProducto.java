@@ -126,7 +126,7 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
         cbxMedidaProducto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TM", "KG", "S" }));
         cbxMedidaProducto.setSelectedIndex(-1);
 
-        cbxPresentacionProducto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "GRANEL", "ENVASADO" }));
+        cbxPresentacionProducto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Granel", "Envasado" }));
         cbxPresentacionProducto.setSelectedIndex(-1);
 
         lblMedidaProducto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -271,8 +271,7 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblIdProducto)
                                 .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblFechaReg)))
-                        .addGap(17, 17, 17))
+                                .addComponent(lblFechaReg))))
                     .addComponent(image))
                 .addGap(18, 18, 18)
                 .addComponent(PanelDetallesProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

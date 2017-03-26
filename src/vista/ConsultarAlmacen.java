@@ -168,6 +168,7 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
 
+        btnActualizarAlmacen.setBackground(new java.awt.Color(255, 255, 255));
         btnActualizarAlmacen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/actualizar2.0.png"))); // NOI18N
         btnActualizarAlmacen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -323,6 +324,8 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
             }
             ModificarAlmacen ma = new ModificarAlmacen (permiso,almacen,fila,empleado);
             escritorio.add(ma);
+            int tamaño = (escritorio.getWidth() - ma.getWidth()) / 2;
+            ma.setLocation(tamaño,0);
             ma.setVisible(true);
         } catch (Exception e) {
         }

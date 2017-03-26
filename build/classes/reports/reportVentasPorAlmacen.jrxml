@@ -2,10 +2,10 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="600" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c1cb979a-fecb-42a5-a72d-5d901f91144b">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<property name="ireport.y" value="54"/>
+	<queryString>
 		<![CDATA[select a.idAlmacen as "Id Almacén", a.nombreA as "Nombre Almacén", count(*) as "Total Ventas", sum(subtotal) as "Ingreso Ventas" from venta v join almacen a 
-    on v.idAlmacen = a.idAlmacen group by v.idAlmacen]]>
+    on v.idAlmacen = a.idAlmacen group by a.idAlmacen, a.nombreA]]>
 	</queryString>
 	<field name="Id Almacén" class="java.lang.Integer"/>
 	<field name="Nombre Almacén" class="java.lang.String"/>
@@ -33,7 +33,7 @@
 					<text><![CDATA[Total de Ventas por Almacen]]></text>
 				</staticText>
 				<image>
-					<reportElement x="404" y="0" width="191" height="42" uuid="664acf92-f361-4f85-81ff-7e8cbcfa68dd"/>
+					<reportElement x="404" y="10" width="191" height="42" uuid="664acf92-f361-4f85-81ff-7e8cbcfa68dd"/>
 					<imageExpression><![CDATA["C:\\Users\\zawex\\Documents\\5 cuatri\\Proyecto Agrarian\\AgrarianJ\\src\\pics\\Agrarian.jpg"]]></imageExpression>
 				</image>
 			</frame>

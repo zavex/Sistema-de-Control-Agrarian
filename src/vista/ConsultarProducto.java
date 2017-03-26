@@ -168,6 +168,7 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
 
+        btnActualizarProducto.setBackground(new java.awt.Color(255, 255, 255));
         btnActualizarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/actualizar2.0.png"))); // NOI18N
         btnActualizarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -318,6 +319,8 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
             }
             ModificarProducto mp = new ModificarProducto (permiso,producto,fila);
             escritorio.add(mp);
+            int tamaño = (escritorio.getWidth() - mp.getWidth()) / 2;
+            mp.setLocation(tamaño,0);
             mp.setVisible(true);
         } catch (Exception e) {
         }

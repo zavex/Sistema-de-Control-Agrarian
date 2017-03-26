@@ -127,6 +127,7 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
 
+        btnActualizarEmpleado.setBackground(new java.awt.Color(255, 255, 255));
         btnActualizarEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/actualizar2.0.png"))); // NOI18N
         btnActualizarEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -316,6 +317,8 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
                 fila.add(table.getValueAt(table.getSelectedRow(), i));
             }
             ModificarEmpleado me = new ModificarEmpleado (empleado,fila);
+            int tamaño = (escritorio.getWidth() - me.getWidth()) / 2;
+            me.setLocation(tamaño,0);
             escritorio.add(me);
             me.setVisible(true);
         } catch (Exception e) {

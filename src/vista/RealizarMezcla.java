@@ -1281,8 +1281,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtRealizarM, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(jLabel2)))))
                 .addGap(0, 0, 0))
         );
         jPanel3Layout.setVerticalGroup(
@@ -1307,7 +1306,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
                             .addComponent(txtIdAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtRealizarM, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(comboAlmacenes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2))
@@ -2214,21 +2213,21 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         }
         
         if (booleanFormulaN) {
-            nombreP = "NITROGENO-"+String.valueOf(FormulaN)+"%";
+            nombreP = "Nitrogeno-"+String.valueOf(FormulaN)+"%";
         }
         if (booleanFormulaP) {
-            nombreP += "-FOSFORO-"+String.valueOf(FormulaP)+"%";
+            nombreP += "-Fosforo-"+String.valueOf(FormulaP)+"%";
         }
         if (booleanFormulaK) {
-            nombreP += " -POTASIO-"+String.valueOf(FormulaK)+"%";
+            nombreP += " -Potasio-"+String.valueOf(FormulaK)+"%";
         }
         if (booleanFormulaS) {
-            nombreP += "-AZUFRE-"+String.valueOf(FormulaS)+"%";
+            nombreP += "-Azufre-"+String.valueOf(FormulaS)+"%";
         }
         if (booleanFormulaMg) {
-            nombreP += " -MAGNESIO-"+String.valueOf(FormulaMg)+"%";
+            nombreP += " -Magnesio-"+String.valueOf(FormulaMg)+"%";
         }
-         
+         System.out.println("nombreP " + nombreP ) ;
         return nombreP;
     }
     
@@ -2242,9 +2241,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
             Double totalToneladas = Double.parseDouble(txtToneladas.getText());
             //almacenar PRODUCTO en producto
             producto.setNombre(generarNombre());
-            producto.setDescripcion("MEZCLA PERSONALIZADA");
+            producto.setDescripcion("Mezcla Personalizada");
             producto.setMedida("TM");
-            producto.setPresentacion("ENVASADO");
+            producto.setPresentacion("Envasado");
             producto.setPrecioSugerido(Double.parseDouble(txtPrecioTotal.getText()));
             producto.registrarProducto();
                         //almacenar NUEVO PRODUCTO en almacen_producto

@@ -4,15 +4,19 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.PrintWriter;
 import modelo.Log;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletOutputStream;
+import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -49,8 +53,20 @@ public class Main extends javax.swing.JFrame {
     Date date = new Date ();
     String usuarioActual;
     boolean ventTraspasoAb = false,ventConsultaTras=false;
-    
     int seg = 0;
+    Arbol nuevo;
+            //Objetos
+    PrintWriter archivoEntrada;
+    Scanner archivoEntradaa;
+    JFileChooser archivo;
+
+    
+    //Variables de clase
+    String msje = null, nomArchivo = null, lineaLeida = null;
+    int countLineas=0;
+    public final String user="";
+    static String usua;
+    PrintWriter archivoSalida;
     
     Timer tempo = new Timer(500, new ActionListener() {
         public void actionPerformed(ActionEvent e) {
@@ -149,6 +165,7 @@ public class Main extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         MenuAyuda = new javax.swing.JMenu();
         ItemAyuda = new javax.swing.JMenuItem();
 
@@ -642,6 +659,15 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem3);
 
+        jMenuItem5.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jMenuItem5.setText("Generar Log Encriptado");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem5);
+
         jMenuBar1.add(jMenu2);
 
         MenuAyuda.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -899,10 +925,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-            String path = "C:\\Users\\zawex\\Documents\\5 cuatri\\Proyecto Agrarian\\AgrarianJ\\src\\reports\\reportVentasPorAlmacen.jasper";
+        String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\report1.jasper";
         JasperReport jr = null;
         try {
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/agrarian", "root", "");
+            Connection conexion = DriverManager.getConnection("jdbc:sqlserver://localhost\\MSSQLSERVER1;databaseName=agrarian","sa","12345678");
             jr = (JasperReport) JRLoader.loadObject(path);
             JasperPrint jp = JasperFillManager.fillReport(jr, null, conexion);
             JasperViewer jv = new JasperViewer(jp,false); 
@@ -959,6 +985,28 @@ public class Main extends javax.swing.JFrame {
             ventConsultaTras = true;
         }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        nuevo = new Arbol();
+        String texto = ""; 
+        int cantidad=0;
+        nomArchivo = "C:\\Users\\zawex\\Desktop\\log.txt";
+        try {
+            archivoEntradaa = new Scanner (new FileReader (nomArchivo));
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        lineaLeida = "";
+        countLineas = 0;
+        while (archivoEntradaa.hasNext()) { 
+            lineaLeida = archivoEntradaa.nextLine();
+            texto += lineaLeida;
+        }
+        
+        int tamaño = texto.length();
+        System.out.println(tamaño);
+        nuevo.convertir(texto);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     public void iniciarSesion() {
         usuarioActual = textoUsuario.getText();
@@ -1283,6 +1331,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JLabel lblBienvenido;
     private javax.swing.JLabel lblStatus;

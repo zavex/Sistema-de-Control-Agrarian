@@ -445,6 +445,8 @@ public class ConsultarProveedor extends javax.swing.JInternalFrame {
             }
             ModificarProveedor mp = new ModificarProveedor (permiso,proveedor,fila);
             escritorio.add(mp);
+            int tamaño = (escritorio.getWidth() - mp.getWidth()) / 2;
+            mp.setLocation(tamaño,0);
             mp.setVisible(true);
         } catch (Exception e) {
         }
@@ -460,7 +462,6 @@ public class ConsultarProveedor extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizarCliente;
     private javax.swing.JButton btnActualizarProveedor;
     private javax.swing.JButton btnSalir1;
     private javax.swing.JComboBox<String> comboFiltro;
@@ -470,14 +471,12 @@ public class ConsultarProveedor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable table;

@@ -105,23 +105,19 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         btnGuardarDialog = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         lblBOrigen = new javax.swing.JLabel();
-        menuBOrigen = new javax.swing.JComboBox<>();
+        menuBOrigen = new javax.swing.JComboBox<String>();
         lblBDestino = new javax.swing.JLabel();
-        menuBDestino = new javax.swing.JComboBox<>();
+        menuBDestino = new javax.swing.JComboBox<String>();
         jPanel7 = new javax.swing.JPanel();
         lblCantidad = new javax.swing.JLabel();
         txtCantidadAbonada = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        Pago = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         tfFechaActual = new com.toedter.calendar.JDateChooser();
         lbFechaActual = new javax.swing.JLabel();
-        Pago = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        btnNulo = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lbfechaV = new javax.swing.JLabel();
         tfFechaVenta = new com.toedter.calendar.JDateChooser();
@@ -139,12 +135,17 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         lbSaldo = new javax.swing.JLabel();
         txtSaldo = new javax.swing.JTextField();
         txtNombreC = new javax.swing.JTextField();
-        btnEliminarPago = new javax.swing.JButton();
-        btnRegistrarPago = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPagos = new javax.swing.JTable();
+        btnEliminarPago = new javax.swing.JButton();
+        btnRegistrarPago = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaHistorial = new javax.swing.JTable();
+        btnSalir = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnNulo = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
 
         capturaPago.setTitle("Captura de pago");
         capturaPago.setAlwaysOnTop(true);
@@ -186,11 +187,11 @@ public class frmRegistrarPago extends javax.swing.JFrame {
 
         lblBOrigen.setText("Banco Origen");
 
-        menuBOrigen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        menuBOrigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lblBDestino.setText("Banco Destino");
 
-        menuBDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        menuBDestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -311,9 +312,26 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        Pago.setBackground(new java.awt.Color(51, 153, 255));
+
+        javax.swing.GroupLayout PagoLayout = new javax.swing.GroupLayout(Pago);
+        Pago.setLayout(PagoLayout);
+        PagoLayout.setHorizontalGroup(
+            PagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        PagoLayout.setVerticalGroup(
+            PagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 19, Short.MAX_VALUE)
+        );
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lbFechaActual.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        lbFechaActual.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        lbFechaActual.setForeground(new java.awt.Color(0, 0, 102));
         lbFechaActual.setText("Fecha de pago");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -338,86 +356,57 @@ public class frmRegistrarPago extends javax.swing.JFrame {
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lbFechaActual, tfFechaActual});
 
-        Pago.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Información de la venta", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
 
-        javax.swing.GroupLayout PagoLayout = new javax.swing.GroupLayout(Pago);
-        Pago.setLayout(PagoLayout);
-        PagoLayout.setHorizontalGroup(
-            PagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        PagoLayout.setVerticalGroup(
-            PagoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 19, Short.MAX_VALUE)
-        );
-
-        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
-
-        btnNulo.setBorderPainted(false);
-        btnNulo.setContentAreaFilled(false);
-        btnNulo.setEnabled(false);
-        btnNulo.setFocusable(false);
-        btnNulo.setRequestFocusEnabled(false);
-        btnNulo.setRolloverEnabled(false);
-        jPanel2.add(btnNulo);
-
-        btnLimpiar.setBorderPainted(false);
-        btnLimpiar.setContentAreaFilled(false);
-        btnLimpiar.setEnabled(false);
-        btnLimpiar.setRequestFocusEnabled(false);
-        btnLimpiar.setRolloverEnabled(false);
-        jPanel2.add(btnLimpiar);
-
-        btnSalir.setText("Salir");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnSalir);
-
-        btnGuardar.setText("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnGuardar);
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Información de la venta"));
-
+        lbfechaV.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbfechaV.setForeground(new java.awt.Color(0, 0, 102));
         lbfechaV.setText("Fecha de venta");
 
+        lbNombreC.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbNombreC.setForeground(new java.awt.Color(0, 0, 102));
         lbNombreC.setText("Razón social del proveedor");
 
+        lblFolio.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblFolio.setForeground(new java.awt.Color(0, 0, 102));
         lblFolio.setText("Folio Venta");
 
         txtFolio.setEditable(false);
         txtFolio.setFocusable(false);
 
+        lblMonto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblMonto.setForeground(new java.awt.Color(0, 0, 102));
         lblMonto.setText("Monto");
 
         txtMonto.setEditable(false);
         txtMonto.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtMonto.setFocusable(false);
 
+        lbIVA.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbIVA.setForeground(new java.awt.Color(0, 0, 102));
         lbIVA.setText("IVA");
 
         txtIVA.setEditable(false);
         txtIVA.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtIVA.setFocusable(false);
 
+        lblTotal.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblTotal.setForeground(new java.awt.Color(0, 0, 102));
         lblTotal.setText("Total");
 
         txtTotal.setEditable(false);
         txtTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtTotal.setFocusable(false);
 
+        lblEstatus.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblEstatus.setForeground(new java.awt.Color(0, 0, 102));
         lblEstatus.setText("Estatus");
 
         txtEstatus.setEditable(false);
         txtEstatus.setFocusable(false);
 
+        lbSaldo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbSaldo.setForeground(new java.awt.Color(0, 0, 102));
         lbSaldo.setText("Saldo pendiente");
 
         txtSaldo.setEditable(false);
@@ -470,7 +459,7 @@ public class frmRegistrarPago extends javax.swing.JFrame {
                                 .addComponent(lblFolio)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                                 .addComponent(lbfechaV)
                                 .addGap(18, 18, 18)
                                 .addComponent(tfFechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -516,21 +505,8 @@ public class frmRegistrarPago extends javax.swing.JFrame {
 
         jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lbIVA, lbSaldo, lblEstatus, lblMonto, lblTotal, txtIVA, txtMonto, txtTotal});
 
-        btnEliminarPago.setText("Eliminar pago");
-        btnEliminarPago.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarPagoActionPerformed(evt);
-            }
-        });
-
-        btnRegistrarPago.setText("Registrar pago");
-        btnRegistrarPago.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarPagoActionPerformed(evt);
-            }
-        });
-
-        tablaPagos.setBorder(null);
+        tablaPagos.setBackground(new java.awt.Color(255, 255, 255));
+        tablaPagos.setForeground(new java.awt.Color(0, 0, 102));
         tablaPagos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -541,7 +517,28 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablaPagos);
 
-        tablaHistorial.setBorder(null);
+        btnEliminarPago.setBackground(new java.awt.Color(102, 102, 255));
+        btnEliminarPago.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnEliminarPago.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminarPago.setText("Eliminar pago");
+        btnEliminarPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarPagoActionPerformed(evt);
+            }
+        });
+
+        btnRegistrarPago.setBackground(new java.awt.Color(102, 102, 255));
+        btnRegistrarPago.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnRegistrarPago.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarPago.setText("Registrar pago");
+        btnRegistrarPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarPagoActionPerformed(evt);
+            }
+        });
+
+        tablaHistorial.setBackground(new java.awt.Color(255, 255, 255));
+        tablaHistorial.setForeground(new java.awt.Color(0, 0, 102));
         tablaHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -552,50 +549,115 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tablaHistorial);
 
+        btnSalir.setBackground(new java.awt.Color(102, 102, 255));
+        btnSalir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
+        btnGuardar.setBackground(new java.awt.Color(102, 102, 255));
+        btnGuardar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
+
+        btnNulo.setBackground(new java.awt.Color(102, 102, 255));
+        btnNulo.setBorderPainted(false);
+        btnNulo.setContentAreaFilled(false);
+        btnNulo.setEnabled(false);
+        btnNulo.setFocusable(false);
+        btnNulo.setRequestFocusEnabled(false);
+        jPanel2.add(btnNulo);
+
+        btnLimpiar.setBackground(new java.awt.Color(102, 102, 255));
+        btnLimpiar.setBorderPainted(false);
+        btnLimpiar.setContentAreaFilled(false);
+        btnLimpiar.setEnabled(false);
+        btnLimpiar.setRequestFocusEnabled(false);
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnLimpiar);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                .addComponent(btnEliminarPago)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnRegistrarPago))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jPanel8Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnEliminarPago, btnRegistrarPago});
+
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrarPago)
+                    .addComponent(btnEliminarPago))
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSalir)
+                    .addComponent(btnGuardar))
+                .addGap(28, 28, 28)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel8Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnEliminarPago, btnRegistrarPago});
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Pago, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnEliminarPago)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnRegistrarPago)))
-                .addContainerGap())
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnEliminarPago, btnRegistrarPago});
-
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(Pago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrarPago)
-                    .addComponent(btnEliminarPago))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnEliminarPago, btnRegistrarPago});
 
         getContentPane().add(jPanel1);
 
@@ -766,6 +828,10 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarPagoActionPerformed
 
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
     public void limpiar(){
         creaComboBanco();
         txtCantidadAbonada.setText("");
@@ -876,6 +942,7 @@ public class frmRegistrarPago extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbFechaActual;

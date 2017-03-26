@@ -31,7 +31,7 @@
 	<group name="Almacen">
 		<groupExpression><![CDATA[$F{Almacen}]]></groupExpression>
 		<groupHeader>
-			<band height="33">
+			<band height="44">
 				<textField>
 					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="6175626a-e839-43cf-afef-6c0bb65863ed"/>
 					<textElement markup="none">
@@ -40,7 +40,7 @@
 					<textFieldExpression><![CDATA["Almacen"]]></textFieldExpression>
 				</textField>
 				<line>
-					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="a684bd91-e2cb-4cfd-a849-e7c586659a72"/>
+					<reportElement x="-20" y="32" width="822" height="1" forecolor="#666666" uuid="a684bd91-e2cb-4cfd-a849-e7c586659a72"/>
 				</line>
 				<textField>
 					<reportElement mode="Opaque" x="100" y="0" width="702" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="2d9b97d1-d761-4243-b581-607751d65fc0"/>
@@ -77,7 +77,7 @@
 					<text><![CDATA[Total Productos por Almacen]]></text>
 				</staticText>
 				<image>
-					<reportElement x="630" y="0" width="211" height="54" uuid="ba7b07f8-f683-4827-817d-306b8dcace1e"/>
+					<reportElement x="630" y="20" width="211" height="54" uuid="ba7b07f8-f683-4827-817d-306b8dcace1e"/>
 					<imageExpression><![CDATA["C:\\Users\\zawex\\Documents\\5 cuatri\\Proyecto Agrarian\\AgrarianJ\\src\\pics\\Agrarian.jpg"]]></imageExpression>
 				</image>
 			</frame>
@@ -152,9 +152,9 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="20">
+		<band height="24">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="3f07a8a9-5f56-4c87-805c-2b800d54045d"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="23" width="802" height="1" uuid="3f07a8a9-5f56-4c87-805c-2b800d54045d"/>
 			</line>
 			<textField isStretchWithOverflow="true">
 				<reportElement x="0" y="0" width="79" height="20" uuid="f35f8a0a-50e9-4084-b862-242d2c33ef93"/>

@@ -81,9 +81,9 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         lblID = new javax.swing.JLabel();
         panAlmacenes = new javax.swing.JPanel();
         lblOrigen = new javax.swing.JLabel();
-        comboOrigen = new javax.swing.JComboBox<>();
+        comboOrigen = new javax.swing.JComboBox<String>();
         lblDestino = new javax.swing.JLabel();
-        comboDestino = new javax.swing.JComboBox<>();
+        comboDestino = new javax.swing.JComboBox<String>();
         panFunciones = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
         dummy1 = new javax.swing.JButton();
@@ -104,8 +104,11 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         });
         BuscarArticulo.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        tablaProductos.setBackground(new java.awt.Color(255, 255, 255));
+        tablaProductos.setForeground(new java.awt.Color(0, 0, 102));
         tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -116,10 +119,11 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(tablaProductos);
 
+        panBotones.setBackground(new java.awt.Color(255, 255, 255));
         panBotones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panBotones.setLayout(new java.awt.GridLayout());
+        panBotones.setLayout(new java.awt.GridLayout(1, 0));
 
-        btnDummy.setBackground(new java.awt.Color(204, 204, 204));
+        btnDummy.setBackground(new java.awt.Color(255, 255, 255));
         btnDummy.setBorderPainted(false);
         btnDummy.setContentAreaFilled(false);
         panBotones.add(btnDummy);
@@ -130,6 +134,8 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         panBotones.add(btnDummy1);
 
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
+        btnRegresar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(0, 0, 102));
         btnRegresar.setText("Regresar");
         btnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +145,8 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         panBotones.add(btnRegresar);
 
         btnSeleccionar.setBackground(new java.awt.Color(204, 255, 204));
+        btnSeleccionar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnSeleccionar.setForeground(new java.awt.Color(0, 0, 102));
         btnSeleccionar.setText("Seleccionar");
         btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,8 +155,12 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         });
         panBotones.add(btnSeleccionar);
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Productos disponibles en el almacen seleccionado");
 
@@ -196,6 +208,9 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         BuscarArticulo.getContentPane().add(jPanel2);
 
         setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("Traspasos");
         setMaximumSize(new java.awt.Dimension(444, 535));
         setMinimumSize(new java.awt.Dimension(444, 535));
@@ -224,10 +239,14 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         });
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
+        panBG.setBackground(new java.awt.Color(255, 255, 255));
         panBG.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 102));
         jLabel1.setText("Fecha de registro");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -253,11 +272,15 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {fechaTraslado, jLabel1});
 
-        panArticulos.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Artículos"));
+        panArticulos.setBackground(new java.awt.Color(255, 255, 255));
+        panArticulos.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Artículos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
 
+        lblDescripcion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblDescripcion.setForeground(new java.awt.Color(0, 0, 102));
         lblDescripcion.setText("Nombre");
         lblDescripcion.setToolTipText("");
 
+        btnBuscarArt.setBackground(new java.awt.Color(255, 255, 255));
         btnBuscarArt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/read1.png"))); // NOI18N
         btnBuscarArt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,8 +290,12 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
 
         txtDescripcion.setEditable(false);
 
+        lblCantidad.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblCantidad.setForeground(new java.awt.Color(0, 0, 102));
         lblCantidad.setText("Cantidad");
 
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 102));
         jLabel5.setText("Disponibles:");
 
         txtDisponible.setEditable(false);
@@ -323,8 +350,11 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
 
         panArticulosLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtCantidad, txtDisponible});
 
-        panAlmacenes.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Información de almacenes"));
+        panAlmacenes.setBackground(new java.awt.Color(255, 255, 255));
+        panAlmacenes.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Información de Almacenes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
 
+        lblOrigen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblOrigen.setForeground(new java.awt.Color(0, 0, 102));
         lblOrigen.setText("Almacén origen");
 
         comboOrigen.addActionListener(new java.awt.event.ActionListener() {
@@ -333,6 +363,8 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
             }
         });
 
+        lblDestino.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblDestino.setForeground(new java.awt.Color(0, 0, 102));
         lblDestino.setText("Almacén destino");
 
         comboDestino.addActionListener(new java.awt.event.ActionListener() {
@@ -370,10 +402,13 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        panFunciones.setBackground(new java.awt.Color(255, 255, 255));
         panFunciones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panFunciones.setLayout(new java.awt.GridLayout(1, 0));
 
         btnSalir.setBackground(new java.awt.Color(204, 204, 204));
+        btnSalir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(0, 0, 102));
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -397,6 +432,8 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         panFunciones.add(dummy2);
 
         btnGuardar.setBackground(new java.awt.Color(204, 255, 204));
+        btnGuardar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(0, 0, 102));
         btnGuardar.setText("Guardar y Salir");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -405,8 +442,11 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         });
         panFunciones.add(btnGuardar);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Detalle del embarque"));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Detalle del embarque", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
 
+        tablaResumen.setBackground(new java.awt.Color(255, 255, 255));
+        tablaResumen.setForeground(new java.awt.Color(0, 0, 102));
         tablaResumen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -417,7 +457,8 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tablaResumen);
 
-        btnAgregar.setBackground(java.awt.SystemColor.activeCaption);
+        btnAgregar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(0, 0, 102));
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -426,6 +467,8 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         });
 
         btnEliminar.setBackground(new java.awt.Color(255, 204, 204));
+        btnEliminar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 102));
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

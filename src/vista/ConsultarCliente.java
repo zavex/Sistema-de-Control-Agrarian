@@ -443,6 +443,8 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
             }
             ModificarCliente mc = new ModificarCliente (permiso,cliente,fila);
             escritorio.add(mc);
+            int tamaño = (escritorio.getWidth() - mc.getWidth()) / 2;
+            mc.setLocation(tamaño,0);
             mc.setVisible(true);
         }catch (Exception e) {}
     }//GEN-LAST:event_btnActualizarClienteActionPerformed
