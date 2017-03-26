@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.*;
-
 public class RealizarMezcla extends javax.swing.JInternalFrame {
     Permisos permiso;
     Formula f;
@@ -28,6 +27,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         lblKg = new javax.swing.JLabel();
@@ -129,22 +129,24 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         txtFormulaS = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtFormulaMg = new javax.swing.JTextField();
+        lblToneladas1 = new javax.swing.JLabel();
         lblToneladas = new javax.swing.JLabel();
-        txtToneladas = new javax.swing.JTextField();
+        txtIdProducto = new javax.swing.JTextField();
+        lblAlmacen = new javax.swing.JLabel();
+        txtIdAlmacen = new javax.swing.JTextField();
+        comboAlmacenes = new javax.swing.JComboBox<String>();
         lblTotal = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
+        txtToneladas = new javax.swing.JTextField();
         txtRealizarM = new javax.swing.JButton();
-        lblToneladas1 = new javax.swing.JLabel();
-        txtIdProducto = new javax.swing.JTextField();
-        comboAlmacenes = new javax.swing.JComboBox<String>();
-        txtIdAlmacen = new javax.swing.JTextField();
-        lblAlmacen = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("REALIZAR MEZCLA");
+        setTitle("Realizar Mezcla");
+        setToolTipText("");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -163,60 +165,74 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalle de Fórmula", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalle de Fórmula", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 51));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("PRODUCTO FUENTE");
+        jLabel3.setText("Producto Fuente");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 31, 156, 27));
 
-        lblKg.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblKg.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblKg.setForeground(new java.awt.Color(0, 0, 51));
         lblKg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblKg.setText("KG.");
         lblKg.setToolTipText("");
         jPanel1.add(lblKg, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 31, 112, 27));
 
-        lblNitrogeno.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblNitrogeno.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        lblNitrogeno.setForeground(new java.awt.Color(0, 0, 51));
         lblNitrogeno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNitrogeno.setText("NITRÓGENO (N)");
+        lblNitrogeno.setText("Nitrógeno (N)");
         jPanel1.add(lblNitrogeno, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 31, 100, 27));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 51));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("FÓSFORO (P)");
+        jLabel5.setText("Fósforo (P)");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 31, 100, 27));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 51));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("POTASIO (K)");
+        jLabel6.setText("Potasio (K)");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 31, 100, 27));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 51));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("AZUFRE (S)");
+        jLabel8.setText("Azufre (S)");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(659, 31, 100, 27));
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel10.setText("MAGNESIO (MG)");
+        jLabel10.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel10.setText("Magnesio (MG)");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(779, 31, 100, 27));
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 51));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("KG. 1 TM");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(891, 31, 100, 27));
 
         lblPrecioVenta.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblPrecioVenta.setForeground(new java.awt.Color(0, 0, 51));
         lblPrecioVenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPrecioVenta.setText("PRECIO POR KG");
+        lblPrecioVenta.setText("Precio por KG");
         jPanel1.add(lblPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(1009, 31, 100, -1));
 
         lblPrecioVenta1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblPrecioVenta1.setForeground(new java.awt.Color(0, 0, 51));
         lblPrecioVenta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPrecioVenta1.setText("TOTAL $");
+        lblPrecioVenta1.setText("Total $");
         jPanel1.add(lblPrecioVenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 30, 100, 24));
 
         lblUrea.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblUrea.setForeground(new java.awt.Color(0, 0, 102));
         lblUrea.setText("UREA 46-00-00");
         jPanel1.add(lblUrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 76, 156, 23));
 
@@ -225,14 +241,14 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         txtUrea.setText("0.00");
         txtUrea.setToolTipText("");
         txtUrea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtUrea.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtUreaFocusGained(evt);
-            }
-        });
         txtUrea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUreaActionPerformed(evt);
+            }
+        });
+        txtUrea.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUreaFocusGained(evt);
             }
         });
         txtUrea.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -697,13 +713,15 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         jPanel1.add(txtSumaKgM, new org.netbeans.lib.awtextra.AbsoluteConstraints(891, 332, 100, -1));
 
         lblPrecio.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblPrecio.setForeground(new java.awt.Color(0, 0, 51));
         lblPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPrecio.setText("PRECIO POR TM");
+        lblPrecio.setText("Precio por TM");
         jPanel1.add(lblPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 330, 100, -1));
 
         lblManiobras.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblManiobras.setForeground(new java.awt.Color(0, 0, 51));
         lblManiobras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblManiobras.setText("MANIOBRAS");
+        lblManiobras.setText("Maniobras");
         jPanel1.add(lblManiobras, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 360, 100, -1));
 
         txtManiobras.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -739,8 +757,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         jPanel1.add(txtSumaPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 330, 100, -1));
 
         lblPrecioTotal.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblPrecioTotal.setForeground(new java.awt.Color(0, 0, 51));
         lblPrecioTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPrecioTotal.setText("PRECIO TOTAL");
+        lblPrecioTotal.setText("Precio Total");
         jPanel1.add(lblPrecioTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 390, 100, -1));
 
         txtPrecioTotal.setEditable(false);
@@ -760,12 +779,14 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         jPanel1.add(txtSumaKilos, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 332, 100, -1));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel1.setText("TOTAL");
+        jLabel1.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel1.setText("Total");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 330, 116, 25));
 
         lblAmonio.setBackground(new java.awt.Color(255, 255, 255));
         lblAmonio.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lblAmonio.setText("S. DE AMONIO 22-00-00-24");
+        lblAmonio.setForeground(new java.awt.Color(0, 0, 102));
+        lblAmonio.setText("S. de Amonio 22-00-00-24");
         jPanel1.add(lblAmonio, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 276, -1, 23));
 
         txtAmonio.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -817,11 +838,13 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         jPanel1.add(txtPotasio, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 248, 100, -1));
 
         lblPotasio.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lblPotasio.setText("S. DE POTASIO 00-00-50");
+        lblPotasio.setForeground(new java.awt.Color(0, 0, 102));
+        lblPotasio.setText("S. de Potasio 00-00-50");
         jPanel1.add(lblPotasio, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 247, 156, 23));
 
         lblFosfo.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lblFosfo.setText("FOSFONITRATO 33-00-00");
+        lblFosfo.setForeground(new java.awt.Color(0, 0, 102));
+        lblFosfo.setText("Fosfonitrato 33-00-00");
         jPanel1.add(lblFosfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 218, 156, 23));
 
         txtFosfo.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -873,14 +896,17 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         jPanel1.add(txtKmag, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 190, 100, -1));
 
         lblKmag.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblKmag.setForeground(new java.awt.Color(0, 0, 102));
         lblKmag.setText("KMG 00-00-22-11-22");
         jPanel1.add(lblKmag, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 189, 156, 23));
 
         lblKcl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblKcl.setForeground(new java.awt.Color(0, 0, 102));
         lblKcl.setText("KCL 00-00-60");
         jPanel1.add(lblKcl, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 165, 156, -1));
 
         lblMap.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblMap.setForeground(new java.awt.Color(0, 0, 102));
         lblMap.setText("MAP 10-50-00");
         jPanel1.add(lblMap, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 134, 156, 23));
 
@@ -957,15 +983,18 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         jPanel1.add(txtDap, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 106, 100, -1));
 
         lblDap.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblDap.setForeground(new java.awt.Color(0, 0, 102));
         lblDap.setText("DAP 18-46-00");
         jPanel1.add(lblDap, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 105, 156, 23));
 
         lblPrecioTotal1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblPrecioTotal1.setForeground(new java.awt.Color(0, 0, 51));
         lblPrecioTotal1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPrecioTotal1.setText("POR TM");
+        lblPrecioTotal1.setText("por TM");
         jPanel1.add(lblPrecioTotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 400, 100, -1));
 
         lblPrecioVenta2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblPrecioVenta2.setForeground(new java.awt.Color(0, 0, 51));
         lblPrecioVenta2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPrecioVenta2.setText("TM");
         jPanel1.add(lblPrecioVenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 20, 66, -1));
@@ -982,6 +1011,11 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         txtCantidadUrea.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCantidadUrea.setToolTipText("");
         txtCantidadUrea.setEnabled(false);
+        txtCantidadUrea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCantidadUreaActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtCantidadUrea, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 70, 66, -1));
 
         txtCantidadMap.setEditable(false);
@@ -1027,18 +1061,22 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         jPanel1.add(txtCantidadAmonio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 280, 66, -1));
 
         lblPrecioVenta3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblPrecioVenta3.setForeground(new java.awt.Color(0, 0, 51));
         lblPrecioVenta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPrecioVenta3.setText("DISPONIBLES");
+        lblPrecioVenta3.setText("Disponibles");
         jPanel1.add(lblPrecioVenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1240, 40, -1, -1));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fórmula En Porcentajes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 2, 14))); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fórmula En Porcentajes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel4.setText("UNIDADES DE FÓRMULA EN %");
+        jLabel4.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel4.setText("Unidades de Fórmula en %");
 
         lblNitrogeno1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblNitrogeno1.setForeground(new java.awt.Color(0, 0, 102));
         lblNitrogeno1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNitrogeno1.setText("NITRÓGENO (N)");
+        lblNitrogeno1.setText("Nitrógeno (N)");
 
         txtFormulaN.setEditable(false);
         txtFormulaN.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -1047,8 +1085,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         txtFormulaN.setToolTipText("");
 
         lblFosforo1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblFosforo1.setForeground(new java.awt.Color(0, 0, 102));
         lblFosforo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblFosforo1.setText("FÓSFORO (P)");
+        lblFosforo1.setText("Fósforo (P)");
 
         txtFormulaP.setEditable(false);
         txtFormulaP.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -1057,8 +1096,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         txtFormulaP.setToolTipText("");
 
         lblPotasio1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblPotasio1.setForeground(new java.awt.Color(0, 0, 102));
         lblPotasio1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPotasio1.setText("POTASIO (K)");
+        lblPotasio1.setText("Potasio (K)");
 
         txtFormulaK.setEditable(false);
         txtFormulaK.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -1067,8 +1107,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         txtFormulaK.setToolTipText("");
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 102));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("AZUFRE (S)");
+        jLabel12.setText("Azufre  (S)");
 
         txtFormulaS.setEditable(false);
         txtFormulaS.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -1077,7 +1118,8 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         txtFormulaS.setToolTipText("");
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel13.setText("MAGNESIO (MG)");
+        jLabel13.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel13.setText("Magnesio (MG)");
 
         txtFormulaMg.setEditable(false);
         txtFormulaMg.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -1137,9 +1179,41 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        lblToneladas1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblToneladas1.setForeground(new java.awt.Color(0, 0, 51));
+        lblToneladas1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblToneladas1.setText("Id Producto");
+
         lblToneladas.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblToneladas.setForeground(new java.awt.Color(0, 0, 51));
         lblToneladas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblToneladas.setText("TONELADAS");
+        lblToneladas.setText("Toneladas");
+
+        txtIdProducto.setEditable(false);
+
+        lblAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblAlmacen.setForeground(new java.awt.Color(0, 0, 51));
+        lblAlmacen.setText("Id Almacén");
+
+        txtIdAlmacen.setEditable(false);
+
+        comboAlmacenes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboAlmacenesActionPerformed(evt);
+            }
+        });
+
+        lblTotal.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        lblTotal.setForeground(new java.awt.Color(0, 0, 51));
+        lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTotal.setText("Total");
+
+        txtTotal.setEditable(false);
+        txtTotal.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        txtTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTotal.setText("0.00");
+        txtTotal.setToolTipText("");
+        txtTotal.setEnabled(false);
 
         txtToneladas.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         txtToneladas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1159,104 +1233,99 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
             }
         });
 
-        lblTotal.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTotal.setText("TOTAL");
-
-        txtTotal.setEditable(false);
-        txtTotal.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        txtTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtTotal.setText("0.00");
-        txtTotal.setToolTipText("");
-        txtTotal.setEnabled(false);
-
+        txtRealizarM.setBackground(new java.awt.Color(102, 102, 255));
         txtRealizarM.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        txtRealizarM.setText("REGISTRAR MEZCLA");
+        txtRealizarM.setForeground(new java.awt.Color(255, 255, 255));
+        txtRealizarM.setText("Registrar Mezcla");
         txtRealizarM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRealizarMActionPerformed(evt);
             }
         });
 
-        lblToneladas1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        lblToneladas1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblToneladas1.setText("ID PRODUCTO");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/mezcla3.0.png"))); // NOI18N
 
-        txtIdProducto.setEditable(false);
-
-        comboAlmacenes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboAlmacenesActionPerformed(evt);
-            }
-        });
-
-        txtIdAlmacen.setEditable(false);
-
-        lblAlmacen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lblAlmacen.setText("ID ALMACÉN");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1325, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1315, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblAlmacen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblToneladas1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtIdAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(lblToneladas, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtToneladas, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(comboAlmacenes, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(53, 53, 53)
-                                .addComponent(txtRealizarM, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addGap(18, 18, 18)
+                                .addComponent(txtRealizarM, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addGap(0, 0, 0))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblToneladas)
                             .addComponent(txtToneladas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblToneladas1)
                             .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTotal)
                             .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblAlmacen)
                             .addComponent(txtIdAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtRealizarM, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboAlmacenes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtRealizarM, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(comboAlmacenes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2))
+                        .addGap(10, 10, 10)))
+                .addGap(5, 5, 5))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -1275,31 +1344,22 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtUreaActionPerformed
 
     private void txtUreaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUreaKeyReleased
-
+        
         if (!txtUrea.getText().isEmpty()){
-
             f.setUreaK(Double.parseDouble(txtUrea.getText()));
-
             txtUreaN.setText(String.format("%.2f", f.ureaNitro()));
-
         } else {
-
             txtUrea.setText("0.00");
-
             f.setUreaK(0);
-
             txtUreaN.setText(String.format("%.2f", f.ureaNitro()));
-
             txtUrea.selectAll();
-
         }
-
         txtSumaKilos.setText(String.format("%.2f", f.sumaKilosCalculo()));
-
         txtSumaKgM.setText(String.format("%.2f", f.sumaKilosMezcla()));
-
+        System.out.println("en el keyreleased....");
+        //System.out.println(f.sumaNitrogeno(Double.parseDouble(txtUreaN.getText()), Double.parseDouble(txtDapN.getText()), Double.parseDouble(txtMapN.getText()), Double.parseDouble(txtFosfoN.getText()), Double.parseDouble(txtAmonioN.getText())));
         operacionesNitrogeno();
-
+        System.out.println("paso operacionesNitrogeno");
         operacionesMezcla();
     }//GEN-LAST:event_txtUreaKeyReleased
 
@@ -2178,6 +2238,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         String totalTons = txtToneladas.getText();
         if (!name.isEmpty() && !totalTons.isEmpty() && Double.parseDouble(totalTons)!=0.00){            
             try {
+            
             Double totalToneladas = Double.parseDouble(txtToneladas.getText());
             //almacenar PRODUCTO en producto
             producto.setNombre(generarNombre());
@@ -2186,13 +2247,12 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
             producto.setPresentacion("ENVASADO");
             producto.setPrecioSugerido(Double.parseDouble(txtPrecioTotal.getText()));
             producto.registrarProducto();
-        
                         //almacenar NUEVO PRODUCTO en almacen_producto
             almacenProd.setIdAlmacen(Integer.parseInt(txtIdAlmacen.getText()));
             almacenProd.setIdProducto(Integer.parseInt(txtIdProducto.getText()));            
             almacenProd.setCantidad(Double.parseDouble(txtToneladas.getText()));
             almacenProd.registarAltaProducto();
-            
+
             Double ureaKilos = Double.parseDouble(txtUreaMezcla.getText());
             Double ureaToneladas = (ureaKilos / 1000)*totalToneladas; 
             Double dapKilos = Double.parseDouble(txtDapMezcla.getText());
@@ -2209,6 +2269,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
             Double potaToneladas = potaKilos / 1000*totalToneladas;
             Double amonKilos = Double.parseDouble(txtAmonioMezcla.getText());
             Double amonToneladas = amonKilos / 1000*totalToneladas;
+            
             AlmacenProducto almacenProdUrea = new AlmacenProducto(conexion);
             AlmacenProducto almacenProdDap = new AlmacenProducto(conexion);
             AlmacenProducto almacenProdMap = new AlmacenProducto(conexion);
@@ -2217,7 +2278,6 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
             AlmacenProducto almacenProdFosfo = new AlmacenProducto(conexion);
             AlmacenProducto almacenProdPota = new AlmacenProducto(conexion);
             AlmacenProducto almacenProdAmon = new AlmacenProducto(conexion);
-            
             
             almacenProdUrea.setIdAlmacen(Integer.parseInt(txtIdAlmacen.getText()));
             almacenProdUrea.setIdProducto(regresarIdProdUrea());
@@ -2228,32 +2288,32 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
             almacenProdDap.setIdProducto(regresarIdProdDap());
             almacenProdDap.setCantidad(dapToneladas);
             almacenProdDap.registarSalidaProducto();
-
+            
             almacenProdMap.setIdAlmacen(Integer.parseInt(txtIdAlmacen.getText()));
             almacenProdMap.setIdProducto(regresarIdProdMap());
             almacenProdMap.setCantidad(mapToneladas);
             almacenProdMap.registarSalidaProducto();
-
+            
             almacenProdKcl.setIdAlmacen(Integer.parseInt(txtIdAlmacen.getText()));
             almacenProdKcl.setIdProducto(regresarIdProdKcl());
             almacenProdKcl.setCantidad(kclToneladas);
             almacenProdKcl.registarSalidaProducto();
-
+            
             almacenProdKmg.setIdAlmacen(Integer.parseInt(txtIdAlmacen.getText()));
             almacenProdKmg.setIdProducto(regresarIdProdKmg());
             almacenProdKmg.setCantidad(kmgToneladas);
             almacenProdKmg.registarSalidaProducto();
-
+            
             almacenProdFosfo.setIdAlmacen(Integer.parseInt(txtIdAlmacen.getText()));
             almacenProdFosfo.setIdProducto(regresarIdProdFosfo());
             almacenProdFosfo.setCantidad(fosfoToneladas);
             almacenProdFosfo.registarSalidaProducto();
-
+            
             almacenProdPota.setIdAlmacen(Integer.parseInt(txtIdAlmacen.getText()));
             almacenProdPota.setIdProducto(regresarIdProdPota());
             almacenProdPota.setCantidad(potaToneladas);
             almacenProdPota.registarSalidaProducto();
-
+            
             almacenProdAmon.setIdAlmacen(Integer.parseInt(txtIdAlmacen.getText()));
             almacenProdAmon.setIdProducto(regresarIdProdAmon());
             almacenProdAmon.setCantidad(amonToneladas);      
@@ -2262,6 +2322,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,"Nueva mezcla creada");
             JOptionPane.showMessageDialog(null,"Inventario actualizado");
             ll.agregarAccion(date.toString(),"Creacion Nueva Mezcla");
+            
             this.dispose();
             
         }catch (Exception e ) {}
@@ -2276,9 +2337,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         int idProducto=0;
         conexion.conexionSQL();
         PreparedStatement comando = null;
-        String productoo = "UREA";
+        String productoo = "Urea";
         try{
-        comando = conexion.getConexion().prepareStatement("select idProducto from productos where nombre=?");
+        comando = conexion.getConexion().prepareStatement("select idProducto from producto where nombre=?");
         comando.setString(1, productoo);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2295,9 +2356,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         int idAlmacen=0;
         conexion.conexionSQL();
         PreparedStatement comando = null;
-        String nombreProd = "UREA";
+        String nombreProd = "Urea";
         try{
-        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_productos a join productos p on a.idProducto = p.idProducto where p.nombre=?");
+        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_producto a join producto p on a.idProducto = p.idProducto where p.nombre=?");
         comando.setString(1, nombreProd);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2316,7 +2377,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String productoo = "DAP";
         try{
-        comando = conexion.getConexion().prepareStatement("select idProducto from productos where nombre=?");
+        comando = conexion.getConexion().prepareStatement("select idProducto from producto where nombre=?");
         comando.setString(1, productoo);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2335,7 +2396,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String nombreProd = "DAP";
         try{
-        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_productos a join productos p on a.idProducto = p.idProducto where p.nombre=?");
+        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_producto a join producto p on a.idProducto = p.idProducto where p.nombre=?");
         comando.setString(1, nombreProd);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2354,7 +2415,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String productoo = "MAP";
         try{
-        comando = conexion.getConexion().prepareStatement("select idProducto from productos where nombre=?");
+        comando = conexion.getConexion().prepareStatement("select idProducto from producto where nombre=?");
         comando.setString(1, productoo);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2373,7 +2434,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String nombreProd = "MAP";
         try{
-        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_productos a join productos p on a.idProducto = p.idProducto where p.nombre=?");
+        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_producto a join producto p on a.idProducto = p.idProducto where p.nombre=?");
         comando.setString(1, nombreProd);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2392,7 +2453,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String productoo = "KCL";
         try{
-        comando = conexion.getConexion().prepareStatement("select idProducto from productos where nombre=?");
+        comando = conexion.getConexion().prepareStatement("select idProducto from producto where nombre=?");
         comando.setString(1, productoo);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2411,7 +2472,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String nombreProd = "KCL";
         try{
-        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_productos a join productos p on a.idProducto = p.idProducto where p.nombre=?");
+        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_producto a join producto p on a.idProducto = p.idProducto where p.nombre=?");
         comando.setString(1, nombreProd);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2430,7 +2491,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String productoo = "KMG";
         try{
-        comando = conexion.getConexion().prepareStatement("select idProducto from productos where nombre=?");
+        comando = conexion.getConexion().prepareStatement("select idProducto from producto where nombre=?");
         comando.setString(1, productoo);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2449,7 +2510,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         PreparedStatement comando = null;
         String nombreProd = "KMG";
         try{
-        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_productos a join productos p on a.idProducto = p.idProducto where p.nombre=?");
+        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_producto a join producto p on a.idProducto = p.idProducto where p.nombre=?");
         comando.setString(1, nombreProd);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2466,9 +2527,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         int idProducto=0;
         conexion.conexionSQL();
         PreparedStatement comando = null;
-        String productoo = "FOSFONITRATO";
+        String productoo = "Fosfonitrato";
         try{
-        comando = conexion.getConexion().prepareStatement("select idProducto from productos where nombre=?");
+        comando = conexion.getConexion().prepareStatement("select idProducto from producto where nombre=?");
         comando.setString(1, productoo);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2485,9 +2546,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         int idAlmacen=0;
         conexion.conexionSQL();
         PreparedStatement comando = null;
-        String nombreProd = "FOSFONITRATO";
+        String nombreProd = "Fosfonitrato";
         try{
-        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_productos a join productos p on a.idProducto = p.idProducto where p.nombre=?");
+        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_producto a join producto p on a.idProducto = p.idProducto where p.nombre=?");
         comando.setString(1, nombreProd);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2504,9 +2565,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         int idProducto=0;
         conexion.conexionSQL();
         PreparedStatement comando = null;
-        String productoo = "S. DE POTASIO";
+        String productoo = "S. de Potasio";
         try{
-        comando = conexion.getConexion().prepareStatement("select idProducto from productos where nombre=?");
+        comando = conexion.getConexion().prepareStatement("select idProducto from producto where nombre=?");
         comando.setString(1, productoo);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2523,9 +2584,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         int idAlmacen=0;
         conexion.conexionSQL();
         PreparedStatement comando = null;
-        String nombreProd = "S. DE POTASIO";
+        String nombreProd = "S. de Potasio";
         try{
-        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_productos a join productos p on a.idProducto = p.idProducto where p.nombre=?");
+        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_producto a join producto p on a.idProducto = p.idProducto where p.nombre=?");
         comando.setString(1, nombreProd);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2542,9 +2603,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         int idProducto=0;
         conexion.conexionSQL();
         PreparedStatement comando = null;
-        String productoo = "S. DE AMONIO";
+        String productoo = "S. de Amonio";
         try{
-        comando = conexion.getConexion().prepareStatement("select idProducto from productos where nombre=?");
+        comando = conexion.getConexion().prepareStatement("select idProducto from producto where nombre=?");
         comando.setString(1, productoo);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2561,9 +2622,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         int idAlmacen=0;
         conexion.conexionSQL();
         PreparedStatement comando = null;
-        String nombreProd = "S. DE AMONIO";
+        String nombreProd = "S. de Amonio";
         try{
-        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_productos a join productos p on a.idProducto = p.idProducto where p.nombre=?");
+        comando = conexion.getConexion().prepareStatement("select a.idAlmacen from almacen_producto a join producto p on a.idProducto = p.idProducto where p.nombre=?");
         comando.setString(1, nombreProd);
         ResultSet rs = comando.executeQuery();
         while(rs.next()){                            
@@ -2655,6 +2716,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         f.cleanFields();
 
     }//GEN-LAST:event_formInternalFrameOpened
+
+    private void txtCantidadUreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadUreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCantidadUreaActionPerformed
     
     /* 
     public boolean validarExistencias () {
@@ -2732,8 +2797,8 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
    
    public void operacionesNitrogeno() {
        
+       
         txtSumaN.setText(String.format("%.2f", f.sumaNitrogeno(Double.parseDouble(txtUreaN.getText()), Double.parseDouble(txtDapN.getText()), Double.parseDouble(txtMapN.getText()), Double.parseDouble(txtFosfoN.getText()), Double.parseDouble(txtAmonioN.getText()))));
-        
         txtFormulaN.setText(String.format("%.2f", f.formulaNitrogeno()));
        
    }
@@ -2794,6 +2859,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2802,6 +2868,7 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblAlmacen;
     private javax.swing.JLabel lblAmonio;
     private javax.swing.JLabel lblDap;
