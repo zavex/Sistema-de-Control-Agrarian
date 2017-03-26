@@ -3,6 +3,8 @@
     * ================= Procedimientos almacenados ==================
 	*
 	*/
+	USE AGRARIAN
+	GO
 
 	CREATE PROCEDURE VERIFICAR(
         @user varchar(10),
@@ -513,6 +515,7 @@ create trigger Venta_ivaTotal
                 WHERE a.nombreA = @nomA
             end
     END
+	GO
 
     /*
     REGISTRA TRASPASO Y AFECTA INVENTARIOS

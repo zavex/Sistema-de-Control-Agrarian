@@ -1,5 +1,8 @@
     /**** ===================================== INSERCION DE USUARIO DEL SISTEMA ===================================== *****/
-    INSERT INTO empleado (nombre,rfc,curp,nss,departamento,estatus,telefono,direccion,correo)
+    USE AGRARIAN
+	GO
+
+	INSERT INTO empleado (nombre,rfc,curp,nss,departamento,estatus,telefono,direccion,correo)
     VALUES ('Ivan Iñiguez','IIAA260986','IIAA260986HBCXK09','7896524589','Sistemas','activo','3321456989','Isla del wasnor No. 29', 'iiniguez@miau.com.mx')
     GO
 

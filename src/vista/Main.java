@@ -48,7 +48,7 @@ public class Main extends javax.swing.JFrame {
     Log ll = new Log();
     Date date = new Date ();
     String usuarioActual;
-    boolean ventTraspasoAb = false;
+    boolean ventTraspasoAb = false,ventConsultaTras=false;
     
     int seg = 0;
     
@@ -575,6 +575,11 @@ public class Main extends javax.swing.JFrame {
         MenuAlmacenes.add(itemAgregarMovimiento);
 
         jMenuItem4.setText("Consulta traspasos");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         MenuAlmacenes.add(jMenuItem4);
 
         jMenuBar1.add(MenuAlmacenes);
@@ -944,6 +949,16 @@ public class Main extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_itemAgregarMovimientoActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        if(ventConsultaTras == false){
+            ifrmConsultaTraspaso ifrt = new ifrmConsultaTraspaso(this,Escritorio,permiso,producto);
+            Escritorio.add(ifrt);
+            centrarVentana(ifrt);
+            ifrt.setVisible(true);
+            ventConsultaTras = true;
+        }
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     public void iniciarSesion() {
         usuarioActual = textoUsuario.getText();

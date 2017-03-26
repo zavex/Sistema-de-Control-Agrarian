@@ -522,15 +522,16 @@ public class Producto {
             tabla.addColumn("Nombre");
             tabla.addColumn("Descripción");
             tabla.addColumn("Disponible");
-                
-                while(rs.next()){
-                    Vector fila = new Vector();
-                    fila.addElement(rs.getInt(1));
-                    fila.addElement(rs.getString(2));
-                    fila.addElement(rs.getString(3));
-                    fila.addElement(rs.getDouble(4));
-                    tabla.addRow(fila);
-                }
+                             
+            while(rs.next()){
+                Vector fila = new Vector();
+                fila.addElement(rs.getInt(1));
+                fila.addElement(rs.getString(2));
+                fila.addElement(rs.getString(3));
+                fila.addElement(rs.getDouble(4));
+                tabla.addRow(fila);
+            }
+            
             
             
             //JOptionPane.showMessageDialog(null, "El almacén selecionado no cuenta con registro de productos","Sin inventario",JOptionPane.WARNING_MESSAGE);
