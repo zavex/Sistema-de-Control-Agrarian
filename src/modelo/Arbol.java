@@ -30,11 +30,18 @@ public class Arbol {
     String cadenaOriginal = null;
     String encriptado = null;
     String compresion = null;
+    String cadenaEncriptada = null;
+    
     
     public void convertir(String cadena){
         this.cadenaOriginal = cadena;
         contador(cadena, raiz);
     }
+    
+    public String regresarCadEnc(){
+        return this.cadenaEncriptada;
+    }
+    
     public void contador(String cadena,Nodo arbol){
         Nodo nuevo;
         if(cadena.length()==0){
@@ -303,7 +310,8 @@ public class Arbol {
             encriptado = encriptado.substring(8);
         }
         System.out.println(this.compresion);
-        grabar(compresion);
+        this.cadenaEncriptada = this.compresion;
+        //grabar(compresion);
     }
     
     

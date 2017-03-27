@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.PrintWriter;
 import modelo.Log;
 import java.sql.Connection;
@@ -987,25 +988,45 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        archivo = new JFileChooser();
         nuevo = new Arbol();
         String texto = ""; 
         int cantidad=0;
-        nomArchivo = "C:\\Users\\zawex\\Desktop\\log.txt";
-        try {
-            archivoEntradaa = new Scanner (new FileReader (nomArchivo));
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+        if (archivo.showDialog(null, "Guardar Archivo") == JFileChooser.APPROVE_OPTION) { 
+            try {
+                nomArchivo = archivo.getSelectedFile().toString();
+                archivoSalida = new PrintWriter(new FileWriter(nomArchivo,true));
+                msje = "";
+                nomArchivo = "C:\\Users\\zawex\\Desktop\\log.txt";
+                try {
+                    archivoEntradaa = new Scanner (new FileReader (nomArchivo));
+                } catch (Exception ex) {
+                    System.out.println(ex.getMessage());
+                }
+                lineaLeida = "";
+                countLineas = 0;
+                while (archivoEntradaa.hasNext()) { 
+                    lineaLeida = archivoEntradaa.nextLine();
+                    texto += lineaLeida;
+                }
+                int tamaño = texto.length();                
+                nuevo.convertir(texto);
+                //System.out.println("----------------------");
+                String cad = nuevo.regresarCadEnc();
+                //System.out.println("cad: " + cad);
+                archivoSalida.println(cad);
+                JOptionPane.showMessageDialog(null,"Informacion guardada en archivo");
+                archivoSalida.close();
+            }catch (Exception e) {
+                archivoSalida = null;
+                JOptionPane.showConfirmDialog(null, "Error al leer el archivo"+countLineas, 
+                        "Mensaje",JOptionPane.OK_OPTION);
+            }
+        }else {
+            JOptionPane.showConfirmDialog(null, "Opcion cancelada", 
+                        "Mensaje",JOptionPane.OK_OPTION);
         }
-        lineaLeida = "";
-        countLineas = 0;
-        while (archivoEntradaa.hasNext()) { 
-            lineaLeida = archivoEntradaa.nextLine();
-            texto += lineaLeida;
-        }
-        
-        int tamaño = texto.length();
-        System.out.println(tamaño);
-        nuevo.convertir(texto);
+
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     public void iniciarSesion() {

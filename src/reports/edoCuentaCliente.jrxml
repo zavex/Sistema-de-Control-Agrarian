@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2d2d497a-d68f-4786-9387-dabeb6be9d25">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="196"/>
+	<property name="ireport.x" value="4"/>
+	<property name="ireport.y" value="177"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -52,28 +52,25 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="136" splitType="Stretch">
+		<band height="130" splitType="Stretch">
 			<staticText>
-				<reportElement style="Title" x="172" y="0" width="412" height="62" uuid="c0e51bc8-8736-4208-876c-76e214699658"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font pdfFontName="Times-Roman"/>
-				</textElement>
-				<text><![CDATA[AGRARIAN]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="172" y="62" width="412" height="42" uuid="6c41612f-68b3-4796-a20d-50dd330525a4"/>
+				<reportElement x="278" y="84" width="453" height="42" uuid="6c41612f-68b3-4796-a20d-50dd330525a4"/>
 				<textElement textAlignment="Center">
 					<font size="10"/>
 				</textElement>
-				<text><![CDATA[Comercializadora Agrarian S.A de C.V Ave Siempreviva 456, Col. Centro, Guadalajara, Jal. RFC AGRA900918]]></text>
+				<text><![CDATA[Don Bosco #6, Col. Don Bosco Vallarta, CP. 45049, Zapopan, Jalisco 	Tel 013336960824	RFC AGRA900918HMCTLV]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="SubTitle" x="594" y="0" width="208" height="22" uuid="cf559639-960e-457d-8f28-9ca1c461fcb8"/>
-				<textElement>
-					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				<reportElement style="SubTitle" x="1" y="25" width="262" height="34" uuid="cf559639-960e-457d-8f28-9ca1c461fcb8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="22" pdfFontName="Times-Roman"/>
 				</textElement>
 				<text><![CDATA[ESTADO DE CUENTA]]></text>
 			</staticText>
+			<image>
+				<reportElement x="348" y="0" width="324" height="84" uuid="21026b36-a0e2-44dc-826b-2848cdc5a747"/>
+				<imageExpression><![CDATA["C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\pics\\Agrarian.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
@@ -191,7 +188,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="234" splitType="Stretch">
+		<band height="235" splitType="Stretch">
 			<frame>
 				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="5bac4f4f-3ce2-4fae-8ce1-072d68079a6a"/>
 			</frame>
@@ -203,7 +200,7 @@
 				<text><![CDATA[TOTAL NOTAS DE CREDITO]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="299" y="91" width="206" height="23" uuid="f5ba7b7c-94e7-4c2f-949c-2e80025d2672"/>
+				<reportElement style="Detail" x="278" y="91" width="206" height="23" uuid="f5ba7b7c-94e7-4c2f-949c-2e80025d2672"/>
 				<textElement verticalAlignment="Middle">
 					<font size="14"/>
 				</textElement>
@@ -217,7 +214,7 @@
 				<text><![CDATA[TOTAL DEVOLUCIONES]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="299" y="114" width="206" height="23" uuid="60d191bc-b3a6-4bc2-a302-0f0dd25e6cf0"/>
+				<reportElement style="Detail" x="278" y="114" width="206" height="23" uuid="60d191bc-b3a6-4bc2-a302-0f0dd25e6cf0"/>
 				<textElement verticalAlignment="Middle">
 					<font size="14"/>
 				</textElement>
@@ -231,7 +228,7 @@
 				<text><![CDATA[TOTAL PAGOS]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="299" y="135" width="206" height="23" uuid="07fce4e5-050c-4df4-aa10-0fabd9dc83b8"/>
+				<reportElement style="Detail" x="278" y="135" width="206" height="23" uuid="07fce4e5-050c-4df4-aa10-0fabd9dc83b8"/>
 				<textElement verticalAlignment="Middle">
 					<font size="14"/>
 				</textElement>
@@ -268,20 +265,19 @@
 			<line>
 				<reportElement x="1" y="16" width="801" height="1" uuid="2f5e1bc0-50b7-4068-9ccf-8459d4b497e7"/>
 			</line>
-		</band>
-	</detail>
-	<columnFooter>
-		<band height="12" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="f9fbab1c-e1b4-4b98-baec-b16326a4ec42"/>
+				<reportElement positionType="FixRelativeToBottom" x="1" y="169" width="802" height="1" uuid="f9fbab1c-e1b4-4b98-baec-b16326a4ec42"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="1" y="3" width="801" height="1" uuid="ab9ba8a6-8871-4c94-bfc1-0c4fd5a5b41d"/>
+				<reportElement x="2" y="234" width="801" height="1" uuid="bca89704-f0ba-4f41-a5be-7419106bbae3"/>
 			</line>
 		</band>
+	</detail>
+	<columnFooter>
+		<band height="12" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="25" splitType="Stretch">

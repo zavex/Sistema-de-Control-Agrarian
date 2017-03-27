@@ -213,12 +213,12 @@
 	<pageFooter>
 		<band height="17">
 			<textField>
-				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="f0959296-0817-4f7f-8166-8b8253efaf59"/>
+				<reportElement mode="Opaque" x="0" y="4" width="758" height="13" backcolor="#E6E6E6" uuid="f0959296-0817-4f7f-8166-8b8253efaf59"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="23f9879d-cad8-4a7c-9a22-03f8b7741fe2"/>
+				<reportElement mode="Opaque" x="758" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="23f9879d-cad8-4a7c-9a22-03f8b7741fe2"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="EEEEE dd MMMMM yyyy">
