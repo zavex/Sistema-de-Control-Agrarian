@@ -168,6 +168,7 @@ public class Main extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         MenuAyuda = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
         ItemAyuda = new javax.swing.JMenuItem();
 
         VentanaLogin.setTitle("ACCESO AL SISTEMA");
@@ -340,6 +341,8 @@ public class Main extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/campo.jpg"))); // NOI18N
 
+        Escritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
@@ -350,7 +353,6 @@ public class Main extends javax.swing.JFrame {
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        Escritorio.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         lblBienvenido.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lblBienvenido.setForeground(new java.awt.Color(0, 0, 102));
@@ -675,6 +677,14 @@ public class Main extends javax.swing.JFrame {
         MenuAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pics/ayuda2.0.png"))); // NOI18N
         MenuAyuda.setText("Ayuda");
         MenuAyuda.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        jMenuItem6.setText("Iniciar Chat");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        MenuAyuda.add(jMenuItem6);
 
         ItemAyuda.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         ItemAyuda.setText("Acerca de");
@@ -1029,6 +1039,13 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        chat cliente = new chat();
+        cliente.conectar("localhost", lblUsuarioActivo.getText());
+        cliente.setSize(326, 384);
+        cliente.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     public void iniciarSesion() {
         usuarioActual = textoUsuario.getText();
         try {
@@ -1353,6 +1370,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JLabel lblBienvenido;
     private javax.swing.JLabel lblStatus;
