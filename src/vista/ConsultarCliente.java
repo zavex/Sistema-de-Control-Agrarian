@@ -426,7 +426,7 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (table.getSelectedRow() != -1) {
-            String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\ventsCliente.jasper";
+            String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\ventasCliente.jasper";
             Map param = new HashMap();
             param.put("idClient", table.getValueAt(table.getSelectedRow(),0));
             JasperReport jr = null;

@@ -640,7 +640,7 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
                     compraProd.setFolioCompra(Integer.parseInt(txtFolioCompra.getText()));
                     compraProd.setIdProducto(Integer.parseInt(table.getModel().getValueAt(i, 0).toString()));
                     compraProd.setPrecio(Double.parseDouble(table.getModel().getValueAt(i, 3).toString()));
-                    compraProd.setCantidad(Double.parseDouble(table.getModel().getValueAt(i, 6).toString()));
+                    compraProd.setCantidad(Double.parseDouble(table.getModel().getValueAt(i, 4).toString()));
                     //almacenar datos en almacen_producto
                     almacenProd.setIdAlmacen(Integer.parseInt(table.getModel().getValueAt(i, 1).toString()));
                     almacenProd.setIdProducto(Integer.parseInt(table.getModel().getValueAt(i, 0).toString()));
