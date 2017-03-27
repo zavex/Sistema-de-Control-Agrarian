@@ -217,42 +217,28 @@
 	<detail>
 		<band height="98" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="149" y="2" width="167" height="29" uuid="74dd353f-ea65-4b69-aaa3-78dfe3bd36ce"/>
+				<reportElement style="Detail" x="145" y="33" width="213" height="30" uuid="814fdf55-3914-4ee7-9201-5980a7533fa5"/>
 				<textElement verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA['$'+$F{MontoCompras}]]></textFieldExpression>
+				<textFieldExpression><![CDATA['$'+$F{MontoPagado}+'0']]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="149" y="32" width="167" height="30" uuid="814fdf55-3914-4ee7-9201-5980a7533fa5"/>
+				<reportElement style="Detail" x="145" y="64" width="167" height="31" uuid="9e6acd1d-5406-48d0-b0da-4e73d74d6de1"/>
 				<textElement verticalAlignment="Middle">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA['$'+$F{MontoPagado}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="149" y="63" width="167" height="31" uuid="9e6acd1d-5406-48d0-b0da-4e73d74d6de1"/>
-				<textElement verticalAlignment="Middle">
-					<font size="14" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA['$'+$F{Total}]]></textFieldExpression>
+				<textFieldExpression><![CDATA['$'+$F{Total}+'0']]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="Column header" x="11" y="2" width="135" height="30" forecolor="#736343" uuid="36c1d564-269a-4a5c-95b2-29d935406002"/>
-				<textElement>
-					<font fontName="Times New Roman" size="18"/>
-				</textElement>
-				<text><![CDATA[Monto Compra:]]></text>
-			</staticText>
-			<staticText>
-				<reportElement style="Column header" x="11" y="32" width="135" height="30" forecolor="#736343" uuid="e6171058-8b56-43c4-970c-9965d64f2953"/>
+				<reportElement style="Column header" x="7" y="33" width="135" height="30" forecolor="#736343" uuid="e6171058-8b56-43c4-970c-9965d64f2953"/>
 				<textElement>
 					<font fontName="Times New Roman" size="18"/>
 				</textElement>
 				<text><![CDATA[Monto Pagado:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="11" y="63" width="135" height="31" forecolor="#736343" uuid="0a20f092-1786-486c-a89c-01dbb1a5a5b8"/>
+				<reportElement style="Column header" x="7" y="64" width="135" height="31" forecolor="#736343" uuid="0a20f092-1786-486c-a89c-01dbb1a5a5b8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Times New Roman" size="18"/>
 				</textElement>
@@ -264,6 +250,20 @@
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="149" y="0" width="209" height="29" uuid="74dd353f-ea65-4b69-aaa3-78dfe3bd36ce"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA['$'+$F{MontoCompras}+'0']]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="11" y="0" width="135" height="30" forecolor="#736343" uuid="36c1d564-269a-4a5c-95b2-29d935406002"/>
+				<textElement>
+					<font fontName="Times New Roman" size="18"/>
+				</textElement>
+				<text><![CDATA[Monto Compra:]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<pageFooter>
