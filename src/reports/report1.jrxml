@@ -1,40 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e2bf8986-2286-40e6-aa48-5a81cee29148">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9cdbc9fc-1a6a-48f8-9b46-97696b28047f">
 	<queryString language="SQL">
-		<![CDATA[select * from ventasPorAlmacen]]>
+		<![CDATA[	select a.idAlmacen as 'Id Almacén', a.nombreA as 'Nombre Almacén', count(*) as 'Total Ventas', sum(subtotal) as 'Ingreso Ventas' 
+	from venta v join almacen a 
+    on v.idAlmacen = a.idAlmacen 
+	group by a.idAlmacen, a.nombreA]]>
 	</queryString>
 	<field name="Id Almacén" class="java.lang.Integer"/>
 	<field name="Nombre Almacén" class="java.lang.String"/>
-	<field name="Total Ventas" class="java.lang.Long">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="Ingreso Ventas" class="java.lang.Double">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Total Ventas" class="java.lang.Long"/>
+	<field name="Ingreso Ventas" class="java.lang.Double"/>
 	<group name="Id Almacén">
 		<groupExpression><![CDATA[$F{Id Almacén}]]></groupExpression>
 		<groupHeader>
 			<band height="33">
 				<staticText>
-					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="b21ba74d-7ad4-4d81-ba81-7fbace5a9a86"/>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="22f2df20-bd84-407e-8558-c8f99e8280b1"/>
 					<textElement>
 						<font size="12"/>
 					</textElement>
 					<text><![CDATA[Id Almacén]]></text>
 				</staticText>
 				<textField>
-					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="0443af9a-0b1e-4181-8db3-f094c493cc25"/>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="8ff64ee0-a9c8-4179-aae6-75eeeca09c70"/>
 					<textElement>
 						<font size="24" isBold="true"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{Id Almacén}]]></textFieldExpression>
 				</textField>
 				<line>
-					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="3338bfd1-e973-48e6-970e-70056bb0f0a0"/>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="d4555f7a-845d-410a-9ff2-a89b61e3f109"/>
 				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Nombre Almacén">
+		<groupExpression><![CDATA[$F{Nombre Almacén}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#006699" uuid="597c96e5-5f78-4586-b76b-172a58f48495"/>
+					<textElement>
+						<font size="22" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Nombre Almacén}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="1479c982-da4f-4e86-a02e-b0c09941c080"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Nombre Almacén]]></text>
+				</staticText>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -47,25 +67,21 @@
 	<title>
 		<band height="72">
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="397fe489-a5f8-4949-b977-182def3f251c"/>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="e1687206-aa7e-4706-b6f2-f36b7a4e1c71"/>
 				<staticText>
-					<reportElement x="20" y="20" width="330" height="43" forecolor="#FFFFFF" uuid="7e4a70a8-d43c-45f9-b5e8-6e090ec4f834"/>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="d552a406-6ec8-42ad-b326-e43fadb3f750"/>
 					<textElement>
 						<font size="34" isBold="true"/>
 					</textElement>
-					<text><![CDATA[Reporte de Ventas]]></text>
+					<text><![CDATA[TITLE]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="366" y="60" width="209" height="20" forecolor="#FFFFFF" uuid="2f09c741-0559-4af4-af14-781f11a584d5"/>
-					<textElement textAlignment="Center">
-						<font size="14" isBold="true"/>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="86bb1a9b-d5ca-4fb2-995d-d064a436fa04"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Total de Ventas por Almacen]]></text>
+					<text><![CDATA[Add a description here]]></text>
 				</staticText>
-				<image>
-					<reportElement x="390" y="10" width="158" height="40" uuid="7d08b54a-dd40-49be-a5c8-bfb7870d4aa6"/>
-					<imageExpression><![CDATA["C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\pics\\Agrarian.jpg"]]></imageExpression>
-				</image>
 			</frame>
 		</band>
 	</title>
@@ -75,24 +91,17 @@
 	<columnHeader>
 		<band height="21">
 			<line>
-				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="28659441-52eb-4e44-abc1-6a37a1b9ad28"/>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="297f60b4-d9fd-4fbb-9ec0-e03f2a299a28"/>
 			</line>
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="77538382-5647-471b-a5e9-f2002a0bae10"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Nombre Almacén]]></text>
-			</staticText>
-			<staticText>
-				<reportElement mode="Opaque" x="185" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="72b6040a-dfd3-4af3-8406-714a29a3dc49"/>
+				<reportElement mode="Opaque" x="0" y="0" width="277" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="68d9c91a-1f19-4586-a6e7-997a7e226b05"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Total Ventas]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="370" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3e3c0f21-891a-4c07-8017-30f9cb346be3"/>
+				<reportElement mode="Opaque" x="277" y="0" width="277" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d572c250-0b41-494f-b682-643c4369e52b"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -103,24 +112,17 @@
 	<detail>
 		<band height="20">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="0534fb1b-b562-4df3-b05d-1dc3d4d0e5b0"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="0e15dd8b-a21b-4f13-b37c-f6b23d3d9a60"/>
 			</line>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="0" y="0" width="185" height="20" uuid="b502fe22-2405-4451-a883-daaf2936ac8b"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{Nombre Almacén}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement x="185" y="0" width="185" height="20" uuid="12406f75-195f-4cb6-908b-38833dff5f0a"/>
+				<reportElement x="0" y="0" width="277" height="20" uuid="b8df2037-1b60-45aa-a439-254b87ae0ece"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Total Ventas}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="370" y="0" width="185" height="20" uuid="f71f254a-e3e4-45d2-b611-ea26a03bf122"/>
+				<reportElement x="277" y="0" width="277" height="20" uuid="66126c01-f59e-4d61-9902-a52d69640dd9"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
@@ -132,18 +134,18 @@
 		<band/>
 	</columnFooter>
 	<pageFooter>
-		<band height="255">
+		<band height="17">
 			<textField>
-				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="fb401901-07b0-4800-8647-67f4c4a75230"/>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="d08f841d-524e-47ed-a5b1-50739d77ec3e"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="e9a1ded7-66a2-4212-aabe-8f35299360bb"/>
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="cdcf08e5-8649-4fb3-9c1a-9a259fbb3228"/>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="0" y="4" width="100" height="13" uuid="bcbdba90-a538-4f5a-bd0f-a8765cedfa86"/>
+				<reportElement x="0" y="4" width="100" height="13" uuid="2320940e-f0a4-4ae6-ac4a-07501646def5"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>

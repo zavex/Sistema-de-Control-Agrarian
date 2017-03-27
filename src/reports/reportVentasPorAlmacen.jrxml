@@ -2,18 +2,15 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="600" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c1cb979a-fecb-42a5-a72d-5d901f91144b">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="54"/>
 	<queryString>
-		<![CDATA[select * from ventasPorAlmacen]]>
+		<![CDATA[select a.idAlmacen as "Id Almacén", a.nombreA as "Nombre Almacén", count(*) as "Total Ventas", sum(subtotal) as "Ingreso Ventas" from venta v join almacen a 
+    on v.idAlmacen = a.idAlmacen group by a.idAlmacen, a.nombreA]]>
 	</queryString>
 	<field name="Id Almacén" class="java.lang.Integer"/>
 	<field name="Nombre Almacén" class="java.lang.String"/>
-	<field name="Total Ventas" class="java.lang.Long">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="Ingreso Ventas" class="java.lang.Double">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="Total Ventas" class="java.lang.Long"/>
+	<field name="Ingreso Ventas" class="java.lang.Double"/>
 	<background>
 		<band/>
 	</background>

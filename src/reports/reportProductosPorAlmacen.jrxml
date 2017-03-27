@@ -72,7 +72,7 @@
 				<staticText>
 					<reportElement x="393" y="63" width="223" height="20" forecolor="#FFFFFF" uuid="4186974a-a626-44a9-86df-7551cb4850f2"/>
 					<textElement textAlignment="Center">
-						<font size="14" isBold="true"/>
+						<font size="14" isBold="false"/>
 					</textElement>
 					<text><![CDATA[Total Productos por Almacen]]></text>
 				</staticText>
