@@ -194,7 +194,7 @@ public class ConsultarProveedor extends javax.swing.JInternalFrame {
         jLabel3.setText("Estados de Cuenta");
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 102));
-        jLabel4.setText("Detalle de Compras");
+        jLabel4.setText("Detalle de Ventas");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -276,7 +276,7 @@ public class ConsultarProveedor extends javax.swing.JInternalFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -397,7 +397,7 @@ public class ConsultarProveedor extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (table.getSelectedRow() != -1) {
-            String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\comprasProve.jasper";
+            String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\comprasProv.jasper";
             Map param = new HashMap();
             param.put("idProv", table.getValueAt(table.getSelectedRow(),0));
             JasperReport jr = null;
@@ -418,7 +418,7 @@ public class ConsultarProveedor extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if (table.getSelectedRow() != -1) {
-            String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\EdoCuentaProvee.jasper";
+            String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\EdoCuentaCliente.jasper";
             Map param = new HashMap();
             param.put("idClient", table.getValueAt(table.getSelectedRow(),0));
             JasperReport jr = null;

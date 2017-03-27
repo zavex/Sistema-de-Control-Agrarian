@@ -926,12 +926,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\report2.jasper";
-        //String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\report2.jasper";
+        String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\report1.jasper";
         JasperReport jr = null;
         try {
             Connection conexion = DriverManager.getConnection("jdbc:sqlserver://localhost\\MSSQLSERVER1;databaseName=agrarian","sa","12345678");
-            //Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/agrarian", "root", "");
             jr = (JasperReport) JRLoader.loadObject(path);
             JasperPrint jp = JasperFillManager.fillReport(jr, null, conexion);
             JasperViewer jv = new JasperViewer(jp,false); 
