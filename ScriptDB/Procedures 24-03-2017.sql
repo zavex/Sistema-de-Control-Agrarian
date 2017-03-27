@@ -381,7 +381,7 @@ CREATE PROCEDURE ingresa_almacen
     )
     AS
     BEGIN   
-            
+            SET NOCOUNT ON;
             IF EXISTS(
                 SELECT v.* FROM venta v
                 WHERE v.folioVenta = @folioV
@@ -418,7 +418,7 @@ CREATE PROCEDURE ingresa_almacen
     )
     AS
     BEGIN   
-            
+            SET NOCOUNT ON;
             IF EXISTS(
                 SELECT c.* FROM compra c
                 WHERE c.folioCompra = @folioC
@@ -530,6 +530,7 @@ create trigger Venta_ivaTotal
 )
 AS
 BEGIN
+    SET NOCOUNT ON;
     DECLARE @idAlmOr int, @idAlmDest int, @folioT int
     SET @idAlmOr = (SELECT idAlmacen FROM almacen WHERE nombreA = @almOrigen)
     SET @idAlmDest = (SELECT idAlmacen FROM almacen WHERE nombreA = @almDestino)

@@ -536,7 +536,7 @@ public class Almacen {
             ps.setDate(3, Fecha_Java_A_SQL((java.util.Date) informacion.get(2)));
             ps.setDouble(4, (double)informacion.get(3));
             ps.setString(5,informacion.get(4).toString());
-            ps.executeUpdate();
+            ps.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
         }
