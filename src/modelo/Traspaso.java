@@ -10,6 +10,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * Esta clase se encarga de gestinar los traspasos entre almacenes
+ * @author Iván Iñiguez
+ */
 public class Traspaso {
     private int idAlmOri;
     private int idAlmDest;
@@ -79,6 +83,12 @@ public class Traspaso {
         this.con = con;
     }
     
+    /**
+     * Genera la tabla de traspasos de almacen
+     * @param opcion Recibe el modificador del query para desplegar la información deseada.
+     * @param filtro Determina si se quiere realizar una consulta personalizada.
+     * @return Retorna un DefaultTableModel
+     */
     public DefaultTableModel tabla(String opcion,boolean filtro){
 
         DefaultTableModel tabla = new DefaultTableModel(){

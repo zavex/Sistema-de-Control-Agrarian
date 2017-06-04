@@ -8,8 +8,12 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Función de Chat, se utiliza para pedir soporte técnico.
+ * @author Ivan
+ */
 public class chat extends javax.swing.JFrame {
-
+    
     String username, address = "localhost";
     ArrayList<String> users = new ArrayList();
     int port = 2222;

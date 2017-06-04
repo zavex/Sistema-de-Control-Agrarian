@@ -15,7 +15,10 @@ import modelo.Permisos;
 import modelo.Producto;
 import org.jfree.util.ObjectList;
 
-
+/**
+ * Formulario de captura de traspasos entre almacenes
+ * @author Iván Iñiguez
+ */
 public class ifrmTraspaso extends javax.swing.JInternalFrame {
     Main mp;
     Permisos permisos;
@@ -548,6 +551,10 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         mp.ventTraspasoAb = false;
     }//GEN-LAST:event_formInternalFrameClosed
         
+    /**
+     * 
+     * @param evt 
+     */
     private void btnBuscarArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarArtActionPerformed
         if(comboOrigen.getSelectedItem()!=null){
             String nombre = comboOrigen.getSelectedItem().toString();
@@ -590,7 +597,11 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
     private void comboDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDestinoActionPerformed
         validarAlmacen(comboDestino,comboOrigen);
     }//GEN-LAST:event_comboDestinoActionPerformed
-
+    
+    /**
+     * Selecciona el producto deseado y lo muestra en la ventana de traspasos
+     * @param evt 
+     */
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         if(tablaProductos.getRowCount()>0){
             if(tablaProductos.getSelectedRow()!=-1){
@@ -623,6 +634,10 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         BuscarArticulo.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
+    /**
+     * Agrega el producto, la cantidad, destino y origen a la tabla de traspasos
+     * @param evt 
+     */
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         if(!lblID.getText().isEmpty()){
             if(!txtCantidad.getText().isEmpty()){
@@ -661,6 +676,10 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
       
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    /**
+     * Si el traspaso es válido guarda el movimiento en la base de datos.
+     * @param evt 
+     */
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         //NombreAlmOrigen,idProd,fechaReg,cantidad,NombreAlmDestino
         Vector partida;
@@ -685,6 +704,11 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    /**
+     * Éste método agregará el articulo seleccionado a la lista de envíos, si ya existe en la lista, solamente sumará las cantidades.
+     * 
+     * @see btnAgregarActionPerformed
+     */
     public void agregarArticulo(){
         Vector fila = new Vector();
         boolean duplicado = false;
@@ -716,7 +740,11 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         limpiarArticulo();
     }
     
-    
+    /**
+     * Ésta opción no permitirá que se realice un traspaso a un mismo almacen.
+     * @param combo1
+     * @param combo2 
+     */
     public void validarAlmacen(JComboBox combo1, JComboBox combo2){
         if(combo1.getSelectedIndex() == combo2.getSelectedIndex() && (combo1.getSelectedIndex()!=-1 || combo2.getSelectedIndex()!=-1)){
             combo2.setSelectedIndex(-1);

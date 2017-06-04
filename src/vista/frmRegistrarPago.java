@@ -20,6 +20,10 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Conexion;
 import modelo.Pago;
 
+/**
+ * Éste es el formulario para registrar pagos.
+ * @author Iván Iñiguez
+ */
 
 public class frmRegistrarPago extends javax.swing.JFrame {
     ConsultarVenta cVenta;
@@ -34,6 +38,12 @@ public class frmRegistrarPago extends javax.swing.JFrame {
     
     DefaultTableModel pagos;
     
+    /**
+     * Constructor sobrecargado del formulario de registro de pago, este se usa cuando se quiere registrar un pago a una venta 
+     * @param cV Instancia del formulario consultar venta, es necesario para aplicar un pago.
+     * @param opcion Determina si se está registrando un pago a proveedor o un pago de un cliente.
+     * @param datos Recibe el folio y la fecha del movimiento.
+     */
     public frmRegistrarPago(ConsultarVenta cV,int opcion, int[] datos) {
         initComponents();
         this.cVenta = cV;
@@ -45,7 +55,12 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         this.p = new Pago(datos, opcion);
         this.p.llenarFormulario(txtFolio, tfFechaVenta, txtNombreC, txtMonto, txtIVA, txtTotal, txtEstatus,txtSaldo);
     }
-    
+    /**
+     * Constructor sobrecargado del formulario de registro de pago, este se usa cuando se quiere registrar un pago a una compra
+     * @param cC Instancia del formulario consultar compra, es necesario para aplicar un pago.
+     * @param opcion Determina si se está registrando un pago a proveedor o un pago de un cliente.
+     * @param datos Recibe el folio y la fecha del movimiento.
+     */
     public frmRegistrarPago(ConsultarCompra cC, int opcion, int[] datos){
         initComponents();
         this.cCompra = cC;
@@ -58,6 +73,9 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         this.p.llenarFormulario(txtFolio, tfFechaVenta, txtNombreC, txtMonto, txtIVA, txtTotal, txtEstatus,txtSaldo);
     }
     
+    /**
+     * Método para cargar bancos a la lista desplegable.
+     */
     public void creaComboBanco(){
         String[] listaBancos = {"Banamex","Santander","Bancomer","IXE","Banorte","HSBC","Inbursa","Afirme","Scotiabank"};
         bancos1 = new DefaultComboBoxModel();
@@ -72,6 +90,11 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         menuBOrigen.setSelectedIndex(-1);
     }
 
+    /**
+     * Le da formato a la ventana dependiendo de si es pago a proveedor o pago de cliente.
+     * @param x recibe la opción que creo el formulario.
+     * @see frmRegistrarPago
+     */
     public void crearVentana(int x){
         this.setTitle("Registro de pagos");
         switch(x){
@@ -683,7 +706,10 @@ public class frmRegistrarPago extends javax.swing.JFrame {
            txtSaldo.setText("$ "+saldo);
        }
     }//GEN-LAST:event_formWindowOpened
-
+    
+    /**
+     * Se encarga de mostrar todos los pagos aplicados al registro seleccionado.
+     */
     public void tablaHistorico(){
        tablaHistorial.setModel(p.cargarHistorial(op));
        tablaHistorial.setAutoResizeMode(JTable.AUTO_RESIZE_SUBSEQUENT_COLUMNS);
@@ -692,6 +718,10 @@ public class frmRegistrarPago extends javax.swing.JFrame {
        tablaHistorial.setAutoCreateRowSorter(true);
     }
     
+    /**
+     * Aplica el pago a la venta seleccionada.
+     * @param evt 
+     */
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         if(pagoRegistrado){
             if(tfFechaActual.getDate()!=null){
@@ -725,7 +755,11 @@ public class frmRegistrarPago extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
-
+    
+    /**
+     * Guarda los cambios realizados a la venta seleccionada. 
+     * @param evt 
+     */
     private void btnRegistrarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPagoActionPerformed
         double saldo = Double.valueOf(txtSaldo.getText().substring(2));
         if(saldo != 0){
@@ -750,7 +784,11 @@ public class frmRegistrarPago extends javax.swing.JFrame {
     private void btnLimpiarDialogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarDialogActionPerformed
         limpiar();
     }//GEN-LAST:event_btnLimpiarDialogActionPerformed
-
+    
+    /**
+     * Guarda la cantidad y el banco emisor/receptor, se encuentra en la ventana emergente capturar pago.
+     * @param evt 
+     */
     private void btnGuardarDialogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarDialogActionPerformed
         Vector columna = new Vector();
         switch(op){
@@ -809,6 +847,10 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnGuardarDialogActionPerformed
     
+    /**
+     * Este método limita los caracteres que puede recibir el cuadro de texto a solo dígitos.
+     * @param evt 
+     */
     private void txtCantidadAbonadaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadAbonadaKeyTyped
         if(Character.isDigit(evt.getKeyChar()) || evt.getKeyChar()=='.'){
             if(evt.getKeyChar()=='.' && txtCantidadAbonada.getText().contains(".")){
@@ -819,7 +861,11 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_txtCantidadAbonadaKeyTyped
-
+    
+    /**
+     * Elimina el pago seleccionado de la lista previa antes de ser guardado en la base de datos.
+     * @param evt 
+     */
     private void btnEliminarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPagoActionPerformed
         if(pagoRegistrado){
             pagos.removeRow(0);
@@ -837,6 +883,10 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         txtCantidadAbonada.setText("");
     }
     
+    /**
+     * Consulta y despliega la información de pagos aplicados previamente a la venta seleccionada
+     * @param filas 
+     */
     public void crearTabla(Vector filas){
         switch(this.op){
             case 1:

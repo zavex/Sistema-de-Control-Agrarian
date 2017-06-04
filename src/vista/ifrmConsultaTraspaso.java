@@ -13,8 +13,8 @@ import modelo.Producto;
 import modelo.Traspaso;
 
 /**
- *
- * @author ainiguez
+ * Este formulario se encarga de mostrar la información sobre los trapasos realizados entre almacenes
+ * @author Iván Iñiguez
  */
 public class ifrmConsultaTraspaso extends javax.swing.JInternalFrame {
     Main mp;
@@ -24,7 +24,6 @@ public class ifrmConsultaTraspaso extends javax.swing.JInternalFrame {
     Traspaso tra;
     Conexion con;
     
-    //(this,Escritorio,permiso,producto)
     public ifrmConsultaTraspaso(Main mp,JDesktopPane desk,Permisos per,Producto prod) {
         initComponents();
         this.mp = mp;
@@ -253,7 +252,11 @@ public class ifrmConsultaTraspaso extends javax.swing.JInternalFrame {
     private void txtBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyReleased
         crearTabla(comboTipo.getSelectedIndex());
     }//GEN-LAST:event_txtBusquedaKeyReleased
-
+    
+    /**
+     * Despliega la tabla de información histórica
+     * @param tipo 
+     */
     public void crearTabla(int tipo){
         
         switch(tipo){
