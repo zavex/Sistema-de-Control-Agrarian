@@ -5,6 +5,10 @@ import java.util.Vector;
 import javax.swing.JDesktopPane;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la información sobre los almacenes.
+ * @author Iván Iñiguez
+ */
 public class ConsultarAlmacen extends javax.swing.JInternalFrame {
 
     Permisos permiso;
@@ -14,6 +18,13 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de consulta de almacenes.
+     * @param almacen       Recibe el objeto de la clase almacen.
+     * @param escritorioo   Escritorio de la aplicación
+     * @param permisoo      Recibe el objeto de la clase permiso.
+     * @param empleadoo     Recibe el objeto de la clase empleado
+     */
     public ConsultarAlmacen(Almacen almacen, JDesktopPane escritorioo, Permisos permisoo, Empleado empleadoo) {
         this.permiso = permisoo;
         this.almacen = almacen;
@@ -250,6 +261,10 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Este evento se encarga de realizar las busquedas en la tabla de almacen.
+     * @param evt 
+     */
     private void txtDatosBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatosBusquedaKeyReleased
         switch(comboFiltro.getSelectedIndex()){
             case 0:
@@ -306,16 +321,20 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        
         table.setModel(almacen.consultarAlmacenTotales());
         cargarPermiso();
         
     }//GEN-LAST:event_formInternalFrameOpened
 
+    
     private void comboFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFiltroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboFiltroActionPerformed
 
+    /**
+     * Éste botón se encarga de invocar el formulario de actualización de almacenes.
+     * @param evt 
+     */
     private void btnActualizarAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarAlmacenActionPerformed
         try {
             Vector fila = new Vector();
@@ -331,6 +350,9 @@ public class ConsultarAlmacen extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnActualizarAlmacenActionPerformed
     
+    /**
+     * Gestiona los permisos relacionados a la tabla de almacenes.
+     */
     public void cargarPermiso () {
         if (permiso.getAlmacen()==2) {
             btnActualizarAlmacen.setEnabled(true);
