@@ -8,6 +8,10 @@ import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la bitacora de eventos.
+ * @author Save Soto
+ */
 public class ConsultarLog extends javax.swing.JInternalFrame {
 
     JDesktopPane escritorio;
@@ -15,6 +19,10 @@ public class ConsultarLog extends javax.swing.JInternalFrame {
     Date date = new Date ();
     ListaDoble ld = new ListaDoble ();
     
+    /**
+     * Constructor de la consulta de bitacora del sistema.
+     * @param escritorioo 
+     */
     public ConsultarLog(JDesktopPane escritorioo) {
         this.escritorio =  escritorioo;
         initComponents();
@@ -189,6 +197,10 @@ public class ConsultarLog extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
+    /**
+     * Evento de apertura, se encarga de cargar el archivo de bitacora guardado en un arxhivo txt.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
 
         try {
@@ -200,6 +212,10 @@ public class ConsultarLog extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_formInternalFrameOpened
 
+    /**
+     * Con este combo box se puede filtrar la información almacenada en la bitacora.
+     * @param evt 
+     */
     private void comboFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFiltroActionPerformed
         switch(comboFiltro.getSelectedIndex()){
             case 0:

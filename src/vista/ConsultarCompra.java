@@ -6,6 +6,10 @@ import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la información de compras registradas en la base de datos.
+ * @author Save Soto
+ */
 public class ConsultarCompra extends javax.swing.JInternalFrame {
 
     Permisos permiso;
@@ -16,6 +20,12 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
     
     frmRegistrarPago pagoCompra;
     
+    /**
+     * Constructor de la vista de consulta de compras.
+     * @param compra        recibe la instancia de la clase compra
+     * @param escritorioo   escritorio de la aplicación.
+     * @param permisoo      recibe la instancia de la clase permisos
+     */
     public ConsultarCompra(Compra compra, JDesktopPane escritorioo, Permisos permisoo) {
         this.permiso = permisoo;
         this.compra = compra;
@@ -292,6 +302,10 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Este evento se encarga de realizar las busquedas en la tabla de compras de la base de datos.
+     * @param evt 
+     */
     private void txtDatosBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatosBusquedaKeyReleased
         switch(comboFiltro.getSelectedIndex()){
             case 0:
@@ -337,11 +351,19 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
+    /**
+     * Evento de apertura, se encarga de cargar la tabla de compras.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         table.setModel(compra.consultarComprasTotales());
         cargarPermiso();
     }//GEN-LAST:event_formInternalFrameOpened
 
+    /**
+     * Invoca el formulario de aplicación de pagos para la compra seleccionada de la tabla histórica.
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             if(table.getValueAt(table.getSelectedRow(),8).equals("ACTIVA")){
@@ -359,6 +381,10 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Éste botón se encarga de invocar el formulario de actualización de compras.
+     * @param evt 
+     */
     private void btnActualizarEstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarEstatusActionPerformed
         try {
             compra.setEstatus(comboEstatus.getSelectedItem().toString());
@@ -369,6 +395,9 @@ public class ConsultarCompra extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnActualizarEstatusActionPerformed
     
+    /**
+     * Gestiona los permisos relacionados a la tabla de compras.
+     */
     public void cargarPermiso () {
         if (permiso.getCompra()==2) {
             comboEstatus.setEnabled(true);

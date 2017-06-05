@@ -15,6 +15,10 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
+/**
+ * Este formulario se encarga de mostrar la información de clientes registrados en la base de datos.
+ * @author Iván Iñiguez
+ */
 public class ConsultarCliente extends javax.swing.JInternalFrame {
 
     Permisos permiso;
@@ -23,6 +27,12 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de consulta de clientes.
+     * @param clientee recibe la instacia de la clase cliente.
+     * @param escritorioo Escritorio de la aplicación.
+     * @param permisoo recibe la instacia de la clase permiso.
+     */
     public ConsultarCliente(Cliente clientee, JDesktopPane escritorioo, Permisos permisoo) {
         this.permiso = permisoo;
         this.cliente = clientee;
@@ -328,6 +338,10 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Este evento se encarga de realizar las busquedas en la tabla de clientes.
+     * @param evt 
+     */
     private void txtDatosBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatosBusquedaKeyReleased
         switch(comboFiltro.getSelectedIndex()){
             case 0:
@@ -404,6 +418,10 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
+    /**
+     * Éste botón se encarga de invocar el formulario de actualización de clientes.
+     * @param evt 
+     */
     private void btnActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarClienteActionPerformed
         try {
            Vector fila = new Vector();
@@ -418,12 +436,19 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
         }catch (Exception e) {}
     }//GEN-LAST:event_btnActualizarClienteActionPerformed
 
+    /**
+     * Evento de apertura, se encarga de cargar la tabla de clientes.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         table.setModel(cliente.consultarClientesTotales());
         cargarPermiso();
     }//GEN-LAST:event_formInternalFrameOpened
 
-    
+    /**
+     * Realiza una búsqueda en la base de datos y presenta un reporte de ventas por cliente.
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (table.getSelectedRow() != -1) {
             String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\ventsCliente.jasper";
@@ -445,6 +470,10 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
         }    
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Realiza una búsqueda en la base de datos y presente un reporte de los estados de cuenta de los clientes.
+     * @param evt 
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if (table.getSelectedRow() != -1) {
             String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\EdoCuentaCliente.jasper";
@@ -466,6 +495,9 @@ public class ConsultarCliente extends javax.swing.JInternalFrame {
         }    
     }//GEN-LAST:event_jButton2ActionPerformed
     
+    /**
+     * Gestiona los permisos relacionados a la tabla de clientes.
+     */
     public void cargarPermiso () {
         if (permiso.getCliente()==2) {
             btnActualizarCliente.setEnabled(true);

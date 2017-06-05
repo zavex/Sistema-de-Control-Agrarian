@@ -6,6 +6,10 @@ import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la información de notas de crédito guardadas en la base de datos.
+ * @author Save Soto.
+ */
 public class ConsultarNotaCredito extends javax.swing.JInternalFrame {
 
     Permisos permiso;
@@ -14,6 +18,12 @@ public class ConsultarNotaCredito extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de Consulta de notas de crédito.
+     * @param notaCreditoo Instancia de la clase de notas de crédito.
+     * @param escritorioo Escritorio de la aplicación.
+     * @param permisoo Instancia de la clase permisos.
+     */
     public ConsultarNotaCredito(NotaCredito notaCreditoo, JDesktopPane escritorioo, Permisos permisoo) {
         this.permiso = permisoo;
         this.notaCredito = notaCreditoo;
@@ -421,6 +431,10 @@ public class ConsultarNotaCredito extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Este evento se encarga de realizar las busquedas en la tabla de notas de crédito de la base de datos.
+     * @param evt 
+     */
     private void txtDatosBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatosBusquedaKeyReleased
         switch(comboFiltro.getSelectedIndex()){
             case 0:
@@ -453,6 +467,10 @@ public class ConsultarNotaCredito extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
+    /**
+     * Evento de apertura, se encarga de cargar la tabla de notas de crédito.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         table.setModel(notaCredito.consultarNotasCreditoTotales());
         cargarPermiso();  
@@ -470,6 +488,10 @@ public class ConsultarNotaCredito extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jInternalFrame1formInternalFrameOpened
 
+    /**
+     * Éste evento guarda los cambios realizados a la nota de crédito seleccionada.
+     * @param evt 
+     */
     private void btnGuardarCambioEstatus1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCambioEstatus1ActionPerformed
         try {
             notaCredito.setEstatus(comboEstatusNotaCredito.getSelectedItem().toString());
@@ -479,6 +501,9 @@ public class ConsultarNotaCredito extends javax.swing.JInternalFrame {
         }catch (Exception e) {}
     }//GEN-LAST:event_btnGuardarCambioEstatus1ActionPerformed
     
+    /**
+     * Gestiona los permisos relacionados a la tabla de nota de crédito.
+     */
     public void cargarPermiso () {
         if (permiso.getNotaCredito()==2) {
             comboEstatusNotaCredito.setEnabled(true);

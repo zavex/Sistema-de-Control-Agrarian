@@ -28,6 +28,13 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
     Conexion con;
     DefaultTableModel modeloTabla;
     
+    /**
+     * Constructor de la vista de traspasos
+     * @param mp        Instancia de la vista principal
+     * @param desk      Escritorio de la aplicación
+     * @param permiso   Instancia de la clase permisos
+     * @param producto  Instancia de la clase producto
+     */
     public ifrmTraspaso(Main mp, JDesktopPane desk, Permisos permiso,Producto producto) {
         initComponents();
         this.con = new Conexion();
@@ -84,9 +91,9 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         lblID = new javax.swing.JLabel();
         panAlmacenes = new javax.swing.JPanel();
         lblOrigen = new javax.swing.JLabel();
-        comboOrigen = new javax.swing.JComboBox<String>();
+        comboOrigen = new javax.swing.JComboBox<>();
         lblDestino = new javax.swing.JLabel();
-        comboDestino = new javax.swing.JComboBox<String>();
+        comboDestino = new javax.swing.JComboBox<>();
         panFunciones = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
         dummy1 = new javax.swing.JButton();
@@ -100,17 +107,11 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
 
         BuscarArticulo.setTitle("Inventario");
         BuscarArticulo.setMinimumSize(new java.awt.Dimension(493, 260));
-        BuscarArticulo.addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                BuscarArticuloWindowOpened(evt);
-            }
-        });
         BuscarArticulo.getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        tablaProductos.setBackground(new java.awt.Color(255, 255, 255));
         tablaProductos.setForeground(new java.awt.Color(0, 0, 102));
         tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -217,11 +218,6 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         setTitle("Traspasos");
         setMaximumSize(new java.awt.Dimension(444, 535));
         setMinimumSize(new java.awt.Dimension(444, 535));
-        addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                formFocusGained(evt);
-            }
-        });
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -448,7 +444,6 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Detalle del embarque", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 3, 14), new java.awt.Color(0, 0, 102))); // NOI18N
 
-        tablaResumen.setBackground(new java.awt.Color(255, 255, 255));
         tablaResumen.setForeground(new java.awt.Color(0, 0, 102));
         tablaResumen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -460,6 +455,7 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tablaResumen);
 
+        btnAgregar.setBackground(java.awt.SystemColor.activeCaption);
         btnAgregar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(0, 0, 102));
         btnAgregar.setText("Agregar");
@@ -546,13 +542,16 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    /**
+     * Al cerrar el formulario avisa a la ventana principal.
+     * @param evt 
+     */
     private void formInternalFrameClosed(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosed
         mp.ventTraspasoAb = false;
     }//GEN-LAST:event_formInternalFrameClosed
         
     /**
-     * 
+     * Botón buscador de artículo.
      * @param evt 
      */
     private void btnBuscarArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarArtActionPerformed
@@ -573,10 +572,10 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnBuscarArtActionPerformed
     
-    private void formFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusGained
-        
-    }//GEN-LAST:event_formFocusGained
-
+    /**
+     * Al abrir la vista carga la fecha y los almacenes de la empresa
+     * @param evt 
+     */
     private void VentanaAbierta(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_VentanaAbierta
         Date fecha = new Date();
         fechaTraslado.setDate(fecha);
@@ -586,10 +585,6 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_VentanaAbierta
 
     
-    private void BuscarArticuloWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_BuscarArticuloWindowOpened
-        
-    }//GEN-LAST:event_BuscarArticuloWindowOpened
-
     private void comboOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrigenActionPerformed
         validarAlmacen(comboOrigen, comboDestino);
     }//GEN-LAST:event_comboOrigenActionPerformed
@@ -629,7 +624,7 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_btnSeleccionarActionPerformed
-
+    
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         BuscarArticulo.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
@@ -664,6 +659,10 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    /**
+     * Elimina la partida seleccionada de la lista de embarques.
+     * @param evt 
+     */
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if(tablaResumen.getSelectedRow()!=-1){
             modeloTabla.removeRow(tablaResumen.getSelectedRow());
@@ -742,8 +741,8 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
     
     /**
      * Ésta opción no permitirá que se realice un traspaso a un mismo almacen.
-     * @param combo1
-     * @param combo2 
+     * @param combo1 carga los almacenes
+     * @param combo2 carga los almacenes
      */
     public void validarAlmacen(JComboBox combo1, JComboBox combo2){
         if(combo1.getSelectedIndex() == combo2.getSelectedIndex() && (combo1.getSelectedIndex()!=-1 || combo2.getSelectedIndex()!=-1)){
@@ -752,6 +751,9 @@ public class ifrmTraspaso extends javax.swing.JInternalFrame {
         }
     }
     
+    /**
+     * Método utilizado para la limieza de la ventana.
+     */
     public void limpiarArticulo(){
         lblID.setText("");
         txtDescripcion.setText("");

@@ -6,6 +6,10 @@ import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la información de devoluciones registradas en la base de datos.
+ * @author Save Soto
+ */
 public class ConsultarDevolucion extends javax.swing.JInternalFrame {
 
     Permisos permiso;
@@ -14,6 +18,12 @@ public class ConsultarDevolucion extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de consulta de devoluciones.
+     * @param devolucion Instancia de la clase devolución
+     * @param escritorioo Escritorio de la aplicación.
+     * @param permisoo Instancia de la clase permisos.
+     */
     public ConsultarDevolucion(Devolucion devolucion, JDesktopPane escritorioo, Permisos permisoo) {
         this.permiso = permisoo;
         this.devolucion = devolucion;
@@ -242,6 +252,10 @@ public class ConsultarDevolucion extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Este evento se encarga de realizar las busquedas en la tabla de devoluciones.
+     * @param evt 
+     */
     private void txtDatosBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatosBusquedaKeyReleased
         switch(comboFiltro.getSelectedIndex()){
             case 0:
@@ -280,12 +294,20 @@ public class ConsultarDevolucion extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
+    /**
+     * Consulta la base de datos y muestra en pantalla la información almacenada sobre las devoluciones.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         table.setModel(devolucion.consultarDevolucionesTotales());
         cargarPermiso();
         
     }//GEN-LAST:event_formInternalFrameOpened
 
+    /**
+     * Actualiza la información seleccionada y la guarda en la base de datos.
+     * @param evt 
+     */
     private void btnActualizarEstatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarEstatusActionPerformed
         try {
             devolucion.setEstatus(comboEstatusDev.getSelectedItem().toString());
@@ -296,6 +318,9 @@ public class ConsultarDevolucion extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnActualizarEstatusActionPerformed
     
+    /**
+     * Gestiona los permisos relacionados a la tabla de usuarios.
+     */
     public void cargarPermiso () {
         if (permiso.getDevolucion()==2) {
             comboEstatusDev.setEnabled(true);

@@ -10,7 +10,7 @@ import java.util.Random;
 
 /**
  * Función de Chat, se utiliza para pedir soporte técnico.
- * @author Ivan
+ * @author Iván Iñiguez
  */
 public class chat extends javax.swing.JFrame {
     

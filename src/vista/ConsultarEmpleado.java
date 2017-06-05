@@ -5,6 +5,10 @@ import java.util.Vector;
 import javax.swing.JDesktopPane;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la información de los empleados registrados en la base de datos.
+ * @author Save Soto
+ */
 public class ConsultarEmpleado extends javax.swing.JInternalFrame {
 
     Permisos permiso;
@@ -13,6 +17,12 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de consulta de empleados.
+     * @param e Instancia de la clase empleado.
+     * @param escritorioo Escritorio de la aplicación.
+     * @param per Instancia de la clase persona.
+     */
     public ConsultarEmpleado(Empleado e,JDesktopPane escritorioo, Permisos per) {
         
         this.empleado = e;
@@ -246,6 +256,10 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Este evento se encarga de realizar las busquedas en la tabla de empleados de la base de datos.
+     * @param evt 
+     */
     private void txtDatosBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatosBusquedaKeyReleased
          switch(comboFiltro.getSelectedIndex()){
             case 0:
@@ -300,6 +314,10 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtDatosBusquedaKeyReleased
 
+    /**
+     * Evento de apertura, se encarga de cargar la tabla de empleados.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         table.setModel(empleado.consultarEmpleadosTotales());
         cargarPermiso();
@@ -310,6 +328,10 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    /**
+     * Éste botón se encarga de invocar el formulario de actualización de empleados.
+     * @param evt 
+     */
     private void btnActualizarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarEmpleadoActionPerformed
         try {
             Vector fila = new Vector();
@@ -325,6 +347,9 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnActualizarEmpleadoActionPerformed
 
+    /**
+     * Gestiona los permisos relacionados a la tabla de empleados.
+     */
     public void cargarPermiso(){
         if(permiso.getEmpleado()==2){
             btnActualizarEmpleado.setEnabled(true);

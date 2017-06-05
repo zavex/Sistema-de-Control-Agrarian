@@ -6,6 +6,10 @@ import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la información de ventas registradas en la base de datos.
+ * @author Save Soto
+ */
 public class ConsultarVenta extends javax.swing.JInternalFrame {
 
     Permisos permiso;
@@ -17,6 +21,13 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
     
     frmRegistrarPago pagoVenta;
     
+    /**
+     * Constructor de la vista de consulta de ventas.
+     * @param venta Instancia de la clase venta.
+     * @param escritorioo Escritorio de la aplicación.
+     * @param factura Instancia de la clase factura.
+     * @param permisoo Instancia de la clase permisos.
+     */
     public ConsultarVenta(Venta venta, JDesktopPane escritorioo,Factura factura, Permisos permisoo) {
         this.permiso = permisoo;
         this.venta = venta;
@@ -343,6 +354,10 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Este evento se encarga de realizar las busquedas en la tabla de ventas de la base de datos.
+     * @param evt 
+     */
     private void txtDatosBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatosBusquedaKeyReleased
         switch(comboFiltro.getSelectedIndex()){
             case 0:
@@ -393,6 +408,10 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
+    /**
+     * Evento de apertura, se encarga de cargar la tabla de ventas.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         table.setModel(venta.consultarVentasTotales());
         cargarPermisoVenta();
@@ -403,6 +422,10 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboFiltroActionPerformed
 
+    /**
+     * Invoca el formulario de aplicación de pagos para la venta seleccionada de la tabla histórica.
+     * @param evt 
+     */
     private void btnRegistrarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPagoActionPerformed
         try {
             if(table.getValueAt(table.getSelectedRow(),8).equals("ACTIVA")){
@@ -420,6 +443,10 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnRegistrarPagoActionPerformed
 
+    /**
+     * Actualiza y guarda el cambio de estatus realizado a la venta selecionada.
+     * @param evt 
+     */
     private void btnGuardarEstatusVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEstatusVentaActionPerformed
         try {
             venta.setEstatus(comboEstatusVenta.getSelectedItem().toString());
@@ -429,6 +456,10 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
         }catch (Exception e) {}
     }//GEN-LAST:event_btnGuardarEstatusVentaActionPerformed
 
+    /**
+     * Actualiza y guarda el cambio de estatus realizado a la factura selecionada.
+     * @param evt 
+     */
     private void btnGuardarCambiosFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCambiosFacturaActionPerformed
         try {
             factura.setEstatus(comboEstatusFactura.getSelectedItem().toString());
@@ -438,6 +469,9 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
         }catch (Exception e) {}
     }//GEN-LAST:event_btnGuardarCambiosFacturaActionPerformed
     
+    /**
+     * Gestiona los permisos relacionados a la tabla de venta.
+     */
     public void cargarPermisoVenta () {
         if (permiso.getVenta()==2) {
            comboEstatusVenta.setEnabled(true);
@@ -448,6 +482,9 @@ public class ConsultarVenta extends javax.swing.JInternalFrame {
         }
     }
     
+    /**
+     * Gestiona los permisos relacionados a la tabla de facturas.
+     */
     public void cargarPermisoFactura () {
         System.out.println(permiso.getFactura());
         if (permiso.getFactura()==2) {

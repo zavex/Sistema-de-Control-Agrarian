@@ -24,6 +24,13 @@ public class ifrmConsultaTraspaso extends javax.swing.JInternalFrame {
     Traspaso tra;
     Conexion con;
     
+    /**
+     * Constructor de la vista de consulta de traspasos.
+     * @param mp    Instancias de la vista principal.
+     * @param desk  Escritorio de la aplicación.
+     * @param per   Instancia de la clase permisos.
+     * @param prod  Instancia de la clase producto.
+     */
     public ifrmConsultaTraspaso(Main mp,JDesktopPane desk,Permisos per,Producto prod) {
         initComponents();
         this.mp = mp;
@@ -255,7 +262,7 @@ public class ifrmConsultaTraspaso extends javax.swing.JInternalFrame {
     
     /**
      * Despliega la tabla de información histórica
-     * @param tipo 
+     * @param tipo determina el atributo en la busqueda personalizada
      */
     public void crearTabla(int tipo){
         

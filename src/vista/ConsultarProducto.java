@@ -6,6 +6,10 @@ import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la información de productos registrados en la base de datos.
+ * @author Save Soto
+ */
 public class ConsultarProducto extends javax.swing.JInternalFrame {
     Permisos permiso;
     Producto producto;
@@ -13,6 +17,12 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de consulta de productos.
+     * @param producto Instancia de la clase producto.
+     * @param escritorioo Esctritorio de la aplicación.
+     * @param permisoo  Instancia de la clase permiso.
+     */
     public ConsultarProducto(Producto producto, JDesktopPane escritorioo, Permisos permisoo) {
         this.permiso = permisoo;
         this.producto = producto;
@@ -249,6 +259,10 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Este evento se encarga de realizar las busquedas en la tabla de productos de la base de datos.
+     * @param evt 
+     */
     private void txtDatosBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDatosBusquedaKeyReleased
         switch(comboFiltro.getSelectedIndex()){
             case 0:
@@ -301,6 +315,10 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
+    /**
+     * Evento de apertura, se encarga de cargar la tabla de productos.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         table.setModel(producto.consultarProductoTotales());
         cargarPermiso();
@@ -311,6 +329,10 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboFiltroActionPerformed
 
+    /**
+     * Éste botón se encarga de invocar el formulario de actualización de productos.
+     * @param evt 
+     */
     private void btnActualizarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarProductoActionPerformed
         try {
             Vector fila = new Vector();
@@ -326,6 +348,9 @@ public class ConsultarProducto extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnActualizarProductoActionPerformed
     
+    /**
+     * Gestiona los permisos relacionados a la tabla de compras.
+     */
     public void cargarPermiso () {
         if (permiso.getProducto()==2) {
             btnActualizarProducto.setEnabled(true);

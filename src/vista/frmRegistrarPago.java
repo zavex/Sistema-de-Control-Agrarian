@@ -688,11 +688,18 @@ public class frmRegistrarPago extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Obtiene la fecha del sistema y la inserta en el cuadro de texto de fecha.
+     */
     public void generarFecha(){
         Date fechaActual = new Date();
         tfFechaActual.setDate(fechaActual); 
     }
     
+    /**
+     * Este evento se ejecuta cuando se abre la ventana, invoca al método generador de fecha y crea la tabla de pagos.
+     * @param evt 
+     */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        generarFecha();
        tablaHistorico();
@@ -885,7 +892,7 @@ public class frmRegistrarPago extends javax.swing.JFrame {
     
     /**
      * Consulta y despliega la información de pagos aplicados previamente a la venta seleccionada
-     * @param filas 
+     * @param filas Filas de la tabla
      */
     public void crearTabla(Vector filas){
         switch(this.op){

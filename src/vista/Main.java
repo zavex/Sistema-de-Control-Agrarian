@@ -29,7 +29,10 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
-
+/**
+ * Menú principal del programa
+ * @author Ivani
+ */
 public class Main extends javax.swing.JFrame {
     Conexion conexion = new Conexion ();
     Proveedor proveedor = new Proveedor (conexion);
@@ -56,7 +59,8 @@ public class Main extends javax.swing.JFrame {
     boolean ventTraspasoAb = false,ventConsultaTras=false;
     int seg = 0;
     Arbol nuevo;
-            //Objetos
+    
+    //Objetos
     PrintWriter archivoEntrada;
     Scanner archivoEntradaa;
     JFileChooser archivo;
@@ -69,6 +73,9 @@ public class Main extends javax.swing.JFrame {
     static String usua;
     PrintWriter archivoSalida;
     
+    /**
+     * Temporizador usado para resaltar el mensaje de error en la ventana de inicio de sesión.
+     */
     Timer tempo = new Timer(500, new ActionListener() {
         public void actionPerformed(ActionEvent e) {
             seg++;
@@ -727,7 +734,11 @@ public class Main extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+     * Invoca la ventana de consulta de ventas.
+     * @param evt 
+     */
     private void ItemConsultarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarVentaActionPerformed
         ConsultarVenta consVenta = new ConsultarVenta (venta,Escritorio,factura,permiso);
         Escritorio.add(consVenta);
@@ -735,6 +746,10 @@ public class Main extends javax.swing.JFrame {
         consVenta.setVisible(true);
     }//GEN-LAST:event_ItemConsultarVentaActionPerformed
 
+    /**
+     * Invoca la ventana de consulta de devoluciones.
+     * @param evt 
+     */
     private void ItemConsultarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarDevolucionActionPerformed
         ConsultarDevolucion consDev = new ConsultarDevolucion (devolucion,Escritorio,permiso);
         Escritorio.add(consDev);
@@ -742,6 +757,10 @@ public class Main extends javax.swing.JFrame {
         consDev.setVisible(true);
     }//GEN-LAST:event_ItemConsultarDevolucionActionPerformed
 
+    /**
+     * Invoca la ventana de consulta de productos.
+     * @param evt 
+     */
     private void ItemConsultarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarProductoActionPerformed
         ConsultarProducto consProd = new ConsultarProducto (producto,Escritorio,permiso);
         Escritorio.add(consProd);
@@ -749,6 +768,11 @@ public class Main extends javax.swing.JFrame {
         consProd.setVisible(true);
     }//GEN-LAST:event_ItemConsultarProductoActionPerformed
     
+    /**
+     * Verifica si las cajas de texto del menú de login están llenas.
+     * @param caja1 Recibe la caja de texto 1.
+     * @param caja2 Recibe la caja de texto 2.
+     */
     public void cajitaFeliz(JTextField caja1, JTextField caja2){
         if(!caja1.getText().isEmpty() && !caja2.getText().isEmpty()){
             iniciarSesion();
@@ -757,11 +781,20 @@ public class Main extends javax.swing.JFrame {
         }
         
     }
-        
+    
+    /**
+     * Llama al método de verificación de cajas de texto.
+     * @param evt
+     * @see cajitaFeliz()
+     */
     private void textoPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoPasswordActionPerformed
         cajitaFeliz(textoPassword, textoUsuario);
     }//GEN-LAST:event_textoPasswordActionPerformed
 
+    /**
+     * Verifica si las casillas de usuario y contraseña están llenas y regresa un valor booleano.
+     * @return 
+     */
     public boolean validarLlenado(){
         boolean user = false,  pass = false;
         if(!textoUsuario.getText().isEmpty()){
@@ -784,16 +817,25 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
+    
     private void buttonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_buttonSalirActionPerformed
 
+    /**
+     * Manda llamar al método validarLlenado(), si cumple la condición ejecuta el proceso de inicio de sesión.
+     * @param evt 
+     */
     private void ButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarActionPerformed
         if(validarLlenado()){
             iniciarSesion();
         }
     }//GEN-LAST:event_ButtonEntrarActionPerformed
 
+    /**
+     * Invoca la ventana de consulta de notas de crédito.
+     * @param evt 
+     */
     private void ItemConsultarNotaCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarNotaCreditoActionPerformed
         ConsultarNotaCredito consNotaCred = new ConsultarNotaCredito (notaCredito,Escritorio,permiso);
         Escritorio.add(consNotaCred);
@@ -806,6 +848,10 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowOpened
 
+    /**
+     * Invoca la ventana de captura de empleados.
+     * @param evt 
+     */
     private void ItemCapturarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCapturarEmpleadoActionPerformed
         RegistrarEmpleado regEmp = new RegistrarEmpleado (permiso,empleado);
         Escritorio.add(regEmp);
@@ -813,6 +859,10 @@ public class Main extends javax.swing.JFrame {
         regEmp.setVisible(true);
     }//GEN-LAST:event_ItemCapturarEmpleadoActionPerformed
 
+    /**
+     * Invoca la ventana de consulta de empleados.
+     * @param evt 
+     */
     private void ItemConsultarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarEmpleadoActionPerformed
         ConsultarEmpleado conEmp = new ConsultarEmpleado (empleado,Escritorio,permiso);
         Escritorio.add(conEmp);
@@ -821,6 +871,10 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ItemConsultarEmpleadoActionPerformed
 
+    /**
+     * Invoca la ventana de captura de clientes.
+     * @param evt 
+     */
     private void ItemCapturarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCapturarClienteActionPerformed
         RegistrarCliente regCli = new RegistrarCliente (permiso,cliente);
         Escritorio.add(regCli);
@@ -828,6 +882,10 @@ public class Main extends javax.swing.JFrame {
         regCli.setVisible(true);
     }//GEN-LAST:event_ItemCapturarClienteActionPerformed
 
+    /**
+     * Invoca la ventana de consulta de clientes.
+     * @param evt 
+     */
     private void ItemConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarClienteActionPerformed
         ConsultarCliente conCli = new ConsultarCliente (cliente,Escritorio,permiso);
         Escritorio.add(conCli);
@@ -836,6 +894,10 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ItemConsultarClienteActionPerformed
 
+    /**
+     * Invoca la ventana de captura de proveedores.
+     * @param evt 
+     */
     private void ItemCapturarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCapturarProveedorActionPerformed
         RegistrarProveedor regProv = new RegistrarProveedor (permiso,proveedor);
         Escritorio.add(regProv);
@@ -843,6 +905,10 @@ public class Main extends javax.swing.JFrame {
         regProv.setVisible(true);
     }//GEN-LAST:event_ItemCapturarProveedorActionPerformed
 
+    /**
+     * Invoca la ventana de captura de productos.
+     * @param evt 
+     */
     private void ItemCapturarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemCapturarProductoActionPerformed
         RegistrarProducto capProd = new RegistrarProducto (permiso,producto);
         Escritorio.add(capProd);
@@ -850,6 +916,10 @@ public class Main extends javax.swing.JFrame {
         capProd.setVisible(true);
     }//GEN-LAST:event_ItemCapturarProductoActionPerformed
 
+    /**
+     * Invoca la ventana de consulta de proveedores.
+     * @param evt 
+     */
     private void ItemConsultarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarProveedorActionPerformed
         ConsultarProveedor consProv = new ConsultarProveedor (proveedor,Escritorio,permiso);
         Escritorio.add(consProv);
@@ -857,6 +927,10 @@ public class Main extends javax.swing.JFrame {
         consProv.setVisible(true);
     }//GEN-LAST:event_ItemConsultarProveedorActionPerformed
 
+    /**
+     * Invoca la ventana de captura de ventas.
+     * @param evt 
+     */
     private void ItemGenerarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemGenerarVentaActionPerformed
         RegistrarVenta regVenta = new RegistrarVenta (permiso,venta,producto, ventaProducto, almacenProducto, factura);
         Escritorio.add(regVenta);
@@ -864,6 +938,10 @@ public class Main extends javax.swing.JFrame {
         regVenta.setVisible(true);
     }//GEN-LAST:event_ItemGenerarVentaActionPerformed
  
+    /**
+     * Invoca la ventana de captura de compras.
+     * @param evt 
+     */
     private void ItemGenerarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemGenerarCompraActionPerformed
         RegistrarCompra regCompra = new RegistrarCompra (permiso,compra,producto,compraProducto,almacenProducto);
         Escritorio.add(regCompra);
@@ -871,6 +949,10 @@ public class Main extends javax.swing.JFrame {
         regCompra.setVisible(true);
     }//GEN-LAST:event_ItemGenerarCompraActionPerformed
 
+    /**
+     * Invoca la ventana de consulta de compras.
+     * @param evt 
+     */
     private void ItemConsultarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarCompraActionPerformed
         ConsultarCompra consCompra = new ConsultarCompra (compra,Escritorio,permiso);
         Escritorio.add(consCompra);
@@ -878,6 +960,10 @@ public class Main extends javax.swing.JFrame {
         consCompra.setVisible(true);
     }//GEN-LAST:event_ItemConsultarCompraActionPerformed
 
+    /**
+     * Invoca la ventana de captura de notas de crédito.
+     * @param evt 
+     */
     private void ItemGenerarNotaCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemGenerarNotaCreditoActionPerformed
         RegistrarNotaCredito regNotaCredito = new RegistrarNotaCredito (permiso,notaCredito);
         Escritorio.add(regNotaCredito);
@@ -885,6 +971,10 @@ public class Main extends javax.swing.JFrame {
         regNotaCredito.setVisible(true);
     }//GEN-LAST:event_ItemGenerarNotaCreditoActionPerformed
 
+    /**
+     * Invoca la ventana de captura de devoluciones.
+     * @param evt 
+     */
     private void ItemGenerarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemGenerarDevolucionActionPerformed
         RegistrarDevolucion regDevol = new RegistrarDevolucion (permiso,devolucion,almacenProducto,devolucionProducto);
         Escritorio.add(regDevol);
@@ -892,6 +982,10 @@ public class Main extends javax.swing.JFrame {
         regDevol.setVisible(true);
     }//GEN-LAST:event_ItemGenerarDevolucionActionPerformed
 
+    /**
+     * Invoca la ventana de captura de almacenes.
+     * @param evt 
+     */
     private void ItemAgregarAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemAgregarAlmacenActionPerformed
         RegistrarAlmacen regAlma = new RegistrarAlmacen (permiso,almacen,empleado);
         Escritorio.add(regAlma);
@@ -899,6 +993,10 @@ public class Main extends javax.swing.JFrame {
         regAlma.setVisible(true);
     }//GEN-LAST:event_ItemAgregarAlmacenActionPerformed
 
+    /**
+     * Invoca la ventana de consulta de almacenes.
+     * @param evt 
+     */
     private void ItemConsultarAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemConsultarAlmacenActionPerformed
         ConsultarAlmacen consAlma = new ConsultarAlmacen (almacen,Escritorio,permiso,empleado);
         Escritorio.add(consAlma);
@@ -906,6 +1004,10 @@ public class Main extends javax.swing.JFrame {
         consAlma.setVisible(true);
     }//GEN-LAST:event_ItemConsultarAlmacenActionPerformed
 
+    /**
+     * Invoca la ventana para generar mezclas de producto.
+     * @param evt 
+     */
     private void ItemRealizarMezclasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemRealizarMezclasActionPerformed
         RealizarMezcla realMez = new RealizarMezcla (permiso,formula,producto,almacenProducto);
         Escritorio.add(realMez);
@@ -921,6 +1023,10 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_VentanaLoginWindowIconified
 
+    /**
+     * Éste evento genera un reporte de prodctos que hay en cada almacén
+     * @param evt 
+     */
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\reportProductosPorAlmacen.jasper";
         JasperReport jr = null;
@@ -935,6 +1041,10 @@ public class Main extends javax.swing.JFrame {
         }catch (Exception e) {System.out.println(e.getMessage());}
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    /**
+     * Éste evento genera un reporte de ventas por almacén
+     * @param evt 
+     */
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         String path = "C:\\Users\\zawex\\Documents\\GitHub\\agrarian2\\src\\reports\\report1.jasper";
         JasperReport jr = null;
@@ -964,6 +1074,10 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenu2ActionPerformed
 
+    /**
+     * Invoca la ventana de consulta del log del sistema.
+     * @param evt 
+     */
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         ConsultarLog cl = new ConsultarLog (Escritorio);
         Escritorio.add(cl);
@@ -972,10 +1086,19 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    /**
+     * Éste evento espera que se presione la tecla de salto de línea(enter) para invocar el método de verificación de cajas llenas de la
+     * ventana de inicio de sesión.
+     * @param evt 
+     */
     private void textoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoUsuarioActionPerformed
         cajitaFeliz(textoUsuario, textoPassword);
     }//GEN-LAST:event_textoUsuarioActionPerformed
 
+    /**
+     * Invoca la ventana de captura de movimientos de almacén.
+     * @param evt 
+     */
     private void itemAgregarMovimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAgregarMovimientoActionPerformed
         if(ventTraspasoAb == false){
             ifrmTraspaso ifrt = new ifrmTraspaso(this,Escritorio,permiso,producto);
@@ -987,6 +1110,10 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_itemAgregarMovimientoActionPerformed
 
+    /**
+     * Invoca la ventana de consulta de movimientos de almacén.
+     * @param evt 
+     */
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         if(ventConsultaTras == false){
             ifrmConsultaTraspaso ifrt = new ifrmConsultaTraspaso(this,Escritorio,permiso,producto);
@@ -997,6 +1124,10 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    /**
+     * Éste método se encarga de generar la bitácora de acciones del sistema.
+     * @param evt 
+     */
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         archivo = new JFileChooser();
         nuevo = new Arbol();
@@ -1025,7 +1156,7 @@ public class Main extends javax.swing.JFrame {
                 String cad = nuevo.regresarCadEnc();
                 //System.out.println("cad: " + cad);
                 archivoSalida.println(cad);
-                JOptionPane.showMessageDialog(null,"Informacion guardada en archivo");
+                JOptionPane.showMessageDialog(null,"Información guardada en archivo");
                 archivoSalida.close();
             }catch (Exception e) {
                 archivoSalida = null;
@@ -1033,12 +1164,16 @@ public class Main extends javax.swing.JFrame {
                         "Mensaje",JOptionPane.OK_OPTION);
             }
         }else {
-            JOptionPane.showConfirmDialog(null, "Opcion cancelada", 
+            JOptionPane.showConfirmDialog(null, "Opción cancelada", 
                         "Mensaje",JOptionPane.OK_OPTION);
         }
 
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    /**
+     * Invoca la ventana de chat para solicitar soporte técnico.
+     * @param evt 
+     */
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         chat cliente = new chat();
         cliente.conectar("localhost", lblUsuarioActivo.getText());
@@ -1046,6 +1181,10 @@ public class Main extends javax.swing.JFrame {
         cliente.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+    /**
+     * Este método se encarga de obtener el usuario y contraseña, para compararlo con la información de la base de datos, si se encuentra la información
+     * le permitirá el acceso al usuario y cargará los permisos asociados a este.
+     */
     public void iniciarSesion() {
         usuarioActual = textoUsuario.getText();
         try {
@@ -1081,6 +1220,9 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Carga los permisos del usuario para el módulo de proveedores.
+     */
     public void cargarAccesosProveedor () {
         switch (permiso.getProveedor()) {
             case 0:
@@ -1098,7 +1240,10 @@ public class Main extends javax.swing.JFrame {
                 break;
         }
     }
-
+    
+    /**
+     * Carga los permisos del usuario para el módulo de producto.
+     */
     public void cargarAccesosProducto () {
         switch (permiso.getProducto()) {
             case 0:
@@ -1120,6 +1265,9 @@ public class Main extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Carga los permisos del usuario para el módulo de notas de crédito.
+     */
     public void cargarAccesosNotaCredito () {
         switch (permiso.getNotaCredito()) {
             case 0:
@@ -1138,6 +1286,9 @@ public class Main extends javax.swing.JFrame {
         }    
     }
 
+    /**
+     * Carga los permisos del usuario para el módulo de empleados.
+     */
     public void cargarAccesosEmpleado () {
         switch (permiso.getEmpleado()) {
             case 0:
@@ -1156,6 +1307,9 @@ public class Main extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Carga los permisos del usuario para el módulo de devoluciones.
+     */
     public void cargarAccesosDevolucion () {
         switch (permiso.getDevolucion()) {
             case 0:
@@ -1174,6 +1328,9 @@ public class Main extends javax.swing.JFrame {
         } 
     }
 
+    /**
+     * Carga los permisos del usuario para el módulo de clientes.
+     */
     public void cargarAccesosCliente () {
         switch (permiso.getCliente()) {
             case 0:
@@ -1195,6 +1352,9 @@ public class Main extends javax.swing.JFrame {
         }    
     }
 
+    /**
+     * Carga los permisos del usuario para el módulo de almacén.
+     */
     public void cargarAccesosAlmacen () {
         switch (permiso.getAlmacen()) {
             case 0:
@@ -1213,6 +1373,9 @@ public class Main extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Carga los permisos del usuario para el módulo de compras.
+     */
     public void cargarAccesosCompra () {
         switch (permiso.getCompra()) {
             case 0:
@@ -1231,6 +1394,9 @@ public class Main extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Carga los permisos del usuario para el módulo de ventas.
+     */
     public void cargarAccesosVenta () {
         switch (permiso.getVenta()) {
             case 0:
@@ -1249,6 +1415,9 @@ public class Main extends javax.swing.JFrame {
         }
     }
    
+    /**
+     * Carga los permisos del usuario para el módulo de mezclas.
+     */
     public void cargarAccesosMezcla () {
         switch (permiso.getMezcla()) {
             case 0:
@@ -1269,6 +1438,9 @@ public class Main extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Establece el tamaño, le indica que depende de la ventana principal y centra la ventana de inicio de sesión.
+     */
     public void abrirVentanaAcceso(){
         this.setVisible(false);
         VentanaLogin.setModal(true);
@@ -1278,6 +1450,10 @@ public class Main extends javax.swing.JFrame {
         VentanaLogin.setVisible(true);
     }
     
+    /**
+     * Método utilizado para centrar las ventanas, puede ser utilizado por cualquier objeto de la ventana principal.
+     * @param ventana Recibe un objeto de tipo JInternalFrame y lo centra.
+     */
     public void centrarVentana(JInternalFrame ventana){
         int tamaño = (Escritorio.getWidth() - ventana.getWidth()) / 2;
         ventana.setLocation(tamaño,0);
