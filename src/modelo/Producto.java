@@ -156,7 +156,7 @@ public class Producto {
                 fila.addElement(rs.getString(4));
                 fila.addElement(rs.getString(5));
                 fila.addElement(rs.getString(6));
-                fila.addElement(rs.getString(7));
+                fila.addElement("$ "+rs.getString(7));
                 ProvTable.addRow(fila);
             }
         }catch (SQLException ex) {
