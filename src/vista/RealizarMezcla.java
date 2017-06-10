@@ -6,6 +6,11 @@ import java.sql.SQLException;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.*;
+
+/**
+ * Este formulario se encarga de mostrar la ventana de registro de mezclas.
+ * @author Save Soto
+ */
 public class RealizarMezcla extends javax.swing.JInternalFrame {
     Permisos permiso;
     Formula f;
@@ -15,6 +20,13 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de registro de mezclas.
+     * @param permisoo  Recibe la instancia de la clase permisos.
+     * @param formulaa  Recibe la instancia de la clase formula.
+     * @param producto  Recibe la instancia de la clase producto.
+     * @param almacenProd   Recibe la instancia de la clase Almacen Producto.
+     */
     public RealizarMezcla(Permisos permisoo, Formula formulaa, Producto producto, AlmacenProducto almacenProd) {
         this.permiso = permisoo;
         this.f = formulaa;
@@ -1330,18 +1342,30 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Evento de selección de selección de datos en la casilla de urea
+     * @param evt 
+     */
     private void txtUreaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUreaFocusGained
 
         txtUrea.selectAll();
 
     }//GEN-LAST:event_txtUreaFocusGained
 
+    /**
+     * Envía el enfoque a la casilla Dap al presionar la tecla de salto de linea.
+     * @param evt 
+     */
     private void txtUreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUreaActionPerformed
 
         txtDap.requestFocus();
 
     }//GEN-LAST:event_txtUreaActionPerformed
 
+    /**
+     * Formatea el texto contenido en la casilla UreaK cuando se activa el evento de soltar tecla desde la casilla Urea
+     * @param evt 
+     */
     private void txtUreaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUreaKeyReleased
         
         if (!txtUrea.getText().isEmpty()){
@@ -1362,6 +1386,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         operacionesMezcla();
     }//GEN-LAST:event_txtUreaKeyReleased
 
+    /**
+     * Evita que se ingrese mas de un punto a la casilla urea y limita el tamaño a 7 caracteres.
+     * @param evt 
+     */
     private void txtUreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUreaKeyTyped
 
         validacion(evt);
@@ -1381,18 +1409,30 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtUreaKeyTyped
 
+    /**
+     * Evento de selección de datos en la casilla de Precio Urea
+     * @param evt 
+     */
     private void txtPrecioUreaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPrecioUreaFocusGained
 
         txtPrecioUrea.selectAll();
 
     }//GEN-LAST:event_txtPrecioUreaFocusGained
 
+    /**
+     * Envía el enfoque a la casilla precio Dap al presionar la tecla de salto de linea.
+     * @param evt 
+     */
     private void txtPrecioUreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioUreaActionPerformed
 
         txtPrecioDap.requestFocus();
 
     }//GEN-LAST:event_txtPrecioUreaActionPerformed
 
+    /**
+     * Si la casilla de urea no esta vacía mostrará el costo de la urea en la casilla de precio de urea.
+     * @param evt 
+     */
     private void txtPrecioUreaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioUreaKeyReleased
 
         if(txtPrecioUrea.getText().isEmpty()) {
@@ -1403,6 +1443,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtPrecioUreaKeyReleased
 
+    /**
+     * Evita que se ingrese mas de un punto a la casilla urea y limita el tamaño a 7 caracteres.
+     * @param evt 
+     */
     private void txtPrecioUreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioUreaKeyTyped
 
         validacion(evt);
@@ -1422,18 +1466,30 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtPrecioUreaKeyTyped
 
+    /**
+     * Evento de selección de datos en la casilla de Precio de amonio.
+     * @param evt 
+     */
     private void txtPrecioAmonioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPrecioAmonioFocusGained
 
         txtPrecioAmonio.selectAll();
 
     }//GEN-LAST:event_txtPrecioAmonioFocusGained
 
+    /**
+     * Envía el enfoque a la casilla precio txtManiobras al presionar la tecla de salto de linea.
+     * @param evt 
+     */
     private void txtPrecioAmonioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioAmonioActionPerformed
 
         txtManiobras.requestFocus();
 
     }//GEN-LAST:event_txtPrecioAmonioActionPerformed
 
+    /**
+     * Evita que se ingrese mas de un punto en la casilla precioAmonio y limita el tamaño a 7 caracteres.
+     * @param evt 
+     */
     private void txtPrecioAmonioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioAmonioKeyTyped
 
         validacion(evt);
@@ -1453,18 +1509,30 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtPrecioAmonioKeyTyped
 
+    /**
+     * Evento de selección de datos en la casilla de txtPrecioPotasio.
+     * @param evt 
+     */
     private void txtPrecioPotasioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPrecioPotasioFocusGained
 
         txtPrecioPotasio.selectAll();
 
     }//GEN-LAST:event_txtPrecioPotasioFocusGained
 
+    /**
+     * Envía el enfoque a la casilla precio txtPrecioAmonio al presionar la tecla de salto de linea.
+     * @param evt 
+     */
     private void txtPrecioPotasioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioPotasioActionPerformed
 
         txtPrecioAmonio.requestFocus();
 
     }//GEN-LAST:event_txtPrecioPotasioActionPerformed
 
+    /**
+     * Evita que se ingrese mas de un punto en la casilla txtPrecioPotasio y limita el tamaño a 7 caracteres.
+     * @param evt 
+     */
     private void txtPrecioPotasioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioPotasioKeyTyped
 
         validacion(evt);
@@ -1484,18 +1552,30 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtPrecioPotasioKeyTyped
 
+    /**
+     * Evento de selección de datos en la casilla de txtPrecioFosfo.
+     * @param evt 
+     */
     private void txtPrecioFosfoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPrecioFosfoFocusGained
 
         txtPrecioFosfo.selectAll();
 
     }//GEN-LAST:event_txtPrecioFosfoFocusGained
 
+    /**
+     * Envía el enfoque a la casilla precio txtPrecioPotasio al presionar la tecla de salto de linea.
+     * @param evt 
+     */
     private void txtPrecioFosfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioFosfoActionPerformed
 
         txtPrecioPotasio.requestFocus();
 
     }//GEN-LAST:event_txtPrecioFosfoActionPerformed
 
+    /**
+     * Evita que se ingrese mas de un punto en la casilla txtPrecioFosfo y limita el tamaño a 7 caracteres.
+     * @param evt 
+     */
     private void txtPrecioFosfoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioFosfoKeyTyped
 
         validacion(evt);
@@ -1515,18 +1595,30 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtPrecioFosfoKeyTyped
 
+    /**
+     * Evento de selección de datos en la casilla de txtPrecioKmag.
+     * @param evt 
+     */
     private void txtPrecioKmagFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPrecioKmagFocusGained
 
         txtPrecioKmag.selectAll();
 
     }//GEN-LAST:event_txtPrecioKmagFocusGained
 
+    /**
+     * Envía el enfoque a la casilla precio txtPrecioFosfo al presionar la tecla de salto de linea.
+     * @param evt 
+     */
     private void txtPrecioKmagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioKmagActionPerformed
 
         txtPrecioFosfo.requestFocus();
 
     }//GEN-LAST:event_txtPrecioKmagActionPerformed
 
+    /**
+     * Evita que se ingrese mas de un punto en la casilla txtPrecioKmag y limita el tamaño a 7 caracteres.
+     * @param evt 
+     */
     private void txtPrecioKmagKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKmagKeyTyped
 
         validacion(evt);
@@ -1546,18 +1638,30 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtPrecioKmagKeyTyped
 
+    /**
+     * Evento de selección de datos en la casilla de txtPrecioKcl.
+     * @param evt 
+     */
     private void txtPrecioKclFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPrecioKclFocusGained
 
         txtPrecioKcl.selectAll();
 
     }//GEN-LAST:event_txtPrecioKclFocusGained
 
+    /**
+     * Envía el enfoque a la casilla precio txtPrecioKmag al presionar la tecla de salto de linea.
+     * @param evt 
+     */
     private void txtPrecioKclActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioKclActionPerformed
 
         txtPrecioKmag.requestFocus();
 
     }//GEN-LAST:event_txtPrecioKclActionPerformed
 
+    /**
+     * Evita que se ingrese mas de un punto en la casilla txtPrecioKcl y limita el tamaño a 7 caracteres.
+     * @param evt 
+     */
     private void txtPrecioKclKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKclKeyTyped
 
         validacion(evt);
@@ -1577,18 +1681,30 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtPrecioKclKeyTyped
 
+    /**
+     * Evento de selección de datos en la casilla de txtPrecioMap.
+     * @param evt 
+     */
     private void txtPrecioMapFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPrecioMapFocusGained
 
         txtPrecioMap.selectAll();
 
     }//GEN-LAST:event_txtPrecioMapFocusGained
 
+    /**
+     * Envía el enfoque a la casilla precio txtPrecioKcl al presionar la tecla de salto de linea.
+     * @param evt 
+     */
     private void txtPrecioMapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioMapActionPerformed
 
         txtPrecioKcl.requestFocus();
 
     }//GEN-LAST:event_txtPrecioMapActionPerformed
 
+    /**
+     * Evita que se ingrese mas de un punto en la casilla txtPrecioMap y limita el tamaño a 7 caracteres.
+     * @param evt 
+     */
     private void txtPrecioMapKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioMapKeyTyped
 
         validacion(evt);
@@ -1608,18 +1724,30 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtPrecioMapKeyTyped
 
+    /**
+     * Evento de selección de datos en la casilla de txtPrecioDap.
+     * @param evt 
+     */
     private void txtPrecioDapFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPrecioDapFocusGained
 
         txtPrecioDap.selectAll();
 
     }//GEN-LAST:event_txtPrecioDapFocusGained
 
+    /**
+     * Envía el enfoque a la casilla precio txtPrecioKcl al presionar la tecla de salto de linea.
+     * @param evt 
+     */
     private void txtPrecioDapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioDapActionPerformed
 
         txtPrecioMap.requestFocus();
 
     }//GEN-LAST:event_txtPrecioDapActionPerformed
 
+    /**
+     * Evita que se ingrese mas de un punto en la casilla txtPrecioMap y limita el tamaño a 7 caracteres.
+     * @param evt 
+     */
     private void txtPrecioDapKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioDapKeyTyped
 
         validacion(evt);

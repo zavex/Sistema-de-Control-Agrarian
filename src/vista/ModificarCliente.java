@@ -5,7 +5,10 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 import modelo.*;
 
-
+/**
+ * Este formulario se encarga de mostrar la ventana de modificación de clientes.
+ * @author Save Soto
+ */
 public class ModificarCliente extends javax.swing.JInternalFrame {
     
     Cliente cliente;
@@ -18,6 +21,12 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de modificación de cliente.
+     * @param p Recibe la instancia de la clase permisos.
+     * @param c Recibe la instancia de la clase cliente.
+     * @param vector Recibe información de la fila seleccionada en la vista de consulta de clientes.
+     */
     public ModificarCliente(Permisos p, Cliente c, Vector vector) {
         this.permisos = p;
         this.cliente = c;
@@ -457,7 +466,10 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    /**
+     * Verifica que toda la información haya sido introducida al formulario
+     * @return Regresa un valor booleano para indicar si se completado información.
+     */
     public boolean camposCompletos () {
         if (!txtNombreCliente.getText().isEmpty() && !txtTelefonoCliente.getText().isEmpty() && !txtRfcCliente.getText().isEmpty() &&
                 !txtCorreoCliente.getText().isEmpty() && !txtContactoCliente.getText().isEmpty() && !txtDireccionCliente.getText().isEmpty() && !txtMunicipioCliente.getText().isEmpty() && !txtCpCliente.getText().isEmpty() && !txtEstadoCliente.getText().isEmpty()) {
@@ -471,6 +483,10 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
         return new java.sql.Date(date.getTime());
     }
     
+    /**
+     * Recopila la información cargada en la vista y la envía al método alojado en la clase de cliente para su respectiva actualización en la base de datos.
+     * @param evt 
+     */
     private void btnGuardarCambiosClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCambiosClienteActionPerformed
         //verificar correo
         cliente.validarCorreo(title);
@@ -505,6 +521,10 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpClienteActionPerformed
 
+    /**
+     * Método de apertura, se encarga de cargar la información almacenada en el vector recibido previamente en el constructor.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         try {
             txtIdCliente.setText(fila.get(0).toString());  
@@ -525,6 +545,10 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
           }
     }//GEN-LAST:event_formInternalFrameOpened
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar texto, destruye digitos y solo permite ingresar hasta 60 caracteres.
+     * @param evt 
+     */
     private void txtNombreClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreClienteKeyTyped
         char c=evt.getKeyChar(); 
         String nombre = txtNombreCliente.getText();
@@ -539,6 +563,10 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtNombreClienteKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras y solo permite ingresar hasta 12 caracteres.
+     * @param evt 
+     */
     private void txtTelefonoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoClienteKeyTyped
         char c=evt.getKeyChar(); 
         String telefono = txtTelefonoCliente.getText();
@@ -554,6 +582,10 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtTelefonoClienteKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar hasta 13 caracteres.
+     * @param evt 
+     */
     private void txtRfcClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRfcClienteKeyTyped
         String rfc = txtRfcCliente.getText();
         if (rfc.length()>12) {
@@ -562,6 +594,10 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtRfcClienteKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar hasta 30 caracteres.
+     * @param evt 
+     */
     private void txtCorreoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoClienteKeyTyped
         String correo = txtCorreoCliente.getText();
         if (correo.length()>29) {
@@ -570,6 +606,10 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtCorreoClienteKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar hasta 50 caracteres.
+     * @param evt 
+     */
     private void txtDireccionClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionClienteKeyTyped
         String direccion = txtDireccionCliente.getText();
         if (direccion.length()>49) {
@@ -578,6 +618,10 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtDireccionClienteKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 30 caracteres.
+     * @param evt 
+     */
     private void txtMunicipioClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMunicipioClienteKeyTyped
         char c=evt.getKeyChar();
         String municipio = txtMunicipioCliente.getText();
@@ -597,6 +641,10 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
                
     }//GEN-LAST:event_PanelDatosDemograficosKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras y solo permite ingresar hasta 5 caracteres.
+     * @param evt 
+     */
     private void txtCpClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCpClienteKeyTyped
         char c=evt.getKeyChar(); 
         String cp = txtCpCliente.getText();
@@ -611,6 +659,10 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtCpClienteKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras y solo permite ingresar hasta 30 caracteres.
+     * @param evt 
+     */
     private void txtEstadoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEstadoClienteKeyTyped
         char c=evt.getKeyChar();
         String estado = txtEstadoCliente.getText();
@@ -628,6 +680,10 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
     private void txtPasswordClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordClienteActionPerformed
     }//GEN-LAST:event_txtPasswordClienteActionPerformed
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 30 caracteres.
+     * @param evt 
+     */
     private void txtContactoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactoClienteKeyTyped
         char c=evt.getKeyChar();
         String contacto = txtContactoCliente.getText();
@@ -642,6 +698,11 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
         } 
     }//GEN-LAST:event_txtContactoClienteKeyTyped
 
+    /**
+     * Invoca el método para resetear formulario.
+     * @param evt 
+     * @see limpiarCajas()
+     */
     private void btnLimpiarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarClienteActionPerformed
        
         limpiarCajas();
@@ -654,6 +715,10 @@ public class ModificarCliente extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnCancelarClienteActionPerformed
 
+    
+    /**
+     * Limpia la información contenida en los cuadros de texto.
+     */
     public void limpiarCajas() {
         
         txtTelefonoCliente.setText(null);

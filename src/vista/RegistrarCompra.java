@@ -12,7 +12,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-
+/**
+ * Este formulario se encarga de mostrar la ventana de registro de compras.
+ * @author Save Soto
+ */
 public class RegistrarCompra extends javax.swing.JInternalFrame {
     
     DecimalFormat df = new DecimalFormat("0.00");//para dos decimales
@@ -36,6 +39,14 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de registro de Compras.
+     * @param permiso   Recibe la instancia de la clase Permisos.
+     * @param compra    Recibe la instancia de la clase Compra.
+     * @param producto  Recibe la instancia de la clase Producto.
+     * @param compraProd    Recibe la instancia de la clase CompraProducto.  
+     * @param almacenProd   Recibe la instancia de la clase AlmacenProducto.
+     */
     public RegistrarCompra(Permisos permiso, Compra compra, Producto producto, CompraProducto compraProd, AlmacenProducto almacenProd ) {
         
         this.permiso = permiso;
@@ -544,6 +555,9 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    /**
+     * Carga los nombres de almacén en el modelo de la lista desplegable.
+     */
     public void cargarComboAlmacenes() {
         conexion.conexionSQL();
         PreparedStatement comando = null;
@@ -561,6 +575,9 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         
     }   
     
+    /**
+     * Carga los nombres de empleados en el modelo de la lista desplegable.
+     */
     public void cargarComboEmpleados() {
         conexion.conexionSQL();
         PreparedStatement comando = null;
@@ -578,6 +595,9 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         
     }
     
+    /**
+     * Carga los nombres de productos en el modelo de la lista desplegable.
+     */
     public void cargarComboProductos() {
         conexion.conexionSQL();
         PreparedStatement comando = null;
@@ -595,6 +615,9 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         
     }
         
+    /**
+     * Carga los nombres de proveedor en el modelo de la lista desplegable
+     */
     public void cargarComboProveedor() {
         conexion.conexionSQL();
         PreparedStatement comando = null;
@@ -611,6 +634,10 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         }
     }
         
+    /**
+     * Verifica que toda la información haya sido introducida al formulario.
+     * @return Regresa un valor booleano para indicar si se completado información. 
+     */
     public boolean fieldsVentaOk () {
         String idEmpOk = txtIdEmpleado.getText();
         String idProvOk = txtIdProv.getText();
@@ -623,6 +650,10 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         }
     }
     
+    /**
+     * Recopila la información cargada en la vista y la envía al método alojado en la clase de Compra para su respectiva actualización en la base de datos.
+     * @param evt 
+     */
     private void btnRegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarVentaActionPerformed
             if(fieldsVentaOk()){
             try {
@@ -658,6 +689,10 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnRegistrarVentaActionPerformed
 
+    /**
+     * Se encarga de cerrar la ventana de registro.
+     * @param evt 
+     */
     private void btnCancelarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarVentaActionPerformed
             this.dispose();
     }//GEN-LAST:event_btnCancelarVentaActionPerformed
@@ -680,6 +715,10 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         
     }*/
     
+    /**
+     * Método de apertura, se encarga de cargar la fecha, el id generado por la base de datos para su registro y los modelos de lista desplegable generados.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
        fechaa.setDate(new Date());    //al iniciar setear la fecha actual
        txtFolioCompra.setText(String.valueOf(compra.obtenerFolio())); 
@@ -689,11 +728,18 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
        cargarComboAlmacenes();
     }//GEN-LAST:event_formInternalFrameOpened
 
-    
+    /**
+     * Método obstoleto o no usado.
+     * @param evt 
+     */
     private void txtFolioCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFolioCompraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFolioCompraActionPerformed
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras y solo permite ingresar hasta 3 caracteres.
+     * @param evt 
+     */
     private void txtCantidadProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadProductoKeyTyped
         char c = evt.getKeyChar();
         String cantidad = txtCantidadProducto.getText();
@@ -708,10 +754,18 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtCantidadProductoKeyTyped
 
+    /**
+     * Método obstoleto o no usado.
+     * @param evt 
+     */
     private void cbxUnidadMedidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxUnidadMedidaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxUnidadMedidaActionPerformed
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras.
+     * @param evt 
+     */
     private void txtPrecioProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioProductoKeyTyped
         String msg = String.valueOf(evt.getKeyChar());
         String precioVentaa = txtPrecioProducto.getText();
@@ -730,10 +784,18 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtPrecioProductoKeyTyped
 
+    /**
+     * Método obstoleto o no usado.
+     * @param evt 
+     */
     private void txtPrecioProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecioProductoActionPerformed
 
+    /**
+     * Carga el producto seleccionado a la tabla de detalle de compra.
+     * @param evt 
+     */
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
         
         String cantventa =txtCantidadProducto.getText();
@@ -762,6 +824,10 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnAgregarProductoActionPerformed
     
+    /**
+     * Calcula el importe de la compra registrada.
+     * @return 
+     */
      private double obtenerImporte() {
         double importe = 0;
     try{
@@ -777,23 +843,42 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
     return importe;    
     }
     
-    
+    /**
+     * Obtiene el id del almacén seleccionado y lo agrega a la casilla txtIdAlmacen.
+     * @param evt 
+     */
     private void comboAlmacenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAlmacenesActionPerformed
         txtIdAlmacen.setText(String.valueOf(regresarIdAlmacen()));
     }//GEN-LAST:event_comboAlmacenesActionPerformed
 
+    /**
+     * Obtiene el id del empleado seleccionado y lo agrega a la casilla txtIdEmpleado.
+     * @param evt 
+     */
     private void comboEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEmpleadoActionPerformed
         txtIdEmpleado.setText(String.valueOf(regresarIdEmp()));
     }//GEN-LAST:event_comboEmpleadoActionPerformed
 
+    /**
+     * Obtiene el id del proveedor seleccionado y lo agrega a la casilla txtIdProv.
+     * @param evt 
+     */
     private void comboProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboProvActionPerformed
         txtIdProv.setText(String.valueOf(regresarIdProv()));
     }//GEN-LAST:event_comboProvActionPerformed
 
+    /**
+     * Obtiene el id del producto seleccionado y lo agrega a la casilla txtIdProducto.
+     * @param evt 
+     */
     private void comboProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboProductoActionPerformed
         txtIdProducto.setText(String.valueOf(regresarIdProd()));
     }//GEN-LAST:event_comboProductoActionPerformed
 
+    /**
+     * Busca el id del empleado en la base de datos usando el nombre.
+     * @return id de empleado.
+     */
     public int regresarIdEmp () {
         int idEmpleado=0;
         conexion.conexionSQL();
@@ -813,6 +898,10 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         return idEmpleado;   
     }
  
+    /**
+     * Busca el id del producto en la base de datos usando el nombre.
+     * @return id de producto.
+     */
     public int regresarIdProd () {
         int idProducto=0;
         conexion.conexionSQL();
@@ -832,6 +921,10 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         return idProducto;   
     }
         
+    /**
+     * Busca el id del proveedor en la base de datos usando el nombre.
+     * @return id de proveedor. 
+     */
     public int regresarIdProv () {
         
         int idProveedor=0;
@@ -852,6 +945,10 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
         return idProveedor;   
     }
   
+    /**
+     * Busca el id del almacén en la base de datos usando el nombre.
+     * @return id de almacén. 
+     */
     public int regresarIdAlmacen () {
         int idAlmacen=0;
         conexion.conexionSQL();

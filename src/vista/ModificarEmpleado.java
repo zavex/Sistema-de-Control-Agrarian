@@ -5,6 +5,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la ventana de modificación de empleados.
+ * @author Save Soto
+ */
 public class ModificarEmpleado extends javax.swing.JInternalFrame {
 
     Conexion conexion = new Conexion ();
@@ -16,6 +20,11 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de modificación de cliente.
+     * @param empleado  Recibe la instancia de la clase empleado.
+     * @param vector    Recibe información de la fila seleccionada en la vista de consulta de empleados.
+     */
     public ModificarEmpleado(Empleado empleado, Vector vector) {
         this.empleado = empleado;
         this.fila = vector;
@@ -853,10 +862,15 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void txtRfcEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRfcEmpleadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRfcEmpleadoActionPerformed
 
+    /**
+     * Método de apertura, se encarga de cargar la información almacenada en el vector recibido previamente en el constructor.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         txtIdEmpleado.setText(fila.get(0).toString());  //obteniendo datos de empleado
         DateChooserFechaRegEmpleado.setDate((Date) fila.get(1));
@@ -875,6 +889,9 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
             }
     }//GEN-LAST:event_formInternalFrameOpened
 
+    /**
+     * Despliega los privilegios que tiene el empleado para el uso del programa.
+     */
     public void obtenerPermisos () {
         try {
             int dig = Integer.parseInt(txtIdEmpleado.getText());
@@ -1011,6 +1028,11 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         }
     }
     
+    /**
+     * Invoca el método para habilitar la actualización de privilegios del sistema.
+     * @param evt
+     * @see modificarPermisosUsuario()
+     */
     private void rbModificarPermisosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbModificarPermisosActionPerformed
         modificarPermisosUsuario();        
     }//GEN-LAST:event_rbModificarPermisosActionPerformed
@@ -1019,6 +1041,10 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoEmpleadoActionPerformed
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras y solo permite ingresar hasta 11 caracteres.
+     * @param evt 
+     */
     private void txtNssEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNssEmpleadoKeyTyped
         char c = evt.getKeyChar();
         String nss = txtNssEmpleado.getText(); 
@@ -1032,6 +1058,10 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
             getToolkit().beep(); }
     }//GEN-LAST:event_txtNssEmpleadoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 51 caracteres.
+     * @param evt 
+     */
     private void txtNombreEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreEmpleadoKeyTyped
         char c=evt.getKeyChar(); 
         String nombre = txtNombreEmpleado.getText();
@@ -1046,6 +1076,10 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtNombreEmpleadoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras y solo permite ingresar hasta 13 caracteres.
+     * @param evt 
+     */
     private void txtTelefonoEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoEmpleadoKeyTyped
         char c = evt.getKeyChar();
         String telefono = txtTelefonoEmpleado.getText();
@@ -1061,6 +1095,10 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_txtTelefonoEmpleadoKeyTyped
 
+    /**
+     * Recopila la información cargada en la vista y la envía al método alojado en la clase de empleado para su respectiva actualización en la base de datos.
+     * @param evt 
+     */
     private void btnGuardarCambiosEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCambiosEmpleadoActionPerformed
         //validar correo 
         //empleado.validarCorreo(title);
@@ -1123,10 +1161,18 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         } 
     }//GEN-LAST:event_btnGuardarCambiosEmpleadoActionPerformed
 
+    /**
+     * Cierra la ventana de actualización.
+     * @param evt 
+     */
     private void btnCancelarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarEmpleadoActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelarEmpleadoActionPerformed
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar hasta 30 caracteres.
+     * @param evt 
+     */
     private void txtCorreoEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoEmpleadoKeyTyped
         String correo = txtCorreoEmpleado.getText();
         if (correo.length()>30) {
@@ -1139,6 +1185,10 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreEmpleadoActionPerformed
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar hasta 13 caracteres.
+     * @param evt 
+     */
     private void txtRfcEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRfcEmpleadoKeyTyped
         String rfc = txtRfcEmpleado.getText(); 
         
@@ -1149,6 +1199,10 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtRfcEmpleadoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar hasta 18 caracteres.
+     * @param evt 
+     */
     private void txtCurpEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCurpEmpleadoKeyTyped
         String curp = txtCurpEmpleado.getText();
         if (curp.length()>18) {
@@ -1157,6 +1211,10 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtCurpEmpleadoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar hasta 50 caracteres.
+     * @param evt 
+     */
     private void txtDireccionEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionEmpleadoKeyTyped
         String direccion = txtDireccionEmpleado.getText();
         
@@ -1166,6 +1224,10 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtDireccionEmpleadoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar hasta 9 caracteres.
+     * @param evt 
+     */
     private void txtNombreUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreUsuarioKeyTyped
         String user = txtNombreUsuario.getText();
         
@@ -1179,7 +1241,10 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordKeyTyped
 
-    
+    /**
+     * Verifica que toda la información haya sido introducida al formulario
+     * @return Regresa un valor booleano para indicar si se completado información. 
+     */
     public boolean camposCompletos () {
         if (comboDeptoEmpleado.getSelectedIndex()!=-1 && 
                 comboStatusEmpleado.getSelectedIndex()!=-1 && !txtNombreEmpleado.getText().isEmpty() && 
@@ -1192,6 +1257,9 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         }
     }
 
+    /**
+     * Actualiza los privilegios elegidos.
+     */
     public void generarPermisos() {
         permisos.setIdEmp(Integer.parseInt(txtIdEmpleado.getText()));
         if (radioClienteNoAcceso.isSelected()==true) { // PERMISOS CLIENTE
@@ -1307,11 +1375,18 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
     }
     
   
-    
+    /**
+     * Método para convertir fecha de tipo java.util.date a un formato compatible con SQL
+     * @param date  fecha de tipo java date.
+     * @return regresa un dato de tipo sql date.
+     */
     public java.sql.Date convertJavaDateToSqlDate(java.util.Date date) {
         return new java.sql.Date(date.getTime());
     }
     
+    /**
+     * Carga los privilegios del usuario seleccionado en el módulo de modificación.
+     */
     public void cargarPermisosPorDefecto () {
         radioClienteEscritura.setSelected(true);
         radioEmpleadoEscritura.setSelected(true);
@@ -1327,6 +1402,9 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         radioFacturaLectura.setSelected(true);
     }
     
+    /**
+     * Elimina los datos seleccionados del modulo de privilegios del sistema.
+     */
         public void borrarPermisos () {
         btnGroupClientePermisos.clearSelection();
         btnGroupEmpleadoPermiso.clearSelection();
@@ -1341,7 +1419,10 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         btnGroupAdminPermiso.clearSelection();
         btnGroupFacturaPermiso.clearSelection();
     }
-        
+    
+    /**
+     * Habilita la edición de privilegios del sistema.
+     */
     public void modificarPermisosUsuario () {
         if (rbModificarPermisos.isSelected()) {
             obtenerPermisos();
@@ -1435,6 +1516,12 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
         }
     } 
     
+    /**
+     * Verifica que la contraseña introducida sea valida.
+     * @param p1
+     * @param p2
+     * @return 
+     */
     public boolean veriPass(JPasswordField p1, JPasswordField p2){
         boolean veri=false;
         if(p1.getPassword().length>=8){

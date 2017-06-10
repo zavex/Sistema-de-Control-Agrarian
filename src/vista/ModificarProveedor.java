@@ -5,6 +5,10 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la ventana de modificación de Proveedores.
+ * @author Save Soto
+ */
 public class ModificarProveedor extends javax.swing.JInternalFrame {
 
     Proveedor proveedor;
@@ -17,6 +21,12 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de modificación de cliente.
+     * @param p Recibe la instancia de la clase permisos.
+     * @param prov  Recibe la instancia de la clase proveedor.
+     * @param vector    Recibe información de la fila seleccionada en la vista de consulta de proveedor.
+     */
     public ModificarProveedor(Permisos p, Proveedor prov,Vector vector) {
         
         this.permisos = p;
@@ -339,7 +349,10 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    /**
+     * Verifica que toda la información haya sido introducida al formulario
+     * @return Regresa un valor booleano para indicar si se completado información.  
+     */
     public boolean camposCompletos () {
         
         if (!txtNombreProveedor.getText().isEmpty() && !txtTelefonoProveedor.getText().isEmpty() && !txtRfcProveedor.getText().isEmpty() && 
@@ -357,13 +370,22 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
         }
     
     }
-     
+    
+    /**
+     * Método para convertir fecha de tipo java.util.date a un formato compatible con SQL
+     * @param date  fecha de tipo java date.
+     * @return regresa un dato de tipo sql date. 
+     */
     public java.sql.Date convertJavaDateToSqlDate(java.util.Date date) {
         
         return new java.sql.Date(date.getTime());
     
     }
     
+    /**
+     * Recopila la información cargada en la vista y la envía al método alojado en la clase de producto para su respectiva actualización en la base de datos.
+     * @param evt 
+     */
     private void btnGuardarCambiosProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCambiosProveedorActionPerformed
   
             if (camposCompletos()) {
@@ -396,14 +418,26 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnGuardarCambiosProveedorActionPerformed
 
+    /**
+     * Método obstoleto o no usado
+     * @param evt 
+     */
     private void txtRfcProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRfcProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRfcProveedorActionPerformed
 
+    /**
+     * Método obstoleto o no usado
+     * @param evt 
+     */
     private void txtCpProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpProveedorActionPerformed
 
+    /**
+     * Método de apertura, se encarga de cargar la información almacenada en el vector recibido previamente en el constructor.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         
           try {
@@ -427,6 +461,10 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
           
     }//GEN-LAST:event_formInternalFrameOpened
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 60 caracteres.
+     * @param evt 
+     */
     private void txtNombreProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreProveedorKeyTyped
        
         char c=evt.getKeyChar(); 
@@ -442,6 +480,10 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtNombreProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras y solo permite ingresar hasta 12 caracteres.
+     * @param evt 
+     */
     private void txtTelefonoProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoProveedorKeyTyped
         
         char c = evt.getKeyChar();
@@ -459,6 +501,10 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_txtTelefonoProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar hasta 13 caracteres.
+     * @param evt 
+     */
     private void txtRfcProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRfcProveedorKeyTyped
         
         String rfc = txtRfcProveedor.getText();
@@ -468,6 +514,10 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtRfcProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar hasta 50 caracteres.
+     * @param evt 
+     */
     private void txtCorreoProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoProveedorKeyTyped
        
         String correo = txtCorreoProveedor.getText();
@@ -477,6 +527,10 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
         }        
     }//GEN-LAST:event_txtCorreoProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 50 caracteres.
+     * @param evt 
+     */
     private void txtContactoProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactoProveedorKeyTyped
        
         char c=evt.getKeyChar(); 
@@ -493,6 +547,10 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtContactoProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar hasta 50 caracteres.
+     * @param evt 
+     */
     private void txtDireccionProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionProveedorKeyTyped
         
         String direccion = txtDireccionProveedor.getText();
@@ -502,6 +560,10 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtDireccionProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 30 caracteres.
+     * @param evt 
+     */
     private void txtMunicipioProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMunicipioProveedorKeyTyped
        
         char c=evt.getKeyChar(); 
@@ -517,6 +579,10 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtMunicipioProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras y solo permite ingresar hasta 5 caracteres.
+     * @param evt 
+     */
     private void txtCpProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCpProveedorKeyTyped
         
         char c = evt.getKeyChar();
@@ -534,6 +600,10 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_txtCpProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 30 caracteres.
+     * @param evt 
+     */
     private void txtEstadoProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEstadoProveedorKeyTyped
         
         char c=evt.getKeyChar(); 
@@ -549,6 +619,10 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtEstadoProveedorKeyTyped
 
+    /**
+     * Éste método elimina la información introducida en la vista.
+     * @param evt 
+     */
     private void btnLimpiarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarProveedorActionPerformed
        
         txtTelefonoProveedor.setText(null);
@@ -563,6 +637,10 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnLimpiarProveedorActionPerformed
 
+    /**
+     * Se encarga de cerrar la ventana de modificación
+     * @param evt 
+     */
     private void btnCancelarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarProveedorActionPerformed
         
         this.dispose();

@@ -5,7 +5,10 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 import modelo.*;
 
-
+/**
+ * Este formulario se encarga de mostrar la ventana de modificación de Almacén.
+ * @author Save Soto
+ */
 public class ModificarAlmacen extends javax.swing.JInternalFrame {
     
     Almacen almacen;
@@ -20,7 +23,13 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
     Date date = new Date ();
 
     
-    
+    /**
+     * Constructor de la vista de modificación de almacén.
+     * @param p Recibe la instancia de la clase permisos.
+     * @param alm Recibe la instancia de la clase Almacen.
+     * @param vector Recibe información de la fila seleccionada en la vista de consulta de Almacén.
+     * @param emp Recibe la instancia de la clase Empleado.
+     */
     public ModificarAlmacen(Permisos p, Almacen alm, Vector vector, Empleado emp) {
         
         this.permisos = p;
@@ -289,7 +298,10 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    /**
+     * Verifica que toda la información haya sido introducida al formulario
+     * @return Regresa un valor booleano para indicar si se completado información.
+     */
     public boolean camposCompletos () {
         if (!txtNombreAlmacen.getText().isEmpty() && !txtTelefonoAlmacen.getText().isEmpty() && Integer.parseInt(spnToneladas.getValue().toString())!=0 && 
                 !txtDireccionAlmacen.getText().isEmpty() && !txtIdEmpleado.getText().isEmpty()) {
@@ -306,10 +318,19 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
     
     }  
     
+    /**
+     * Este método se encarga de convertir la fecha de java en un valor que pueda guardarse en la base de datos de SQL.
+     * @param date
+     * @return 
+     */
     public java.sql.Date convertJavaDateToSqlDate(java.util.Date date) {
         return new java.sql.Date(date.getTime());
     }
     
+    /**
+     * Recopila la información cargada en la vista y la envía al método alojado en la clase de almacén para su respectiva actualización en la base de datos.
+     * @param evt 
+     */
     private void btnGuardarCambiosAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCambiosAlmacenActionPerformed
   
            if (camposCompletos()) {
@@ -334,10 +355,18 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
             }        
     }//GEN-LAST:event_btnGuardarCambiosAlmacenActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     */
     private void txtDireccionAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionAlmacenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDireccionAlmacenActionPerformed
 
+    /**
+     * Método de apertura, se encarga de cargar la información almacenada en el vector recibido previamente en el constructor.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         try {
             txtIdAlmacen.setText(fila.get(0).toString());  
@@ -356,6 +385,10 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_formInternalFrameOpened
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar texto, destruye digitos y solo permite ingresar hasta 9 caracteres.
+     * @param evt 
+     */
     private void txtNombreAlmacenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreAlmacenKeyTyped
         char c=evt.getKeyChar(); 
         String nombre = txtNombreAlmacen.getText();
@@ -370,6 +403,10 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtNombreAlmacenKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras y solo permite ingresar hasta 11 caracteres.
+     * @param evt 
+     */
     private void txtTelefonoAlmacenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoAlmacenKeyTyped
         char c = evt.getKeyChar();
         String telefono = txtTelefonoAlmacen.getText(); 
@@ -383,6 +420,10 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
             getToolkit().beep(); }
     }//GEN-LAST:event_txtTelefonoAlmacenKeyTyped
 
+    /**
+     * Valida la cantidad de texto que se puede introducir en la casilla de texto de dirección. solo permite introducir 49 caracteres.
+     * @param evt 
+     */
     private void txtDireccionAlmacenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionAlmacenKeyTyped
         if(txtDireccionAlmacen.getText().length()>49){
             evt.consume();
@@ -390,6 +431,10 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtDireccionAlmacenKeyTyped
 
+    /**
+     * Coteja el nombre de empleado con el id
+     * @param evt 
+     */
     private void txtNombreEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreEmpleadoActionPerformed
 
         if (txtNombreEmpleado.getText().length() != 0) {
@@ -409,6 +454,10 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtNombreEmpleadoActionPerformed
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 50 caracteres.
+     * @param evt 
+     */
     private void txtNombreEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreEmpleadoKeyTyped
 
         char c=evt.getKeyChar();
@@ -425,6 +474,10 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtNombreEmpleadoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras.
+     * @param evt 
+     */
     private void txtIdEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdEmpleadoKeyTyped
          char c = evt.getKeyChar();
          String idEmp = txtIdEmpleado.getText();
@@ -436,6 +489,10 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_txtIdEmpleadoKeyTyped
 
+    /**
+     * Busca el nombre de empleado utilizando el ID de empleado
+     * @param evt 
+     */
     private void txtIdEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdEmpleadoActionPerformed
         
         if(txtIdEmpleado.getText().length() != 0) {
@@ -468,6 +525,11 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnCancelarCambiosAlmacenActionPerformed
 
+    /**
+     * Invoca el método para resetear formulario.
+     * @param evt
+     * @see limpiarCajas()
+     */
     private void btnLimpiarAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarAlmacenActionPerformed
 
         limpiarCajas();
@@ -478,6 +540,9 @@ public class ModificarAlmacen extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreAlmacenActionPerformed
 
+    /**
+     * Limpia la información contenida en los cuadros de texto.
+     */
       public void limpiarCajas() {
         
         txtDireccionAlmacen.setText(null);

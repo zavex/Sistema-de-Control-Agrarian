@@ -5,6 +5,10 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la ventana de modificación de productos.
+ * @author ainiguez
+ */
 public class ModificarProducto extends javax.swing.JInternalFrame {
     
     Producto producto;
@@ -17,7 +21,12 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
-    
+    /**
+     * Constructor de la vista de modificación de cliente.
+     * @param p     Recibe la instancia de la clase permisos.
+     * @param prod  Recibe la instancia de la clase producto.
+     * @param vector    Recibe información de la fila seleccionada en la vista de consulta de productos.
+     */
     public ModificarProducto(Permisos p, Producto prod, Vector vector) {
         
         this.permisos = p;
@@ -299,6 +308,10 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    /**
+     * Verifica que toda la información haya sido introducida al formulario
+     * @return Regresa un valor booleano para indicar si se completado información. 
+     */
     public boolean camposCompletos () {
         if (!txtNombreProducto.getText().isEmpty() && !txtPrecioSugeridoProducto.getText().isEmpty() && !txtAreaDescripcionProducto.getText().isEmpty() && 
                cbxMedidaProducto.getSelectedIndex() != -1 && cbxPresentacionProducto.getSelectedIndex() != -1) {           
@@ -309,12 +322,21 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
         }
     }
     
+    /**
+     * Método para convertir fecha de tipo java.util.date a un formato compatible con SQL
+     * @param date  fecha de tipo java date.
+     * @return regresa un dato de tipo sql date.
+     */
     public java.sql.Date convertJavaDateToSqlDate(java.util.Date date) {
         
         return new java.sql.Date(date.getTime());
     
     }
     
+    /**
+     * Recopila la información cargada en la vista y la envía al método alojado en la clase de producto para su respectiva actualización en la base de datos.
+     * @param evt 
+     */
     private void btnGuardarCambiosProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCambiosProductoActionPerformed
             if(cbxMedidaProducto.getSelectedIndex() == 0) {
                 producto.setMedida("TM");
@@ -347,10 +369,18 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
             }            
     }//GEN-LAST:event_btnGuardarCambiosProductoActionPerformed
 
+    /**
+     * Método obstoleto o no usado
+     * @param evt 
+     */
     private void txtPrecioSugeridoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioSugeridoProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecioSugeridoProductoActionPerformed
 
+    /**
+     * Método de apertura, se encarga de cargar la información almacenada en el vector recibido previamente en el constructor.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
          try {            
             txtIdProducto.setText(fila.get(0).toString());  
@@ -368,6 +398,10 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
           }
     }//GEN-LAST:event_formInternalFrameOpened
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, solo permite ingresar hasta 40 caracteres.
+     * @param evt 
+     */
     private void txtAreaDescripcionProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAreaDescripcionProductoKeyTyped
         String descripcion = txtAreaDescripcionProducto.getText();
         if (descripcion.length()>39) {
@@ -376,6 +410,10 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
         }        
     }//GEN-LAST:event_txtAreaDescripcionProductoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras.
+     * @param evt 
+     */
     private void txtPrecioSugeridoProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioSugeridoProductoKeyTyped
         String msg = String.valueOf(evt.getKeyChar());
         String precioSugeridoo = txtPrecioSugeridoProducto.getText();
@@ -396,6 +434,10 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
             }
     }//GEN-LAST:event_txtPrecioSugeridoProductoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, solo permite ingresar hasta 20 caracteres.
+     * @param evt 
+     */
     private void txtNombreProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreProductoKeyTyped
         String nombre = txtNombreProducto.getText();
         if (nombre.length()>19) {
@@ -404,6 +446,10 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtNombreProductoKeyTyped
 
+    /**
+     * Éste método elimina la información introducida en la vista.
+     * @param evt 
+     */
     private void btnLimpiarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarProductoActionPerformed
         txtAreaDescripcionProducto.setText(null);
         txtNombreProducto.setText(null);
@@ -413,6 +459,10 @@ public class ModificarProducto extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnLimpiarProductoActionPerformed
 
+    /**
+     * Se encarga de cerrar la ventana de modificación
+     * @param evt 
+     */
     private void btnCancelarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarProductoActionPerformed
        
         this.dispose();

@@ -7,6 +7,10 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la ventana de registro de devoluciones.
+ * @author Save Soto
+ */
 public class RegistrarDevolucion extends javax.swing.JInternalFrame {
     
     AlmacenProducto almacenProd;
@@ -17,6 +21,13 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de registro de devoluciones.
+     * @param p     Recibe la instancia de la clase Permisos.
+     * @param d     Recibe la instancia de la clase Devolucion.
+     * @param ap    Recibe la instancia de la clase AlmacenProducto.
+     * @param devolucionProducto    Recibe la instancia de la clase DevolucionProducto.
+     */
     public RegistrarDevolucion(Permisos p, Devolucion d, AlmacenProducto ap, DevolucionProducto devolucionProducto) {
         this.permisos = p;
         this.devolucion = d;
@@ -440,6 +451,10 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
    
+    /**
+     * Verifica que toda la información haya sido introducida al formulario.
+     * @return Regresa un valor booleano para indicar si se completado información. 
+     */
     public boolean camposCompletos () {
         int cantidadSpinner = Integer.parseInt(spnCantidadDevolver.getValue().toString());
         if (!txtTotalDevolucion.getText().isEmpty() && comboFolioVenta.getSelectedIndex()!=-1 && comboProductos.getSelectedIndex()!=-1 && cantidadSpinner !=0) {
@@ -449,6 +464,11 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
            return false;
         }
     }
+    
+    /**
+     * Recopila la información cargada en la vista y la envía al método alojado en la clase de devolución para su respectiva actualización en la base de datos.
+     * @param evt 
+     */
     private void btnGenerarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarDevolucionActionPerformed
            if (camposCompletos()) {
                 try {
@@ -481,13 +501,19 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnGenerarDevolucionActionPerformed
 
-    
+    /**
+     * Método de apertura, se encarga de cargar la fecha, el id generado por la base de datos para su registro y los modelos de lista desplegable generados.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         DateChooserFechaRegCliente.setDate(new Date());    //al iniciar setear la fecha actual
         txtFolioDevolucion.setText(String.valueOf(devolucion.obtenerFolio()));    //
         cargarComboFoliosVenta();
     }//GEN-LAST:event_formInternalFrameOpened
 
+    /**
+     * Consulta la base de datos para obtener el id de las ventas generadas y colocarlas en el modelo de lista desplegable.
+     */
     public void cargarComboFoliosVenta() {
         conexion.conexionSQL();
         PreparedStatement comando = null;
@@ -505,6 +531,10 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         
     }
         
+    /**
+     * Consulta la base de datos para obtener el id de Almacén relacionada a la venta seleccionada.
+     * @return ID del almacén afectado por la venta seleccionada.
+     */
     public int regresarIdAlma () {
         int idAlma=0;
         conexion.conexionSQL();
@@ -526,6 +556,10 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         return idAlma;   
     }
       
+    /**
+     * Consulta la base de datos para obtener el id del cliente seleccionado.
+     * @return id del cliente seleccionado.
+     */
     public int regresarIdCli () {
         int idCliente=0;
         conexion.conexionSQL();
@@ -546,6 +580,9 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         return idCliente;   
     }
     
+    /**
+     * Consulta la base de datos para obtener los productos de la venta seleccionada y agregarlos a una lista desplegable.
+     */
     public void cargarComboProductos() {
         conexion.conexionSQL();
         PreparedStatement comando = null;
@@ -565,6 +602,10 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         
     }
     
+    /**
+     * Consulta la base de datos para obtener los precios unitarios de los productos en la venta seleccionada.
+     * @return precio unitario de los productos registrados en la venta.
+     */
     public double regresarPrecioUnitario () { 
         double precioUnitario=0;
         conexion.conexionSQL();
@@ -586,6 +627,10 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         return precioUnitario;   
     }
     
+    /**
+     * Consulta la base de datos para obtener la cantidad de los productos en la venta seleccionada.
+     * @return cantidad de productos.
+     */
     public double regresarCantidadVendida () {
         double cantidadVendida=0;
         conexion.conexionSQL();
@@ -608,6 +653,10 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         
     }
     
+    /**
+     * Consulta la base de datos para obtener las unidades de medida de los productos en la venta seleccionada.
+     * @return unidades de medida.
+     */
     public String regresarMedidaProducto () {
         String medidaProd=null;
         conexion.conexionSQL();
@@ -626,7 +675,10 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         conexion.desconectarSQL();
         return medidaProd;   
     }
-    
+    /**
+     * Consulta la base de datos para obtener el nombre del cliente en la venta seleccionada.
+     * @return nombre del cliente
+     */
     public String regresarNombreCli () {
         String nombre=null;
         conexion.conexionSQL();
@@ -647,6 +699,10 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         return nombre;   
     }
     
+    /**
+     * Consulta la base de datos para obtener el nombre del almacén en la venta seleccionada.
+     * @return nombre del almacén 
+     */
     public String regresarNombreAlma () {
         String nombre=null;
         conexion.conexionSQL();
@@ -667,6 +723,10 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         return nombre;   
     }
     
+    /**
+     * Consulta la base de datos para obtener el nombre del producto en la venta seleccionada.
+     * @return nombre del producto 
+     */
     public String regresarNombreProd () {
         String nombre=null;
         conexion.conexionSQL();
@@ -688,10 +748,18 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
     
     }
     
+    /**
+     * Método obstoleto o no usado.
+     * @param evt 
+     */
     private void txtNombreAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreAlmacenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreAlmacenActionPerformed
 
+    /**
+     * Invoca los métodos para obtener id y nombre de cliente.
+     * @param evt 
+     */
     private void comboFolioVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboFolioVentaActionPerformed
         
         try {
@@ -703,25 +771,49 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_comboFolioVentaActionPerformed
 
+    /**
+     * Método obstoleto o no usado.
+     * @param evt 
+     */
     private void comboFolioVentaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboFolioVentaMouseReleased
     }//GEN-LAST:event_comboFolioVentaMouseReleased
 
+    /**
+     * Método obstoleto o no usado.
+     * @param evt 
+     */
     private void txtIdAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdAlmacenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdAlmacenActionPerformed
 
+    /**
+     * Método obstoleto o no usado.
+     * @param evt 
+     */
     private void txtIdClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdClienteActionPerformed
 
+    /**
+     * Método obstoleto o no usado.
+     * @param evt 
+     */
     private void txtPrecioUnitarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioUnitarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecioUnitarioActionPerformed
 
+    /**
+     * Método obstoleto o no usado.
+     * @param evt 
+     */
     private void txtCantidadVendidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadVendidaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCantidadVendidaActionPerformed
 
+    /**
+     * Invoca los métodos para obtener la información del producto seleccionado.
+     * @param evt 
+     */
     private void comboProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboProductosActionPerformed
 
         if (comboProductos.getSelectedIndex()!=-1) {
@@ -737,14 +829,26 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_comboProductosActionPerformed
 
+    /**
+     * Método obstoleto o no usado.
+     * @param evt 
+     */
     private void spnCantidadDevolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spnCantidadDevolverMouseClicked
 
     }//GEN-LAST:event_spnCantidadDevolverMouseClicked
 
+    /**
+     * Método obstoleto o no usado.
+     * @param evt 
+     */
     private void spnCantidadDevolverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spnCantidadDevolverMousePressed
 
     }//GEN-LAST:event_spnCantidadDevolverMousePressed
 
+    /**
+     * Carga el importe y calcula IVA y Total y lo muestra en las casillas de la vista.
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (!txtPrecioUnitario.getText().isEmpty() && Integer.parseInt(spnCantidadDevolver.getValue().toString()) !=0 ) {
         try {
@@ -765,6 +869,10 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btnCancelarDevolucionActionPerformed
 
+    /**
+     * Elimina los datos ingresados en las casillas del formulario.
+     * @param evt 
+     */
     private void btnLimpiarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarDevolucionActionPerformed
         txtIdAlmacen.setText(null);
         txtNombreAlmacen.setText(null);
