@@ -729,7 +729,7 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formInternalFrameOpened
 
     /**
-     * Método obstoleto o no usado.
+     * Método obsoleto o no usado.
      * @param evt 
      */
     private void txtFolioCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFolioCompraActionPerformed
@@ -755,7 +755,7 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCantidadProductoKeyTyped
 
     /**
-     * Método obstoleto o no usado.
+     * Método obsoleto o no usado.
      * @param evt 
      */
     private void cbxUnidadMedidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxUnidadMedidaActionPerformed
@@ -785,7 +785,7 @@ public class RegistrarCompra extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtPrecioProductoKeyTyped
 
     /**
-     * Método obstoleto o no usado.
+     * Método obsoleto o no usado.
      * @param evt 
      */
     private void txtPrecioProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioProductoActionPerformed

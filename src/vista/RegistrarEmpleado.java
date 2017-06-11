@@ -8,6 +8,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la ventana de registro de Empleado.
+ * @author Save Soto
+ */
 public class RegistrarEmpleado extends javax.swing.JInternalFrame {
 
     Empleado empleado;
@@ -18,6 +22,11 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
     Date date = new Date ();
 
  
+    /**
+     * Constructor de la vista de registro de Clientes.
+     * @param permisos Recibe la instancia de la clase Permisos.
+     * @param empleado Recibe la instancia de la clase Empleado.
+     */
     public RegistrarEmpleado(Permisos permisos, Empleado empleado) {
         this.permisos = permisos;
         this.empleado = empleado;
@@ -868,10 +877,18 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Método obstoleto o no usado.
+     * @param evt 
+     */
     private void txtRfcEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRfcEmpleadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRfcEmpleadoActionPerformed
 
+    /**
+     * Recopila la información cargada en la vista y la envía al método alojado en la clase de Empleado para su respectiva actualización en la base de datos.
+     * @param evt 
+     */
     private void btnRegistrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarEmpleadoActionPerformed
         
         if (userName==true) {   // empleado con usuario
@@ -930,16 +947,28 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnRegistrarEmpleadoActionPerformed
 
+    /**
+     * Método de apertura, se encarga de cargar la fecha y el id generado por la base de datos para su registro.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         DateChooserFechaRegEmpleado.setDate(new Date());    //al iniciar setear la fecha actual
         txtIdEmpleado.setText(String.valueOf(empleado.obtenerNoId()));    //
        
     }//GEN-LAST:event_formInternalFrameOpened
 
+    /**
+     * Permite crear un usuario de sistema para el empleado.
+     * @param evt 
+     */
     private void rbCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCrearUsuarioActionPerformed
         habilitarCreacionUsuario();        
     }//GEN-LAST:event_rbCrearUsuarioActionPerformed
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras y solo permite ingresar hasta 11 caracteres.
+     * @param evt 
+     */
     private void txtNssEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNssEmpleadoKeyTyped
         char c = evt.getKeyChar();
         String nss = txtNssEmpleado.getText();
@@ -954,6 +983,10 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtNssEmpleadoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 50 caracteres.
+     * @param evt 
+     */
     private void txtNombreEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreEmpleadoKeyTyped
         char c=evt.getKeyChar(); 
         String nombre = txtNombreEmpleado.getText();
@@ -968,10 +1001,18 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtNombreEmpleadoKeyTyped
 
+    /**
+     * Se encarga de cerrar la ventana de registro.
+     * @param evt 
+     */
     private void btnCancelarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarEmpleadoActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelarEmpleadoActionPerformed
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, solo permite ingresar hasta 13 caracteres.
+     * @param evt 
+     */
     private void txtRfcEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRfcEmpleadoKeyTyped
         String nombre = txtRfcEmpleado.getText();
         if (nombre.length()>12) {
@@ -980,10 +1021,18 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtRfcEmpleadoKeyTyped
 
+    /**
+     * Método obstoleto o no usado.
+     * @param evt 
+     */
     private void btnLimpiarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarEmpleadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLimpiarEmpleadoActionPerformed
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, solo permite ingresar hasta 30 caracteres.
+     * @param evt 
+     */
     private void txtCorreoEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoEmpleadoKeyTyped
         String correo = txtCorreoEmpleado.getText();
         if (correo.length()>29) {
@@ -992,6 +1041,10 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtCorreoEmpleadoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras y solo permite ingresar hasta 12 caracteres.
+     * @param evt 
+     */
     private void txtTelefonoEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoEmpleadoKeyTyped
             char c = evt.getKeyChar();
         String tel = txtTelefonoEmpleado.getText();
@@ -1006,6 +1059,10 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtTelefonoEmpleadoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, solo permite ingresar hasta 18 caracteres.
+     * @param evt 
+     */
     private void txtCurpEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCurpEmpleadoKeyTyped
         
         String curp = txtCurpEmpleado.getText();
@@ -1017,6 +1074,10 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_txtCurpEmpleadoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, solo permite ingresar hasta 50 caracteres.
+     * @param evt 
+     */
     private void txtDireccionEmpleadoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionEmpleadoKeyTyped
         String direccion = txtDireccionEmpleado.getText();
         
@@ -1026,6 +1087,10 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtDireccionEmpleadoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, solo permite ingresar hasta 10 caracteres.
+     * @param evt 
+     */
     private void txtNombreUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreUsuarioKeyTyped
         String user = txtNombreUsuario.getText();
         
@@ -1035,7 +1100,10 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtNombreUsuarioKeyTyped
 
-    
+    /**
+     * Verifica que toda la información haya sido introducida al formulario.
+     * @return Regresa un valor booleano para indicar si se completado información.   
+     */
     public boolean camposCompletos () {
         if (comboDeptoEmpleado.getSelectedIndex()!=-1 && comboStatusEmpleado.getSelectedIndex()!=-1 && 
                 !txtNombreEmpleado.getText().isEmpty() && !txtRfcEmpleado.getText().isEmpty() && 
@@ -1047,6 +1115,9 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         }
     }
 
+    /**
+     * Actualiza los privilegios elegidos.
+     */
     public void generarPermisos() {
         permisos.setIdEmp(Integer.parseInt(txtIdEmpleado.getText()));
         if (radioClienteNoAcceso.isSelected()==true) { // PERMISOS CLIENTE
@@ -1163,11 +1234,18 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         
     }
        
-    
+    /**
+     * Método para convertir fecha de tipo java.util.date a un formato compatible con SQL.
+     * @param date  fecha de tipo java date.
+     * @return regresa un dato de tipo sql date.  
+     */
     public java.sql.Date convertJavaDateToSqlDate(java.util.Date date) {
         return new java.sql.Date(date.getTime());
     }
     
+    /**
+     * Crea una selección por defecto de privilegios.
+     */
     public void cargarPermisosPorDefecto () {
         radioClienteEscritura.setSelected(true);
         radioEmpleadoLectura.setSelected(true);
@@ -1183,6 +1261,9 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         radioFacturaLectura.setSelected(true);
     }
     
+    /**
+     * Elimina los privilegios seleccionados por defecto.
+     */
         public void borrarPermisosPorDefecto () {
         btnGrupoClientePermisos.clearSelection();
         btnGrupoEmpleadoPermiso.clearSelection();
@@ -1198,6 +1279,9 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         btnGrupoFacturaPermisos.clearSelection();
     }
         
+    /**
+     * Habilita la entrada de usuario y contraseña para el empleado.
+     */
     public void habilitarCreacionUsuario () {
         
         if (rbCrearUsuario.isSelected()) {
@@ -1291,6 +1375,12 @@ public class RegistrarEmpleado extends javax.swing.JInternalFrame {
         }
     } 
     
+    /**
+     * Verifica que la contraseña introducida sea valida.
+     * @param p1    Contraseña.
+     * @param p2    Confirmación de contraseña.
+     * @return      Retorna un dato booleano.
+     */
     public boolean veriPass(JPasswordField p1, JPasswordField p2){
         boolean veri=false;
         if(p1.getPassword().length>=8){

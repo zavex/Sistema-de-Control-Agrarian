@@ -4,6 +4,10 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la ventana de registro de Clientes.
+ * @author Save Soto
+ */
 public class RegistrarProveedor extends javax.swing.JInternalFrame {
     
     Proveedor proveedor;
@@ -11,6 +15,11 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de registro de Clientes.
+     * @param p     Recibe la instancia de la clase Permisos.
+     * @param pp    Recibe la instancia de la clase Proveedor. 
+     */
     public RegistrarProveedor(Permisos p, Proveedor pp) {
         this.permisos = p;
         this.proveedor = pp;
@@ -322,7 +331,10 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    /**
+     * Verifica que toda la información haya sido introducida al formulario.
+     * @return Regresa un valor booleano para indicar si se completado información.  
+     */
     public boolean camposCompletos () {
         if (!txtNombreProveedor.getText().isEmpty() && !txtTelefonoProveedor.getText().isEmpty() && !txtRfcProveedor.getText().isEmpty() && 
                 !txtCorreoProveedor.getText().isEmpty() && !txtContactoProveedor.getText().isEmpty() && !txtDireccionProveedor.getText().isEmpty() && !txtMunicipioProveedor.getText().isEmpty() && !txtCpProveedor.getText().isEmpty() && !txtEstadoProveedor.getText().isEmpty()) {
@@ -333,11 +345,19 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         }
     }
     
-    
+    /**
+     * Método para convertir fecha de tipo java.util.date a un formato compatible con SQL.
+     * @param date  fecha de tipo java date.
+     * @return regresa un dato de tipo sql date.
+     */
     public java.sql.Date convertJavaDateToSqlDate(java.util.Date date) {
         return new java.sql.Date(date.getTime());
     }
     
+    /**
+     * Recopila la información cargada en la vista y la envía al método alojado en la clase de Proveedor para su respectiva actualización en la base de datos.
+     * @param evt  
+     */
     private void btnRegistrarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarProveedorActionPerformed
             if (camposCompletos()) {
                 try {
@@ -361,20 +381,36 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
             }    
     }//GEN-LAST:event_btnRegistrarProveedorActionPerformed
 
+    /**
+     * Método obsoleto o no usado.
+     * @param evt 
+     */
     private void txtRfcProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRfcProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRfcProveedorActionPerformed
 
+    /**
+     * Método obsoleto o no usado.
+     * @param evt 
+     */
     private void txtCpProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCpProveedorActionPerformed
 
+    /**
+     * Método de apertura, se encarga de cargar la fecha y el id generado por la base de datos para su registro.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         DateChooserFechaRegProveedor.setDate(new Date());    //al iniciar setear la fecha actual
         txtIdProveedor.setText(String.valueOf(proveedor.obtenerNoId()));    
 
     }//GEN-LAST:event_formInternalFrameOpened
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 60 caracteres.
+     * @param evt 
+     */
     private void txtNombreProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreProveedorKeyTyped
         char c=evt.getKeyChar(); 
         String nombre = txtNombreProveedor.getText();
@@ -389,6 +425,10 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtNombreProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, solo permite ingresar hasta 13 caracteres.
+     * @param evt 
+     */
     private void txtRfcProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRfcProveedorKeyTyped
         String rfc = txtRfcProveedor.getText();
         if (rfc.length()>12) {
@@ -398,6 +438,10 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_txtRfcProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 50 caracteres.
+     * @param evt 
+     */
     private void txtContactoProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactoProveedorKeyTyped
         char c=evt.getKeyChar(); 
         String contacto = txtContactoProveedor.getText();
@@ -413,6 +457,10 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_txtContactoProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras y solo permite ingresar hasta 12 caracteres.
+     * @param evt 
+     */
     private void txtTelefonoProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoProveedorKeyTyped
         char c = evt.getKeyChar();
         String telefono = txtTelefonoProveedor.getText();
@@ -428,6 +476,10 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_txtTelefonoProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, solo permite ingresar hasta 30 caracteres.
+     * @param evt 
+     */
     private void txtCorreoProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoProveedorKeyTyped
         String correo = txtCorreoProveedor.getText();
         if (correo.length()>29) {
@@ -436,6 +488,10 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtCorreoProveedorKeyTyped
 
+    /**
+     * alida el tipo de caracter escrito en los cuadros de texto, solo permite ingresar hasta 50 caracteres.
+     * @param evt 
+     */
     private void txtDireccionProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionProveedorKeyTyped
         
         String direccion = txtDireccionProveedor.getText();
@@ -445,6 +501,10 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtDireccionProveedorKeyTyped
 
+    /**
+     * alida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 30 caracteres.
+     * @param evt 
+     */
     private void txtMunicipioProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMunicipioProveedorKeyTyped
         char c=evt.getKeyChar(); 
         String municipio = txtMunicipioProveedor.getText();
@@ -460,6 +520,10 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtMunicipioProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras y solo permite ingresar hasta 5 caracteres.
+     * @param evt 
+     */
     private void txtCpProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCpProveedorKeyTyped
         char c = evt.getKeyChar();
         String cp = txtCpProveedor.getText();
@@ -474,6 +538,10 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtCpProveedorKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 30 caracteres.
+     * @param evt 
+     */
     private void txtEstadoProveedorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEstadoProveedorKeyTyped
         char c=evt.getKeyChar(); 
         String estado = txtEstadoProveedor.getText();
@@ -488,12 +556,20 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtEstadoProveedorKeyTyped
 
+    /**
+     * Invoca el método para limpiar las casillas del formulario
+     * @param evt 
+     * @see limpiarCajas()
+     */
     private void btnLimpiarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarProveedorActionPerformed
         
       limpiarCajas();
         
     }//GEN-LAST:event_btnLimpiarProveedorActionPerformed
 
+    /**
+     * Limpia las casillas de texto del formulario.
+     */
     public void limpiarCajas() {
         
         txtTelefonoProveedor.setText(null);
@@ -508,6 +584,10 @@ public class RegistrarProveedor extends javax.swing.JInternalFrame {
         
     }
     
+    /**
+     * Se encarga de cerrar la ventana de registro.
+     * @param evt 
+     */
     private void btnCancelarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarProveedorActionPerformed
         
         this.dispose();

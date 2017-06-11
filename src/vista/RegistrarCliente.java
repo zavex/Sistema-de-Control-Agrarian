@@ -475,7 +475,7 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnRegistrarClienteActionPerformed
 
     /**
-     * Método obstoleto o no usado.
+     * Método obsoleto o no usado.
      * @param evt 
      */
     private void txtRfcClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRfcClienteActionPerformed
@@ -483,7 +483,7 @@ public class RegistrarCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtRfcClienteActionPerformed
 
     /**
-     * Método obstoleto o no usado.
+     * Método obsoleto o no usado.
      * @param evt 
      */
     private void txtCpClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpClienteActionPerformed

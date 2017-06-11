@@ -419,7 +419,7 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarCambiosProveedorActionPerformed
 
     /**
-     * Método obstoleto o no usado
+     * Método obsoleto o no usado
      * @param evt 
      */
     private void txtRfcProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRfcProveedorActionPerformed
@@ -427,7 +427,7 @@ public class ModificarProveedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtRfcProveedorActionPerformed
 
     /**
-     * Método obstoleto o no usado
+     * Método obsoleto o no usado
      * @param evt 
      */
     private void txtCpProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpProveedorActionPerformed

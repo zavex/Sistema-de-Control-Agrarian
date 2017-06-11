@@ -337,7 +337,7 @@ public class RegistrarAlmacen extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnRegistrarAlmacenActionPerformed
 
     /**
-     * Método obstoleto o no usado.
+     * Método obsoleto o no usado.
      * @param evt 
      */
     private void txtDireccionAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionAlmacenActionPerformed

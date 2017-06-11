@@ -2460,6 +2460,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_txtRealizarMActionPerformed
 
+    /**
+     * Consulta la base de datos para obtener el id de producto utilizando el nombre del producto seleccionado.
+     * @return retorna el id del producto.
+     */
     public int regresarIdProdUrea () {
         int idProducto=0;
         conexion.conexionSQL();
@@ -2479,6 +2483,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idProducto;   
     }
      
+    /**
+     * Consulta la base de datos para obtener el id de almacén desde la tabla almacen producto utilizando el nombre de producto seleccionado.
+     * @return retorna el id de almacen.
+     */
     public int regresarIdAlmacenProdUrea () {
         int idAlmacen=0;
         conexion.conexionSQL();
@@ -2498,6 +2506,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idAlmacen;   
     }
     
+    /**
+     * Consulta la base de datos para obtener el id de producto utilizando el nombre del producto seleccionado.
+     * @return retorna el id del producto.
+     */
     public int regresarIdProdDap () {
         int idProducto=0;
         conexion.conexionSQL();
@@ -2517,6 +2529,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idProducto;   
     }
      
+    /**
+     * Consulta la base de datos para obtener el id de almacén desde la tabla almacen producto utilizando el nombre de producto seleccionado.
+     * @return retorna el id de almacen.
+     */
     public int regresarIdAlmacenProdDap () {
         int idAlmacen=0;
         conexion.conexionSQL();
@@ -2536,6 +2552,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idAlmacen;   
     }
     
+    /**
+     * Consulta la base de datos para obtener el id de producto utilizando el nombre del producto seleccionado.
+     * @return retorna el id del producto.
+     */
     public int regresarIdProdMap () {
         int idProducto=0;
         conexion.conexionSQL();
@@ -2555,6 +2575,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idProducto;   
     }
      
+    /**
+     * Consulta la base de datos para obtener el id de almacén desde la tabla almacen producto utilizando el nombre de producto seleccionado.
+     * @return retorna el id de almacen.
+     */
     public int regresarIdAlmacenProdMap () {
         int idAlmacen=0;
         conexion.conexionSQL();
@@ -2574,6 +2598,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idAlmacen;   
     }
     
+    /**
+     * Consulta la base de datos para obtener el id de producto utilizando el nombre del producto seleccionado.
+     * @return retorna el id del producto.
+     */
     public int regresarIdProdKcl () {
         int idProducto=0;
         conexion.conexionSQL();
@@ -2593,6 +2621,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idProducto;   
     }
      
+    /**
+     * Consulta la base de datos para obtener el id de almacén desde la tabla almacen producto utilizando el nombre de producto seleccionado.
+     * @return retorna el id de almacen.
+     */
     public int regresarIdAlmacenProdKcl () {
         int idAlmacen=0;
         conexion.conexionSQL();
@@ -2612,6 +2644,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idAlmacen;   
     }
     
+    /**
+     * Consulta la base de datos para obtener el id de producto utilizando el nombre del producto seleccionado.
+     * @return retorna el id del producto.
+     */
     public int regresarIdProdKmg () {
         int idProducto=0;
         conexion.conexionSQL();
@@ -2631,6 +2667,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idProducto;   
     }
      
+    /**
+     * Consulta la base de datos para obtener el id de almacén desde la tabla almacen producto utilizando el nombre de producto seleccionado.
+     * @return retorna el id de almacen.
+     */
     public int regresarIdAlmacenProdKmg () {
         int idAlmacen=0;
         conexion.conexionSQL();
@@ -2650,6 +2690,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idAlmacen;   
     }
     
+    /**
+     * Consulta la base de datos para obtener el id de producto utilizando el nombre del producto seleccionado.
+     * @return retorna el id del producto.
+     */
     public int regresarIdProdFosfo () {
         int idProducto=0;
         conexion.conexionSQL();
@@ -2669,6 +2713,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idProducto;   
     }
      
+    /**
+     * Consulta la base de datos para obtener el id de almacén desde la tabla almacen producto utilizando el nombre de producto seleccionado.
+     * @return retorna el id de almacen.
+     */
     public int regresarIdAlmacenProdFosfo () {
         int idAlmacen=0;
         conexion.conexionSQL();
@@ -2688,6 +2736,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idAlmacen;   
     }    
     
+    /**
+     * Consulta la base de datos para obtener el id de producto utilizando el nombre del producto seleccionado.
+     * @return retorna el id del producto.
+     */
     public int regresarIdProdPota () {
         int idProducto=0;
         conexion.conexionSQL();
@@ -2707,6 +2759,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idProducto;   
     }
      
+    /**
+     * Consulta la base de datos para obtener el id de almacén desde la tabla almacen producto utilizando el nombre de producto seleccionado.
+     * @return retorna el id de almacen.
+     */
     public int regresarIdAlmacenProdPota () {
         int idAlmacen=0;
         conexion.conexionSQL();
@@ -2726,6 +2782,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return idAlmacen;   
     }    
     
+    /**
+     * Consulta la base de datos para obtener el id de producto utilizando el nombre del producto seleccionado.
+     * @return retorna el id del producto.
+     */
     public int regresarIdProdAmon () {
         int idProducto=0;
         conexion.conexionSQL();
@@ -2744,7 +2804,11 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         conexion.desconectarSQL();
         return idProducto;   
     }
-     
+    
+    /**
+     * Consulta la base de datos para obtener el id de almacén desde la tabla almacen producto utilizando el nombre de producto seleccionado.
+     * @return retorna el id de almacen.
+     */
     public int regresarIdAlmacenProdAmon () {
         int idAlmacen=0;
         conexion.conexionSQL();
@@ -2782,6 +2846,11 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_comboAlmacenesActionPerformed
 
+    /**
+     * Consulta en la base de datos para recuperar la unidad de medida del producto necesario.
+     * @param idProducto Id del producto que se va consultar.
+     * @return retorna la unidad de medida del producto.
+     */
      public String regresarCantidadesActual (String idProducto) {
         String medidaProd=null;
         conexion.conexionSQL();
@@ -2801,6 +2870,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         return medidaProd;
     }    
 
+     /**
+      * Consulta los nombres de almacén en la base de datos y los carga en una lista desplegable.
+      */
     public void cargarComboAlmacenes() {
         conexion.conexionSQL();
         PreparedStatement comando = null;
@@ -2818,6 +2890,10 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         
     }     
     
+    /**
+     * Consulta en la base de datos para obtener el id de almacen usando el nombre de almacén seleccionado.
+     * @return retorna el id del almacén seleccionado
+     */
     public int regresarIdAlmacen () {
         int idAlmacen=0;
         conexion.conexionSQL();
@@ -2876,7 +2952,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
     }*/
     
     
-    
+    /**
+     * Suma las cantidades necesarias para la formula seleccionada.
+     */
        public void operacionesMezcla() {
         Double suma = 0.00;
         Double mani = 0.00;
@@ -2922,6 +3000,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
         txtPrecioTotal.setText(String.valueOf(precioT));
    }
    
+    /**
+    * Calcula la cantidad de nitrogeno necesario para la formula seleccionada, ademas aplica un formato de 2 dígitos.
+    */
    public void operacionesNitrogeno() {
        
        
@@ -2930,6 +3011,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
        
    }
    
+   /**
+    * Calcula la cantidad de fosforo necesario para la formula seleccionada, ademas aplica un formato de 2 dígitos.
+    */
    public void operacionesFosforo() {
        
        txtSumaP.setText(String.format("%.2f", f.sumaFosforo(Double.parseDouble(txtDapP.getText()), Double.parseDouble(txtMapP.getText()))));
@@ -2938,6 +3022,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
        
    }
    
+   /**
+    * Calcula la cantidad de potasio necesario para la formula seleccionada, ademas aplica un formato de 2 dígitos.
+    */
    public void operacionesPotasio() {
        
        txtSumaK.setText(String.format("%.2f", f.sumaPotasio(Double.parseDouble(txtKclK.getText()), Double.parseDouble(txtKmgK.getText()), Double.parseDouble(txtPotasioK.getText()))));
@@ -2946,6 +3033,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
        
    }
    
+   /**
+    * Calcula la cantidad de azufre necesario para la formula seleccionada, ademas aplica un formato de 2 dígitos.
+    */
    public void operacionesAzufre() {
        
        txtSumaS.setText(String.format("%.2f", f.sumaAzufre(Double.parseDouble(txtKmgS.getText()), Double.parseDouble(txtAmonioS.getText()))));
@@ -2954,6 +3044,9 @@ public class RealizarMezcla extends javax.swing.JInternalFrame {
        
    }
    
+   /**
+    * Calcula la cantidad de magnesio necesario para la formula seleccionada, ademas aplica un formato de 2 dígitos.
+    */
    public void operacionesMagnesio() {
        
        txtSumaMg.setText(String.format("%.2f", f.sumaMagenesio(Double.parseDouble(txtKmgMg.getText()))));

@@ -864,6 +864,10 @@ public class RegistrarDevolucion extends javax.swing.JInternalFrame {
         } else {JOptionPane.showMessageDialog(null, "Ingrese una cantidad y un precio valido");}
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Cierra la ventana de actualización.
+     * @param evt 
+     */
     private void btnCancelarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarDevolucionActionPerformed
         
         this.dispose();

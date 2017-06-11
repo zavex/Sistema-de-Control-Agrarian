@@ -7,6 +7,10 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la ventana de registro de devoluciones.
+ * @author Save Soto
+ */
 public class RegistrarNotaCredito extends javax.swing.JInternalFrame {
     
     NotaCredito notaCredito;
@@ -15,6 +19,11 @@ public class RegistrarNotaCredito extends javax.swing.JInternalFrame {
     Log ll = new Log();
     Date date = new Date ();
     
+    /**
+     * Constructor de la vista de registro de devoluciones.
+     * @param p     Recibe la instancia de la clase Permisos.
+     * @param nc    Recibe la instancia de la clase NotaCredito.
+     */
     public RegistrarNotaCredito(Permisos p, NotaCredito nc) {
         this.permisos = p;
         this.notaCredito = nc;
@@ -361,6 +370,10 @@ public class RegistrarNotaCredito extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Verifica que toda la información haya sido introducida al formulario.
+     * @return Regresa un valor booleano para indicar si se completado información.  
+     */
     public boolean camposCompletos () {
         if (comboIdClientes.getSelectedIndex()!=-1 && !txtAreaConcepto.getText().isEmpty() && !txtMontoAcreditar.getText().isEmpty() && !txtTotal.getText().isEmpty()) {
            return true;
@@ -370,6 +383,10 @@ public class RegistrarNotaCredito extends javax.swing.JInternalFrame {
         }
     }
    
+    /**
+     * Recopila la información cargada en la vista y la envía al método alojado en la clase de nota de crédito para su respectiva actualización en la base de datos.
+     * @param evt 
+     */
     private void btnRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClienteActionPerformed
             if (camposCompletos()) {
                 try {
@@ -389,12 +406,20 @@ public class RegistrarNotaCredito extends javax.swing.JInternalFrame {
             }
     }//GEN-LAST:event_btnRegistrarClienteActionPerformed
 
+    /**
+     * Método de apertura, se encarga de cargar la fecha, el id generado por la base de datos para su registro, además invoca el método que recupera el id de cliente.
+     * @param evt
+     * @see regresarIdCliente()
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         DateChooserFechaRegCliente.setDate(new Date());    //al iniciar setear la fecha actual
         txtIdNotaCredito.setText(String.valueOf(notaCredito.obtenerNoId()));    //
         regresarIdCliente();
     }//GEN-LAST:event_formInternalFrameOpened
     
+    /**
+     * carga la lista de clientes registrados en la base de datos y los carga en una lista desplegable.
+     */
     public void regresarIdCliente() {
         conexion.conexionSQL();
         PreparedStatement comando = null;
@@ -412,8 +437,10 @@ public class RegistrarNotaCredito extends javax.swing.JInternalFrame {
         
     }
     
-    
-    
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar hasta 51 caracteres.
+     * @param evt 
+     */
     private void txtAreaConceptoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAreaConceptoKeyTyped
         String concepto = txtAreaConcepto.getText();
         if (concepto.length()>50) {
@@ -422,6 +449,10 @@ public class RegistrarNotaCredito extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtAreaConceptoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras.
+     * @param evt 
+     */
     private void txtMontoAcreditarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMontoAcreditarKeyTyped
         char c = evt.getKeyChar();
         if(Character.isLetter(c)) {
@@ -445,6 +476,10 @@ public class RegistrarNotaCredito extends javax.swing.JInternalFrame {
             }
     }//GEN-LAST:event_txtMontoAcreditarKeyTyped
 
+    /**
+     * Con este botón se calculará el IVA y TOTAL de la cantidad ingresada.
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         double monto = Double.parseDouble(txtMontoAcreditar.getText());
         double iva = monto * .16;
@@ -453,10 +488,18 @@ public class RegistrarNotaCredito extends javax.swing.JInternalFrame {
         txtTotal.setText(String.valueOf(total));
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Cierra la ventana de actualización.
+     * @param evt 
+     */
     private void btnCancelarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarClienteActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCancelarClienteActionPerformed
 
+    /**
+     * Elimina los datos ingresados en las casillas del formulario.
+     * @param evt 
+     */
     private void btnLimpiarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarClienteActionPerformed
         comboIdClientes.setSelectedIndex(-1);
         txtAreaConcepto.setText(null);

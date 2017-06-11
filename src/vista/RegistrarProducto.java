@@ -4,6 +4,10 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.*;
 
+/**
+ * Este formulario se encarga de mostrar la ventana de registro de devoluciones.
+ * @author Save Soto
+ */
 public class RegistrarProducto extends javax.swing.JInternalFrame {
     
     Producto producto;
@@ -268,7 +272,10 @@ public class RegistrarProducto extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    /**
+     * Verifica que toda la información haya sido introducida al formulario.
+     * @return Regresa un valor booleano para indicar si se completado información.  
+     */
     public boolean camposCompletos () {
         if (!txtNombreProducto.getText().isEmpty() && !txtPrecioSugeridoProducto.getText().isEmpty() && 
                 !txtAreaDescripcionProducto.getText().isEmpty() && 
@@ -280,11 +287,19 @@ public class RegistrarProducto extends javax.swing.JInternalFrame {
         }
     }
     
-    
+    /**
+     * Método para convertir fecha de tipo java.util.date a un formato compatible con SQL.
+     * @param date  fecha de tipo java date.
+     * @return regresa un dato de tipo sql date.
+     */
     public java.sql.Date convertJavaDateToSqlDate(java.util.Date date) {
         return new java.sql.Date(date.getTime());
     }
     
+    /**
+     * Recopila la información cargada en la vista y la envía al método alojado en la clase de Producto para su respectiva actualización en la base de datos.
+     * @param evt 
+     */
     private void btnRegistrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarProductoActionPerformed
 
         
@@ -320,6 +335,9 @@ public class RegistrarProducto extends javax.swing.JInternalFrame {
             }     
     }//GEN-LAST:event_btnRegistrarProductoActionPerformed
 
+    /**
+     * Elimina los datos ingresados en las casillas del formulario.
+     */
     public void limpiarCajas() {
         
         txtAreaDescripcionProducto.setText(null);
@@ -330,16 +348,28 @@ public class RegistrarProducto extends javax.swing.JInternalFrame {
         
     }
     
+    /**
+     * Método obsoleto o no usado.
+     * @param evt 
+     */
     private void txtPrecioSugeridoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioSugeridoProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecioSugeridoProductoActionPerformed
 
+    /**
+     * Método de apertura, se encarga de cargar la fecha y el id generado por la base de datos para su registro.
+     * @param evt 
+     */
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         DateChooserFechaRegProducto.setDate(new Date());    //al iniciar setear la fecha actual
         txtIdProducto.setText(String.valueOf(producto.obtenerNoId()));    //
 
     }//GEN-LAST:event_formInternalFrameOpened
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar letras, destruye números y solo permite ingresar hasta 60 caracteres.
+     * @param evt 
+     */
     private void txtNombreProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreProductoKeyTyped
         String nombre = txtNombreProducto.getText();
         if (nombre.length()>19) {
@@ -348,6 +378,10 @@ public class RegistrarProducto extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtNombreProductoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, este solo permite ingresar números, destruye letras.
+     * @param evt 
+     */
     private void txtPrecioSugeridoProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioSugeridoProductoKeyTyped
         String msg = String.valueOf(evt.getKeyChar());
         String precioSugeridoo = txtPrecioSugeridoProducto.getText();
@@ -368,6 +402,10 @@ public class RegistrarProducto extends javax.swing.JInternalFrame {
             }
     }//GEN-LAST:event_txtPrecioSugeridoProductoKeyTyped
 
+    /**
+     * Valida el tipo de caracter escrito en los cuadros de texto, solo permite ingresar hasta 40 caracteres.
+     * @param evt 
+     */
     private void txtAreaDescripcionProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAreaDescripcionProductoKeyTyped
         String descripcion = txtAreaDescripcionProducto.getText();
         if (descripcion.length()>39) {
@@ -377,18 +415,31 @@ public class RegistrarProducto extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_txtAreaDescripcionProductoKeyTyped
 
+    /**
+     * Se encarga de cerrar la ventana de registro.
+     * @param evt 
+     */
     private void btnCancelarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarProductoActionPerformed
        
         this.dispose();
         
     }//GEN-LAST:event_btnCancelarProductoActionPerformed
 
+    /**
+     * Invoca el método para limpiar casillas.
+     * @param evt
+     * @see limpiarCajas()
+     */
     private void btnLimpiarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarProductoActionPerformed
    
         limpiarCajas();
         
     }//GEN-LAST:event_btnLimpiarProductoActionPerformed
 
+    /**
+     * Método obsoleto o no usado.
+     * @param evt 
+     */
     private void cbxPresentacionProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxPresentacionProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxPresentacionProductoActionPerformed

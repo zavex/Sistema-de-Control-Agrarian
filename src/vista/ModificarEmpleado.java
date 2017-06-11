@@ -1518,9 +1518,9 @@ public class ModificarEmpleado extends javax.swing.JInternalFrame {
     
     /**
      * Verifica que la contraseña introducida sea valida.
-     * @param p1
-     * @param p2
-     * @return 
+     * @param p1    Contraseña.
+     * @param p2    Confirmación de contraseña.
+     * @return      Retorna un dato booleano.
      */
     public boolean veriPass(JPasswordField p1, JPasswordField p2){
         boolean veri=false;
