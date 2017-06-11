@@ -1,6 +1,9 @@
 
 package modelo;
-
+/**
+ * Clase de apoyo de la ordenación de arbol.
+ * @author Iván Iñiguez
+ */
 public class Nodo {
     private char caracter;
     private int frecuencia;
@@ -9,6 +12,9 @@ public class Nodo {
     
     Nodo nodoSig,nodoIzq,nodoDer;
 
+    /**
+     * Constructor de la clase nodo.
+     */
     public Nodo(){
         this.caracter = 0;
         this.frecuencia = 0;
@@ -67,10 +73,16 @@ public class Nodo {
         this.nodoDer = nodoDer;
     }
     
+    /**
+     * Método de impresión de datos, solo se usa para debugear.
+     */
     public void imprimeDatos(){
         System.out.print("|'"+this.getCaracter()+"' "+this.getFrecuencia()+" "+this.getCadena()+"| ");
     }
     
+    /**
+     * Método de impresión de datos, solo se usa para debugear.
+     */
     public void imprimeArbol(){
         System.out.println("|'"+this.getCaracter()+"' "+this.getFrecuencia()+"| ");
     }
@@ -83,6 +95,9 @@ public class Nodo {
         this.cadena = cadena;
     }
     
+    /**
+     * Muestra la codificación del caracter almacenado en el nodo.
+     */
     public void ruta(){
         System.out.println("|'"+this.getCaracter()+"': "+this.getCadena()+"| ");
     }

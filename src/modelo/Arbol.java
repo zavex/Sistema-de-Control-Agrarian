@@ -1,14 +1,14 @@
 package modelo;
-/**
- *
- * @author Ivi 
- * Dedicado a mi profe favorito Hassem <3
- */
+
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
 
+/**
+ * Se utiliza para encriptar la información de la bitácora del sistema mediante el algoritmo de Huffman.
+ * @author Iván Iñiguez 
+ */
 public class Arbol {
     
     PrintWriter archivoEntrada;
@@ -32,16 +32,31 @@ public class Arbol {
     String compresion = null;
     String cadenaEncriptada = null;
     
-    
+    /**
+     * Recibe la cadena que se desea encriptar e invoca el primer metodo de encriptación.
+     * @param cadena 
+     */
     public void convertir(String cadena){
         this.cadenaOriginal = cadena;
         contador(cadena, raiz);
     }
     
+    /**
+     * Regresa la cadena encriptada.
+     * @return 
+     */
     public String regresarCadEnc(){
         return this.cadenaEncriptada;
     }
     
+    /**
+     * Método recursivo.
+     * Crea la lista de caracteres y le guarda sus frecuencias, al terminar el proceso invoca el método de ordenación de frecuencias.
+     * @param cadena    recibe la cadena a encriptar.
+     * @param arbol     recibe el nodo actual.
+     * @see imprimeListaLigada
+     * @see ordenarFrecuencia
+     */
     public void contador(String cadena,Nodo arbol){
         Nodo nuevo;
         if(cadena.length()==0){
@@ -82,6 +97,10 @@ public class Arbol {
         
     }
     
+    /**
+     * Método recursivo de impresión de la lista ligada una vez que se determinan los caracteres y sus frecuencias.
+     * @param arbol 
+     */
     public void imprimeListaLigada(Nodo arbol){
         if(arbol == null){
             return;
@@ -91,6 +110,10 @@ public class Arbol {
         
     }
     
+    /**
+     * Metodo de impresión de la codificación de caracteres. Solo es visible para el programador.
+     * @param arbol 
+     */
     public void imprimeDiccionario(Nodo arbol){
         if(arbol == null){
             return;
@@ -101,6 +124,12 @@ public class Arbol {
         
     }
     
+    /**
+     * Se usa para localizar un caracter en el arbol. 
+     * @param letra
+     * @param raiz
+     * @return 
+     */
     public Nodo localizar(char letra, Nodo raiz){
         Nodo actual = raiz;
         if(actual == null){
@@ -118,6 +147,9 @@ public class Arbol {
         }
     }
     
+    /**
+     * Ordena los caracteres de la cadena por frecuencia de aparición.
+     */
     public void ordenarFrecuencia(){
         Nodo aux = new Nodo();
         Nodo menor = null;
@@ -159,6 +191,12 @@ public class Arbol {
         subArbol(raiz, raiz.getNodoSig());
     }
     
+    /**
+     * Crea el arbol de frecuencias y elimina la lista ligada previamente creada.
+     * @param uno 
+     * @param dos
+     * @see ordenarSub()
+     */
     public void subArbol(Nodo uno, Nodo dos){
         if(dos == null){
             crearDiccionario();
@@ -181,6 +219,10 @@ public class Arbol {
         
     }
     
+    /**
+     * Ordena los nodos para que cumplan con el orden de frecuencias en el arbol.
+     * @param uno 
+     */
     public void ordenarSub(Nodo uno){
         Nodo i, j, pivote = new Nodo();
         Nodo aux = new Nodo();
@@ -213,6 +255,9 @@ public class Arbol {
         }
     }
     
+    /**
+     * Crea el diccionario de datos a partir del arbol principal y guarda la codificación de cada caracter en los nodos de cada caracter.
+     */
     public void crearDiccionario(){
         if(esHoja(this.raiz)){
             imprimeDiccionario(Inicio);
@@ -269,6 +314,11 @@ public class Arbol {
         crearDiccionario();
     }
     
+    /**
+     * Determina si el nodo recibido es una hoja
+     * @param nodo recibe un nodo del arbol.
+     * @return retorna un valor booleano.
+     */
     public boolean esHoja(Nodo nodo){
         if(nodo.getNodoIzq() == null && nodo.getNodoDer() ==null){
             return true;
@@ -276,6 +326,10 @@ public class Arbol {
         return false;
     }
     
+    /**
+     * Convierte la cadena original en codigo binario utilizando la codificación del diccionario de datos.
+     * @param cadena 
+     */
     public void encriptar(String cadena){
         while(cadena.length()!=0){
             char key = (char) cadena.charAt(0);
@@ -292,6 +346,9 @@ public class Arbol {
         compresion();
     }
     
+    /**
+     * Comprime la cadena utilizando los valores binarios creados en la encriptación y obteniendo una cadena hexadecimal.
+     */
     public void compresion(){
         while(encriptado.length()%8!=0){ 
             this.encriptado = encriptado+"0"; 
@@ -314,7 +371,10 @@ public class Arbol {
         //grabar(compresion);
     }
     
-    
+    /**
+     * Guarda la cadena resultante en un archivo de texto.
+     * @param s 
+     */
     public void grabar (String s) {  
             try {
                 nomArchivo = "C:\\Users\\zawex\\Desktop\\logEncriptado.txt";
@@ -326,6 +386,11 @@ public class Arbol {
             }
     }
 
+    /**
+     * convierte un valor binario a su equivalente en número decimal.
+     * @param binario
+     * @return 
+     */
     public int convertBinario(int binario){
         int exponente = 0;
         int decimal = 0; 
